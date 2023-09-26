@@ -11,6 +11,8 @@ function Footer() {
       </S.NotoSans>
       <S.GmarketSans>
         <span>GmarketSans/지마켓산스</span>
+        <S.GmarketSansMedium>Regular</S.GmarketSansMedium>
+        <S.GmarketSansLight>Light</S.GmarketSansLight>
       </S.GmarketSans>
       <S.Dongguk>dongguk/동국체</S.Dongguk>
     </S.FooterWrapper>

@@ -27,7 +27,16 @@ export const NotoSansRegular = styled.span`
 `;
 export const GmarketSans = styled.div`
   width: 100%;
-  font-family: GmarketSans;
+  display: flex;
+  justify-content: space-between;
+  font-family: GmarketSansMedium;
+`;
+
+export const GmarketSansMedium = styled.span`
+  font-family: GmarketSansMedium;
+`;
+export const GmarketSansLight = styled.span`
+  font-family: GmarketSansLight;
 `;
 
 export const Dongguk = styled.div`

@@ -38,8 +38,15 @@ export const GlobalStyle = createGlobalStyle`
     src: url(${DonggukFont}) format('WOFF');
     } 
     @font-face {
-    font-family: 'GmarketSans';
+    font-family: 'GmarketSansMedium';
+    font-weight: normal;
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    } 
+
+    @font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: light;
     } 
 
     margin: 0;
