@@ -1,7 +1,53 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-
+.markDown{
+  *{font-size:2rem}
+  hr{
+margin: 2rem 0;
+  }
+  p{
+    padding: 2rem 0;
+    line-height: 120%;
+  }
+  strong{
+    font-weight: 900;
+  }
+  em{
+    font-style: italic;
+  }
+  h1{
+    font-size: 4rem;
+    padding: 2rem 0;
+  }
+  h2{
+    font-size: 3.5rem;
+    padding: 2rem 0;
+  }
+  h3{
+    font-size: 3.0rem;
+    padding: 2rem 0;
+  }
+  h4{
+    font-size: 3.0rem;
+    padding: 2rem 0;
+  }
+  h5{
+    font-size: 2.5rem;
+    padding: 2rem 0;
+  }
+  h6{
+    font-size: 1.5rem;
+    padding: 1rem 0;
+  }
+  a{
+    color: blue;
+  }
+  img{
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
   :root {
     --vh: 100%;
    }
@@ -20,24 +66,22 @@ export const GlobalStyle = createGlobalStyle`
   main, menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
 
-    /* @font-face {
+    @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
-    }  */
-    /* font: inherit;
+    } 
+    margin: 0;
+    border: 0;
+    padding: 0;
+    vertical-align: baseline;
+    font: inherit;
     font-size: 10px;
     @media (max-width: 768px) {
         font-size: 7px;
     }
     font-family: "Pretendard-Regular";
-
-    margin: 0;
-    border: 0;
-    padding: 0;
-    vertical-align: baseline;
-   */
   }
   article, aside, details, figcaption, figure,
   footer, header, hgroup, main, menu, nav, section {
@@ -50,6 +94,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     touch-action: manipulation;
     line-height: 1;
+    // 가운데 정렬
   }
   menu, ol, ul {
     list-style: none;
@@ -79,6 +124,24 @@ export const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
 
     font-family: sans-serif;
+    /* font-size: 62.5%; */
+    user-select: none;
+    /* @media (min-width:1800px){
+      font-size: 62.5%;
+    }
+    @media (min-width:1420px) and (max-width:1799px){
+      font-size: 46.8%;
+    }
+    @media (min-width:900px) and (max-width:1419px){
+      font-size: 42%;
+    }
+    @media (min-width: 768px) and (max-width:899px){ 
+      font-size: 35%;
+    }
+    @media (max-width:767px){ 
+      font-size: 32%;
+    } */
+    
 
   }
   ul, li {
@@ -121,5 +184,29 @@ export const GlobalStyle = createGlobalStyle`
     scrollbar-width: none; /* 파이어폭스 */
   }
 
+  @font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+     font-family: 'S-CoreDream-3Light';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+@font-face {
+    font-family: 'KCC-eunyoung';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KCC-eunyoung-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 `;
