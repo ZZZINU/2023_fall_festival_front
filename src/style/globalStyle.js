@@ -38,7 +38,7 @@ export const GlobalStyle = createGlobalStyle`
     src: url(${DonggukFont}) format('WOFF');
     } 
     @font-face {
-    font-family: 'GmarketSansMedium';
+    font-family: 'GmarketSansRegular';
     font-weight: normal;
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
     } 
@@ -65,7 +65,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     touch-action: manipulation;
-    line-height: 1;
+    
   }
   menu, ol, ul {
     list-style: none;

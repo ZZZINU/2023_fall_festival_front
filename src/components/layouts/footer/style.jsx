@@ -43,3 +43,9 @@ export const Dongguk = styled.div`
   width: 100%;
   font-family: Dongguk;
 `;
+
+export const Color = styled.div`
+  width: 100%;
+  font-family: NotoSansRegular;
+  color: ${props => props.theme.colors.fontGrey};
+`;

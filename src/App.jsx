@@ -30,6 +30,9 @@ const Wrapper = styled.div`
   max-width: 420px;
   background-color: white;
   margin-top: 60px;
+
+  font-family: NotoSansRegular;
+  color: ${props => props.theme.colors.fontBlack};
 `;
 
 const Layout = () => {
