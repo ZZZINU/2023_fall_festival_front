@@ -1,17 +1,17 @@
 // about.jsx
 
 import React from "react";
-import { Container, StyledParagraph } from "./style";
+import * as S from "./style";
 
 const About = () => {
   return (
-    <Container>
-      <StyledParagraph>Hyun A</StyledParagraph>
-      <StyledParagraph>Seo Hyeon</StyledParagraph>
-      <StyledParagraph>Chan Ju</StyledParagraph>
-      <StyledParagraph>Yu Jin</StyledParagraph>
-      <StyledParagraph>Seung Min</StyledParagraph>
-    </Container>
+    <S.Container>
+      <S.StyledParagraph>Hyun A</S.StyledParagraph>
+      <S.StyledParagraph>Seo Hyeon</S.StyledParagraph>
+      <S.StyledParagraph>Chan Ju</S.StyledParagraph>
+      <S.StyledParagraph>Yu Jin</S.StyledParagraph>
+      <S.StyledParagraph>Seung Min</S.StyledParagraph>
+    </S.Container>
   );
 };
 

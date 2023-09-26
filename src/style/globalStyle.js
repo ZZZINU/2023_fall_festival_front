@@ -1,7 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 import DonggukFont from "../assets/fonts/Dongguk.woff";
-
+import NotoSans_MediumFont from "../assets/fonts/NotoSans-Medium.woff";
+import NotoSans_RegularFont from "../assets/fonts/NotoSans-Regular.woff";
 export const GlobalStyle = createGlobalStyle`
+
   :root {
     --vh: 100%;
    }
@@ -19,25 +21,32 @@ export const GlobalStyle = createGlobalStyle`
   figure, figcaption, footer, header, hgroup,
   main, menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
+
+    @font-face {
+    font-family: 'NotoSansRegular';
+    src: url(${NotoSans_RegularFont}) format('WOFF');
+    font-weight: 100;
+  }
+
+    @font-face {
+    font-family: 'NotoSansMedium';
+    src: url(${NotoSans_MediumFont}) format('WOFF');
+    font-weight: 600;
+    } 
+    @font-face {
+    font-family: 'Dongguk';
+    src: url(${DonggukFont}) format('WOFF');
+    } 
+    @font-face {
+    font-family: 'GmarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    } 
+
     margin: 0;
     border: 0;
     padding: 0;
-
-
-    @font-face {
-        font-family: 'DonggukFont';
-        font-style: normal;
-        font-weight: 500;
-        src: url(${DonggukFont}) format('WOFF');
-    }
-
-    @media (max-width: 420px) {
-        font-size: 10px;
-    }
-
-    font-size: 20px;
-    font-family: "DonggukFont";
-
+    vertical-align: baseline;
+  
   }
   article, aside, details, figcaption, figure,
   footer, header, hgroup, main, menu, nav, section {
@@ -50,7 +59,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     touch-action: manipulation;
     line-height: 1;
-    // 가운데 정렬
   }
   menu, ol, ul {
     list-style: none;
@@ -76,8 +84,11 @@ export const GlobalStyle = createGlobalStyle`
   html {
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+    
     scroll-behavior: smooth;
-    user-select: none;
+
+    font-family: sans-serif;
+
   }
   ul, li {
     padding-left: 0rem;
@@ -118,7 +129,6 @@ export const GlobalStyle = createGlobalStyle`
     -ms-overflow-style: none; /* 인터넷 익스플로러 */
     scrollbar-width: none; /* 파이어폭스 */
   }
-
 
 
 `;

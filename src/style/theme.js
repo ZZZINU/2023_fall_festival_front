@@ -1,21 +1,8 @@
-import { keyframes, css } from "styled-components";
-
-export const fadeInAnimation = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(-2rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+import { css } from "styled-components";
 
 const colors = {
-  font: "#FFFFFF", //폰트컬러
-  primary1: "#FBEDD0", //베이지
-  primary2: "#F0939E", //핑크
-  bg: "#282828",
+  primary1: "#DD7481",
+  bg: "#FFFFFF",
   gray1: "#F8F8FA",
   gray2: "#EEEFF3",
   gray3: "#DEDFE5",
@@ -23,10 +10,22 @@ const colors = {
   gray5: "#606067",
   gray6: "#E4E4E4",
   gray7: "#E2E2E2",
-  black: "#282828",
+  black: "#282828"
 };
+
+function FONT({ weight, size, lineHeight }) {
+  return `
+    font-family: "Pretendard";
+    font-weight : ${weight};
+    font-size : ${size}px;
+    line-height : ${lineHeight}px;
+    `;
+}
+
+const fonts = {};
 
 export const theme = {
   colors,
+  fonts
 };
 export default colors;
