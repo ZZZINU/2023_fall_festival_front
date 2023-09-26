@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import App from "./App";
-
-import Main from "./pages/mainpage/mainpage";
-import About from "./pages/about/about";
+import Main from "./pages/main/Main";
+import About from "./pages/about/About";
+import Notice from "./pages/notice/Notice";
+import TimeLine from "./pages/timeLine/TimeLine";
+import Booth from "./pages/booth/Booth";
+import GuestBook from "./pages/guestBook/GuestBook";
 
 const router = createBrowserRouter([
   {
@@ -12,14 +15,30 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Main />,
+        element: <Main />
+      },
+      {
+        path: "notice",
+        element: <Notice />
+      },
+      {
+        path: "timeLine",
+        element: <TimeLine />
+      },
+      {
+        path: "booth",
+        element: <Booth />
+      },
+      {
+        path: "guestBook",
+        element: <GuestBook />
       },
       {
         path: "about",
-        element: <About />,
-      },
-    ],
-  },
+        element: <About />
+      }
+    ]
+  }
 ]);
 
 export default router;

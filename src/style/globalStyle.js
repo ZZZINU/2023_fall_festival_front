@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
-
+import DonggukFont from "../assets/fonts/Dongguk.woff";
+import NotoSans_MediumFont from "../assets/fonts/NotoSans-Medium.woff";
+import NotoSans_RegularFont from "../assets/fonts/NotoSans-Regular.woff";
 export const GlobalStyle = createGlobalStyle`
 
   :root {
@@ -20,24 +22,31 @@ export const GlobalStyle = createGlobalStyle`
   main, menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
 
-    /* @font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    }  */
-    /* font: inherit;
-    font-size: 10px;
-    @media (max-width: 768px) {
-        font-size: 7px;
-    }
-    font-family: "Pretendard-Regular";
+    @font-face {
+    font-family: 'NotoSansRegular';
+    src: url(${NotoSans_RegularFont}) format('WOFF');
+    font-weight: 100;
+  }
+
+    @font-face {
+    font-family: 'NotoSansMedium';
+    src: url(${NotoSans_MediumFont}) format('WOFF');
+    font-weight: 600;
+    } 
+    @font-face {
+    font-family: 'Dongguk';
+    src: url(${DonggukFont}) format('WOFF');
+    } 
+    @font-face {
+    font-family: 'GmarketSans';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    } 
 
     margin: 0;
     border: 0;
     padding: 0;
     vertical-align: baseline;
-   */
+  
   }
   article, aside, details, figcaption, figure,
   footer, header, hgroup, main, menu, nav, section {
