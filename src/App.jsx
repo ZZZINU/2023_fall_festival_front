@@ -33,6 +33,13 @@ const Wrapper = styled.div`
 
   font-family: NotoSansRegular;
   color: ${props => props.theme.colors.fontBlack};
+
+  background-image: url("/background.svg");
+
+  background-size: 100% auto;
+
+  background-position: center;
+  background-repeat: repeat;
 `;
 
 const Layout = () => {
