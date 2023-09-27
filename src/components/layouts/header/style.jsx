@@ -16,4 +16,7 @@ export const HeaderWrapper = styled.div`
   background-repeat: repeat;
 
   font-family: Dongguk;
+  * {
+    color: white;
+  }
 `;
