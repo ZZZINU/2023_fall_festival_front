@@ -5,12 +5,12 @@ export const HeaderWrapper = styled.div`
   max-width: 420px;
   height: 60px;
   background-color: ${props => props.theme.colors.primary1};
-  position: fixed;
+  /* position: fixed; */
   justify-content: space-between;
   align-items: center;
   display: flex;
   padding: 10px;
-  top: 0;
+  /* top: 0; */
 
   font-family: Dongguk;
 `;

@@ -14,7 +14,7 @@ const BackGroundColor = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  /* background-color: black; */
 `;
 
 const Wrapper = styled.div`
@@ -29,17 +29,26 @@ const Wrapper = styled.div`
 
   max-width: 420px;
   background-color: white;
-  margin-top: 60px;
 
+  /* 기본 폰트설정 */
   font-family: NotoSansRegular;
   color: ${props => props.theme.colors.fontBlack};
 
+  /* 배경 그라디언트 */
   background-image: url("/background.svg");
 
-  background-size: 100% auto;
-
-  background-position: center;
+  background-size: 100%;
+  /* background-position: center; */
   background-repeat: repeat;
+`;
+const Content = styled.div`
+  flex-grow: 1;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Layout = () => {
@@ -47,9 +56,12 @@ const Layout = () => {
     <BackGroundColor>
       <Header />
       <Wrapper>
-        <Outlet />
+        <Content>
+          <Outlet />
+        </Content>
+
+        <Footer />
       </Wrapper>
-      <Footer />
     </BackGroundColor>
   );
 };
