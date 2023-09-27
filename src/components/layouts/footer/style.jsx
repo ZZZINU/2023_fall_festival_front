@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterWrapper = styled.div`
-  background-color: ${props => props.theme.colors.primary1};
+  /* background-color: ${props => props.theme.colors.primary1}; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,6 +10,7 @@ export const FooterWrapper = styled.div`
   width: 100%;
   max-width: 420px;
   padding: 10px;
+  flex-shrink: 0;
 `;
 
 export const NotoSans = styled.div`
@@ -42,4 +43,10 @@ export const GmarketSansLight = styled.span`
 export const Dongguk = styled.div`
   width: 100%;
   font-family: Dongguk;
+`;
+
+export const Color = styled.div`
+  width: 100%;
+  font-family: NotoSansRegular;
+  color: ${props => props.theme.colors.fontGrey};
 `;

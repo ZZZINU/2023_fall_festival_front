@@ -7,10 +7,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 100vh;
+
   justify-content: center;
-  background: #f2e3b3;
-  color: #3f190e; /* 텍스트 색상을 주어진 컬러로 설정 */
 `;
 
 export const StyledParagraph = styled.p`

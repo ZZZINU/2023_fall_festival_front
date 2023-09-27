@@ -15,6 +15,7 @@ function Footer() {
         <S.GmarketSansLight>Light</S.GmarketSansLight>
       </S.GmarketSans>
       <S.Dongguk>dongguk/동국체</S.Dongguk>
+      <S.Color>색깔적용참고</S.Color>
     </S.FooterWrapper>
   );
 }
