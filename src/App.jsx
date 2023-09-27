@@ -7,6 +7,9 @@ import { Outlet } from "react-router-dom";
 import Header from "./components/layouts/header/Header";
 import Footer from "./components/layouts/footer/Footer";
 
+import { useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
+
 const BackGroundColor = styled.div`
   width: 100vw;
   min-height: 100vh;
@@ -14,7 +17,7 @@ const BackGroundColor = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  /* background-color: black; */
 `;
 
 const Wrapper = styled.div`
@@ -29,10 +32,25 @@ const Wrapper = styled.div`
 
   max-width: 420px;
   background-color: white;
-  margin-top: 60px;
 
+  /* 기본 폰트설정 */
   font-family: NotoSansRegular;
-  color: ${props => props.theme.colors.fontBlack};
+
+  color: ${props => props.theme.colors.fontBrown};
+
+  /* 배경 그라디언트 */
+  background-image: url("/background.svg");
+  background-size: 100%;
+  background-repeat: repeat;
+`;
+const Content = styled.div`
+  flex-grow: 1;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Layout = () => {
@@ -40,14 +58,18 @@ const Layout = () => {
     <BackGroundColor>
       <Header />
       <Wrapper>
-        <Outlet />
+        <Content>
+          <Outlet />
+        </Content>
+        {location.pathname != "/guestBook" ? <Footer /> : <></>}
       </Wrapper>
-      <Footer />
     </BackGroundColor>
   );
 };
 
 function App() {
+  let location = useLocation();
+
   return (
     <>
       <ThemeProvider theme={theme}>
