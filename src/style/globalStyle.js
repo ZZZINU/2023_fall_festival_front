@@ -53,6 +53,8 @@ export const GlobalStyle = createGlobalStyle`
     border: 0;
     padding: 0;
     vertical-align: baseline;
+
+    
   
   }
   article, aside, details, figcaption, figure,

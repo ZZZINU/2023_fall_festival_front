@@ -7,6 +7,9 @@ import { Outlet } from "react-router-dom";
 import Header from "./components/layouts/header/Header";
 import Footer from "./components/layouts/footer/Footer";
 
+import { useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
+
 const BackGroundColor = styled.div`
   width: 100vw;
   min-height: 100vh;
@@ -32,7 +35,8 @@ const Wrapper = styled.div`
 
   /* 기본 폰트설정 */
   font-family: NotoSansRegular;
-  color: ${props => props.theme.colors.fontBlack};
+
+  color: ${props => props.theme.colors.fontBrown};
 
   /* 배경 그라디언트 */
   background-image: url("/background.svg");
@@ -57,14 +61,15 @@ const Layout = () => {
         <Content>
           <Outlet />
         </Content>
-
-        <Footer />
+        {location.pathname != "/guestBook" ? <Footer /> : <></>}
       </Wrapper>
     </BackGroundColor>
   );
 };
 
 function App() {
+  let location = useLocation();
+
   return (
     <>
       <ThemeProvider theme={theme}>
