@@ -36,9 +36,7 @@ const Wrapper = styled.div`
 
   /* 배경 그라디언트 */
   background-image: url("/background.svg");
-
   background-size: 100%;
-  /* background-position: center; */
   background-repeat: repeat;
 `;
 const Content = styled.div`

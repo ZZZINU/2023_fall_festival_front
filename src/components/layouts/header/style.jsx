@@ -4,13 +4,16 @@ export const HeaderWrapper = styled.div`
   width: 100%;
   max-width: 420px;
   height: 60px;
-  background-color: ${props => props.theme.colors.primary1};
-  /* position: fixed; */
+
   justify-content: space-between;
   align-items: center;
   display: flex;
   padding: 10px;
-  /* top: 0; */
+  /* 배경 그라디언트 */
+
+  background-image: url("/background.svg");
+  background-size: 100%;
+  background-repeat: repeat;
 
   font-family: Dongguk;
 `;
