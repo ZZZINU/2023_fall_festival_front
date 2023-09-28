@@ -3,6 +3,7 @@ import * as S from "./style";
 import { TimeLineTop } from "../../components/timeLine/TimeLineTop";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
 import { TimeTableSection } from "../../components/timeLine/TimeTableSection";
+import { LineUp } from "../../components/timeLine/LineUp";
 
 function TimeLine() {
   // 선택 날짜가 11일이면 11, 12일이면 12
@@ -120,9 +121,12 @@ function TimeLine() {
         festivalDate={festivalDate}
         setFestivalDate={setFestivalDate}
       />
-      
-      <TimeTableSection boothData={boothDataWithCurrentFlag} PerfomanceData={PerfomanceDataWithCurrentFlag} />
+      <TimeTableSection
+        boothData={boothDataWithCurrentFlag}
+        PerfomanceData={PerfomanceDataWithCurrentFlag}
+      />
       <PageTitle mainTitle="라인업" />
+      <LineUp festivalDate={festivalDate} />
     </S.TimeLineWrapper>
   );
 }

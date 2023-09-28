@@ -116,13 +116,21 @@ export const BoothTimeSection = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background: ${props=>(props.isnow?"#EA6F60":"#fffaea")};
-  color: ${props=>(props.isnow?"#FFF":"#6c3e25")};
+  background: ${props => (props.isnow ? "#EA6F60" : "#fffaea")};
+  color: ${props => (props.isnow ? "#FFF" : "#6c3e25")};
   font-size: 0.8rem;
   width: 70%;
   height: 4vh;
   margin: 0 15px 5px auto;
 `;
 export const PerformTimeSection = styled(BoothTimeSection)`
-margin: 0 0 5px 15px;
-`
+  margin: 0 0 5px 15px;
+`;
+// LineUp.jsx
+export const LineUpWrapper = styled.div`
+  width: 90%;
+  min-height: 90vw;
+  padding: 30px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.5);
+`;
