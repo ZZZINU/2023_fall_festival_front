@@ -42,6 +42,7 @@ export const BoothCategryWrap = styled.div`
   font-weight: 400;
   line-height: normal;
   margin-top: 38px;
+  margin-bottom: 30px;
   gap: 10px;
 `;
 
@@ -62,7 +63,6 @@ export const BoothCardWrapper = styled.div`
   background: #ffffff;
   box-shadow: 2px 2px 8px rgba(41, 39, 39, 0.4);
   border-radius: 20px;
-  margin-top: 36px;
   overflow: hidden;
 `;
 
@@ -170,4 +170,12 @@ export const BoothCardRibbon = styled.div`
   font-size: 10px;
   font-weight: 500;
   line-height: normal;
+`;
+
+export const BoothCardContainer = styled.div`
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-left: 40px;
 `;

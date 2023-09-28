@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
 import DateSelector from "../../components/common/dateSelector/dateSelector";
@@ -15,7 +15,8 @@ function Booth() {
   const [markerStates, setMarkerStates] = useState("");
   // 전체 | 주간 | 야간 => 디폴트는 전체
   const [dayOrNight, setDayOrNight] = useState("전체부스");
-
+  // 데이터
+  const [data, setData] = useState([]);
   // 날짜 클릭
   const handleDateClick = bool => {
     setSelectedDate11(bool);
@@ -25,6 +26,51 @@ function Booth() {
   const handleMarkerClick = markerName => {
     setMarkerStates(markerName);
   };
+
+  useEffect(() => {
+    const contentData = [
+      {
+        id: 1,
+        name: "string, (FE 글자수 정해주면 좋을듯)",
+        description: "string, (FE 글자 다 주면 알아서 자를게요)",
+        type: "부스",
+        location: "string",
+        is_liked: true, //쿠키 사용!
+        like_cnt: 987
+      },
+      {
+        id: 2,
+        name: "string, (FE 글자수 정해주면 좋을듯)",
+        description: "string, (FE 글자 다 주면 알아서 자를게요)",
+        type: "부스",
+        location: "string",
+        is_liked: true, //쿠키 사용!
+        like_cnt: 987
+      },
+      {
+        id: 3,
+        name: "string, (FE 글자수 정해주면 좋을듯)",
+        description: "string, (FE 글자 다 주면 알아서 자를게요)",
+        type: "부스",
+        location: "string",
+        is_liked: true, //쿠키 사용!
+        like_cnt: 987
+      },
+      {
+        id: 3,
+        name: "string, (FE 글자수 정해주면 좋을듯)",
+        description: "string, (FE 글자 다 주면 알아서 자를게요)",
+        type: "부스",
+        location: "string",
+        is_liked: true, //쿠키 사용!
+        like_cnt: 987
+      }
+    ];
+    setData(contentData);
+  }, []);
+
+  // API 연결
+  const fetchData = async () => {};
 
   return (
     <>
@@ -144,29 +190,34 @@ function Booth() {
         </S.BoothCategry>
       </S.BoothCategryWrap>
 
-      <S.BoothCardWrapper>
-        <S.BoothCardImage src={BoothImg} alt="부스 이미지" />
-        <S.BoothCardRibbon>부스종류</S.BoothCardRibbon>
-        <S.BoothCardDetailWrapper>
-          <S.BoothCardDetailTitle>부스명</S.BoothCardDetailTitle>
-          <S.BoothCardDetailDes>
-            부스소개부스소개부스소개부스소개부스소개소
-          </S.BoothCardDetailDes>
-          <S.BoothCardDetailAddWrapper>
-            <S.BoothDetailLocationWrap>
-              <S.BoothDetailLocation src={PinImg} alt="위치 이미지" />
-              <S.BoothDetailLocationContent>
-                위치 상세
-              </S.BoothDetailLocationContent>
-            </S.BoothDetailLocationWrap>
+      {/* 부스 카드 컨테이너 */}
+      <S.BoothCardContainer>
+        {data.map((booth, index) => (
+          <S.BoothCardWrapper key={index}>
+            <S.BoothCardImage src={BoothImg} alt="부스 이미지" />
+            <S.BoothCardRibbon>부스종류</S.BoothCardRibbon>
+            <S.BoothCardDetailWrapper>
+              <S.BoothCardDetailTitle>부스명</S.BoothCardDetailTitle>
+              <S.BoothCardDetailDes>{booth.description}</S.BoothCardDetailDes>
+              <S.BoothCardDetailAddWrapper>
+                <S.BoothDetailLocationWrap>
+                  <S.BoothDetailLocation src={PinImg} alt="위치 이미지" />
+                  <S.BoothDetailLocationContent>
+                    {booth.location}
+                  </S.BoothDetailLocationContent>
+                </S.BoothDetailLocationWrap>
 
-            <S.BoothDetailHeartWrap>
-              <S.BoothDetailHeart src={HeartImg} alt="하트 이미지" />
-              <S.BoothDetailHeartNum>999+</S.BoothDetailHeartNum>
-            </S.BoothDetailHeartWrap>
-          </S.BoothCardDetailAddWrapper>
-        </S.BoothCardDetailWrapper>
-      </S.BoothCardWrapper>
+                <S.BoothDetailHeartWrap>
+                  <S.BoothDetailHeart src={HeartImg} alt="하트 이미지" />
+                  <S.BoothDetailHeartNum>
+                    {booth.like_cnt}
+                  </S.BoothDetailHeartNum>
+                </S.BoothDetailHeartWrap>
+              </S.BoothCardDetailAddWrapper>
+            </S.BoothCardDetailWrapper>
+          </S.BoothCardWrapper>
+        ))}
+      </S.BoothCardContainer>
     </>
   );
 }
