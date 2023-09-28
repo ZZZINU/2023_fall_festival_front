@@ -3,12 +3,10 @@ import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
 import DateSelector from "../../components/common/dateSelector/dateSelector";
 import Marker from "../../components/common/booth/marker/Marker";
+import BoothCard from "../../components/common/booth/boothcard/BoothCard";
 
 // 이미지
 import MapImg from "../../assets/images/map.png";
-import BoothImg from "../../assets/images/booth.png";
-import PinImg from "../../../public/booth/pin.png";
-import HeartImg from "../../../public/booth/heart.png";
 
 function Booth() {
   const [selectedDate11, setSelectedDate11] = useState(true);
@@ -40,15 +38,6 @@ function Booth() {
       },
       {
         id: 2,
-        name: "string, (FE 글자수 정해주면 좋을듯)",
-        description: "string, (FE 글자 다 주면 알아서 자를게요)",
-        type: "부스",
-        location: "string",
-        is_liked: true, //쿠키 사용!
-        like_cnt: 987
-      },
-      {
-        id: 3,
         name: "string, (FE 글자수 정해주면 좋을듯)",
         description: "string, (FE 글자 다 주면 알아서 자를게요)",
         type: "부스",
@@ -190,34 +179,7 @@ function Booth() {
         </S.BoothCategry>
       </S.BoothCategryWrap>
 
-      {/* 부스 카드 컨테이너 */}
-      <S.BoothCardContainer>
-        {data.map((booth, index) => (
-          <S.BoothCardWrapper key={index}>
-            <S.BoothCardImage src={BoothImg} alt="부스 이미지" />
-            <S.BoothCardRibbon>부스종류</S.BoothCardRibbon>
-            <S.BoothCardDetailWrapper>
-              <S.BoothCardDetailTitle>부스명</S.BoothCardDetailTitle>
-              <S.BoothCardDetailDes>{booth.description}</S.BoothCardDetailDes>
-              <S.BoothCardDetailAddWrapper>
-                <S.BoothDetailLocationWrap>
-                  <S.BoothDetailLocation src={PinImg} alt="위치 이미지" />
-                  <S.BoothDetailLocationContent>
-                    {booth.location}
-                  </S.BoothDetailLocationContent>
-                </S.BoothDetailLocationWrap>
-
-                <S.BoothDetailHeartWrap>
-                  <S.BoothDetailHeart src={HeartImg} alt="하트 이미지" />
-                  <S.BoothDetailHeartNum>
-                    {booth.like_cnt}
-                  </S.BoothDetailHeartNum>
-                </S.BoothDetailHeartWrap>
-              </S.BoothCardDetailAddWrapper>
-            </S.BoothCardDetailWrapper>
-          </S.BoothCardWrapper>
-        ))}
-      </S.BoothCardContainer>
+      <BoothCard data={data} />
     </>
   );
 }
