@@ -30,17 +30,17 @@ function Booth() {
       {
         id: 1,
         name: "string, (FE 글자수 정해주면 좋을듯)",
-        description: "string, (FE 글자 다 주면 알아서 자를게요)",
+        description: "string,자를게요)자를게요)자를게요)자를게요)",
         type: "부스",
         location: "string",
         is_liked: true, //쿠키 사용!
-        like_cnt: 987
+        like_cnt: 987123
       },
       {
         id: 2,
-        name: "string, (FE 글자수 정해주면 좋을듯)",
-        description: "string, (FE 글자 다 주면 알아서 자를게요)",
-        type: "부스",
+        name: "FE글자수정해주면 좋을듯)",
+        description: "FE글자다주면알아서면알아서면알아서면알아서자를게요)",
+        type: "부스부스",
         location: "string",
         is_liked: true, //쿠키 사용!
         like_cnt: 987
@@ -49,7 +49,7 @@ function Booth() {
         id: 3,
         name: "string, (FE 글자수 정해주면 좋을듯)",
         description: "string, (FE 글자 다 주면 알아서 자를게요)",
-        type: "부스",
+        type: "부스부스부스",
         location: "string",
         is_liked: true, //쿠키 사용!
         like_cnt: 987

@@ -103,7 +103,6 @@ export const BoothCardRibbon = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 57px;
   height: 24px;
   padding: 5px 10px;
   justify-content: center;

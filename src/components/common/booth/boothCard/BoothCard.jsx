@@ -16,8 +16,16 @@ function BoothCard({ data }) {
             <S.BoothCardImage src={BoothImg} alt="부스 이미지" />
             <S.BoothCardRibbon>{booth.type}</S.BoothCardRibbon>
             <S.BoothCardDetailWrapper>
-              <S.BoothCardDetailTitle>{booth.name}</S.BoothCardDetailTitle>
-              <S.BoothCardDetailDes>{booth.description}</S.BoothCardDetailDes>
+              <S.BoothCardDetailTitle>
+                {String(booth.name).length < 8
+                  ? booth.name
+                  : `${String(booth.name).slice(0, 7)}...`}
+              </S.BoothCardDetailTitle>
+              <S.BoothCardDetailDes>
+                {String(booth.description).length < 23
+                  ? booth.description
+                  : `${String(booth.description).slice(0, 22)}...`}
+              </S.BoothCardDetailDes>
               <S.BoothCardDetailAddWrapper>
                 <S.BoothDetailLocationWrap>
                   <S.BoothDetailLocation src={PinImg} alt="위치 이미지" />
@@ -29,7 +37,7 @@ function BoothCard({ data }) {
                 <S.BoothDetailHeartWrap>
                   <S.BoothDetailHeart src={HeartImg} alt="하트 이미지" />
                   <S.BoothDetailHeartNum>
-                    {booth.like_cnt}
+                    {booth.like_cnt > 999 ? "999+" : booth.like_cnt}
                   </S.BoothDetailHeartNum>
                 </S.BoothDetailHeartWrap>
               </S.BoothCardDetailAddWrapper>
