@@ -32,3 +32,20 @@ export const MapBoxContent = styled.div`
   line-height: normal;
   margin-top: 15px;
 `;
+
+export const BoothCategryWrap = styled.div`
+  display: flex;
+  color: #ffb2b2;
+  font-family: dongguk;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 38px;
+  gap: 10px;
+`;
+
+export const BoothCategry = styled.div`
+  color: ${props => props.color};
+  border-bottom: 2px solid ${props => props.borderbottom};
+  padding-bottom: 3px;
+`;

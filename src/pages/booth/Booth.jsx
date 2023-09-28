@@ -10,7 +10,8 @@ import MapImg from "../../assets/images/map.png";
 function Booth() {
   const [selectedDate11, setSelectedDate11] = useState(true);
   const [markerStates, setMarkerStates] = useState("");
-
+  // 전체 | 주간 | 야간 => 디폴트는 전체
+  const [dayOrNight, setDayOrNight] = useState("전체부스");
   // 날짜 클릭
   const handleDateClick = bool => {
     setSelectedDate11(bool);
@@ -111,6 +112,33 @@ function Booth() {
           />
         </S.MapBox>
       </S.MapWrap>
+
+      <S.BoothCategryWrap>
+        <S.BoothCategry
+          dayOrNight={dayOrNight}
+          onClick={() => setDayOrNight("전체부스")}
+          color={dayOrNight === "전체부스" ? "#FFF" : "#ffb2b2"}
+          borderbottom={dayOrNight === "전체부스" ? "#FFF" : "none"}
+        >
+          전체부스
+        </S.BoothCategry>
+        <S.BoothCategry
+          dayOrNight={dayOrNight}
+          onClick={() => setDayOrNight("주간부스")}
+          color={dayOrNight === "주간부스" ? "#FFF" : "#ffb2b2"}
+          borderbottom={dayOrNight === "주간부스" ? "#FFF" : "none"}
+        >
+          주간부스
+        </S.BoothCategry>
+        <S.BoothCategry
+          dayOrNight={dayOrNight}
+          onClick={() => setDayOrNight("야간부스")}
+          color={dayOrNight === "야간부스" ? "#FFF" : "#ffb2b2"}
+          borderbottom={dayOrNight === "야간부스" ? "#FFF" : "none"}
+        >
+          야간부스
+        </S.BoothCategry>
+      </S.BoothCategryWrap>
     </>
   );
 }
