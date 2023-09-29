@@ -126,11 +126,89 @@ export const BoothTimeSection = styled.div`
 export const PerformTimeSection = styled(BoothTimeSection)`
   margin: 0 0 5px 15px;
 `;
+
 // LineUp.jsx
 export const LineUpWrapper = styled.div`
+  position: relative;
   width: 90%;
-  min-height: 90vw;
+  min-height: 70vh;
   padding: 30px 20px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
+`;
+export const BgImg1 = styled.img`
+  position: absolute;
+`;
+export const BgImg2 = styled(BgImg1)`
+  top: 45%;
+`;
+export const BgImg3 = styled(BgImg1)`
+  top: 55%;
+  right: 20px;
+`;
+export const BgImg4 = styled(BgImg1)`
+  top: 38%;
+  left: 45%;
+`;
+export const LineUpdate = styled.div`
+  text-align: center;
+  margin: 15px 0 50px 0;
+  color: #563c23;
+  font-family: "Dongguk";
+  font-size: 1.2rem;
+
+  z-index: 10;
+`;
+export const LineUpContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 10;
+`;
+export const MarginLabel = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 55vh;
+`
+export const LineUpImg = styled.img`
+  width: 190px;
+  height: 190px;
+  border-radius: 190px;
+  background: lightgray 50%;
+  object-fit: cover;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+`;
+export const LineUpImg2 = styled(LineUpImg)`
+  margin-left: 20px;
+  margin-right: 0;
+`;
+export const LineUpList = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 30%;
+  height: 10vh;
+  padding: 0 12px;
+
+  font-family: "GmarketSansRegular";
+  color: #282828;
+  font-size: 1.1rem;
+
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+`;
+export const EngName = styled.div`
+  font-size: 0.7rem;
+  margin-bottom: 3px;
+`;
+export const ShowTime = styled.div`
+  font-family: "GmarketSansLight";
+  color: #8c847f;
+  font-size: 0.7rem;
+  margin-top: 4px;
 `;

@@ -7,6 +7,7 @@ import { PerfomanceCard } from "./boothCard/PerfomanceCard";
 
 export const TimeTableSection = ({ boothData, PerfomanceData }) => {
 
+  // console.log(boothData);
   // 부스 데이터 시간별 정리
   const boothdByTime = boothData.reduce((result, item) => {
     const time = item.starttime;

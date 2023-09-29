@@ -6,15 +6,13 @@ import { TimeTableSection } from "../../components/timeLine/TimeTableSection";
 import { LineUp } from "../../components/timeLine/LineUp";
 
 function TimeLine() {
-  // 선택 날짜가 11일이면 11, 12일이면 12
-  const [festivalDate, setFestivalDate] = useState(11);
-
-  // 현재 시간 정보
+  // 시간 감지 State --------------------------------------------
+  const [festivalDate, setFestivalDate] = useState(11);// 선택 날짜가 11일이면 11, 12일이면 12
   const [currentTime, setCurrentTime] = useState(new Date());
 
   const updateTime = () => {
     setCurrentTime(new Date());
-    console.log(currentTime.toLocaleTimeString());
+    // console.log(currentTime.toLocaleTimeString());
   };
 
   useEffect(() => {
@@ -25,6 +23,7 @@ function TimeLine() {
     };
   }, []);
 
+  // 부스/공연 데이터 --------------------------------------------
   const boothData = [
     {
       id: 1,
@@ -35,7 +34,7 @@ function TimeLine() {
       isBooth: false,
       date: "2023-10-11",
       starttime: "12:00",
-      endtime: "18:00",
+      endtime: "18:00"
     },
     {
       id: 2,
@@ -92,11 +91,13 @@ function TimeLine() {
     }
   ];
 
+  // 현재 시간과 공연 시간 비교--------------------------------------------
   const boothDataWithCurrentFlag = boothData.map(item => {
-    const startTime = new Date(`2023-10-11 ${item.starttime}`);
-    const endTime = new Date(`2023-10-11 ${item.endtime}`);
+    const startTime = new Date(`2023-09-29 ${item.starttime}`);
+    const endTime = new Date(`2023-09-29 ${item.endtime}`);
+    // const startTime = new Date(`2023-10-11 ${item.starttime}`);
+    // const endTime = new Date(`2023-10-11 ${item.endtime}`);
     const isCurrent = currentTime >= startTime && currentTime <= endTime;
-    
     return {
       ...item,
       isCurrent: isCurrent
@@ -104,10 +105,12 @@ function TimeLine() {
   });
 
   const PerfomanceDataWithCurrentFlag = PerfomanceData.map(item => {
-    const startTime = new Date(`2023-10-11 ${item.starttime}`);
-    const endTime = new Date(`2023-10-11 ${item.endtime}`);
+    const startTime = new Date(`2023-09-29 ${item.starttime}`);
+    const endTime = new Date(`2023-09-29 ${item.endtime}`);
+    // const startTime = new Date(`2023-10-11 ${item.starttime}`);
+    // const endTime = new Date(`2023-10-11 ${item.endtime}`);
     const isCurrent = currentTime >= startTime && currentTime <= endTime;
-    
+
     return {
       ...item,
       isCurrent: isCurrent

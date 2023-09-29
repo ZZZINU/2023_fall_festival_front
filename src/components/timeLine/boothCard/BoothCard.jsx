@@ -6,9 +6,9 @@ export const BoothCard = ({ booth }) => {
   const isCurrent = booth.isCurrent;
 
   return (
-    <S.BoothWhiteBox isnow={isCurrent ? "true":"false"}>
+    <S.BoothWhiteBox isnow={isCurrent ? "true" : "false"}>
       <S.BoothCardWrapper>
-        <S.BoothImg isnow={isCurrent ? "true":"false"}>
+        <S.BoothImg isnow={isCurrent ? "true" : "false"}>
           {booth.devide == "부스" && (
             <span className="material-symbols-outlined">store</span>
           )}
@@ -25,7 +25,9 @@ export const BoothCard = ({ booth }) => {
           </S.BoothPlace>
         </S.BoothTxt>
       </S.BoothCardWrapper>
-      {booth.isBooth && <S.BoothBtn>부스 찾기</S.BoothBtn>}
+      {booth.isBooth && (
+        <S.BoothBtn isnow={isCurrent ? "true" : "false"}>부스 찾기</S.BoothBtn>
+      )}
     </S.BoothWhiteBox>
   );
 };

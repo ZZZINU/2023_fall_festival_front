@@ -1,8 +1,6 @@
 import React from "react";
 import * as S from "./style";
 import LocationImg from "../../../assets/images/booth_location.png";
-import MaskImg from "../../../assets/images/booth_mask.png";
-import FestaImg from "../../../assets/images/booth_festa.png";
 
 export const PerfomanceCard = ({ booth }) => {
   const isCurrent = booth.isCurrent;

@@ -59,7 +59,7 @@ export const BoothBtn = styled.div`
   width: 90%;
   height: 3vh;
   border-radius: 5px;
-  background: #faa73f;
+  background: ${props => (props.isnow == "true" ? "#EA6F60" : "#faa73f")};
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
   color: #fff;
   font-size: 0.8rem;
