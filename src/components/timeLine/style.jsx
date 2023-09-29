@@ -44,7 +44,6 @@ export const TimeTableWrapper = styled.div`
   align-items: center;
   padding: 30px 20px;
   width: 90%;
-  min-height: 90vw;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
 `;
@@ -54,7 +53,7 @@ export const TimeTableNav = styled.div`
   align-items: center;
   padding: 0 20px;
   width: 100%;
-  height: 6vh;
+  height: 43px;
   border-radius: 10px;
   background: #ea6f60;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
@@ -82,7 +81,7 @@ export const LocationIMG = styled.img`
 
 export const SubNav = styled.div`
   width: 100%;
-  height: 12vh;
+  height: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -115,7 +114,6 @@ export const BoothLeft = styled.div`
 `;
 export const BoothRight = styled.div`
   width: 50%;
-  /* border-left: 1px solid #fff; */
   padding-left: 20px;
 `;
 // export const TimeStroke = styled.div`
@@ -173,7 +171,7 @@ export const BoothTimeSection = styled.div`
   color: ${props => (props.isnow ? "#FFF" : "#6c3e25")};
   font-size: 0.8rem;
   width: 75%;
-  height: 4vh;
+  height: 32px;
   margin: 0 0 5px auto;
 `;
 export const PerformTimeSection = styled(BoothTimeSection)`
@@ -185,8 +183,6 @@ export const LineUpWrapper = styled.div`
   position: relative;
   width: 90%;
   min-height: 640px;
-  /* min-height: 75%; */
-  /* min-height: 75vh; */
   padding: 30px 10px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
@@ -228,12 +224,9 @@ export const MarginLabel = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 480px;
-  /* height: 55vh; */
 `;
 export const LineUpImg = styled.img`
-  /* width: 45vw; */
   width: 190px;
-  /* height: 45vw; */
   height: 190px;
   border-radius: 190px;
   background: lightgray 50%;
@@ -245,8 +238,8 @@ export const LineUpList = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 35%;
-  padding: 15px 4px;
+  min-width: 36%;
+  padding: 15px 5px;
   margin: 0 auto;
 
   font-family: "GmarketSansRegular";

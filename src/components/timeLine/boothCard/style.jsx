@@ -5,33 +5,33 @@ export const BoothWhiteBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   width: 100%;
-  min-height: 10vh;
 
   border-radius: 10px;
   background: #fff;
   border: 1px solid ${props => (props.isnow == "true" ? "#EA6F60" : "#FFFAEA")};
   margin-bottom: 5px;
-  padding: 10px 5px;
+  padding: 14px 5px;
 `;
 export const PerformanceWhiteBox = styled(BoothWhiteBox)`
   margin-left: auto;
 `;
 export const BoothCardWrapper = styled.div`
   display: flex;
+  align-items: center;
   width: 100%;
 `;
 export const BoothImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 7vw; */
   width: 45%;
-  height: 6vh;
+  height: 56px;
+
   border-radius: 10px;
   background: ${props => (props.isnow == "true" ? "#FFDFDB" : "#fff6db")};
   color: ${props => (props.isnow == "true" ? "#EA6F60" : "#FAA73F")};
+  span{font-size: 1.8rem};
 `;
 export const BoothTxt = styled.div`
   width: 100%;
@@ -58,7 +58,7 @@ export const BoothBtn = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 3vh;
+  height: 32px;
   border-radius: 5px;
   background: ${props => (props.isnow == "true" ? "#EA6F60" : "#faa73f")};
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
