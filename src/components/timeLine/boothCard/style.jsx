@@ -5,18 +5,19 @@ export const BoothWhiteBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
+
+  width: 100%;
   min-height: 10vh;
+
   border-radius: 10px;
-  border: 1px solid #fffaea;
   background: #fff;
+  border: 1px solid ${props => (props.isnow == "true" ? "#EA6F60" : "#FFFAEA")};
   margin-bottom: 5px;
   padding: 10px 5px;
-border: 1px solid ${props=>(props.isnow=="true"?"#EA6F60":"#FFFAEA")};
 `;
-export const PerformanceWhiteBox=styled(BoothWhiteBox)`
-margin-left: auto;
-`
+export const PerformanceWhiteBox = styled(BoothWhiteBox)`
+  margin-left: auto;
+`;
 export const BoothCardWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -29,8 +30,8 @@ export const BoothImg = styled.div`
   width: 45%;
   height: 6vh;
   border-radius: 10px;
-  background: ${props=>(props.isnow=="true"?"#FFDFDB":"#fff6db")};
-  color: ${props=>(props.isnow=="true"?"#EA6F60":"#FAA73F")};
+  background: ${props => (props.isnow == "true" ? "#FFDFDB" : "#fff6db")};
+  color: ${props => (props.isnow == "true" ? "#EA6F60" : "#FAA73F")};
 `;
 export const BoothTxt = styled.div`
   width: 100%;
@@ -56,7 +57,7 @@ export const BoothBtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 100%;
   height: 3vh;
   border-radius: 5px;
   background: ${props => (props.isnow == "true" ? "#EA6F60" : "#faa73f")};

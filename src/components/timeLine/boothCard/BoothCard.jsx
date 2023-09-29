@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import LocationImg from "../../../assets/images/booth_location.png";
 
-export const BoothCard = ({ booth }) => {
+export const BoothCard = ({ booth, topDistance }) => {
   const isCurrent = booth.isCurrent;
+  const istopDistance = topDistance;
 
   return (
-    <S.BoothWhiteBox isnow={isCurrent ? "true" : "false"}>
+    <S.BoothWhiteBox
+      topDistance={istopDistance}
+      isnow={isCurrent ? "true" : "false"}
+    >
       <S.BoothCardWrapper>
         <S.BoothImg isnow={isCurrent ? "true" : "false"}>
           {booth.devide == "부스" && (

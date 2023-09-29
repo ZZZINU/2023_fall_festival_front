@@ -53,17 +53,17 @@ export const TimeTableSection = ({
   return (
     <S.TimeTableWrapper>
       <S.TimeTableNav>
-          <S.TimeTableSubTxt>
-            <img src={MiniLogo} alt="Logo" />
-            실시간
-          </S.TimeTableSubTxt>
-          <S.TimeTableMainTxt>
-            {realtimeList[currentIndex].title}
-          </S.TimeTableMainTxt>
-          <S.TimeTableSubTxt2>
-            <S.LocationIMG src={MiniLocation} alt="Logo" />
-            {realtimeList[currentIndex].place}
-          </S.TimeTableSubTxt2>
+        <S.TimeTableSubTxt>
+          <img src={MiniLogo} alt="Logo" />
+          실시간
+        </S.TimeTableSubTxt>
+        <S.TimeTableMainTxt>
+          {realtimeList[currentIndex].title}
+        </S.TimeTableMainTxt>
+        <S.TimeTableSubTxt2>
+          <S.LocationIMG src={MiniLocation} alt="Logo" />
+          {realtimeList[currentIndex].place}
+        </S.TimeTableSubTxt2>
       </S.TimeTableNav>
       <S.SubNav>
         <div>
@@ -83,20 +83,24 @@ export const TimeTableSection = ({
             <BoothCard booth={booth} />
           ))}
 
-          <S.BoothTimeSection>18:00 ~ 22:00</S.BoothTimeSection>
+          <S.BoothTimeSection style={{ marginTop: "45%" }}>
+            18:00 ~ 22:00
+          </S.BoothTimeSection>
           {booth18List.map(booth => (
             <BoothCard booth={booth} />
           ))}
         </S.BoothLeft>
         <S.BoothRight>
           {/* 공연 목록 */}
-          <S.PerformTimeSection isnow="true">
+          <S.PerformTimeSection isnow="true" style={{ marginTop: "30%" }}>
             14:00 ~ 16:00
           </S.PerformTimeSection>
           {perform14List.map(booth => (
             <PerfomanceCard booth={booth} />
           ))}
-          <S.PerformTimeSection>18:00 ~ 21:00</S.PerformTimeSection>
+          <S.PerformTimeSection style={{ marginTop: "100%" }}>
+            18:00 ~ 21:00
+          </S.PerformTimeSection>
           {perform18List.map(booth => (
             <PerfomanceCard booth={booth} />
           ))}

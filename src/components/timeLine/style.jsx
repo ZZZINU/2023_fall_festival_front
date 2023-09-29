@@ -100,16 +100,16 @@ export const BoothDetailSection = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 20px 0;
+  padding-top: 30px;
 `;
 export const BoothLeft = styled.div`
   width: 50%;
-  margin-left: 10px;
+  padding-right: 20px;
 `;
 export const BoothRight = styled.div`
   width: 50%;
   border-left: 1px solid #fff;
-  margin-right: 10px;
+  padding-left: 20px;
 `;
 export const BoothTimeSection = styled.div`
   display: flex;
@@ -121,10 +121,10 @@ export const BoothTimeSection = styled.div`
   font-size: 0.8rem;
   width: 70%;
   height: 4vh;
-  margin: 0 15px 5px auto;
+  margin: 0 0 5px auto;
 `;
 export const PerformTimeSection = styled(BoothTimeSection)`
-  margin: 0 0 5px 15px;
+  margin: 0 0 5px 0;
 `;
 
 // LineUp.jsx
@@ -171,7 +171,7 @@ export const MarginLabel = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 55vh;
-`
+`;
 export const LineUpImg = styled.img`
   width: 190px;
   height: 190px;
