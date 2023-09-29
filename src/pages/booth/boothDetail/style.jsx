@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export const BoothDetailWrap = styled.div`
   display: flex;
@@ -56,14 +57,16 @@ export const BoothDetailRibbon = styled.div`
   font-size: 14px;
   font-weight: 500;
   line-height: normal;
+  z-index: 10;
 `;
 
 export const BoothDetailFunctionWrap = styled.div`
   display: flex;
   width: 100%;
-  margin-top: 25px;
+  margin-top: -30px;
   justify-content: space-between;
   padding: 0px 15px;
+  z-index: 10;
 `;
 export const BoothDetailHeartWrap = styled.div`
   display: flex;
@@ -154,4 +157,34 @@ export const BoothDetailContentImage = styled.img`
   width: 18px;
   height: 18px;
   margin-right: 7px;
+`;
+
+// 스와이퍼
+export const MySwiper = styled(Swiper)`
+  width: 330px;
+  height: 100%;
+  padding-bottom: 50px;
+  margin-top: 15px;
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    width: 330px;
+    height: 100%;
+    border-radius: 20px;
+  }
+
+  /* Pagination 버튼의 활성 상태 스타일. */
+  .swiper-pagination-bullet-active {
+    background-color: #fffaea;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+  }
 `;

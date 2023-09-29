@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as S from "./style";
 
+import { SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+
 // 이미지
 import BoothImg from "../../../../public/booth/booth.png";
 import HeartImgUnFill from "../../../../public/booth/heart.png";
@@ -46,14 +51,15 @@ function BoothDetail() {
   useEffect(() => {
     const contentData = {
       id: 1,
-      name: "산공",
+      name: "산공산공",
       description: "하이 산시",
       type: "주간부스",
       location: "사회과학관",
-      thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG",
+      thumbnail: "../../../../public/booth/booth.png",
       images: [
-        "http://127.0.0.1:8000/media/booth/1/example.JPG",
-        "http://127.0.0.1:8000/media/booth/1/output_image.jpeg"
+        "../../../../public/booth/booth.png",
+        "../../../../public/booth/booth.png",
+        "../../../../public/booth/booth.png"
       ],
       is_liked: false,
       like_cnt: 123,
@@ -74,7 +80,21 @@ function BoothDetail() {
         )}
 
         <S.BoothDetailTitle>{data.name}</S.BoothDetailTitle>
-        <S.BoothDetailImage src={BoothImg} alt="부스 이미지" />
+        {/* <S.BoothDetailImage src={data.thumbnail} alt="부스 이미지" /> */}
+
+        <S.MySwiper
+          pagination={{
+            dynamicBullets: true
+          }}
+          modules={[Pagination]}
+        >
+          {data.images.map((image, index) => (
+            <SwiperSlide key={index}>
+              <img src={image} alt={`Slide ${index + 1}`} />
+            </SwiperSlide>
+          ))}
+        </S.MySwiper>
+
         <S.BoothDetailRibbon>{data.type}</S.BoothDetailRibbon>
 
         <S.BoothDetailFunctionWrap>
