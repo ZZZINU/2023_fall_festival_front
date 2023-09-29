@@ -114,9 +114,10 @@ export const BoothDetailImg = styled.img`
 // 부스 상세 내용
 export const BoothDetailContentWrap = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   margin-top: 30px;
-  padding: 0px 15px;
+  padding: 0px 25px;
 `;
 
 // 부스 상세 내용 - 날짜

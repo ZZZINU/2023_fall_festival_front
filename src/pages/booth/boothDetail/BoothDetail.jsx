@@ -46,13 +46,15 @@ function BoothDetail() {
   useEffect(() => {
     const contentData = {
       id: 1,
-      name: "부스타이틀",
-      description:
-        "부스에 대한 소개를 서술합니다...부스에 대한 소개를 서술합니다...부스에 대한 소개를 서술합니다...",
-      type: "부스종류",
-      location: "장소입니다",
-      thumbnail: "asd",
-      images: ["asd", "asd"],
+      name: "산공",
+      description: "하이 산시",
+      type: "주간부스",
+      location: "사회과학관",
+      thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG",
+      images: [
+        "http://127.0.0.1:8000/media/booth/1/example.JPG",
+        "http://127.0.0.1:8000/media/booth/1/output_image.jpeg"
+      ],
       is_liked: false,
       like_cnt: 123,
       during: "2023.09.30 06:00~18:00"
