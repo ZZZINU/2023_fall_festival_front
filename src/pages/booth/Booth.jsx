@@ -154,7 +154,7 @@ function Booth() {
 
       <S.BoothCategryWrap>
         <S.BoothCategry
-          dayOrNight={dayOrNight}
+          dayornight={dayOrNight}
           onClick={() => setDayOrNight("전체부스")}
           color={dayOrNight === "전체부스" ? "#FFF" : "#ffb2b2"}
           borderbottom={dayOrNight === "전체부스" ? "#FFF" : "none"}
@@ -162,7 +162,7 @@ function Booth() {
           전체부스
         </S.BoothCategry>
         <S.BoothCategry
-          dayOrNight={dayOrNight}
+          dayornight={dayOrNight}
           onClick={() => setDayOrNight("주간부스")}
           color={dayOrNight === "주간부스" ? "#FFF" : "#ffb2b2"}
           borderbottom={dayOrNight === "주간부스" ? "#FFF" : "none"}
@@ -170,7 +170,7 @@ function Booth() {
           주간부스
         </S.BoothCategry>
         <S.BoothCategry
-          dayOrNight={dayOrNight}
+          dayornight={dayOrNight}
           onClick={() => setDayOrNight("야간부스")}
           color={dayOrNight === "야간부스" ? "#FFF" : "#ffb2b2"}
           borderbottom={dayOrNight === "야간부스" ? "#FFF" : "none"}
