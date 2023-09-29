@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
   position: fixed;
+
   z-index: 2;
+
   top: 0;
   width: 100%;
   max-width: 420px;
