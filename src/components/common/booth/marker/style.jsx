@@ -21,7 +21,7 @@ export const MapMark = styled.div`
   color: ${props => props.color};
   text-align: center;
   font-family: dongguk;
-  font-size: ${props => props.fontsize};
+  font-size: ${props => props.fontSize};
   font-weight: 400;
   font-weight: 400;
   line-height: normal;
