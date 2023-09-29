@@ -52,15 +52,28 @@ function GuestBook() {
       </S.GuestBookContent>
 
       <S.GuestBookInputWrapper>
-        <S.GuestBookInputIconList>
-          <S.GuestBookInputIconBox>😀</S.GuestBookInputIconBox>
-          <S.GuestBookInputIconBox>🥹</S.GuestBookInputIconBox>
-          <S.GuestBookInputIconBox>😎</S.GuestBookInputIconBox>
-          <S.GuestBookInputIconBox>🌞</S.GuestBookInputIconBox>
-        </S.GuestBookInputIconList>
         <S.GuestBookInputIconWrapper>
-          <S.GuestBookInputIcon>🥹</S.GuestBookInputIcon>
-          <img src="./guestBook/icon_select.png" />
+          <S.GuestBookInputIconSelector>
+            <S.GuestBookInputIconBox>🥹</S.GuestBookInputIconBox>
+
+            <S.GuestBookImg>
+              <img src="./guestBook/icon_select.png" />
+            </S.GuestBookImg>
+          </S.GuestBookInputIconSelector>
+
+          <S.GuestBookInputIconList>
+            <S.GuestBookInputIconBox>😀</S.GuestBookInputIconBox>
+            <S.GuestBookInputIconBox>🥹</S.GuestBookInputIconBox>
+            <S.GuestBookInputIconBox>😎</S.GuestBookInputIconBox>
+            <S.GuestBookInputIconBox>🌞</S.GuestBookInputIconBox>
+
+            <S.GuestBookInputIconSelector>
+              <S.GuestBookInputIconBox>🥹</S.GuestBookInputIconBox>
+              <S.GuestBookImg>
+                <img src="./guestBook/icon_select.png" />
+              </S.GuestBookImg>
+            </S.GuestBookInputIconSelector>
+          </S.GuestBookInputIconList>
         </S.GuestBookInputIconWrapper>
 
         <S.GuestBookInput placeholder="방명록을 입력해주세요!(50자 이내)" />

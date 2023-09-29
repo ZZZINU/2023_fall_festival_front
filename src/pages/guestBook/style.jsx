@@ -66,10 +66,6 @@ export const GuestBookInputWrapper = styled.div`
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 `;
 
-export const GuestBookInputIconWrapper = styled.div`
-  display: flex;
-`;
-
 export const GuestBookInput = styled.input`
   font-size: 14px;
   height: 20px;
@@ -85,25 +81,34 @@ export const GuestBookInput = styled.input`
   }
 `;
 
-export const GuestBookInputIcon = styled.div`
-  width: 20px;
-  height: 20px;
+export const GuestBookInputIconWrapper = styled.div`
+  position: relative;
+`;
+
+export const GuestBookInputIconSelector = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const GuestBookInputIconList = styled.div`
-  position: fixed;
-  bottom: 70px;
+  width: 40px;
+  position: absolute;
+  bottom: 0px;
+
   display: flex;
   flex-direction: column;
+  background-color: white;
+  /* padding: 20px 0px; */
 `;
 
 export const GuestBookInputIconBox = styled.div`
-  width: 16px;
-  height: 16px;
-  font-size: 16px;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 10px 0px;
 `;
 
 export const GuestBookImg = styled.div`
