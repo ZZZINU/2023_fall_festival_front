@@ -10,6 +10,10 @@ import ShareImg from "../../../../public/booth/share.png";
 import InstaImg from "../../../../public/booth/instagram.png";
 import CheckMarkImg from "../../../../public/booth/checkmark.png";
 import PinImg from "../../../../public/booth/boothDetailPin.png";
+import ModalImg from "../../../../public/booth/modalShare.png";
+
+// 컴포넌트
+import Modal from "../../../components/common/modal/Modal";
 
 function BoothDetail() {
   const { id } = useParams();
@@ -17,12 +21,26 @@ function BoothDetail() {
   // 데이터
   const [data, setData] = useState([]);
 
+  // 모달 ON/OFF
+  const [showModal, setShowModal] = useState(false);
+
   // 좋아요 상태를 나타내는 상태 (임시)
   const [isLiked, setIsLiked] = useState(false);
 
   // 좋아요 버튼 클릭 시 상태 토글 (임시)
   const handleLikeClick = () => {
     setIsLiked(!isLiked);
+  };
+
+  // 링크복사
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setShowModal(true); // 모달 ON
+  };
+
+  // 모달 닫기 함수
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   useEffect(() => {
@@ -45,6 +63,14 @@ function BoothDetail() {
   return (
     <>
       <S.BoothDetailWrap>
+        {showModal && (
+          <Modal
+            img={ModalImg}
+            content="주소가 클립보드에 복사되었습니다!"
+            onClose={handleCloseModal}
+          />
+        )}
+
         <S.BoothDetailTitle>{data.name}</S.BoothDetailTitle>
         <S.BoothDetailImage src={BoothImg} alt="부스 이미지" />
         <S.BoothDetailRibbon>{data.type}</S.BoothDetailRibbon>
@@ -73,10 +99,10 @@ function BoothDetail() {
 
           <S.BoothDetailSNSWrap>
             <S.BoothDetailSNS>
-              <S.BoothDetailImg src={InstaImg} alt="부스 이미지" />
+              <S.BoothDetailImg src={InstaImg} alt="인스타 이미지" />
             </S.BoothDetailSNS>
-            <S.BoothDetailSNS>
-              <S.BoothDetailImg src={ShareImg} alt="부스 이미지" />
+            <S.BoothDetailSNS onClick={handleCopyLink}>
+              <S.BoothDetailImg src={ShareImg} alt="공유 이미지" />
             </S.BoothDetailSNS>
           </S.BoothDetailSNSWrap>
         </S.BoothDetailFunctionWrap>
