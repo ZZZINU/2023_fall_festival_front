@@ -53,7 +53,7 @@ export const GuestBookInputWrapper = styled.div`
   bottom: 0;
   display: flex;
 
-  border-radius: 50px;
+  border-radius: 2%;
 
   width: calc(100% - 40px);
   max-width: 380px;
@@ -64,24 +64,30 @@ export const GuestBookInputWrapper = styled.div`
   margin-bottom: 20px;
   background-color: white;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+
+  &:focus-within {
+    flex-direction: column;
+  }
 `;
 
 export const GuestBookInput = styled.input`
-  font-size: 14px;
-  height: 20px;
+  font-size: 16px;
+  height: 30px;
 
   flex-grow: 1;
-
-  padding: 0 10px;
 
   color: ${props => props.theme.colors.fontBrown};
 
   &::placeholder {
     color: ${props => props.theme.colors.primary1};
   }
+  &:focus {
+    background-color: #ececec;
+  }
 `;
 
 export const GuestBookInputIconWrapper = styled.div`
+  display: flex;
   position: relative;
 `;
 
@@ -90,30 +96,27 @@ export const GuestBookInputIconSelector = styled.div`
 `;
 
 export const GuestBookInputIconList = styled.div`
-  width: 40px;
-  position: absolute;
-  bottom: 0px;
-
-  display: flex;
-  flex-direction: column;
   background-color: white;
-  /* padding: 20px 0px; */
+
+  display: none;
 `;
 
 export const GuestBookInputIconBox = styled.div`
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: yellow;
+  margin-right: 10px;
 
-  margin: 10px 0px;
+  cursor: pointer;
 `;
 
 export const GuestBookImg = styled.div`
   width: 20px;
-  height: 20px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
