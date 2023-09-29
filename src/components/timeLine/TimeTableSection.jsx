@@ -50,6 +50,25 @@ export const TimeTableSection = ({
     };
   }, []);
 
+  // 시간 바에서 현재 위치 계산 -----------------------------
+  const currentTime = new Date(); // 현재 시간
+  const startTime = new Date("2023-09-29 12:00"); // TimeStroke 시작 시간
+  const timeDifference = currentTime - startTime;
+
+  const elapsedMinutes = timeDifference / (1000 * 60); // 분 단위
+
+  let imagePosition = 0; // 이미지의 초기 위치 (12:00)
+  if (elapsedMinutes >= 0 && elapsedMinutes <= 600) {
+    // 12:00 이후부터 22:00 이전까지
+    imagePosition = `${(elapsedMinutes / (10 * 60)) * 100}%`;
+  } else if (elapsedMinutes < 0) {
+    // 12:00 이전
+    imagePosition = 0;
+  } else {
+    // 22:00 이후
+    imagePosition = "100%";
+  }
+
   return (
     <S.TimeTableWrapper>
       <S.TimeTableNav>
@@ -76,8 +95,8 @@ export const TimeTableSection = ({
         </div>
       </S.SubNav>
       <S.BoothDetailSection>
+        {/* 부스 목록 */}
         <S.BoothLeft>
-          {/* 부스 목록 */}
           <S.BoothTimeSection>12:00 ~ 18:00</S.BoothTimeSection>
           {booth12List.map(booth => (
             <BoothCard booth={booth} />
@@ -90,8 +109,8 @@ export const TimeTableSection = ({
             <BoothCard booth={booth} />
           ))}
         </S.BoothLeft>
+        {/* 공연 목록 */}
         <S.BoothRight>
-          {/* 공연 목록 */}
           <S.PerformTimeSection isnow="true" style={{ marginTop: "30%" }}>
             14:00 ~ 16:00
           </S.PerformTimeSection>
@@ -105,6 +124,15 @@ export const TimeTableSection = ({
             <PerfomanceCard booth={booth} />
           ))}
         </S.BoothRight>
+        <S.TimeStroke>
+          <S.TimeNow
+            src="/timetable/realtime.png"
+            style={{ top: imagePosition }}
+          />
+          <S.TimeStart />
+          <S.TimeMid />
+          <S.TimeEnd />
+        </S.TimeStroke>
       </S.BoothDetailSection>
     </S.TimeTableWrapper>
   );

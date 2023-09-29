@@ -70,7 +70,7 @@ export const LineUp = ({ festivalDate }) => {
               {festivalDate == 11 ? firstDay[1].time : secondDay[1].time}
             </S.ShowTime>
           </S.LineUpList>
-          <S.LineUpImg2
+          <S.LineUpImg
             src={festivalDate == 11 ? firstDay[1].img : secondDay[1].img}
             alt="img"
           />
