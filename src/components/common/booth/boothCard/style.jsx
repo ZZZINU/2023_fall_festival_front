@@ -123,5 +123,5 @@ export const BoothCardContainer = styled.div`
   justify-content: left;
   flex-wrap: wrap;
   gap: 30px;
-  margin-left: 40px;
+  margin-left: 25px;
 `;
