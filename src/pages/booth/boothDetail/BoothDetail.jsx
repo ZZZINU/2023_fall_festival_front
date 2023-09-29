@@ -59,26 +59,6 @@ function BoothDetail() {
   };
 
   useEffect(() => {
-    const contentData = {
-      id: 1,
-      name: "산공산공공산공",
-      description: "하이 산시",
-      type: "주간부스",
-      location: "사회과학관",
-      thumbnail: "../../../../public/booth/booth.png",
-      images: [
-        "../../../../public/booth/booth.png",
-        "../../../../public/booth/booth.png",
-        "../../../../public/booth/booth.png"
-      ],
-      is_liked: false,
-      like_cnt: 123,
-      during: "2023.09.30 06:00~18:00"
-    };
-    setData(contentData);
-  }, []);
-
-  useEffect(() => {
     const fetchData = async () => {
       try {
         const contentData = {
@@ -146,13 +126,6 @@ function BoothDetail() {
               {data.like_cnt}
             </S.BoothDetailHeartNum>
           </S.BoothDetailHeartWrap>
-
-          {/* swiper */}
-          {/*
-          <S.BoothDetailSwiperWrap>
-            <S.BoothDetailSwiper></S.BoothDetailSwiper>
-          </S.BoothDetailSwiperWrap>
-          */}
 
           <S.BoothDetailSNSWrap>
             <S.BoothDetailSNS>
