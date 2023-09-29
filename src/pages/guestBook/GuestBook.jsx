@@ -4,48 +4,60 @@ import PageTitle from "../../components/common/pageTitle/PageTitle";
 
 function GuestBook() {
   const data = [
-    "동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록",
-    "동해물과백두산이마르고닳도록동해물과백두산이마르고닳도록"
+    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ",
+    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
   ];
   return (
     <S.GuestBookWrapper>
-      <S.GuestBookInputWrapper>푸터</S.GuestBookInputWrapper>
       <PageTitle mainTitle={"방명록"} subTitle={"축제의 기록을 남겨주세요"} />
+      <S.GuestBookContentWrapper>
+        <S.GuestBookContent>
+          <S.GuestBookContentBox style={{ marginRight: "5px" }}>
+            {data.map((item, index) => {
+              return index % 2 == 0 ? (
+                <S.GuestBookBox key={index}>
+                  <S.GeustBookIcon>🥹</S.GeustBookIcon>
+                  <S.GeustBookText>{item}</S.GeustBookText>
+                </S.GuestBookBox>
+              ) : (
+                <></>
+              );
+            })}
+          </S.GuestBookContentBox>
+          <S.GuestBookContentBox style={{ marginLeft: "5px" }}>
+            {data.map((item, index) => {
+              return index % 2 == 1 ? (
+                <S.GuestBookBox key={index}>
+                  <S.GeustBookIcon>🥹</S.GeustBookIcon>
+                  <S.GeustBookText>{item}</S.GeustBookText>
+                </S.GuestBookBox>
+              ) : (
+                <></>
+              );
+            })}
+          </S.GuestBookContentBox>
+        </S.GuestBookContent>
+      </S.GuestBookContentWrapper>
 
-      <S.GuestBookContent>
-        <S.GuestBookContentBox>
-          {data.map((item, index) => {
-            return index % 2 == 0 ? (
-              <S.GeustBookTextBox key={index}>{item}</S.GeustBookTextBox>
-            ) : (
-              <></>
-            );
-          })}
-        </S.GuestBookContentBox>
-
-        <S.GuestBookContentBox>
-          {data.map((item, index) => {
-            return index % 2 == 1 ? (
-              <S.GeustBookTextBox key={index}>{item}</S.GeustBookTextBox>
-            ) : (
-              <></>
-            );
-          })}
-        </S.GuestBookContentBox>
-      </S.GuestBookContent>
+      <S.GuestBookInputWrapper>
+        <S.GuestBookInput placeholder="방명록을 입력해주세요!(50자 이내)" />
+        <S.GuestBookImg>
+          <img src="./guestBook/icon_send.png" />
+        </S.GuestBookImg>
+      </S.GuestBookInputWrapper>
     </S.GuestBookWrapper>
   );
 }
