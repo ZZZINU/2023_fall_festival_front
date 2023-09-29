@@ -17,10 +17,9 @@ export const BoothDetailWrap = styled.div`
 export const BoothDetailTitle = styled.div`
   display: flex;
   width: 330px;
-  padding: 5px 99px;
+  padding: 5px 5px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   border-radius: 30px;
   background: #fff;
   color: #553c2e;
