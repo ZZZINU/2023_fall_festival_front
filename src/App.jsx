@@ -21,6 +21,7 @@ const BackGroundColor = styled.div`
 `;
 
 const Wrapper = styled.div`
+  padding-top: 60px;
   margin: 0 auto;
   width: 100%;
 
