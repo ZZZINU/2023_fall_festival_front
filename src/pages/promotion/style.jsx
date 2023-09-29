@@ -14,13 +14,14 @@ export const NoticeBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 30px 30px 30px;
   width: 360px;
   height: 700px;
   flex-shrink: 0;
   border-radius: 35px;
   background-color: #ffffff;
   opacity: 0.9;
+  overflow-y: scroll;
 `;
 
 export const CategoryWarp = styled.div`

@@ -38,6 +38,24 @@ function Notice() {
         created_at: "2023-09-29T12:38:57Z",
         images: [],
         thumbnail: null
+      },
+      {
+        id: 4,
+        title: "네번째라니",
+        type: "기타",
+        content: "네번째 공지 게시물",
+        created_at: "2023-09-29T12:38:57Z",
+        images: [],
+        thumbnail: null
+      },
+      {
+        id: 5,
+        title: "오번째라니",
+        type: "기타",
+        content: "오번째 공지 게시물",
+        created_at: "2023-09-29T12:38:57Z",
+        images: [],
+        thumbnail: null
       }
     ];
     setData(contentData);
@@ -79,6 +97,8 @@ function Notice() {
             </S.NoticeCategory>
           </S.CategoryWarp>
           <S.Line />
+          <NoticeCard data={data} />
+          <NoticeCard data={data} />
           <NoticeCard data={data} />
           <NoticeCard data={data} />
           <NoticeCard data={data} />
