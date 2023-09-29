@@ -63,6 +63,7 @@ function BoothDetail() {
       try {
         const contentData = {
           name: "산공산공공산공",
+          thumbnail: "../../../../public/booth/temp.png",
           images: [
             "../../../../public/booth/booth.png",
             "../../../../public/booth/booth.png",
@@ -103,9 +104,12 @@ function BoothDetail() {
             }}
             modules={[Pagination]}
           >
+            <SwiperSlide>
+              <img src={data.thumbnail} alt="Thumbnail" />
+            </SwiperSlide>
             {data.images.map((image, index) => (
               <SwiperSlide key={index}>
-                <img src={image} alt={`Slide ${index + 1}`} />
+                <S.SwiperSlideImg src={image} alt={`Slide ${index + 1}`} />
               </SwiperSlide>
             ))}
           </S.MySwiper>

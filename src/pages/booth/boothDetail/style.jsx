@@ -191,3 +191,5 @@ export const MySwiper = styled(Swiper)`
     margin: 0 5px;
   }
 `;
+
+export const SwiperSlideImg = styled.img``;
