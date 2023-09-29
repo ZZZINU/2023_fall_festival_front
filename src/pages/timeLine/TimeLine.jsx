@@ -7,7 +7,7 @@ import { LineUp } from "../../components/timeLine/LineUp";
 
 function TimeLine() {
   // 시간 감지 State --------------------------------------------
-  const [festivalDate, setFestivalDate] = useState(11);// 선택 날짜가 11일이면 11, 12일이면 12
+  const [festivalDate, setFestivalDate] = useState(11); // 선택 날짜가 11일이면 11, 12일이면 12
   const [currentTime, setCurrentTime] = useState(new Date());
 
   const updateTime = () => {
@@ -117,6 +117,15 @@ function TimeLine() {
     };
   });
 
+  // 현재 시간과 공연 시간 비교--------------------------------------------
+  const filteredBoothData = boothDataWithCurrentFlag.filter(
+    item => item.isCurrent
+  );
+  const filteredPerfomanceData = PerfomanceDataWithCurrentFlag.filter(
+    item => item.isCurrent
+  );
+  const realtimeList = filteredPerfomanceData.concat(filteredBoothData);
+
   return (
     <S.TimeLineWrapper>
       <PageTitle mainTitle="타임테이블" />
@@ -125,6 +134,7 @@ function TimeLine() {
         setFestivalDate={setFestivalDate}
       />
       <TimeTableSection
+        realtimeList={realtimeList}
         boothData={boothDataWithCurrentFlag}
         PerfomanceData={PerfomanceDataWithCurrentFlag}
       />
