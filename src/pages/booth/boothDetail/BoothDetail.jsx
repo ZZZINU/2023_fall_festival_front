@@ -24,7 +24,17 @@ function BoothDetail() {
   const { id } = useParams();
 
   // 데이터
-  const [data, setData] = useState([]);
+
+  const [data, setData] = useState({
+    name: "",
+    images: [],
+    type: "",
+    is_liked: false,
+    like_cnt: 0,
+    during: "",
+    location: "",
+    description: ""
+  });
 
   // 모달 ON/OFF
   const [showModal, setShowModal] = useState(false);
@@ -51,7 +61,7 @@ function BoothDetail() {
   useEffect(() => {
     const contentData = {
       id: 1,
-      name: "산공산공",
+      name: "산공산공공산공",
       description: "하이 산시",
       type: "주간부스",
       location: "사회과학관",
@@ -68,6 +78,31 @@ function BoothDetail() {
     setData(contentData);
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const contentData = {
+          name: "산공산공공산공",
+          images: [
+            "../../../../public/booth/booth.png",
+            "../../../../public/booth/booth.png",
+            "../../../../public/booth/booth.png"
+          ],
+          type: "주간부스",
+          is_liked: false,
+          like_cnt: 123,
+          during: "2023.09.30 06:00~18:00",
+          location: "사회과학관",
+          description: "하이 산시"
+        };
+        setData(contentData);
+      } catch (error) {
+        console.error("Error: ", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
       <S.BoothDetailWrap>
@@ -81,22 +116,22 @@ function BoothDetail() {
 
         <S.BoothDetailTitle>{data.name}</S.BoothDetailTitle>
         {/* <S.BoothDetailImage src={data.thumbnail} alt="부스 이미지" /> */}
+        <S.BoothImgWrap>
+          <S.MySwiper
+            pagination={{
+              dynamicBullets: true
+            }}
+            modules={[Pagination]}
+          >
+            {data.images.map((image, index) => (
+              <SwiperSlide key={index}>
+                <img src={image} alt={`Slide ${index + 1}`} />
+              </SwiperSlide>
+            ))}
+          </S.MySwiper>
 
-        <S.MySwiper
-          pagination={{
-            dynamicBullets: true
-          }}
-          modules={[Pagination]}
-        >
-          {data.images.map((image, index) => (
-            <SwiperSlide key={index}>
-              <img src={image} alt={`Slide ${index + 1}`} />
-            </SwiperSlide>
-          ))}
-        </S.MySwiper>
-
-        <S.BoothDetailRibbon>{data.type}</S.BoothDetailRibbon>
-
+          <S.BoothDetailRibbon>{data.type}</S.BoothDetailRibbon>
+        </S.BoothImgWrap>
         <S.BoothDetailFunctionWrap>
           {/* 하트 */}
           <S.BoothDetailHeartWrap

@@ -38,11 +38,15 @@ export const BoothDetailImage = styled.img`
   margin-top: 20px;
 `;
 
+export const BoothImgWrap = styled.div`
+  position: relative;
+`;
+
 export const BoothDetailRibbon = styled.div`
   display: flex;
   position: absolute;
-  top: 110px;
-  right: 35px;
+  top: 40px;
+  right: 20px;
   height: 34px;
   padding: 10px 15px;
   justify-content: center;
