@@ -70,8 +70,8 @@ export const BoothDetailHeartWrap = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  border: 1.5px solid #fff;
-  background: #fff;
+  border: 1.5px solid ${props => props.background};
+  background: ${props => props.background};
   padding: 5px 10px;
   cursor: pointer;
 `;
@@ -82,7 +82,7 @@ export const BoothDetailHeart = styled.img`
 `;
 export const BoothDetailHeartNum = styled.div`
   display: flex;
-  color: #ff8989;
+  color: ${props => props.color};
   text-align: right;
   font-family: NotoSansRegular;
   font-size: 16px;

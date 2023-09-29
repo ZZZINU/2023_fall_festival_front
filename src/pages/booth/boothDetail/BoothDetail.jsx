@@ -4,7 +4,8 @@ import * as S from "./style";
 
 // 이미지
 import BoothImg from "../../../../public/booth/booth.png";
-import HeartImgFill from "../../../../public/booth/heart.png";
+import HeartImgUnFill from "../../../../public/booth/heart.png";
+import HeartImgFill from "../../../../public/booth/unfilledHeart.png";
 import ShareImg from "../../../../public/booth/share.png";
 import InstaImg from "../../../../public/booth/instagram.png";
 import CheckMarkImg from "../../../../public/booth/checkmark.png";
@@ -16,6 +17,14 @@ function BoothDetail() {
   // 데이터
   const [data, setData] = useState([]);
 
+  // 좋아요 상태를 나타내는 상태 (임시)
+  const [isLiked, setIsLiked] = useState(false);
+
+  // 좋아요 버튼 클릭 시 상태 토글 (임시)
+  const handleLikeClick = () => {
+    setIsLiked(!isLiked);
+  };
+
   useEffect(() => {
     const contentData = {
       id: 1,
@@ -26,7 +35,7 @@ function BoothDetail() {
       location: "장소입니다",
       thumbnail: "asd",
       images: ["asd", "asd"],
-      is_liked: true,
+      is_liked: false,
       like_cnt: 123,
       during: "2023.09.30 06:00~18:00"
     };
@@ -42,9 +51,17 @@ function BoothDetail() {
 
         <S.BoothDetailFunctionWrap>
           {/* 하트 */}
-          <S.BoothDetailHeartWrap>
-            <S.BoothDetailHeart src={HeartImgFill} alt="채워진 하트 이미지" />
-            <S.BoothDetailHeartNum>{data.like_cnt}</S.BoothDetailHeartNum>
+          <S.BoothDetailHeartWrap
+            onClick={handleLikeClick}
+            background={data.is_liked ? "#E0747B;" : "#fff"}
+          >
+            <S.BoothDetailHeart
+              src={data.is_liked ? HeartImgFill : HeartImgUnFill}
+              alt="하트 이미지"
+            />
+            <S.BoothDetailHeartNum color={data.is_liked ? "#fff" : "#E0747B"}>
+              {data.like_cnt}
+            </S.BoothDetailHeartNum>
           </S.BoothDetailHeartWrap>
 
           {/* swiper */}
