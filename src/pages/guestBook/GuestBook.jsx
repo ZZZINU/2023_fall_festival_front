@@ -4,30 +4,200 @@ import PageTitle from "../../components/common/pageTitle/PageTitle";
 
 function GuestBook() {
   const data = [
-    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ",
-    "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    {
+      icon: "hip",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재아~~~~~~언제끝나 미친~~~!~!밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "festival",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "festival",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "festival",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "hip",
+      content: "축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "festival",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "festival",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "fire",
+      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content:
+        "축제정말재요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "fire",
+      content:
+        "축제정ㅎ축제정말재요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "fire",
+      content:
+        "축제정ㅎ축제정말재밌요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content:
+        "축제정말재밌네요ㅎㅎ축추석인요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요데제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "fire",
+      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content:
+        "축제정말재밌네요ㅎㅎ축추석인요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요데제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "fire",
+      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
+    }
   ];
   const [currentIcon, setCurrentIcon] = useState("cry");
-  const iconData = [
-    { name: "cry", icon: "🥹" },
-    { name: "hip", icon: "😎" },
-    { name: "fire", icon: "🔥" },
-    { name: "festival", icon: "🎉" },
-    { name: "heart", icon: "❤️" }
-  ];
+  const iconList = ["cry", "hip", "fire", "festival", "heart"];
+  const iconData = {
+    cry: "🥹",
+    hip: "😎",
+    fire: "🔥",
+    festival: "🎉",
+    heart: "❤️"
+  };
 
   const inputRef = useRef();
   const iconListRef = useRef();
@@ -37,7 +207,7 @@ function GuestBook() {
     if (!focus) {
       setFocus(true);
     }
-    console.log(`focus Handler ${e.target.value}`);
+
     iconListRef.current.style.display = "flex";
     iconListRef.current.style.marginBottom = "20px";
   };
@@ -45,18 +215,13 @@ function GuestBook() {
     if (focus) {
       setFocus(false);
     }
-    console.log(`blur Handler ${e.target.value}`);
+
     iconListRef.current.style.display = "none";
     iconListRef.current.style.marginBottom = "0px";
-    console.log(e);
   };
 
-  useEffect(() => {
-    console.log(focus);
-  }, [focus]);
-
   const clickIcon = e => {
-    console.log("열림");
+    setCurrentIcon(e.target.title);
   };
 
   return (
@@ -68,8 +233,8 @@ function GuestBook() {
           {data.map((item, index) => {
             return index % 2 == 0 ? (
               <S.GuestBookBox key={index * 2}>
-                <S.GeustBookIcon>🥹</S.GeustBookIcon>
-                <S.GeustBookText>{item}</S.GeustBookText>
+                <S.GeustBookIcon>{iconData[item.icon]}</S.GeustBookIcon>
+                <S.GeustBookText>{item.content}</S.GeustBookText>
               </S.GuestBookBox>
             ) : (
               <></>
@@ -81,8 +246,8 @@ function GuestBook() {
           {data.map((item, index) => {
             return index % 2 == 1 ? (
               <S.GuestBookBox key={index * 2 + 1}>
-                <S.GeustBookIcon>🥹</S.GeustBookIcon>
-                <S.GeustBookText>{item}</S.GeustBookText>
+                <S.GeustBookIcon>{iconData[item.icon]}</S.GeustBookIcon>
+                <S.GeustBookText>{item.content}</S.GeustBookText>
               </S.GuestBookBox>
             ) : (
               <></>
@@ -94,25 +259,24 @@ function GuestBook() {
       <S.GuestBookInputWrapper>
         <S.GuestBookInputIconWrapper>
           <S.GuestBookInputIconSelector>
-            <S.GuestBookInputIconBox
-              onMouseDown={event => {
-                event.preventDefault();
-              }}
-              onClick={clickIcon}
-            ></S.GuestBookInputIconBox>
+            <S.GuestBookInputIconBox>
+              {iconData[currentIcon]}
+            </S.GuestBookInputIconBox>
           </S.GuestBookInputIconSelector>
 
           <S.GuestBookInputIconList ref={iconListRef}>
-            {iconData.map((item, index) => {
+            {iconList.map((name, index) => {
               return (
                 <S.GuestBookInputIconBox
                   onMouseDown={event => {
                     event.preventDefault();
                   }}
                   onClick={clickIcon}
+                  title={name}
                   key={index}
+                  $isActive={currentIcon == name}
                 >
-                  {item.icon}
+                  {iconData[name]}
                 </S.GuestBookInputIconBox>
               );
             })}

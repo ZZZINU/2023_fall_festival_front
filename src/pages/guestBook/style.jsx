@@ -53,15 +53,13 @@ export const GuestBookInputWrapper = styled.div`
   bottom: 0;
   display: flex;
 
-  border-radius: 2%;
-
-  width: calc(100% - 40px);
-  max-width: 380px;
+  width: 100%;
+  max-width: 420px;
 
   padding: 15px 20px;
 
   margin-top: 10px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   background-color: white;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 
@@ -108,8 +106,10 @@ export const GuestBookInputIconBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: yellow;
+  background-color: ${props => (props.$isActive ? "#e5e5e5" : "")};
   margin-right: 10px;
+
+  border-radius: 5px;
 
   cursor: pointer;
 `;
