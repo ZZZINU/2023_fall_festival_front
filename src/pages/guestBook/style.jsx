@@ -66,13 +66,17 @@ export const GuestBookInputWrapper = styled.div`
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 `;
 
+export const GuestBookInputIconWrapper = styled.div`
+  display: flex;
+`;
+
 export const GuestBookInput = styled.input`
   font-size: 14px;
   height: 20px;
 
   flex-grow: 1;
 
-  padding-right: 10px;
+  padding: 0 10px;
 
   color: ${props => props.theme.colors.fontBrown};
 
