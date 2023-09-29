@@ -77,11 +77,15 @@ export const TimeTableSection = ({
           실시간
         </S.TimeTableSubTxt>
         <S.TimeTableMainTxt>
-          {realtimeList[currentIndex].title}
+          {realtimeList.length !== 0
+            ? realtimeList[currentIndex].title
+            : "없음"}
         </S.TimeTableMainTxt>
         <S.TimeTableSubTxt2>
           <S.LocationIMG src={MiniLocation} alt="Logo" />
-          {realtimeList[currentIndex].place}
+          {realtimeList.length !== 0
+            ? realtimeList[currentIndex].place
+            : "없음"}
         </S.TimeTableSubTxt2>
       </S.TimeTableNav>
       <S.SubNav>

@@ -3,34 +3,39 @@ import styled from "styled-components";
 // TimeLineTop.jsx
 export const TimeLineTopLabel = styled.div`
   position: relative;
-  height: 8vh;
-  width: 45%;
+  font-family: Dongguk;
   display: flex;
-  align-items: start;
-  justify-content: space-around;
-  font-family: "Dongguk";
-  margin-top: 2vh;
+  gap: 30px;
+  margin: 10px 0 40px 0;
 `;
-export const TimeLineDate = styled.div`
-  position: relative;
+
+export const TimeDateBox = styled.div`
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  border: 1px solid #ffffff;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  transform: rotate(45deg);
   color: ${props => (props.isselected === "true" ? "#DD7480" : "#fff")};
-`;
-export const TimeLineDateIMG = styled.img`
-  position: absolute;
-`;
-export const TimeLineTxt = styled.div`
-  z-index: 1;
-  font-size: 0.8rem;
-`;
-export const TimeLineUnderLine = styled.hr`
-  border: 0.5px solid
-    ${props => (props.isselected === "true" ? "#DD7480" : "#fff")};
-  width: 70%;
-  margin: 2px auto;
-`;
+  background-color: ${props =>
+    (props.isselected=== "true" ? "#ffffff" : "#DD7480")};
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  `;
+export const TimeDateBoxText = styled.div`
+  transform: rotate(-45deg);
+  padding-bottom: 3px;
+  border-bottom: 1px solid
+  ${props => (props.isselected === "true" ? "#DD7480" : "#fff")};
+  `;
 
 // TimeTableSection.jsx
 export const TimeTableWrapper = styled.div`

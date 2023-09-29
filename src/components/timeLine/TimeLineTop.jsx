@@ -6,30 +6,23 @@ import borderBox from "../../assets/images/month_borderbox.png";
 export const TimeLineTop = ({ festivalDate, setFestivalDate }) => {
   return (
     <S.TimeLineTopLabel>
-      <S.TimeLineDate
+      <S.TimeDateBox
         isselected={festivalDate === 11 ? "true" : "false"}
         onClick={() => setFestivalDate(11)}
       >
-        <S.TimeLineDateIMG src={festivalDate === 11 ? SolidBox : borderBox} />
-        <S.TimeLineTxt>
+        <S.TimeDateBoxText isselected={festivalDate === 11 ? "true" : "false"}>
           11일
-          <S.TimeLineUnderLine
-            isselected={festivalDate === 11 ? "true" : "false"}
-          />
-        </S.TimeLineTxt>
-      </S.TimeLineDate>
-      <S.TimeLineDate
+        </S.TimeDateBoxText>
+      </S.TimeDateBox>
+
+      <S.TimeDateBox
         isselected={festivalDate === 12 ? "true" : "false"}
         onClick={() => setFestivalDate(12)}
       >
-        <S.TimeLineDateIMG src={festivalDate === 12 ? SolidBox : borderBox} />
-        <S.TimeLineTxt>
+        <S.TimeDateBoxText isselected={festivalDate === 12 ? "true" : "false"}>
           12일
-          <S.TimeLineUnderLine
-            isselected={festivalDate === 12 ? "true" : "false"}
-          />
-        </S.TimeLineTxt>
-      </S.TimeLineDate>
+        </S.TimeDateBoxText>
+      </S.TimeDateBox>
     </S.TimeLineTopLabel>
   );
 };
