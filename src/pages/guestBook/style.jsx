@@ -3,17 +3,11 @@ import GuestBook from "./GuestBook";
 
 export const GuestBookWrapper = styled.div`
   width: 100%;
-  height: calc(100vh - 60px);
 
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-`;
-
-export const GuestBookContentWrapper = styled.div`
-  flex-grow: 1;
-  overflow: scroll;
 `;
 
 export const GuestBookContent = styled.div`
@@ -55,6 +49,8 @@ export const GeustBookIcon = styled.div`
 `;
 
 export const GuestBookInputWrapper = styled.div`
+  position: fixed;
+  bottom: 0;
   display: flex;
 
   border-radius: 50px;
@@ -63,9 +59,15 @@ export const GuestBookInputWrapper = styled.div`
   max-width: 380px;
 
   padding: 15px 20px;
-  margin-bottom: 30px;
+
+  margin-top: 10px;
+  margin-bottom: 20px;
   background-color: white;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+`;
+
+export const GuestBookInputIconWrapper = styled.div`
+  display: flex;
 `;
 
 export const GuestBookInput = styled.input`
@@ -74,13 +76,21 @@ export const GuestBookInput = styled.input`
 
   flex-grow: 1;
 
-  padding-right: 10px;
+  padding: 0 10px;
 
   color: ${props => props.theme.colors.fontBrown};
 
   &::placeholder {
     color: ${props => props.theme.colors.primary1};
   }
+`;
+
+export const GuestBookInputIcon = styled.div`
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const GuestBookImg = styled.div`
