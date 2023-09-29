@@ -23,36 +23,37 @@ function GuestBook() {
   return (
     <S.GuestBookWrapper>
       <PageTitle mainTitle={"방명록"} subTitle={"축제의 기록을 남겨주세요"} />
-      <S.GuestBookContentWrapper>
-        <S.GuestBookContent>
-          <S.GuestBookContentBox style={{ marginRight: "5px" }}>
-            {data.map((item, index) => {
-              return index % 2 == 0 ? (
-                <S.GuestBookBox key={index}>
-                  <S.GeustBookIcon>🥹</S.GeustBookIcon>
-                  <S.GeustBookText>{item}</S.GeustBookText>
-                </S.GuestBookBox>
-              ) : (
-                <></>
-              );
-            })}
-          </S.GuestBookContentBox>
-          <S.GuestBookContentBox style={{ marginLeft: "5px" }}>
-            {data.map((item, index) => {
-              return index % 2 == 1 ? (
-                <S.GuestBookBox key={index}>
-                  <S.GeustBookIcon>🥹</S.GeustBookIcon>
-                  <S.GeustBookText>{item}</S.GeustBookText>
-                </S.GuestBookBox>
-              ) : (
-                <></>
-              );
-            })}
-          </S.GuestBookContentBox>
-        </S.GuestBookContent>
-      </S.GuestBookContentWrapper>
+
+      <S.GuestBookContent>
+        <S.GuestBookContentBox style={{ marginRight: "5px" }}>
+          {data.map((item, index) => {
+            return index % 2 == 0 ? (
+              <S.GuestBookBox key={index}>
+                <S.GeustBookIcon>🥹</S.GeustBookIcon>
+                <S.GeustBookText>{item}</S.GeustBookText>
+              </S.GuestBookBox>
+            ) : (
+              <></>
+            );
+          })}
+        </S.GuestBookContentBox>
+        <S.GuestBookContentBox style={{ marginLeft: "5px" }}>
+          {data.map((item, index) => {
+            return index % 2 == 1 ? (
+              <S.GuestBookBox key={index}>
+                <S.GeustBookIcon>🥹</S.GeustBookIcon>
+                <S.GeustBookText>{item}</S.GeustBookText>
+              </S.GuestBookBox>
+            ) : (
+              <></>
+            );
+          })}
+        </S.GuestBookContentBox>
+      </S.GuestBookContent>
 
       <S.GuestBookInputWrapper>
+        <img src="./guestBook/icon_select.png" />
+        <S.GuestBookInputIcon>🥹</S.GuestBookInputIcon>
         <S.GuestBookInput placeholder="방명록을 입력해주세요!(50자 이내)" />
         <S.GuestBookImg>
           <img src="./guestBook/icon_send.png" />
