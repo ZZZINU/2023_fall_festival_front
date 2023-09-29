@@ -8,6 +8,7 @@ import TimeLine from "./pages/timeLine/TimeLine";
 import Booth from "./pages/booth/Booth";
 import GuestBook from "./pages/guestBook/GuestBook";
 import BoothDetail from "./pages/booth/boothDetail/boothDetail";
+import Promotion from "./pages/promotion/Promotion";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "notice",
         element: <Notice />
+      },
+      {
+        path: "promotion",
+        element: <Promotion />
       },
       {
         path: "timeLine",
