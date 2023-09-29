@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import LocationImg from "../../../assets/images/booth_location.png";
+import { useNavigate } from "react-router-dom";
 
 export const BoothCard = ({ booth, topDistance }) => {
   const isCurrent = booth.isCurrent;
   const istopDistance = topDistance;
+  const navigate = useNavigate();
 
   return (
     <S.BoothWhiteBox
@@ -30,7 +32,7 @@ export const BoothCard = ({ booth, topDistance }) => {
         </S.BoothTxt>
       </S.BoothCardWrapper>
       {booth.isBooth && (
-        <S.BoothBtn isnow={isCurrent ? "true" : "false"}>부스 찾기</S.BoothBtn>
+        <S.BoothBtn onClick={()=>navigate("/booths")} isnow={isCurrent ? "true" : "false"}>부스 찾기</S.BoothBtn>
       )}
     </S.BoothWhiteBox>
   );

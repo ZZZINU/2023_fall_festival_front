@@ -8,7 +8,8 @@ import { PerfomanceCard } from "./boothCard/PerfomanceCard";
 export const TimeTableSection = ({
   boothData,
   PerfomanceData,
-  realtimeList
+  realtimeList,
+  currentTime
 }) => {
   // 부스 데이터 시간별 정리-----------------------------
   const boothdByTime = boothData.reduce((result, item) => {
@@ -51,8 +52,7 @@ export const TimeTableSection = ({
   }, []);
 
   // 시간 바에서 현재 위치 계산 -----------------------------
-  const currentTime = new Date(); // 현재 시간
-  const startTime = new Date("2023-09-29 12:00"); // TimeStroke 시작 시간
+  const startTime = new Date("2023-09-30 12:00"); // TimeStroke 시작 시간
   const timeDifference = currentTime - startTime;
 
   const elapsedMinutes = timeDifference / (1000 * 60); // 분 단위
@@ -60,7 +60,7 @@ export const TimeTableSection = ({
   let imagePosition = 0; // 이미지의 초기 위치 (12:00)
   if (elapsedMinutes >= 0 && elapsedMinutes <= 600) {
     // 12:00 이후부터 22:00 이전까지
-    imagePosition = `${(elapsedMinutes / (10 * 60)) * 100}%`;
+    imagePosition = `${(elapsedMinutes / (10 * 60)) * 100 - 3}%`;
   } else if (elapsedMinutes < 0) {
     // 12:00 이전
     imagePosition = 0;
