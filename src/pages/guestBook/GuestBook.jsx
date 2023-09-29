@@ -52,6 +52,12 @@ function GuestBook() {
       </S.GuestBookContent>
 
       <S.GuestBookInputWrapper>
+        <S.GuestBookInputIconList>
+          <S.GuestBookInputIconBox>😀</S.GuestBookInputIconBox>
+          <S.GuestBookInputIconBox>🥹</S.GuestBookInputIconBox>
+          <S.GuestBookInputIconBox>😎</S.GuestBookInputIconBox>
+          <S.GuestBookInputIconBox>🌞</S.GuestBookInputIconBox>
+        </S.GuestBookInputIconList>
         <S.GuestBookInputIconWrapper>
           <S.GuestBookInputIcon>🥹</S.GuestBookInputIcon>
           <img src="./guestBook/icon_select.png" />

@@ -93,6 +93,19 @@ export const GuestBookInputIcon = styled.div`
   align-items: center;
 `;
 
+export const GuestBookInputIconList = styled.div`
+  position: fixed;
+  bottom: 70px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const GuestBookInputIconBox = styled.div`
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+`;
+
 export const GuestBookImg = styled.div`
   width: 20px;
   height: 20px;
