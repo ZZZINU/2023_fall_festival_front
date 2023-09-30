@@ -8,24 +8,9 @@ import DGULikeLion from "../../assets/images/DGU_LikeLion.png";
 //component import
 import PageTitle from "../../components/common/pageTitle/PageTitle";
 import MainBanner from "../../components/Main/MainBanner";
-
-// 더미 데이터 배열 생성
-const dummyData = [
-  { id: 1, image: DGULikeLion },
-  { id: 2, image: DGULikeLion },
-  { id: 3, image: DGULikeLion },
-  { id: 4, image: DGULikeLion },
-  { id: 5, image: DGULikeLion } // DGULikeLion 이미지 추가
-];
+import TopBooth from "../../components/Main/TopBooth";
 
 function Main() {
-  // Pagination 컴포넌트를 커스터마이즈하여 위치를 조절합니다.
-  const customRenderBullet = (index, className) => {
-    return `<span class="${className}" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);">${
-      index + 1
-    }</span>`;
-  };
-
   return (
     <>
       <S.MainContainer>
@@ -55,6 +40,12 @@ function Main() {
           <PageTitle mainTitle={"홍보 배너"} />
           <MainBanner />
         </S.MainBanner>
+        <S.MainBoothGrade>
+          <PageTitle mainTitle={"실시간 부스 순위"} />
+          <S.Booth>
+            <TopBooth />
+          </S.Booth>
+        </S.MainBoothGrade>
       </S.MainContainer>
     </>
   );
