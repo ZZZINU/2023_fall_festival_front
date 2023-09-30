@@ -16,6 +16,12 @@ function Main() {
   return (
     <>
       <S.MainContainer>
+        <S.FloatingImagesContainer>
+          <S.FloatingImage src="/Main/main_ya.png" alt="Image 1" />
+          <S.FloatingImage src="/Main/main_dan.png" alt="Image 2" />
+          <S.FloatingImage src="/Main/main_beop.png" alt="Image 3" />
+          <S.FloatingImage src="/Main/main_seok.png" alt="Image 4" />
+        </S.FloatingImagesContainer>
         <S.MainBanner>
           <PageTitle mainTitle={"홍보 배너"} />
         </S.MainBanner>
