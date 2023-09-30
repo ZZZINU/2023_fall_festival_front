@@ -46,3 +46,26 @@ export const MainBanner = styled.div`
   position: relative;
   margin-top: 200%;
 `;
+
+export const MainBoothGrade = styled.div`
+  position: relative;
+  margin-top: 10%;
+`;
+
+//TopBooth의 스타일 컴포넌트
+
+export const BoothCardContainer = styled.div`
+  display: flex; /* 가로로 배치하기 위해 flexbox를 사용합니다. */
+  justify-content: space-between; /* 부스 카드 사이에 여백을 자동으로 생성합니다. */
+  align-items: center; /* 세로 방향 가운데 정렬합니다. */
+  width: 100%;
+  flex-direction: row;
+  flex: 1;
+`;
+
+export const Booth = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: initial;
+`;
