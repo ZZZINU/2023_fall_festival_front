@@ -6,13 +6,15 @@ function GuestBook() {
   const [isFetchData, setIsFetchData] = useState(false);
   const [isLoadData, setIsLoadData] = useState(true);
 
-  const [count, useCount] = useState(0);
+  const [count, setCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
+  const [dataLeft, setDataLeft] = useState([]);
+  const [dataRight, setDataRight] = useState([]);
   const fetchData = async () => {
     try {
       console.log("데이터 패치중...");
-
+      setCount(200);
       setIsFetchData(true);
     } catch (error) {
       console.log("처음 데이터를 로딩하는 중 오류 발생", error);
@@ -20,11 +22,19 @@ function GuestBook() {
   };
   //처음 로딩될때 초기값넣기
   useEffect(() => {
+    setDataLeft(dataLeft_response);
+    setDataRight(dataRight_response);
     fetchData();
   }, []);
 
   const loadData = async () => {
     try {
+      setIsLoadData(false);
+      const newDataLeft = dataLeft.concat(dataLeft_response);
+      const newDataRight = dataRight.concat(dataRight_response);
+      setDataLeft(newDataLeft);
+      setDataRight(newDataRight);
+      setIsLoadData(true);
     } catch (error) {
       console.log("추가 데이터를 로딩하는 중 오류 발생", error);
     }
@@ -38,7 +48,7 @@ function GuestBook() {
   const [contentListRight_Height, setContentListRight_Height] = useState(0);
 
   function onScroll() {
-    console.log(contentListLeft_Height, contentListRight_Height);
+    console.log("height", contentListLeft_Height, contentListRight_Height);
     setPosition(window.scrollY);
   }
 
@@ -48,8 +58,22 @@ function GuestBook() {
   }, [isFetchData]);
 
   useEffect(() => {
-    console.log("Position", position);
+    console.log("Position", position, position + window.innerHeight);
+    console.log("height", contentListLeft_Height, contentListRight_Height);
+    if (isLoadData && position != 0 && count / 20 > currentPage) {
+      if (
+        position + window.innerHeight > contentListLeft_Height ||
+        position + window.innerHeight > contentListRight_Height
+      ) {
+        setCurrentPage(currentPage + 1);
+      }
+    }
   }, [position]);
+
+  useEffect(() => {
+    loadData();
+  }, [currentPage]);
+
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
     return () => {
@@ -57,33 +81,7 @@ function GuestBook() {
     };
   }, []);
 
-  const dataRight = [
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "fire",
-      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "hip",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재아~~~~~~언제끝나 미친~~~!~!밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "festival",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
+  const dataLeft_response = [
     {
       icon: "heart",
       content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
@@ -106,96 +104,9 @@ function GuestBook() {
       content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
     },
     {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "festival",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "hip",
-      content: "축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "festival",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "festival",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "fire",
-      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
       icon: "heart",
       content:
-        "축제정말재요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
     },
 
     {
@@ -205,38 +116,26 @@ function GuestBook() {
     {
       icon: "fire",
       content:
-        "축제정ㅎ축제정말재요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "fire",
-      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
+        "축제정ㅎ축제정말재밌요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요네요ㅎㅎ"
     },
     {
       icon: "heart",
+      content:
+        "축제정말재밌네요ㅎㅎ축추석인요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요데제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "festival",
       content:
         "축제정말재밌네요ㅎㅎ축추석인요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요데제정말재밌네요ㅎㅎ"
     }
   ];
-  const dataLeft = [
-    {
-      icon: "hip",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재아~~~~~~언제끝나 미친~~~!~!밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "festival",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
+
+  const dataRight_response = [
     {
       icon: "heart",
       content:
@@ -282,151 +181,6 @@ function GuestBook() {
     {
       icon: "heart",
       content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "festival",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "hip",
-      content: "축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "festival",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "festival",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "fire",
-      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content:
-        "축제정말재요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "fire",
-      content:
-        "축제정ㅎ축제정말재요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "fire",
-      content:
-        "축제정ㅎ축제정말재밌요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content:
-        "축제정말재밌네요ㅎㅎ축추석인요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요데제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "fire",
-      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content:
-        "축제정말재밌네요ㅎㅎ축추석인요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요데제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "fire",
-      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
     }
   ];
   //현재 선택된 아이콘
@@ -555,6 +309,8 @@ function GuestBook() {
           </S.GuestBookImg>
         </div>
       </S.GuestBookInputWrapper>
+      {isLoadData ? <></> : <div>로딩중</div>}
+      <div style={{ height: "70px" }}></div>
     </S.GuestBookWrapper>
   );
 }
