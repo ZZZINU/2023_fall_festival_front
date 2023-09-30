@@ -202,6 +202,10 @@ export const MySwiper = styled(Swiper)`
     height: 10px;
     margin: 0 5px;
   }
+
+  .swiper-pagination {
+    position: absolute;
+  }
 `;
 
 export const SwiperSlideImg = styled.img``;
