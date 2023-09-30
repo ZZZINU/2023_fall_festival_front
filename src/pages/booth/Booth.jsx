@@ -10,19 +10,34 @@ import MapImg from "../../assets/images/map.png";
 
 function Booth() {
   const [selectedDate11, setSelectedDate11] = useState(true);
+
+  // 날짜 11 | 12
+  const [date, setDate] = useState(11);
+  // 건물명 사회과학관 | 혜화관 | 팔정도 | 원흥관 | 만해광장 | 학생회관 | 학림관
   const [markerStates, setMarkerStates] = useState("");
   // 전체 | 주간 | 야간 => 디폴트는 전체
   const [dayOrNight, setDayOrNight] = useState("전체부스");
   // 데이터
   const [data, setData] = useState([]);
+
   // 날짜 클릭
   const handleDateClick = bool => {
     setSelectedDate11(bool);
+    if (bool) {
+      setDate(11);
+    } else {
+      setDate(12);
+    }
   };
 
   // 각 마커 클릭
   const handleMarkerClick = markerName => {
     setMarkerStates(markerName);
+  };
+
+  // 새로 고침
+  const handleRefreshClick = () => {
+    setMarkerStates("");
   };
 
   useEffect(() => {
@@ -59,7 +74,21 @@ function Booth() {
   }, []);
 
   // API 연결
-  const fetchData = async () => {};
+  const fetchData = async () => {
+    try {
+      const response = await API.get(
+        `/booths?date=${date}&location=${markerStates}&type=${dayOrNight}`
+      );
+      setData(response.data);
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+  };
+
+  // 초기
+  useEffect(() => {
+    fetchData();
+  }, [selectedDate11, markerStates, dayOrNight]);
 
   return (
     <>
@@ -71,7 +100,9 @@ function Booth() {
       <S.MapWrap>
         <S.MapBox>
           <S.MapImg src={MapImg} alt="맵 이미지" />
-          <S.MapBoxContent>핀을 눌러 정보를 확인하세요!</S.MapBoxContent>
+          <S.MapBoxContent onClick={handleRefreshClick}>
+            {markerStates ? "새로고침 ↺" : "핀을 눌러 정보를 확인하세요!"}
+          </S.MapBoxContent>
 
           {/* 사회과학관 */}
           <Marker
