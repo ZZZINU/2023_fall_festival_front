@@ -31,6 +31,7 @@ export const MapBoxContent = styled.div`
   font-weight: 400;
   line-height: normal;
   margin-top: 15px;
+  cursor: pointer;
 `;
 
 // 부스 카테고리

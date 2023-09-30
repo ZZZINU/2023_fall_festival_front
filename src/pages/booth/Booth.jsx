@@ -25,6 +25,11 @@ function Booth() {
     setMarkerStates(markerName);
   };
 
+  // 새로 고침
+  const handleRefreshClick = () => {
+    setMarkerStates("");
+  };
+
   useEffect(() => {
     const contentData = [
       {
@@ -71,7 +76,9 @@ function Booth() {
       <S.MapWrap>
         <S.MapBox>
           <S.MapImg src={MapImg} alt="맵 이미지" />
-          <S.MapBoxContent>핀을 눌러 정보를 확인하세요!</S.MapBoxContent>
+          <S.MapBoxContent onClick={handleRefreshClick}>
+            {markerStates ? "새로고침 ↺" : "핀을 눌러 정보를 확인하세요!"}
+          </S.MapBoxContent>
 
           {/* 사회과학관 */}
           <Marker
