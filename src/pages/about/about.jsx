@@ -1,9 +1,9 @@
-// about.jsx
+// About.jsx
 
 import React, { useEffect } from "react";
 import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
-import Snow from "./snow";
+import Snow from "./Snow";
 
 const About = () => {
   return (

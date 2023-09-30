@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled, keyframes } from "styled-components";
 
 export const MainContainer = styled.div`
   background-image: url("/Main/main_bgimg.png");
@@ -20,26 +20,25 @@ export const FloatingImagesContainer = styled.div`
 `;
 
 export const FloatingImage = styled.img`
-  width: 120px;
+  width: 130px;
   height: auto;
-  animation: floating 4s infinite; /* 애니메이션 지속 시간 늘림 */
-  transition: transform 0.3s ease-in-out;
+  animation: floating 10s infinite; /* 애니메이션 지속 시간 늘림 */
+  transition: transform 1s ease-in-out;
 
   @keyframes floating {
     0%,
     100% {
-      transform: translateY(0);
+      transform: translateY(0) translateX(0); /* 좌우, 대각선으로 이동 */
     }
     25% {
-      transform: translateY(-20px);
+      transform: translateY(-10px) translateX(-10px);
+    }
+    50% {
+      transform: translateY(10px) translateX(-10px);
     }
     75% {
-      transform: translateY(20px);
+      transform: translateY(-10px) translateX(10px);
     }
-  }
-
-  &:hover {
-    transform: translateY(-20px);
   }
 `;
 
