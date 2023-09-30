@@ -6,23 +6,6 @@ import { TimeTableSection } from "../../components/timeLine/TimeTableSection";
 import { LineUp } from "../../components/timeLine/LineUp";
 
 function TimeLine() {
-  // 시간 감지 State --------------------------------------------
-  const [festivalDate, setFestivalDate] = useState(11); // 선택 날짜가 11일이면 11, 12일이면 12
-  // const [currentTime, setCurrentTime] = useState(new Date("2023-09-29 14:30"));
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  const updateTime = () => {
-    setCurrentTime(new Date());
-  };
-
-  useEffect(() => {
-    const intervalId = setInterval(updateTime, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
   // 부스/공연 데이터 --------------------------------------------
   const boothData = [
     {
@@ -30,7 +13,6 @@ function TimeLine() {
       title: "푸드 트럭",
       place: "만해광장",
       devide: "푸드",
-      img: "",
       isBooth: false,
       date: "2023-10-11",
       starttime: "12:00",
@@ -41,7 +23,6 @@ function TimeLine() {
       title: "주간 부스",
       place: "팔정도 외",
       devide: "부스",
-      img: "",
       isBooth: true,
       date: "2023-10-11",
       starttime: "12:00",
@@ -52,7 +33,6 @@ function TimeLine() {
       title: "야시장",
       place: "만해광장",
       devide: "푸드",
-      img: "",
       isBooth: false,
       date: "2023-10-11",
       starttime: "18:00",
@@ -60,15 +40,14 @@ function TimeLine() {
     },
     {
       id: 4,
-      title: "야간 부스장",
+      title: "야간 부스",
       place: "팔정도 외",
       devide: "부스",
-      img: "",
       isBooth: true,
       date: "2023-10-11",
       starttime: "18:00",
       endtime: "22:00"
-    }
+    },
   ];
   const PerfomanceData = [
     {
@@ -88,16 +67,34 @@ function TimeLine() {
       devide: "페스티벌",
       starttime: "18:00",
       endtime: "21:00"
-    }
+    },
   ];
+
+  // 시간 감지 State --------------------------------------------
+  const [festivalDate, setFestivalDate] = useState(11); // 선택 날짜가 11일이면 11, 12일이면 12
+  // const [currentTime, setCurrentTime] = useState(new Date("2023-10-11 16:00"));
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  const updateTime = () => {
+    setCurrentTime(new Date());
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(updateTime, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
 
   // 현재 시간과 공연 시간 비교--------------------------------------------
   const boothDataWithCurrentFlag = boothData.map(item => {
-    const startTime = new Date(`2023-09-30 ${item.starttime}`);
-    const endTime = new Date(`2023-09-30 ${item.endtime}`);
-    // const startTime = new Date(`2023-10-11 ${item.starttime}`);
-    // const endTime = new Date(`2023-10-11 ${item.endtime}`);
-    const isCurrent = currentTime >= startTime && currentTime <= endTime;
+    // const startTime = new Date(`2023-09-30 ${item.starttime}`);
+    // const endTime = new Date(`2023-09-30 ${item.endtime}`);
+    const startTime = new Date(`2023-10-11 ${item.starttime}`);
+    const endTime = new Date(`2023-10-11 ${item.endtime}`);
+    const isCurrent = currentTime >= startTime && currentTime < endTime;
     return {
       ...item,
       isCurrent: isCurrent
@@ -105,11 +102,11 @@ function TimeLine() {
   });
 
   const PerfomanceDataWithCurrentFlag = PerfomanceData.map(item => {
-    const startTime = new Date(`2023-09-30 ${item.starttime}`);
-    const endTime = new Date(`2023-09-30 ${item.endtime}`);
-    // const startTime = new Date(`2023-10-11 ${item.starttime}`);
-    // const endTime = new Date(`2023-10-11 ${item.endtime}`);
-    const isCurrent = currentTime >= startTime && currentTime <= endTime;
+    // const startTime = new Date(`2023-09-30 ${item.starttime}`);
+    // const endTime = new Date(`2023-09-30 ${item.endtime}`);
+    const startTime = new Date(`2023-10-11 ${item.starttime}`);
+    const endTime = new Date(`2023-10-11 ${item.endtime}`);
+    const isCurrent = currentTime >= startTime && currentTime < endTime;
 
     return {
       ...item,
@@ -117,7 +114,6 @@ function TimeLine() {
     };
   });
 
-  // 현재 시간과 공연 시간 비교--------------------------------------------
   const filteredBoothData = boothDataWithCurrentFlag.filter(
     item => item.isCurrent
   );
@@ -138,6 +134,7 @@ function TimeLine() {
         boothData={boothDataWithCurrentFlag}
         PerfomanceData={PerfomanceDataWithCurrentFlag}
         currentTime={currentTime}
+        festivalDate={festivalDate}
       />
       <PageTitle mainTitle="라인업" />
       <LineUp festivalDate={festivalDate} />

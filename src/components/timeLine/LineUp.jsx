@@ -22,21 +22,19 @@ export const LineUp = ({ festivalDate }) => {
       name: "박명수",
       time: "18:00 ~ 20:00",
       img: "/timetable/박명수.jpg"
-    },
-    {
-      engname: "Day Break",
-      name: "데이브레이크",
-      time: "18:00 ~ 20:00",
-      img: "/timetable/데이브레이크.PNG"
     }
   ];
 
   return (
-    <S.LineUpWrapper>
+    <S.LineUpWrapper isheight={festivalDate == 11 ? "640px":"400px" }>
       <S.BgImg1 src="/timetable/bgImg1.png" alt="img" />
       <S.BgImg2 src="/timetable/bgImg2.png" alt="img" />
-      <S.BgImg3 src="/timetable/bgImg2.png" alt="img" />
-      <S.BgImg4 src="/timetable/bgImg3.png" alt="img" />
+      {festivalDate == 11 && (
+        <>
+          <S.BgImg3 src="/timetable/bgImg2.png" alt="img" />
+          <S.BgImg4 src="/timetable/bgImg3.png" alt="img" />
+        </>
+      )}
 
       <S.LineUpdate>10월 {festivalDate}일</S.LineUpdate>
       <S.MarginLabel>
@@ -57,24 +55,16 @@ export const LineUp = ({ festivalDate }) => {
             </S.ShowTime>
           </S.LineUpList>
         </S.LineUpContainer>
-
-        <S.LineUpContainer>
-          <S.LineUpList>
-            <S.EngName>
-              {festivalDate == 11 ? firstDay[1].engname : secondDay[1].engname}
-            </S.EngName>
-            <div>
-              {festivalDate == 11 ? firstDay[1].name : secondDay[1].name}
-            </div>
-            <S.ShowTime>
-              {festivalDate == 11 ? firstDay[1].time : secondDay[1].time}
-            </S.ShowTime>
-          </S.LineUpList>
-          <S.LineUpImg
-            src={festivalDate == 11 ? firstDay[1].img : secondDay[1].img}
-            alt="img"
-          />
-        </S.LineUpContainer>
+        {festivalDate == 11 && (
+          <S.LineUpContainer>
+            <S.LineUpList>
+              <S.EngName>{firstDay[1].engname}</S.EngName>
+              <div>{firstDay[1].name}</div>
+              <S.ShowTime>{firstDay[1].time}</S.ShowTime>
+            </S.LineUpList>
+            <S.LineUpImg src={firstDay[1].img} alt="img" />
+          </S.LineUpContainer>
+        )}
       </S.MarginLabel>
     </S.LineUpWrapper>
   );
