@@ -39,6 +39,9 @@ function BoothDetail() {
   // 모달 ON/OFF
   const [showModal, setShowModal] = useState(false);
 
+  // 좋아요
+  const [isLikeClick, setIsLikeClick] = useState(false);
+
   // 좋아요 상태를 나타내는 상태 (임시)
   const [isLiked, setIsLiked] = useState(false);
 
@@ -63,18 +66,15 @@ function BoothDetail() {
       try {
         const contentData = {
           name: "산공산공공산공",
-          thumbnail: "../../../../public/booth/temp.png",
-          images: [
-            "../../../../public/booth/booth.png",
-            "../../../../public/booth/booth.png",
-            "../../../../public/booth/booth.png"
-          ],
+          thumbnail: "/booth/temp.png",
+          images: ["/booth/booth.png", "/booth/booth.png", "/booth/booth.png"],
           type: "주간부스",
           is_liked: false,
           like_cnt: 123,
           during: "2023.09.30 06:00~18:00",
           location: "사회과학관",
-          description: "하이 산시"
+          description: "하이 산시",
+          insta_url: "https://www.instagram.com/donggukstuco/"
         };
         setData(contentData);
       } catch (error) {
@@ -84,6 +84,32 @@ function BoothDetail() {
     fetchData();
   }, []);
 
+  /** 
+  const handleHeartClick = async () => {
+    const id = router.query.id;
+    if (data.is_liked) {
+      try {
+        // axios요청 보내기
+        const response = await API.delete(`/booths/${id}/likes`);
+        if (response.status === 200) {
+          setIsLikeClick(i => !i);
+        }
+      } catch (error) {}
+    } else {
+      try {
+        const response = await API.post(`/booths/${id}/likes`);
+        if (response.status === 200) {
+          setIsLikeClick(i => !i);
+        }
+      } catch (error) {}
+    }
+  };
+
+  // 좋아요 누르면
+  useEffect(() => {
+    fetchData();
+  }, [isLikeClick]);
+*/
   return (
     <>
       <S.BoothDetailWrap>
@@ -132,9 +158,9 @@ function BoothDetail() {
           </S.BoothDetailHeartWrap>
 
           <S.BoothDetailSNSWrap>
-            <S.BoothDetailSNS>
+            <S.BoothDetailSNSLink to={data.insta_url} target="_blank">
               <S.BoothDetailImg src={InstaImg} alt="인스타 이미지" />
-            </S.BoothDetailSNS>
+            </S.BoothDetailSNSLink>
             <S.BoothDetailSNS onClick={handleCopyLink}>
               <S.BoothDetailImg src={ShareImg} alt="공유 이미지" />
             </S.BoothDetailSNS>
