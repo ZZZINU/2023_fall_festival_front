@@ -88,9 +88,7 @@ function Booth() {
   // 초기
   useEffect(() => {
     fetchData();
-    console.log("데이터 변경" + date + markerStates + dayOrNight);
   }, [selectedDate11, markerStates, dayOrNight]);
-  console.log(date);
 
   return (
     <>
