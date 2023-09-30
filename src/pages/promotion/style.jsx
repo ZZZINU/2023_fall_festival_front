@@ -35,7 +35,7 @@ export const CategoryWarp = styled.div`
   gap: 13px;
 `;
 
-export const NoticeCategory = styled.div`
+export const PromotionCategory = styled.div`
   color: ${props => props.color};
   border-bottom: 2px solid ${props => props.borderbottom};
   padding-bottom: 3px;
