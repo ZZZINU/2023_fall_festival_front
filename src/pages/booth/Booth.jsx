@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
-import DateSelector from "../../components/common/dateSelector/dateSelector";
+import DateSelector from "../../components/common/dateSelector/DateSelector";
 import Marker from "../../components/common/booth/marker/Marker";
-import BoothCard from "../../components/common/booth/boothcard/BoothCard";
+import BoothCard from "../../components/common/booth/boothCard/BoothCard";
 
 // 이미지
 import MapImg from "../../assets/images/map.png";
