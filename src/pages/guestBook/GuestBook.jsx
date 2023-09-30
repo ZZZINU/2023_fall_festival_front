@@ -3,7 +3,69 @@ import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
 
 function GuestBook() {
-  const data = [
+  const [isFetchData, setIsFetchData] = useState(false);
+  const [isLoadData, setIsLoadData] = useState(true);
+
+  const [count, useCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const fetchData = async () => {
+    try {
+      console.log("데이터 패치중...");
+
+      setIsFetchData(true);
+    } catch (error) {
+      console.log("처음 데이터를 로딩하는 중 오류 발생", error);
+    }
+  };
+  //처음 로딩될때 초기값넣기
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const loadData = async () => {
+    try {
+    } catch (error) {
+      console.log("추가 데이터를 로딩하는 중 오류 발생", error);
+    }
+  };
+
+  const [position, setPosition] = useState(0);
+  const contentListLeft_Ref = useRef();
+  const contentListRight_Ref = useRef();
+
+  const [contentListLeft_Height, setContentListLeft_Height] = useState(0);
+  const [contentListRight_Height, setContentListRight_Height] = useState(0);
+
+  function onScroll() {
+    console.log(contentListLeft_Height, contentListRight_Height);
+    setPosition(window.scrollY);
+  }
+
+  useEffect(() => {
+    setContentListLeft_Height(contentListLeft_Ref.current?.offsetHeight);
+    setContentListRight_Height(contentListRight_Ref.current?.offsetHeight);
+  }, [isFetchData]);
+
+  useEffect(() => {
+    console.log("Position", position);
+  }, [position]);
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  const dataRight = [
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "fire",
+      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
+    },
     {
       icon: "hip",
       content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
@@ -20,6 +82,184 @@ function GuestBook() {
     },
     {
       icon: "festival",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "festival",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "festival",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "hip",
+      content: "축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "festival",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "festival",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "fire",
+      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content:
+        "축제정말재요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "fire",
+      content:
+        "축제정ㅎ축제정말재요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "fire",
+      content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content:
+        "축제정말재밌네요ㅎㅎ축추석인요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요데제정말재밌네요ㅎㅎ"
+    }
+  ];
+  const dataLeft = [
+    {
+      icon: "hip",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재아~~~~~~언제끝나 미친~~~!~!밌네요ㅎㅎ"
+    },
+    {
+      icon: "cry",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "festival",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content:
+        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
+      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
+    },
+    {
+      icon: "fire",
+      content:
+        "축제정ㅎ축제정말재밌요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요네요ㅎㅎ"
+    },
+    {
+      icon: "heart",
+      content:
+        "축제정말재밌네요ㅎㅎ축추석인요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요데제정말재밌네요ㅎㅎ"
+    },
+
+    {
+      icon: "cry",
       content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
     },
     {
@@ -235,30 +475,40 @@ function GuestBook() {
       <PageTitle mainTitle={"방명록"} subTitle={"축제의 기록을 남겨주세요"} />
 
       <S.GuestBookContent>
-        <S.GuestBookContentBox key={1} style={{ marginRight: "5px" }}>
-          {data.map((item, index) => {
-            return index % 2 == 0 ? (
-              <S.GuestBookBox key={index * 2}>
-                <S.GeustBookIcon>{iconData[item.icon]}</S.GeustBookIcon>
-                <S.GeustBookText>{item.content}</S.GeustBookText>
-              </S.GuestBookBox>
-            ) : (
-              <></>
-            );
-          })}
+        <S.GuestBookContentBox
+          style={{ marginRight: "5px" }}
+          ref={contentListLeft_Ref}
+        >
+          {isFetchData ? (
+            dataLeft.map((item, index) => {
+              return (
+                <S.GuestBookBox key={index}>
+                  <S.GeustBookIcon>{iconData[item.icon]}</S.GeustBookIcon>
+                  <S.GeustBookText>{item.content}</S.GeustBookText>
+                </S.GuestBookBox>
+              );
+            })
+          ) : (
+            <div>로딩중</div>
+          )}
         </S.GuestBookContentBox>
 
-        <S.GuestBookContentBox key={2} style={{ marginLeft: "5px" }}>
-          {data.map((item, index) => {
-            return index % 2 == 1 ? (
-              <S.GuestBookBox key={index * 2 + 1}>
-                <S.GeustBookIcon>{iconData[item.icon]}</S.GeustBookIcon>
-                <S.GeustBookText>{item.content}</S.GeustBookText>
-              </S.GuestBookBox>
-            ) : (
-              <></>
-            );
-          })}
+        <S.GuestBookContentBox
+          style={{ marginLeft: "5px" }}
+          ref={contentListRight_Ref}
+        >
+          {isFetchData ? (
+            dataRight.map((item, index) => {
+              return (
+                <S.GuestBookBox key={index}>
+                  <S.GeustBookIcon>{iconData[item.icon]}</S.GeustBookIcon>
+                  <S.GeustBookText>{item.content}</S.GeustBookText>
+                </S.GuestBookBox>
+              );
+            })
+          ) : (
+            <div>로딩중</div>
+          )}
         </S.GuestBookContentBox>
       </S.GuestBookContent>
 
