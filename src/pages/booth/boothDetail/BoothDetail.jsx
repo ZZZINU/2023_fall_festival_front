@@ -42,6 +42,14 @@ function BoothDetail() {
   // 좋아요
   const [isLikeClick, setIsLikeClick] = useState(false);
 
+  // 좋아요 상태를 나타내는 상태 (임시)
+  const [isLiked, setIsLiked] = useState(false);
+
+  // 좋아요 버튼 클릭 시 상태 토글 (임시)
+  const handleLikeClick = () => {
+    setIsLiked(!isLiked);
+  };
+
   // 링크복사
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -76,6 +84,7 @@ function BoothDetail() {
     fetchData();
   }, []);
 
+  /** 
   const handleHeartClick = async () => {
     const id = router.query.id;
     if (data.is_liked) {
@@ -100,7 +109,7 @@ function BoothDetail() {
   useEffect(() => {
     fetchData();
   }, [isLikeClick]);
-
+*/
   return (
     <>
       <S.BoothDetailWrap>
@@ -136,7 +145,7 @@ function BoothDetail() {
         <S.BoothDetailFunctionWrap>
           {/* 하트 */}
           <S.BoothDetailHeartWrap
-            onClick={handleHeartClick}
+            onClick={handleLikeClick}
             background={data.is_liked ? "#E0747B;" : "#fff"}
           >
             <S.BoothDetailHeart
