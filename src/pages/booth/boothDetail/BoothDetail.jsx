@@ -63,18 +63,15 @@ function BoothDetail() {
       try {
         const contentData = {
           name: "산공산공공산공",
-          thumbnail: "../../../../public/booth/temp.png",
-          images: [
-            "../../../../public/booth/booth.png",
-            "../../../../public/booth/booth.png",
-            "../../../../public/booth/booth.png"
-          ],
+          thumbnail: "/booth/temp.png",
+          images: ["/booth/booth.png", "/booth/booth.png", "/booth/booth.png"],
           type: "주간부스",
           is_liked: false,
           like_cnt: 123,
           during: "2023.09.30 06:00~18:00",
           location: "사회과학관",
-          description: "하이 산시"
+          description: "하이 산시",
+          insta_url: "https://www.instagram.com/donggukstuco/"
         };
         setData(contentData);
       } catch (error) {
@@ -132,9 +129,9 @@ function BoothDetail() {
           </S.BoothDetailHeartWrap>
 
           <S.BoothDetailSNSWrap>
-            <S.BoothDetailSNS>
+            <S.BoothDetailSNSLink to={data.insta_url}>
               <S.BoothDetailImg src={InstaImg} alt="인스타 이미지" />
-            </S.BoothDetailSNS>
+            </S.BoothDetailSNSLink>
             <S.BoothDetailSNS onClick={handleCopyLink}>
               <S.BoothDetailImg src={ShareImg} alt="공유 이미지" />
             </S.BoothDetailSNS>
