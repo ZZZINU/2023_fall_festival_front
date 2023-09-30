@@ -39,13 +39,8 @@ function BoothDetail() {
   // 모달 ON/OFF
   const [showModal, setShowModal] = useState(false);
 
-  // 좋아요 상태를 나타내는 상태 (임시)
-  const [isLiked, setIsLiked] = useState(false);
-
-  // 좋아요 버튼 클릭 시 상태 토글 (임시)
-  const handleLikeClick = () => {
-    setIsLiked(!isLiked);
-  };
+  // 좋아요
+  const [isLikeClick, setIsLikeClick] = useState(false);
 
   // 링크복사
   const handleCopyLink = () => {
@@ -80,6 +75,31 @@ function BoothDetail() {
     };
     fetchData();
   }, []);
+
+  const handleHeartClick = async () => {
+    const id = router.query.id;
+    if (data.is_liked) {
+      try {
+        // axios요청 보내기
+        const response = await API.delete(`/booths/${id}/likes`);
+        if (response.status === 200) {
+          setIsLikeClick(i => !i);
+        }
+      } catch (error) {}
+    } else {
+      try {
+        const response = await API.post(`/booths/${id}/likes`);
+        if (response.status === 200) {
+          setIsLikeClick(i => !i);
+        }
+      } catch (error) {}
+    }
+  };
+
+  // 좋아요 누르면
+  useEffect(() => {
+    fetchData();
+  }, [isLikeClick]);
 
   return (
     <>
@@ -116,7 +136,7 @@ function BoothDetail() {
         <S.BoothDetailFunctionWrap>
           {/* 하트 */}
           <S.BoothDetailHeartWrap
-            onClick={handleLikeClick}
+            onClick={handleHeartClick}
             background={data.is_liked ? "#E0747B;" : "#fff"}
           >
             <S.BoothDetailHeart
