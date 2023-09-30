@@ -7,8 +7,9 @@ import Notice from "./pages/notice/Notice";
 import TimeLine from "./pages/timeLine/TimeLine";
 import Booth from "./pages/booth/Booth";
 import GuestBook from "./pages/guestBook/GuestBook";
-import BoothDetail from "./pages/booth/boothDetail/boothDetail";
+import BoothDetail from "./pages/booth/boothDetail/BoothDetail";
 import Promotion from "./pages/promotion/Promotion";
+
 
 const router = createBrowserRouter([
   {
