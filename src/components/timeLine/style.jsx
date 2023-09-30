@@ -182,7 +182,8 @@ export const PerformTimeSection = styled(BoothTimeSection)`
 export const LineUpWrapper = styled.div`
   position: relative;
   width: 90%;
-  min-height: 640px;
+  height: ${props => (props.isheight)};
+  /* min-height: 640px; */
   padding: 30px 10px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
@@ -193,14 +194,14 @@ export const BgImg1 = styled.img`
   object-fit: contain;
 `;
 export const BgImg2 = styled(BgImg1)`
-  top: 45%;
+  top: 280px;
 `;
 export const BgImg3 = styled(BgImg1)`
-  top: 50%;
+  top: 340px;
   right: 5%;
 `;
 export const BgImg4 = styled(BgImg1)`
-  top: 40%;
+  top: 260px;
   left: 40%;
 `;
 export const LineUpdate = styled.div`
