@@ -1,0 +1,55 @@
+From 28ccc18286edf033d8f965e54e54f74b3e75556b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?=EC=8B=AC=EC=84=9C=ED=98=84?=
+ <simseohyun@simseohyeon-ui-MacBookAir.local>
+Date: Sat, 30 Sep 2023 01:27:19 +0900
+Subject: [PATCH] :sparkles: Feat: Icon Selector
+
+---
+ src/pages/guestBook/GuestBook.jsx |  6 ++++++
+ src/pages/guestBook/style.jsx     | 13 +++++++++++++
+ 2 files changed, 19 insertions(+)
+
+diff --git a/src/pages/guestBook/GuestBook.jsx b/src/pages/guestBook/GuestBook.jsx
+index 13bffb1..73f31be 100644
+--- a/src/pages/guestBook/GuestBook.jsx
++++ b/src/pages/guestBook/GuestBook.jsx
+@@ -52,6 +52,12 @@ function GuestBook() {
+       </S.GuestBookContent>
+ 
+       <S.GuestBookInputWrapper>
++        <S.GuestBookInputIconList>
++          <S.GuestBookInputIconBox>😀</S.GuestBookInputIconBox>
++          <S.GuestBookInputIconBox>🥹</S.GuestBookInputIconBox>
++          <S.GuestBookInputIconBox>😎</S.GuestBookInputIconBox>
++          <S.GuestBookInputIconBox>🌞</S.GuestBookInputIconBox>
++        </S.GuestBookInputIconList>
+         <S.GuestBookInputIconWrapper>
+           <S.GuestBookInputIcon>🥹</S.GuestBookInputIcon>
+           <img src="./guestBook/icon_select.png" />
+diff --git a/src/pages/guestBook/style.jsx b/src/pages/guestBook/style.jsx
+index 117e77c..ae44f62 100644
+--- a/src/pages/guestBook/style.jsx
++++ b/src/pages/guestBook/style.jsx
+@@ -93,6 +93,19 @@ export const GuestBookInputIcon = styled.div`
+   align-items: center;
+ `;
+ 
++export const GuestBookInputIconList = styled.div`
++  position: fixed;
++  bottom: 70px;
++  display: flex;
++  flex-direction: column;
++`;
++
++export const GuestBookInputIconBox = styled.div`
++  width: 16px;
++  height: 16px;
++  font-size: 16px;
++`;
++
+ export const GuestBookImg = styled.div`
+   width: 20px;
+   height: 20px;
+-- 
+2.39.2 (Apple Git-143)
+

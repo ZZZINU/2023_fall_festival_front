@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
-import DateSelector from "../../components/common/dateSelector/dateSelector";
+import DateSelector from "../../components/common/dateSelector/DateSelector";
 import Marker from "../../components/common/booth/marker/Marker";
-import BoothCard from "../../components/common/booth/boothcard/BoothCard";
+import BoothCard from "../../components/common/booth/boothCard/BoothCard";
 
 // 이미지
 import MapImg from "../../assets/images/map.png";
@@ -154,7 +154,7 @@ function Booth() {
 
       <S.BoothCategryWrap>
         <S.BoothCategry
-          dayOrNight={dayOrNight}
+          dayornight={dayOrNight}
           onClick={() => setDayOrNight("전체부스")}
           color={dayOrNight === "전체부스" ? "#FFF" : "#ffb2b2"}
           borderbottom={dayOrNight === "전체부스" ? "#FFF" : "none"}
@@ -162,7 +162,7 @@ function Booth() {
           전체부스
         </S.BoothCategry>
         <S.BoothCategry
-          dayOrNight={dayOrNight}
+          dayornight={dayOrNight}
           onClick={() => setDayOrNight("주간부스")}
           color={dayOrNight === "주간부스" ? "#FFF" : "#ffb2b2"}
           borderbottom={dayOrNight === "주간부스" ? "#FFF" : "none"}
@@ -170,7 +170,7 @@ function Booth() {
           주간부스
         </S.BoothCategry>
         <S.BoothCategry
-          dayOrNight={dayOrNight}
+          dayornight={dayOrNight}
           onClick={() => setDayOrNight("야간부스")}
           color={dayOrNight === "야간부스" ? "#FFF" : "#ffb2b2"}
           borderbottom={dayOrNight === "야간부스" ? "#FFF" : "none"}
