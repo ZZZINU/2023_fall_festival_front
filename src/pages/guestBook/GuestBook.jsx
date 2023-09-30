@@ -189,7 +189,10 @@ function GuestBook() {
       content: "축제정ㅎ축제정말재밌네요ㅎㅎ"
     }
   ];
+  //현재 선택된 아이콘
   const [currentIcon, setCurrentIcon] = useState("cry");
+
+  //아이콘 종류
   const iconList = ["cry", "hip", "fire", "festival", "heart"];
   const iconData = {
     cry: "🥹",
@@ -199,8 +202,11 @@ function GuestBook() {
     heart: "❤️"
   };
 
-  const inputRef = useRef();
+  //아이콘 선택창 ref
   const iconListRef = useRef();
+
+  //방명록 쓰기창 ref
+  const inputRef = useRef();
   const [focus, setFocus] = useState(false);
 
   const focusHandler = e => {
@@ -259,7 +265,11 @@ function GuestBook() {
       <S.GuestBookInputWrapper>
         <S.GuestBookInputIconWrapper>
           <S.GuestBookInputIconSelector>
-            <S.GuestBookInputIconBox>
+            <S.GuestBookInputIconBox
+              onMouseDown={event => {
+                event.preventDefault();
+              }}
+            >
               {iconData[currentIcon]}
             </S.GuestBookInputIconBox>
           </S.GuestBookInputIconSelector>
