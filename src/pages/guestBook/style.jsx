@@ -20,6 +20,7 @@ export const GuestBookContent = styled.div`
 export const GuestBookContentBox = styled.div`
   width: 50%;
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: center;
 `;
