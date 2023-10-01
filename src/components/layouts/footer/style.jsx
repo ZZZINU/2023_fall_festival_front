@@ -4,15 +4,69 @@ export const FooterWrapper = styled.div`
   /* background-color: ${props => props.theme.colors.primary1}; */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
+  height: 150px;
   width: 100%;
   max-width: 420px;
   padding: 10px;
   flex-shrink: 0;
+  justify-content: center;
 `;
 
+export const FooterLine = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+`;
+
+export const Line = styled.div`
+  height: 1px; /* 선의 높이 */
+  width: 90%; /* 선의 너비 (부모 요소 너비와 동일하게) */
+  background-color: #ffffff; /* 선의 색상 (검은색 예시) */
+  opacity: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FooterDguEng = styled.div`
+  color: white;
+  font-family: NotoSansRegular;
+  font-weight: lighter;
+  font-size: 12px;
+  margin-top: 20px;
+  position: relative;
+  margin-left: 50px;
+`;
+
+export const FooterDguKor = styled.div`
+  color: white;
+  font-family: NotoSansRegular;
+  font-weight: lighter;
+  font-size: 12px;
+  margin-top: 15px;
+  position: relative;
+  margin-left: 50px;
+`;
+
+export const FooterLogo = styled.div`
+  margin-left: 50px;
+  margin-top: 15px;
+  align-items: center;
+  display: flex;
+`;
+
+export const FooterInsta = styled.img`
+  width: 30%;
+`;
+
+export const FooterGithub = styled.img`
+  width: 30%;
+  position: relative;
+  right: 30%;
+`;
+
+//fonts
 export const NotoSans = styled.div`
   width: 100%;
   font-family: NotoSansRegular;
