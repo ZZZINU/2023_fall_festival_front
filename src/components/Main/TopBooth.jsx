@@ -7,7 +7,7 @@ const TopBoothWrapper = styled.div`
   flex-direction: row;
 `;
 const CardWrapper = styled.div`
-  margin: 10px; // 카드 간 간격을 조절할 수 있습니다.
+  margin: 7px; // 카드 간 간격을 조절할 수 있습니다.
 `;
 
 function TopBooth() {
