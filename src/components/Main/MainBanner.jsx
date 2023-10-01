@@ -12,52 +12,52 @@ const allImageData = [
   {
     id: 1,
     imageUrl: "/Main/main_blackLL.png",
-    link: "api/v1/promotion/{promotion_id}"
+    link: "/promotion"
   },
   {
     id: 2,
     imageUrl: "/Main/main_blackLL.png",
-    link: "api/v1/promotion/{promotion_id}"
+    link: "/promotion"
   },
   {
     id: 3,
     imageUrl: "/Main/main_blackLL.png",
-    link: "api/v1/promotion/{promotion_id}"
+    link: "/promotion"
   },
   {
     id: 4,
     imageUrl: "/Main/main_blackLL.png",
-    link: "api/v1/promotion/{promotion_id}"
+    link: "/promotion"
   },
   {
     id: 5,
     imageUrl: "/Main/main_blackLL.png",
-    link: "api/v1/promotion/{promotion_id}"
+    link: "/promotion}"
   },
   {
     id: 6,
     imageUrl: "/Main/main_blackLL.png",
-    link: "api/v1/promotion/{promotion_id}"
+    link: "/promotion"
   },
   {
     id: 7,
     imageUrl: "/Main/main_blackLL.png",
-    link: "api/v1/promotion/{promotion_id}"
+    link: "/promotion"
   },
   {
     id: 8,
     imageUrl: "/Main/main_blackLL.png",
-    link: "api/v1/promotion/{promotion_id}"
+    link: "/promotion"
   },
   {
     id: 9,
     imageUrl: "/Main/main_blackLL.png",
-    link: "api/v1/promotion/{promotion_id}"
+    link: "/promotion"
   },
   {
     id: 10,
     imageUrl: "/Main/main_blackLL.png",
-    link: "api/v1/promotion/{promotion_id}"
+    link: "/promotion"
   }
 ];
 
