@@ -1,5 +1,5 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 import * as S from "./style";
 
 import { Pagination } from "swiper/modules";
@@ -9,6 +9,7 @@ import DGULikeLion from "../../assets/images/DGU_LikeLion.png";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
 import MainBanner from "../../components/Main/MainBanner";
 import TopBooth from "../../components/Main/TopBooth";
+import GuestbookCard from "../../components/Main/MainGuestBookCard";
 
 function Main() {
   return (
@@ -45,6 +46,27 @@ function Main() {
           <S.Booth>
             <TopBooth />
           </S.Booth>
+          <S.Boothceleb>
+            <PageTitle
+              mainTitle={"라인업"}
+              subTitle={"20시 대운동장에서 연예인 공연이 진행됩니다."}
+            />
+            <S.CelebEleven src="/Main/main_celeb_11.png" />
+            <S.CelecbTwelve src="/Main/main_celeb_12.png" />
+          </S.Boothceleb>
+
+          <S.MainGuestBook>
+            <PageTitle
+              mainTitle={"방명록"}
+              subTitle={"이번 축제의 기록을 남겨주세요."}
+            />
+            <Link to="/guestbook">
+              <S.MainGuestWrapper>
+                <S.MainGusetBookBg src="/Main/mainGbBg.png" />
+                <GuestbookCard />
+              </S.MainGuestWrapper>
+            </Link>
+          </S.MainGuestBook>
         </S.MainBoothGrade>
       </S.MainContainer>
     </>

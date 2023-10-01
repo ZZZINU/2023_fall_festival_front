@@ -2,10 +2,6 @@ import React from "react";
 import * as S from "./style";
 import { Link } from "react-router-dom";
 
-// 이미지
-import BoothImg from "/booth/booth.png";
-import HeartImg from "/booth/heart.png";
-
 function TopBoothCard({
   wholeMargin,
   boothImgUrl,
