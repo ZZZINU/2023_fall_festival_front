@@ -42,6 +42,7 @@ export const SideBarWrapper = styled.div`
   flex-direction: column;
   border-radius: 20px;
   background: linear-gradient(14deg, #ffb4d8 1.4%, #ffce9c 100%);
+  z-index: 999;
 
   img {
     position: absolute;

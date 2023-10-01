@@ -57,7 +57,6 @@ export const BoothType = styled.div`
   font-size: 5px;
   font-weight: 500;
   line-height: normal;
-  z-index: 100;
 `;
 
 export const BoothInfo = styled.div`
