@@ -70,7 +70,7 @@ export const BoothDetailFunctionWrap = styled.div`
   margin-top: -30px;
   justify-content: space-between;
   padding: 0px 15px;
-  z-index: 10;
+  z-index: 1;
 `;
 export const BoothDetailHeartWrap = styled.div`
   display: flex;
