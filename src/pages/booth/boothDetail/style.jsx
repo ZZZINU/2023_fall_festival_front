@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 
 export const BoothDetailWrap = styled.div`
   display: flex;
@@ -69,7 +70,7 @@ export const BoothDetailFunctionWrap = styled.div`
   margin-top: -30px;
   justify-content: space-between;
   padding: 0px 15px;
-  z-index: 10;
+  z-index: 1;
 `;
 export const BoothDetailHeartWrap = styled.div`
   display: flex;
@@ -101,6 +102,17 @@ export const BoothDetailSNSWrap = styled.div`
 `;
 
 export const BoothDetailSNS = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33px;
+  height: 33px;
+  border-radius: 50px;
+  background: #fff;
+  cursor: pointer;
+`;
+
+export const BoothDetailSNSLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,6 +201,10 @@ export const MySwiper = styled(Swiper)`
     width: 10px;
     height: 10px;
     margin: 0 5px;
+  }
+
+  .swiper-pagination {
+    position: absolute;
   }
 `;
 

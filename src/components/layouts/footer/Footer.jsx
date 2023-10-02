@@ -4,18 +4,27 @@ import * as S from "./style";
 function Footer() {
   return (
     <S.FooterWrapper>
-      <S.NotoSans>
-        <span>NotoSans/노토산스</span>
-        <S.NotoSansMedium>Medium</S.NotoSansMedium>
-        <S.NotoSansRegular>Regular</S.NotoSansRegular>
-      </S.NotoSans>
-      <S.GmarketSans>
-        <span>GmarketSans/지마켓산스</span>
-        <S.GmarketSansMedium>Regular</S.GmarketSansMedium>
-        <S.GmarketSansLight>Light</S.GmarketSansLight>
-      </S.GmarketSans>
-      <S.Dongguk>dongguk/동국체</S.Dongguk>
-      <S.Color>색깔적용참고</S.Color>
+      <S.FooterLine>
+        <S.Line />
+      </S.FooterLine>
+      <S.FooterDguEng>@DGU LikeLion. All rights Reserved.</S.FooterDguEng>
+      <S.FooterDguKor>동국대학교 멋쟁이사자처럼</S.FooterDguKor>
+      <S.FooterLogo>
+        <a
+          href="https://www.instagram.com/likelion_dongguk/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <S.FooterInsta src="/Footer/footer_insta.png" alt="Instagram" />
+        </a>
+        <a
+          href="https://github.com/LikeLion-at-DGU"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <S.FooterGithub src="Footer/footer_github.png" alt="GitHub" />
+        </a>
+      </S.FooterLogo>
     </S.FooterWrapper>
   );
 }

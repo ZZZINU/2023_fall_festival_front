@@ -20,22 +20,22 @@ export const TimeDateBox = styled.div`
   transform: rotate(45deg);
   color: ${props => (props.isselected === "true" ? "#DD7480" : "#fff")};
   background-color: ${props =>
-    (props.isselected=== "true" ? "#ffffff" : "#DD7480")};
+    props.isselected === "true" ? "#ffffff" : "#DD7480"};
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  
+
   text-align: center;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
-  `;
+`;
 export const TimeDateBoxText = styled.div`
   transform: rotate(-45deg);
   padding-bottom: 3px;
   border-bottom: 1px solid
-  ${props => (props.isselected === "true" ? "#DD7480" : "#fff")};
-  `;
+    ${props => (props.isselected === "true" ? "#DD7480" : "#fff")};
+`;
 
 // TimeTableSection.jsx
 export const TimeTableWrapper = styled.div`
@@ -153,7 +153,7 @@ export const TimeStart = styled.div`
 `;
 export const TimeMid = styled(TimeStart)`
   top: 57%;
-`
+`;
 export const TimeEnd = styled(TimeStart)`
   top: 100%;
 `;
@@ -185,7 +185,7 @@ export const PerformTimeSection = styled(BoothTimeSection)`
 export const LineUpWrapper = styled.div`
   position: relative;
   width: 90%;
-  height: ${props => (props.isheight)};
+  height: ${props => props.isheight};
   /* min-height: 640px; */
   padding: 30px 10px;
   border-radius: 20px;
@@ -221,7 +221,7 @@ export const LineUpContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  z-index: 10;
+  z-index: 1;
 `;
 export const MarginLabel = styled.div`
   display: flex;
