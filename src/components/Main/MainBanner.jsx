@@ -32,7 +32,7 @@ const allImageData = [
   {
     id: 5,
     imageUrl: "/Main/main_blackLL.png",
-    link: "/promotion}"
+    link: "/promotion"
   },
   {
     id: 6,

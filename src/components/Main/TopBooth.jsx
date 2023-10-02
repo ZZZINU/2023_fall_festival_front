@@ -15,25 +15,6 @@ const CardWrapper = styled.div`
 function TopBooth() {
   const [topBoothData, setTopBoothData] = useState([]);
 
-  // useEffect(() => {
-  //   // API를 호출하여 데이터를 가져옵니다.
-  //   axios
-  //     .get("api/v1/booths/hot")
-  //     .then(response => {
-  //       console.log("API 요청 성공:", response.data);
-  //       const data = response.data;
-
-  //       // like_cnt에 따라 데이터를 정렬합니다.
-  //       const sortedData = data.sort((a, b) => b.like_cnt - a.like_cnt);
-
-  //       // 상태에 정렬된 데이터를 설정합니다.
-  //       setTopBoothData(sortedData);
-  //     })
-  //     .catch(error => {
-  //       console.error("API 요청 실패:", error);
-  //     });
-  // }, []);
-
   async function fetchData() {
     try {
       const response = await API.get("api/v1/booths/hot");
@@ -89,6 +70,7 @@ function TopBooth() {
           locationFont="10px"
           heartImg="14px"
           wholeMargin="none"
+          marginTop="14px"
         />
       </CardWrapper>
 

@@ -86,7 +86,7 @@ export const BoothEtcWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: ${props => props.marginTop || "10px"};
 `;
 
 export const BoothLocationWrapper = styled.div`
@@ -114,7 +114,7 @@ export const BoothHeartWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: right;
-  margin-right: 5px;
+  margin-right: 10px;
 `;
 
 export const BoothDetailHeart = styled.img`
