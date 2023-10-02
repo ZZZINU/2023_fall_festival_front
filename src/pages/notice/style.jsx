@@ -6,6 +6,7 @@ export const NoticeWrappper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 20px 0;
 `;
 
 export const NoticeBox = styled.div`

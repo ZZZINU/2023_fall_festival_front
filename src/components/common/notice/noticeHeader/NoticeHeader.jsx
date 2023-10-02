@@ -20,7 +20,7 @@ function NoticeHeader() {
           onClick={() => setDayOrNight("공지")}
           color={dayOrNight === "공지" ? "#ffb2b2" : "#8C847FB2"}
         >
-          <Link to="/notice">공지</Link>
+          <Link to="/notification">공지</Link>
         </S.MainCategry>
         <S.MainCategry
           dayornight={dayOrNight}

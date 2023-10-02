@@ -5,7 +5,7 @@ import NoticeHeader from "../../components/common/notice/noticeHeader/NoticeHead
 
 function Promotion() {
   // 전체 | 동아리 | 학과 => 디폴트는 전체
-  const [dayOrNight, setDayOrNight] = useState("전체");
+  const [category, setCategory] = useState("전체");
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -61,43 +61,58 @@ function Promotion() {
     setData(contentData);
   }, []);
 
+  // API 연결
+  const fetchData = async () => {
+    try {
+      const response = await API.get("api/v1/promotion");
+      setData(response.data);
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+  };
+
+  // 초기
+  useEffect(() => {
+    fetchData();
+  }, [category]);
+
   return (
     <>
-      <S.NoticeWrappper>
+      <S.PromotionWrappper>
         <S.PromotionBox>
           <NoticeHeader />
           <S.CategoryWarp_>
             <S.PromotionCategory
-              dayornight={dayOrNight}
-              onClick={() => setDayOrNight("전체")}
-              color={dayOrNight === "전체" ? "##DD7481" : "#dd748199"}
-              borderbottom={dayOrNight === "전체" ? "##DD7481" : "none"}
+              category={category}
+              onClick={() => setCategory("전체")}
+              color={category === "전체" ? "#DD7481" : "#dd748199"}
+              borderbottom={category === "전체" ? "#DD7481" : "none"}
             >
               전체
             </S.PromotionCategory>
             <S.PromotionCategory
-              dayornight={dayOrNight}
-              onClick={() => setDayOrNight("동아리")}
-              color={dayOrNight === "동아리" ? "##DD7481" : "#dd748199"}
-              borderbottom={dayOrNight === "동아리" ? "##DD7481" : "none"}
+              category={category}
+              onClick={() => setCategory("동아리")}
+              color={category === "동아리" ? "#DD7481" : "#dd748199"}
+              borderbottom={category === "동아리" ? "#DD7481" : "none"}
             >
               동아리
             </S.PromotionCategory>
             <S.PromotionCategory
-              dayornight={dayOrNight}
-              onClick={() => setDayOrNight("학과")}
-              color={dayOrNight === "학과" ? "##DD7481" : "#dd748199"}
-              borderbottom={dayOrNight === "학과" ? "##DD7481" : "none"}
+              category={category}
+              onClick={() => setCategory("학과")}
+              color={category === "학과" ? "#DD7481" : "#dd748199"}
+              borderbottom={category === "학과" ? "#DD7481" : "none"}
             >
               학과
             </S.PromotionCategory>
           </S.CategoryWarp_>
           <S.Line_ />
-          {data.map(notice => (
-            <NoticeCard data={notice} />
+          {data.map(promotion => (
+            <NoticeCard key={data.id} data={promotion} />
           ))}
         </S.PromotionBox>
-      </S.NoticeWrappper>
+      </S.PromotionWrappper>
     </>
   );
 }

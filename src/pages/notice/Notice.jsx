@@ -5,7 +5,7 @@ import NoticeCard from "../../components/common/notice/noticeCard/NoticeCard";
 
 function Notice() {
   // 전체 | 축제 | 기타 => 디폴트는 전체
-  const [dayOrNight, setDayOrNight] = useState("전체");
+  const [category, setCategory] = useState("전체");
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -62,7 +62,19 @@ function Notice() {
   }, []);
 
   // API 연결
-  const fetchData = async () => {};
+  const fetchData = async () => {
+    try {
+      const response = await API.get("api/v1/notification");
+      setData(response.data);
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+  };
+
+  // 초기
+  useEffect(() => {
+    fetchData();
+  }, [category]);
 
   //리턴
   return (
@@ -72,30 +84,30 @@ function Notice() {
           <NoticeHeader />
           <S.CategoryWarp>
             <S.NoticeCategory
-              onClick={() => setDayOrNight("전체")}
-              color={dayOrNight === "전체" ? "#DD7481" : "#dd748199"}
-              borderbottom={dayOrNight === "전체" ? "#DD7481" : "none"}
+              onClick={() => setCategory("전체")}
+              color={category === "전체" ? "#DD7481" : "#dd748199"}
+              borderbottom={category === "전체" ? "#DD7481" : "none"}
             >
               전체
             </S.NoticeCategory>
             <S.NoticeCategory
-              onClick={() => setDayOrNight("축제")}
-              color={dayOrNight === "축제" ? "#DD7481" : "#dd748199"}
-              borderbottom={dayOrNight === "축제" ? "#DD7481" : "none"}
+              onClick={() => setCategory("축제")}
+              color={category === "축제" ? "#DD7481" : "#dd748199"}
+              borderbottom={category === "축제" ? "#DD7481" : "none"}
             >
               축제
             </S.NoticeCategory>
             <S.NoticeCategory
-              onClick={() => setDayOrNight("기타")}
-              color={dayOrNight === "기타" ? "#DD7481" : "#dd748199"}
-              borderbottom={dayOrNight === "기타" ? "#DD7481" : "none"}
+              onClick={() => setCategory("기타")}
+              color={category === "기타" ? "#DD7481" : "#dd748199"}
+              borderbottom={category === "기타" ? "#DD7481" : "none"}
             >
               기타
             </S.NoticeCategory>
           </S.CategoryWarp>
           <S.Line />
           {data.map(notice => (
-            <NoticeCard data={notice} />
+            <NoticeCard key={data.id} data={notice} />
           ))}
         </S.NoticeBox>
       </S.NoticeWrappper>
