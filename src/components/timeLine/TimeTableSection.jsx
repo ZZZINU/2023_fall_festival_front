@@ -55,13 +55,13 @@ export const TimeTableSection = ({
   const startTime = new Date(`2023-10-${festivalDate} 12:00`); // TimeStroke 시작 시간
   const timeDifference = currentTime - startTime;
 
-  const elapsedMinutes = timeDifference / (1000 * 60); // 분 단위
+  const timePercent = timeDifference / (1000 * 60); // 분 단위
 
   let imagePosition = 0;
-  if (elapsedMinutes >= 0 && elapsedMinutes <= 600) {
+  if (timePercent >= 0 && timePercent < 600) {
     // 12:00 이후부터 22:00 이전까지
-    imagePosition = `${(elapsedMinutes / (10 * 60)) * 100 - 3}%`;
-  } else if (elapsedMinutes < 0) {
+    imagePosition = `${(timePercent / (10 * 60)) * 100 - 3}%`;
+  } else if (timePercent < 0) {
     // 12:00 이전
     imagePosition = 0;
   } else {
@@ -69,7 +69,7 @@ export const TimeTableSection = ({
     imagePosition = "100%";
   }
 
-  // 접속 당일일자와 축제 일정 일치 확인 --------------------------------------
+  // 접속일자와 축제 일정 일치 확인 --------------------------------------
   const isFestivalDay = () => currentTime.getDate() === festivalDate;
 
   return (
@@ -80,13 +80,13 @@ export const TimeTableSection = ({
           실시간
         </S.TimeTableSubTxt>
         <S.TimeTableMainTxt>
-          {isFestivalDay() && realtimeList.length !== 0
+          {realtimeList.length !== 0
             ? realtimeList[currentIndex].title
             : "없음"}
         </S.TimeTableMainTxt>
         <S.TimeTableSubTxt2>
           <S.LocationIMG src={MiniLocation} alt="Logo" />
-          {isFestivalDay() && realtimeList.length !== 0
+          {realtimeList.length !== 0
             ? realtimeList[currentIndex].place
             : "정보없음"}
         </S.TimeTableSubTxt2>
@@ -102,66 +102,57 @@ export const TimeTableSection = ({
         </div>
       </S.SubNav>
 
+      {/* 부스 및 공연 목록 */}
       <S.BoothDetailSection>
-        {/* 부스 목록 */}
         <S.BoothLeft>
           <S.BoothTimeSection
             isnow={
               isFestivalDay() &&
-              ((elapsedMinutes >= 0 && elapsedMinutes < 120) ||
-                (elapsedMinutes >= 240 && elapsedMinutes < 360))
+              ((timePercent >= 0 && timePercent < 120) ||
+                (timePercent >= 240 && timePercent < 360))
             }
           >
             12:00 ~ 18:00
           </S.BoothTimeSection>
           {booth12List.map(booth => (
-            <BoothCard booth={booth} isFestivalDay={isFestivalDay} />
+            <BoothCard booth={booth} realtimeList={realtimeList} />
           ))}
-
           <S.BoothTimeSection
-            isnow={
-              isFestivalDay() &&
-              elapsedMinutes >= 540 &&
-              elapsedMinutes <= 600
-            }
+            isnow={isFestivalDay() && timePercent >= 540 && timePercent <= 600}
             style={{ marginTop: "45%" }}
           >
             18:00 ~ 22:00
           </S.BoothTimeSection>
           {booth18List.map(booth => (
-            <BoothCard booth={booth}  isFestivalDay={isFestivalDay} />
+            <BoothCard booth={booth} realtimeList={realtimeList} />
           ))}
         </S.BoothLeft>
-        {/* 공연 목록 */}
+
         <S.BoothRight>
           <S.PerformTimeSection
-            isnow={
-              isFestivalDay() &&
-              elapsedMinutes >= 120 &&
-              elapsedMinutes < 240
-            }
+            isnow={isFestivalDay() && timePercent >= 120 && timePercent < 240}
             style={{ marginTop: "30%" }}
           >
             14:00 ~ 16:00
           </S.PerformTimeSection>
           {perform14List.map(booth => (
-            <PerfomanceCard booth={booth}  isFestivalDay={isFestivalDay} />
+            <PerfomanceCard booth={booth} realtimeList={realtimeList} />
           ))}
           <S.PerformTimeSection
-            isnow={
-              isFestivalDay() &&
-              elapsedMinutes >= 360 &&
-              elapsedMinutes < 540
-            }
+            isnow={isFestivalDay() && timePercent >= 360 && timePercent < 540}
             style={{ marginTop: "105%" }}
           >
             18:00 ~ 21:00
           </S.PerformTimeSection>
           {perform18List.map(booth => (
-            <PerfomanceCard booth={booth}  isFestivalDay={isFestivalDay} />
+            <PerfomanceCard booth={booth} realtimeList={realtimeList} />
           ))}
         </S.BoothRight>
+
+        {/* 타임테이블 시간 바 */}
         <S.TimeStroke>
+          <S.Stroke1 />
+          <S.Stroke2 />
           {isFestivalDay() && (
             <S.TimeNow
               src="/timetable/realtime.png"

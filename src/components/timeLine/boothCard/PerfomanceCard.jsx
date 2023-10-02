@@ -2,13 +2,11 @@ import React from "react";
 import * as S from "./style";
 import LocationImg from "../../../assets/images/booth_location.png";
 
-export const PerfomanceCard = ({ booth, isFestivalDay }) => {
-  const isCurrent = booth.isCurrent;
+export const PerfomanceCard = ({ booth, realtimeList }) => {
+  const isCurrent = realtimeList.includes(booth);
 
   return (
-    <S.PerformanceWhiteBox
-      isnow={isFestivalDay() && isCurrent ? "true" : "false"}
-    >
+    <S.PerformanceWhiteBox isnow={isCurrent ? "true" : "false"}>
       <S.BoothCardWrapper>
         <S.BoothTxt>
           <S.BoothTitle>{booth.title}</S.BoothTitle>
@@ -17,7 +15,7 @@ export const PerfomanceCard = ({ booth, isFestivalDay }) => {
             {booth.place}
           </S.BoothPlace>
         </S.BoothTxt>
-        <S.BoothImg isnow={isFestivalDay() && isCurrent ? "true" : "false"}>
+        <S.BoothImg isnow={isCurrent ? "true" : "false"}>
           {booth.devide == "가왕제" && (
             <span className="material-symbols-outlined">theater_comedy</span>
           )}
