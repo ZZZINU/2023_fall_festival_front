@@ -20,6 +20,9 @@ import ModalImg from "../../../../public/booth/modalShare.png";
 // 컴포넌트
 import Modal from "../../../components/common/modal/Modal";
 
+// API
+import { API } from "../../../api/axios";
+
 function BoothDetail() {
   const { id } = useParams();
 
@@ -62,27 +65,37 @@ function BoothDetail() {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const contentData = {
-          name: "산공산공공산공",
-          thumbnail: "/booth/temp.png",
-          images: ["/booth/booth.png", "/booth/booth.png", "/booth/booth.png"],
-          type: "주간부스",
-          is_liked: false,
-          like_cnt: 123,
-          during: "2023.09.30 06:00~18:00",
-          location: "사회과학관",
-          description: "하이 산시",
-          insta_url: "https://www.instagram.com/donggukstuco/"
-        };
-        setData(contentData);
-      } catch (error) {
-        console.error("Error: ", error);
-      }
-    };
+    // const fetchData = async () => {
+    //   try {
+    //     const contentData = {
+    //       name: "산공산공공산공",
+    //       thumbnail: "/booth/temp.png",
+    //       images: ["/booth/booth.png", "/booth/booth.png", "/booth/booth.png"],
+    //       type: "주간부스",
+    //       is_liked: false,
+    //       like_cnt: 123,
+    //       during: "2023.09.30 06:00~18:00",
+    //       location: "사회과학관",
+    //       description: "하이 산시",
+    //       insta_url: "https://www.instagram.com/donggukstuco/"
+    //     };
+    //     setData(contentData);
+    //   } catch (error) {
+    //     console.error("Error: ", error);
+    //   }
+    // };
     fetchData();
   }, []);
+
+  // API 연결
+  const fetchData = async () => {
+    try {
+      const response = await API.get(`api/v1/booths/${id}`);
+      setData(response.data);
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+  };
 
   /** 
   const handleHeartClick = async () => {
