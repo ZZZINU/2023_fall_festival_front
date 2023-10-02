@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         element: <Main />
       },
       {
-        path: "notice",
+        path: "notification",
         element: <Notice />
       },
       {

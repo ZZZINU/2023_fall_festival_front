@@ -6,22 +6,20 @@ export const NoticeWrappper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 3px solid red; */
 `;
 
 export const NoticeBox = styled.div`
-  /* border: 3px solid black; */
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 30px 30px 30px;
-  width: 360px;
-  height: 700px;
-  flex-shrink: 0;
+
   border-radius: 35px;
-  background-color: #ffffff;
-  opacity: 0.9;
-  overflow-y: scroll;
+  background: rgba(255, 255, 255, 0.97);
+
+  /* height: 700px;
+  overflow-y: scroll; */
 `;
 
 export const CategoryWarp = styled.div`
