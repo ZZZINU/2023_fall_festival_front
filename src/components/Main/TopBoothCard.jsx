@@ -16,7 +16,8 @@ function TopBoothCard({
   titleFont,
   pinImg,
   locationFont,
-  heartImg
+  heartImg,
+  boothId
 }) {
   const defaultBoothImgUrl = "/booth/booth.png"; // 기본 이미지 URL
 
@@ -35,39 +36,41 @@ function TopBoothCard({
 
   return (
     <>
-      <S.TopContainer marginTop={wholeMargin}>
-        <S.BoothBg width={logoWidth} height={bgHeight}>
-          <S.BoothLogo src={imageUrlToUse} width={logoWidth} />
-          <S.BoothGrade src={boothGradeImg} />
-          <S.BoothType>{boothType || "부스 종류"}</S.BoothType>
-          <S.BoothInfo>
-            <S.BoothTitle fontSize={titleFont}>
-              {processedBoothTitle || "부스명"}
-            </S.BoothTitle>
-            <S.BoothDescript>{boothDescript || "부스 소개"}</S.BoothDescript>
+      <Link to={`/booths/${boothId}`}>
+        <S.TopContainer marginTop={wholeMargin}>
+          <S.BoothBg width={logoWidth} height={bgHeight}>
+            <S.BoothLogo src={imageUrlToUse} width={logoWidth} />
+            <S.BoothGrade src={boothGradeImg} />
+            <S.BoothType>{boothType || "부스 종류"}</S.BoothType>
+            <S.BoothInfo>
+              <S.BoothTitle fontSize={titleFont}>
+                {processedBoothTitle || "부스명"}
+              </S.BoothTitle>
+              <S.BoothDescript>{boothDescript || "부스 소개"}</S.BoothDescript>
 
-            <S.BoothEtcWrapper>
-              <S.BoothLocationWrapper>
-                <S.BoothLocationPin src="/booth/pin.png" width={pinImg} />
-                <S.BoothLocationContent fontSize={locationFont}>
-                  {locationContent || "장소 상세"}
-                </S.BoothLocationContent>
-              </S.BoothLocationWrapper>
+              <S.BoothEtcWrapper>
+                <S.BoothLocationWrapper>
+                  <S.BoothLocationPin src="/booth/pin.png" width={pinImg} />
+                  <S.BoothLocationContent fontSize={locationFont}>
+                    {locationContent || "장소 상세"}
+                  </S.BoothLocationContent>
+                </S.BoothLocationWrapper>
 
-              <S.BoothHeartWrap>
-                <S.BoothDetailHeart
-                  src="/booth/heart.png"
-                  alt="하트 이미지"
-                  width={heartImg}
-                />
-                <S.BoothDetailHeartNum>
-                  {heartNum || "99+"}
-                </S.BoothDetailHeartNum>
-              </S.BoothHeartWrap>
-            </S.BoothEtcWrapper>
-          </S.BoothInfo>
-        </S.BoothBg>
-      </S.TopContainer>
+                <S.BoothHeartWrap>
+                  <S.BoothDetailHeart
+                    src="/booth/heart.png"
+                    alt="하트 이미지"
+                    width={heartImg}
+                  />
+                  <S.BoothDetailHeartNum>
+                    {heartNum || "99+"}
+                  </S.BoothDetailHeartNum>
+                </S.BoothHeartWrap>
+              </S.BoothEtcWrapper>
+            </S.BoothInfo>
+          </S.BoothBg>
+        </S.TopContainer>
+      </Link>
     </>
   );
 }
