@@ -17,7 +17,8 @@ function TopBoothCard({
   pinImg,
   locationFont,
   heartImg,
-  boothId
+  boothId,
+  marginTop
 }) {
   const defaultBoothImgUrl = "/booth/booth.png"; // 기본 이미지 URL
 
@@ -48,7 +49,7 @@ function TopBoothCard({
               </S.BoothTitle>
               <S.BoothDescript>{boothDescript || "부스 소개"}</S.BoothDescript>
 
-              <S.BoothEtcWrapper>
+              <S.BoothEtcWrapper marginTop={marginTop}>
                 <S.BoothLocationWrapper>
                   <S.BoothLocationPin src="/booth/pin.png" width={pinImg} />
                   <S.BoothLocationContent fontSize={locationFont}>
