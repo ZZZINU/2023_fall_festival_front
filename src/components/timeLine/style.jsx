@@ -116,15 +116,6 @@ export const BoothRight = styled.div`
   width: 50%;
   padding-left: 20px;
 `;
-// export const TimeStroke = styled.div`
-//   position: absolute;
-//   top: 60px;
-//   left: 50%;
-
-//   width: 1px;
-//   height: 86%;
-//   border: 1px solid #fff;
-// `;
 export const TimeStroke = styled.div`
   position: absolute;
   top: 60px;
@@ -133,11 +124,23 @@ export const TimeStroke = styled.div`
 
   width: 1px;
   height: 86%;
-  border: 1px solid #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 5px 0;
 `;
+export const Stroke1 = styled.div`
+  transform: translateX(-50%);
+  width: 1px;
+  height: 59%;
+  border: 1px solid #fff;
+  margin-bottom: 26px;
+`;
+  export const Stroke2 = styled(Stroke1)`
+    border: 1px solid #fff;
+    height: 41%;
+    margin-bottom: 0;
+  `;
 export const TimeStart = styled.div`
   position: absolute;
   top: -16px;
