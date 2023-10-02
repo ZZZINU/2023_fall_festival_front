@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import TopBoothCard from "./TopBoothCard"; // TopBoothCard 컴포넌트를 import합니다.
 import { styled } from "styled-components";
 import axios from "axios";
-
+import { API } from "../../api/axios";
 const TopBoothWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -15,36 +15,59 @@ const CardWrapper = styled.div`
 function TopBooth() {
   const [topBoothData, setTopBoothData] = useState([]);
 
+  // useEffect(() => {
+  //   // API를 호출하여 데이터를 가져옵니다.
+  //   axios
+  //     .get("api/v1/booths/hot")
+  //     .then(response => {
+  //       console.log("API 요청 성공:", response.data);
+  //       const data = response.data;
+
+  //       // like_cnt에 따라 데이터를 정렬합니다.
+  //       const sortedData = data.sort((a, b) => b.like_cnt - a.like_cnt);
+
+  //       // 상태에 정렬된 데이터를 설정합니다.
+  //       setTopBoothData(sortedData);
+  //     })
+  //     .catch(error => {
+  //       console.error("API 요청 실패:", error);
+  //     });
+  // }, []);
+
+  async function fetchData() {
+    try {
+      const response = await API.get("api/v1/booths/hot");
+      console.log("API 요청 성공:", response.data);
+      const data = response.data;
+
+      const sortedData = data.sort((a, b) => b.like_cnt - a.like_cnt);
+
+      setTopBoothData(sortedData);
+    } catch (error) {
+      console.error("API 요청 실패:", error);
+    }
+  }
+
   useEffect(() => {
-    // API를 호출하여 데이터를 가져옵니다.
-    axios
-      .get("api/v1/booths/hot")
-      .then(response => {
-        const data = response.data;
-
-        // like_cnt에 따라 데이터를 정렬합니다.
-        const sortedData = data.sort((a, b) => b.like_cnt - a.like_cnt);
-
-        // 상태에 정렬된 데이터를 설정합니다.
-        setTopBoothData(sortedData);
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-      });
+    fetchData();
   }, []);
+
+  // 데이터를 받아온 후에 topBoothData 배열의 첫 번째, 두 번째, 세 번째 요소를 추출
+  const firstBooth = topBoothData[0] || {};
+  const secondBooth = topBoothData[1] || {};
+  const thirdBooth = topBoothData[2] || {};
 
   return (
     <TopBoothWrapper>
       <CardWrapper>
         <TopBoothCard
-          // 첫 번째 데이터를 전달합니다.
-          // id={topBoothData[0].id}
-          // name={topBoothData[0].name}
-          // type={topBoothData[0].type}
-          // location={topBoothData[0].location}
-          // is_liked={topBoothData[0].is_liked}
-          // like_cnt={topBoothData[0].like_cnt}
-          // thumbnail={topBoothData[0].thumbnail}
+          boothId={secondBooth.id}
+          boothImgUrl={secondBooth.thumbnail}
+          boothType={secondBooth.type}
+          boothTitle={secondBooth.name}
+          boothDescript={secondBooth.description}
+          locationContent={secondBooth.location}
+          heartNum={secondBooth.like_cnt}
           logoWidth="120px"
           bgHeight="190px"
           boothGradeImgurl="/Main/silver.png"
@@ -54,14 +77,13 @@ function TopBooth() {
       {/* 두 번째 TopBoothCard (크기 조절) */}
       <CardWrapper>
         <TopBoothCard
-          // 두 번째 데이터를 전달합니다.
-          // id={topBoothData[1].id}
-          // name={topBoothData[1].name}
-          // type={topBoothData[1].type}
-          // location={topBoothData[1].location}
-          // is_liked={topBoothData[1].is_liked}
-          // like_cnt={topBoothData[1].like_cnt}
-          // thumbnail={topBoothData[1].thumbnail}
+          boothId={firstBooth.id}
+          boothImgUrl={firstBooth.thumbnail}
+          boothType={firstBooth.type}
+          boothTitle={firstBooth.name}
+          boothDescript={firstBooth.description}
+          locationContent={firstBooth.location}
+          heartNum={firstBooth.like_cnt}
           titleFont="15px"
           pinImg="14px"
           locationFont="10px"
@@ -73,14 +95,13 @@ function TopBooth() {
       {/* 세 번째 TopBoothCard (다른 크기) */}
       <CardWrapper>
         <TopBoothCard
-          // 세 번째 데이터를 전달합니다.
-          // id={topBoothData[2].id}
-          // name={topBoothData[2].name}
-          // type={topBoothData[2].type}
-          // location={topBoothData[2].location}
-          // is_liked={topBoothData[2].is_liked}
-          // like_cnt={topBoothData[2].like_cnt}
-          // thumbnail={topBoothData[2].thumbnail}
+          boothId={thirdBooth.id}
+          boothImgUrl={thirdBooth.thumbnail}
+          boothType={thirdBooth.type}
+          boothTitle={thirdBooth.name}
+          boothDescript={thirdBooth.description}
+          locationContent={thirdBooth.location}
+          heartNum={thirdBooth.like_cnt}
           logoWidth="120px"
           bgHeight="190px"
           boothGradeImgurl="/Main/bronze.png"
