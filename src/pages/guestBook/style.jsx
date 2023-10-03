@@ -71,8 +71,9 @@ export const GuestBookInputWrapper = styled.div`
 
 export const GuestBookInput = styled.input`
   font-size: 16px;
-  height: 30px;
+  height: 40px;
 
+  padding: 10px 10px;
   flex-grow: 1;
 
   color: ${props => props.theme.colors.fontBrown};
@@ -96,13 +97,28 @@ export const GuestBookInputIconSelector = styled.div`
 
 export const GuestBookInputIconList = styled.div`
   background-color: white;
-
+  /* margin-left: 10px; */
+  padding-left: 10px;
+  border-left: 1px solid;
+  border-color: ${props => props.theme.colors.primary1};
   display: none;
+`;
+export const GuestBookInputCurrentIconBox = styled.div`
+  width: 30px;
+  height: 40px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => (props.$isActive ? "#e5e5e5" : "")};
+  margin-right: 10px;
+
+  border-radius: 5px;
 `;
 
 export const GuestBookInputIconBox = styled.div`
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   font-size: 25px;
   display: flex;
   justify-content: center;

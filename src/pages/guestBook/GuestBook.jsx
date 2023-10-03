@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
+import { API } from "../../api/axios";
 
 function GuestBook() {
   const [isFetchData, setIsFetchData] = useState(false);
@@ -13,8 +14,29 @@ function GuestBook() {
   const [dataRight, setDataRight] = useState([]);
   const fetchData = async () => {
     try {
-      console.log("데이터 패치중...");
-      setCount(200);
+      const dataLeft_api_respone = await API.get(
+        `api/v1/chat?page=${currentPage}`
+      );
+      const dataRight_api_respone = await API.get(
+        `api/v1/chat?page=${currentPage}`
+      );
+
+      console.log(
+        "데이터 패치중...",
+        dataLeft_api_respone,
+        dataRight_api_respone,
+        dataLeft_api_respone.data.count + dataRight_api_respone.data.count
+      );
+      setCount(
+        dataLeft_api_respone.data.count + dataRight_api_respone.data.count
+      );
+
+      setDataLeft(dataLeft_api_respone.data.results);
+      setDataRight(dataRight_api_respone.data.results);
+      // setDataLeft(dataLeft_response);
+      // setDataRight(dataRight_response);
+      // setCount(200);
+
       setIsFetchData(true);
     } catch (error) {
       console.log("처음 데이터를 로딩하는 중 오류 발생", error);
@@ -22,18 +44,25 @@ function GuestBook() {
   };
   //처음 로딩될때 초기값넣기
   useEffect(() => {
-    setDataLeft(dataLeft_response);
-    setDataRight(dataRight_response);
     fetchData();
   }, []);
 
+  useEffect(() => {}, [isLoadData]);
   const loadData = async () => {
     try {
       setIsLoadData(false);
-      const newDataLeft = dataLeft.concat(dataLeft_response);
-      const newDataRight = dataRight.concat(dataRight_response);
+      const dataLeft_api_respone = await API.get(
+        `api/v1/chat?page=${currentPage}`
+      );
+      const dataRight_api_respone = await API.get(
+        `api/v1/chat?page=${currentPage}`
+      );
+
+      const newDataLeft = dataLeft.concat(dataLeft_api_respone.data.results);
+      const newDataRight = dataRight.concat(dataRight_api_respone.data.results);
       setDataLeft(newDataLeft);
       setDataRight(newDataRight);
+
       setIsLoadData(true);
     } catch (error) {
       console.log("추가 데이터를 로딩하는 중 오류 발생", error);
@@ -48,14 +77,13 @@ function GuestBook() {
   const [contentListRight_Height, setContentListRight_Height] = useState(0);
 
   function onScroll() {
-    console.log("height", contentListLeft_Height, contentListRight_Height);
     setPosition(window.scrollY);
   }
 
   useEffect(() => {
     setContentListLeft_Height(contentListLeft_Ref.current?.offsetHeight);
     setContentListRight_Height(contentListRight_Ref.current?.offsetHeight);
-  }, [isFetchData]);
+  }, [isFetchData, isLoadData]);
 
   useEffect(() => {
     console.log("Position", position, position + window.innerHeight);
@@ -71,6 +99,7 @@ function GuestBook() {
   }, [position]);
 
   useEffect(() => {
+    console.log(">>>>>>>>>>>>>>>페이지 로딩중...", currentPage);
     loadData();
   }, [currentPage]);
 
@@ -81,108 +110,6 @@ function GuestBook() {
     };
   }, []);
 
-  const dataLeft_response = [
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content: "축제정말재밌요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "festival",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "fire",
-      content:
-        "축제정ㅎ축제정말재밌요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content:
-        "축제정말재밌네요ㅎㅎ축추석인요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요데제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "festival",
-      content:
-        "축제정말재밌네요ㅎㅎ축추석인요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요데제정말재밌네요ㅎㅎ"
-    }
-  ];
-
-  const dataRight_response = [
-    {
-      icon: "heart",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "fire",
-      content:
-        "축제정ㅎ축제정말재밌요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content:
-        "축제정말재밌네요ㅎㅎ축추석인요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요데제정말재밌네요ㅎㅎ"
-    },
-
-    {
-      icon: "cry",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content: "축제정말재밌요ㅎㅎ"
-    },
-    {
-      icon: "cry",
-      content:
-        "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "festival",
-      content: "축제정말재밌네요ㅎㅎ축제정말재밌네요ㅎㅎ"
-    },
-    {
-      icon: "heart",
-      content: "축제정말재밌네요ㅎㅎ축추석인데제정말재밌네요ㅎㅎ"
-    }
-  ];
   //현재 선택된 아이콘
   const [currentIcon, setCurrentIcon] = useState("cry");
 
@@ -222,6 +149,19 @@ function GuestBook() {
 
   const clickIcon = e => {
     setCurrentIcon(e.target.title);
+  };
+
+  const handleSubmit = async () => {
+    console.log("제출버튼 클릭됨");
+    try {
+      const response = await API.post(`api/v1/chat`, {
+        content: inputRef.current?.value,
+        icon: currentIcon
+      });
+      console.log(response);
+    } catch (error) {
+      console.log("제출에 실패함");
+    }
   };
 
   return (
@@ -265,17 +205,18 @@ function GuestBook() {
           )}
         </S.GuestBookContentBox>
       </S.GuestBookContent>
+      {isLoadData ? <></> : <div>로딩중</div>}
 
       <S.GuestBookInputWrapper>
         <S.GuestBookInputIconWrapper>
           <S.GuestBookInputIconSelector>
-            <S.GuestBookInputIconBox
+            <S.GuestBookInputCurrentIconBox
               onMouseDown={event => {
                 event.preventDefault();
               }}
             >
               {iconData[currentIcon]}
-            </S.GuestBookInputIconBox>
+            </S.GuestBookInputCurrentIconBox>
           </S.GuestBookInputIconSelector>
 
           <S.GuestBookInputIconList ref={iconListRef}>
@@ -297,19 +238,19 @@ function GuestBook() {
           </S.GuestBookInputIconList>
         </S.GuestBookInputIconWrapper>
 
-        <div style={{ display: "flex", width: "100%" }}>
+        <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
           <S.GuestBookInput
             ref={inputRef}
             placeholder="방명록을 입력해주세요!(50자 이내)"
             onFocus={focusHandler}
             onBlur={blurHandler}
           />
-          <S.GuestBookImg style={{ marginLeft: "15px" }}>
+          <S.GuestBookImg style={{ marginLeft: "15px" }} onClick={handleSubmit}>
             <img src="./guestBook/icon_send.png" />
           </S.GuestBookImg>
         </div>
       </S.GuestBookInputWrapper>
-      {isLoadData ? <></> : <div>로딩중</div>}
+
       <div style={{ height: "70px" }}></div>
     </S.GuestBookWrapper>
   );
