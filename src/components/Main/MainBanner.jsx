@@ -5,96 +5,59 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
+import { API } from "../../api/axios";
 
 import "./swiper.css";
 
-const allImageData = [
-  {
-    id: 1,
-    imageUrl: "/Main/main_blackLL.png",
-    link: "/promotion"
-  },
-  {
-    id: 2,
-    imageUrl: "/Main/main_blackLL.png",
-    link: "/promotion"
-  },
-  {
-    id: 3,
-    imageUrl: "/Main/main_blackLL.png",
-    link: "/promotion"
-  },
-  {
-    id: 4,
-    imageUrl: "/Main/main_blackLL.png",
-    link: "/promotion"
-  },
-  {
-    id: 5,
-    imageUrl: "/Main/main_blackLL.png",
-    link: "/promotion"
-  },
-  {
-    id: 6,
-    imageUrl: "/Main/main_blackLL.png",
-    link: "/promotion"
-  },
-  {
-    id: 7,
-    imageUrl: "/Main/main_blackLL.png",
-    link: "/promotion"
-  },
-  {
-    id: 8,
-    imageUrl: "/Main/main_blackLL.png",
-    link: "/promotion"
-  },
-  {
-    id: 9,
-    imageUrl: "/Main/main_blackLL.png",
-    link: "/promotion"
-  },
-  {
-    id: 10,
-    imageUrl: "/Main/main_blackLL.png",
-    link: "/promotion"
-  }
-];
-
 const imageSize = {
-  width: "170px", // 원하는 너비로 설정
-  height: "auto" // 비율 유지를 위해 높이는 자동으로 조절됩니다.
+  width: "170px",
+  height: "170px",
+  borderRadius: "10px"
 };
 
 function MainBanner() {
-  const [centerSlideIndex, setCenterSlideIndex] = useState(2); // 초기에 중앙 슬라이드를 설정합니다.
+  const [centerSlideIndex, setCenterSlideIndex] = useState(0); // 초기에 가운데 슬라이드를 설정합니다.
   const [randomImages, setRandomImages] = useState([]);
 
   useEffect(() => {
-    // 이미지 데이터 배열에서 5개의 무작위 항목 선택
-    const shuffledImages = allImageData.sort(() => 0.5 - Math.random());
-    const selectedImages = shuffledImages.slice(0, 5);
+    const fetchData = async () => {
+      try {
+        const response = await API.get("/api/v1/promotion");
+        const results = response.data.results;
 
-    // Swiper 슬라이드 생성
-    const slides = selectedImages.map((item, index) => (
-      <SwiperSlide key={item.id}>
-        <Link to={item.link}>
-          <img
-            src={item.imageUrl}
-            alt={item.title}
-            style={imageSize}
-            className={index === centerSlideIndex ? "" : "transparent-image"}
-          />
-          <p>{item.title}</p>
-        </Link>
-      </SwiperSlide>
-    ));
+        const shuffledImages = results.sort(() => 0.5 - Math.random());
+        const selectedImages = shuffledImages.slice(0, 5);
 
-    setRandomImages(slides);
+        const slides = selectedImages.map((item, index) => (
+          <SwiperSlide
+            key={item.id}
+            className={index === centerSlideIndex ? "swiper-slide-active" : ""}
+          >
+            <Link to={`/promotion/${item.id}`}>
+              <img
+                src={item.thumbnail}
+                style={{
+                  ...imageSize,
+                  opacity: index === centerSlideIndex ? 1 : 0.5
+                }}
+              />
+            </Link>
+          </SwiperSlide>
+        ));
+
+        setRandomImages(slides);
+      } catch (error) {
+        console.error("error", error);
+      }
+    };
+
+    fetchData();
   }, [centerSlideIndex]);
 
   const handleSlideChange = swiper => {
-    setCenterSlideIndex(swiper.realIndex);
+    const centerIndex = swiper.realIndex;
+    // console.log("가운데 이미지 인덱스:", centerIndex);
+    setCenterSlideIndex(centerIndex);
   };
 
   return (
