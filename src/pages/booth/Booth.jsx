@@ -208,6 +208,15 @@ function Booth() {
         >
           야간부스
         </S.BoothCategry>
+
+        <S.BoothCategry
+          dayornight={dayOrNight}
+          onClick={() => setDayOrNight("기타부스")}
+          color={dayOrNight === "기타부스" ? "#FFF" : "#ffb2b2"}
+          borderbottom={dayOrNight === "기타부스" ? "#FFF" : "none"}
+        >
+          기타부스
+        </S.BoothCategry>
       </S.BoothCategryWrap>
 
       <BoothCard data={data} />
