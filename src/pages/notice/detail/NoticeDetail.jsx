@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 import * as S from "./style";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import { API } from "../../../api/axios";
 
 export default function NoticeDetail() {
   const [data, setData] = useState({
@@ -23,13 +24,13 @@ export default function NoticeDetail() {
     ],
     thumbnail: "img.jpg"
   });
-  const { id } = useParams();
   const { pathname } = useLocation();
 
   // API 연결
   const fetchData = async () => {
     try {
-      const response = await API.get(`api/v1${pathname}/${id}`);
+      const response = await API.get(`api/v1${pathname}`);
+      console.log(response.data);
       setData(response.data);
     } catch (error) {
       console.error("Error: ", error);
@@ -55,15 +56,12 @@ export default function NoticeDetail() {
             {data.images &&
               data.images.map((img, idx) => (
                 <SwiperSlide key={idx}>
-                  <img
-                    src={img}
-                    alt="img"
-                  />
+                  <img src={img} alt="img" />
                 </SwiperSlide>
               ))}
           </Swiper>
         </S.ImgWrapper>
-        {data.created_at.slice(0,10)}
+        <S.DeatilDate>{data.date}</S.DeatilDate>
       </S.DetailWhiteBox>
     </S.NoticeDetailWrap>
   );

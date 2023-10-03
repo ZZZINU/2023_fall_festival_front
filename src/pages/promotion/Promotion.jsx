@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import NoticeCard from "../../components/common/notice/noticeCard/NoticeCard";
 import NoticeHeader from "../../components/common/notice/noticeHeader/NoticeHeader";
+import { API } from "../../api/axios";
 
 function Promotion() {
   // 전체 | 동아리 | 학과 => 디폴트는 전체
   const [category, setCategory] = useState("전체");
   const [data, setData] = useState([]);
-
+  
+/*
   useEffect(() => {
     const contentData = [
       {
@@ -60,12 +62,12 @@ function Promotion() {
     ];
     setData(contentData);
   }, []);
-
+*/
   // API 연결
   const fetchData = async () => {
     try {
       const response = await API.get("api/v1/promotion");
-      setData(response.data);
+      setData(response.data.results);
     } catch (error) {
       console.error("Error: ", error);
     }

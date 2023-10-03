@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import NoticeHeader from "../../components/common/notice/noticeHeader/NoticeHeader";
 import NoticeCard from "../../components/common/notice/noticeCard/NoticeCard";
+import { API } from "../../api/axios";
 
 function Notice() {
   // 전체 | 축제 | 기타 => 디폴트는 전체
   const [category, setCategory] = useState("전체");
   const [data, setData] = useState([]);
-
+  /*
   useEffect(() => {
     const contentData = [
       {
@@ -60,12 +61,12 @@ function Notice() {
     ];
     setData(contentData);
   }, []);
-
+*/
   // API 연결
   const fetchData = async () => {
     try {
       const response = await API.get("api/v1/notification");
-      setData(response.data);
+      setData(response.data.results);
     } catch (error) {
       console.error("Error: ", error);
     }
@@ -106,9 +107,8 @@ function Notice() {
             </S.NoticeCategory>
           </S.CategoryWarp>
           <S.Line />
-          {data.map(notice => (
-            <NoticeCard key={data.id} data={notice} />
-          ))}
+          {data &&
+            data.map(notice => <NoticeCard key={data.id} data={notice} />)}
         </S.NoticeBox>
       </S.NoticeWrappper>
     </>

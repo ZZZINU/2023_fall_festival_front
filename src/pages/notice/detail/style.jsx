@@ -4,7 +4,7 @@ import { NoticeWrappper } from "../style";
 export const NoticeDetailWrap = styled(NoticeWrappper)``;
 export const DetailWhiteBox = styled.div`
   width: 90%;
-  height: 605px;
+  /* min-height: 600px; */
   display: flex;
   flex-direction: column;
   padding: 30px 35px;
@@ -29,11 +29,19 @@ export const DetailContent = styled.div`
   color: #553c2e;
   font-family: Noto Sans KR;
   font-size: 12px;
+  padding-bottom: 30px;
 `;
 export const ImgWrapper = styled.div`
   height: 120px;
-  img{
+  margin-bottom: 40px;
+  img {
     height: 120px;
     margin-right: 10px;
   }
+`;
+export const DeatilDate = styled.div`
+  color: #8c847f;
+  font-family: Noto Sans KR;
+  font-size: 10px;
+  margin-bottom: 60px;
 `;

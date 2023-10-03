@@ -5,12 +5,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 function NoticeCard({ data }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  console.log(data);
 
   return (
     <>
       <S.CardWrappper onClick={() => navigate(`${pathname}/${data.id}`)}>
         <S.CardBox>
-          <S.CardImg src={data.images[0]} />
+          <S.CardImg src={data.thumbnail} />
           <S.TextWrapper>
             {/* 18자 제한 넘어가면 자르기 or 12자 이후 3dots + 공지 뒤는 데이터 */}
             <S.Title>
