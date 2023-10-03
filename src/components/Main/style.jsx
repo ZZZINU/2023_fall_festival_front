@@ -9,9 +9,7 @@ export const TopContainer = styled.div`
 `;
 
 export const BoothLogo = styled.img`
-  width: ${props =>
-    props.width ||
-    "130px"}; /* 기본값으로 130px를 설정하고 props.width가 있으면 그 값을 사용합니다. */
+  width: ${props => props.width || "120px"};
   border-radius: 20px;
 `;
 
@@ -19,9 +17,7 @@ export const BoothBg = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  width: ${props =>
-    props.width ||
-    "130px"}; /* 기본값으로 130px를 설정하고 props.width가 있으면 그 값을 사용합니다. */
+  width: ${props => props.width || "120px"};
   height: ${props => props.height || "210px"};
   background: #ffffff;
   box-shadow: 2px 2px 8px rgba(41, 39, 39, 0.4);
@@ -68,8 +64,7 @@ export const BoothInfo = styled.div`
 export const BoothTitle = styled.div`
   margin-left: 10px;
   margin-top: 3px;
-  font-size: ${props =>
-    props.fontSize || "12px"}; // Use the fontSize prop or default to 15px
+  font-size: ${props => props.fontSize || "12px"};
 `;
 
 export const BoothDescript = styled.div`
@@ -80,6 +75,7 @@ export const BoothDescript = styled.div`
   font-weight: lighter;
   line-height: 16px;
   margin-left: 10px;
+  margin-right: 10px;
 `;
 
 export const BoothEtcWrapper = styled.div`

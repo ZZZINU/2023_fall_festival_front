@@ -1,6 +1,6 @@
 // About.jsx
 
-import React, { useEffect } from "react";
+import React from "react";
 import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
 import Snow from "./Snow";

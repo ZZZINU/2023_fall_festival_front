@@ -20,24 +20,23 @@ function TopBoothCard({
   boothId,
   marginTop
 }) {
-  const defaultBoothImgUrl = "/booth/booth.png"; // 기본 이미지 URL
+  const defaultBoothImgUrl = "/booth/booth.png";
 
   const defaultGradeImg = "/Main/gold.png";
 
-  // boothImgUrl이 존재하면 boothImgUrl을 사용하고, 그렇지 않으면 기본 이미지 URL 사용
   const imageUrlToUse = boothImgUrl || defaultBoothImgUrl;
 
   const boothGradeImg = boothGradeImgurl || defaultGradeImg;
 
-  // 부스 이름을 5글자로 제한하고 넘어가면 "..."을 붙입니다.
-  const maxBoothTitleLength = 5; // 최대 길이 설정
+  // 부스 이름 글자수 자르기
+  const maxBoothTitleLength = 5;
   const processedBoothTitle =
     boothTitle && boothTitle.length > maxBoothTitleLength
       ? `${boothTitle.slice(0, maxBoothTitleLength)}...`
       : boothTitle;
 
-  // 부스 소개글을 14글자로 제한하고 넘어가면 "..."을 붙입니다.
-  const maxBoothDescriptLength = 13; // 최대 길이 설정
+  // 부스 소개 글자수 자르기
+  const maxBoothDescriptLength = 20;
   const processedBoothDescript =
     boothDescript && boothDescript.length > maxBoothDescriptLength
       ? `${boothDescript.slice(0, maxBoothDescriptLength)}...`

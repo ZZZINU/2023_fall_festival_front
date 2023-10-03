@@ -10,13 +10,13 @@ import { API } from "../../api/axios";
 import "./swiper.css";
 
 const imageSize = {
-  width: "170px",
+  width: "90%",
   height: "170px",
   borderRadius: "10px"
 };
 
 function MainBanner() {
-  const [centerSlideIndex, setCenterSlideIndex] = useState(0); // 초기에 가운데 슬라이드를 설정합니다.
+  const [centerSlideIndex, setCenterSlideIndex] = useState(0);
   const [randomImages, setRandomImages] = useState([]);
 
   useEffect(() => {
@@ -75,7 +75,7 @@ function MainBanner() {
         centeredSlides={true}
         loop={true}
         modules={[EffectCoverflow, Pagination]}
-        spaceBetween={0}
+        spaceBetween={20}
         className="mySwiper"
         onSlideChange={swiper => handleSlideChange(swiper)}
         pagination={{

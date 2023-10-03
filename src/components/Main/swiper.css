@@ -21,7 +21,7 @@
 }
 
 .transparent-image {
-  opacity: 0.2; /* 원하는 투명도 값을 설정합니다. 0.7은 70% 투명을 나타냅니다. */
+  opacity: 0.2;
 }
 
 .swiper-pagination {
