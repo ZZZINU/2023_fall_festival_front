@@ -43,7 +43,7 @@ function Header() {
           <Link to="/" onClick={closeSideBar}>
             메인
           </Link>
-          <Link to="/notice" onClick={closeSideBar}>
+          <Link to="/notification" onClick={closeSideBar}>
             공지
           </Link>
           <Link to="/timeLine" onClick={closeSideBar}>
