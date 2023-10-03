@@ -15,7 +15,6 @@ export default function NoticeDetail() {
   const fetchData = async () => {
     try {
       const response = await API.get(`api/v1${pathname}`);
-      console.log(response.data);
       setData(response.data);
     } catch (error) {
       console.error("Error: ", error);

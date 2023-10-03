@@ -62,7 +62,7 @@ function Notice() {
           </S.CategoryWarp>
           <S.Line />
           {data &&
-            data.map(notice => <NoticeCard key={data.id} data={notice} />)}
+            data.map(notice => <NoticeCard key={notice.id} data={notice} />)}
         </S.NoticeBox>
       </S.NoticeWrappper>
     </>

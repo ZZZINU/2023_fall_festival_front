@@ -64,7 +64,7 @@ function Promotion() {
           </S.CategoryWarp_>
           <S.Line_ />
           {data.map(promotion => (
-            <NoticeCard key={data.id} data={promotion} />
+            <NoticeCard key={promotion.id} data={promotion} />
           ))}
         </S.PromotionBox>
       </S.PromotionWrappper>

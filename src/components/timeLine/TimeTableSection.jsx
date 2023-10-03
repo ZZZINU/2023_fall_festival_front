@@ -115,7 +115,11 @@ export const TimeTableSection = ({
             12:00 ~ 18:00
           </S.BoothTimeSection>
           {booth12List.map(booth => (
-            <BoothCard booth={booth} realtimeList={realtimeList} />
+            <BoothCard
+              key={booth.id}
+              booth={booth}
+              realtimeList={realtimeList}
+            />
           ))}
           <S.BoothTimeSection
             isnow={isFestivalDay() && timePercent >= 540 && timePercent <= 600}
@@ -124,7 +128,11 @@ export const TimeTableSection = ({
             18:00 ~ 22:00
           </S.BoothTimeSection>
           {booth18List.map(booth => (
-            <BoothCard booth={booth} realtimeList={realtimeList} />
+            <BoothCard
+              key={booth.id}
+              booth={booth}
+              realtimeList={realtimeList}
+            />
           ))}
         </S.BoothLeft>
 
@@ -136,7 +144,11 @@ export const TimeTableSection = ({
             14:00 ~ 16:00
           </S.PerformTimeSection>
           {perform14List.map(booth => (
-            <PerfomanceCard booth={booth} realtimeList={realtimeList} />
+            <PerfomanceCard
+              key={booth.id}
+              booth={booth}
+              realtimeList={realtimeList}
+            />
           ))}
           <S.PerformTimeSection
             isnow={isFestivalDay() && timePercent >= 360 && timePercent < 540}
@@ -145,7 +157,11 @@ export const TimeTableSection = ({
             18:00 ~ 21:00
           </S.PerformTimeSection>
           {perform18List.map(booth => (
-            <PerfomanceCard booth={booth} realtimeList={realtimeList} />
+            <PerfomanceCard
+              key={booth.id}
+              booth={booth}
+              realtimeList={realtimeList}
+            />
           ))}
         </S.BoothRight>
 
