@@ -4,6 +4,7 @@ import PageTitle from "../../components/common/pageTitle/PageTitle";
 import DateSelector from "../../components/common/dateSelector/DateSelector";
 import Marker from "../../components/common/booth/marker/Marker";
 import BoothCard from "../../components/common/booth/boothCard/BoothCard";
+import { API } from "../../api/axios";
 
 // 이미지
 import MapImg from "../../assets/images/map.png";
@@ -15,8 +16,8 @@ function Booth() {
   const [date, setDate] = useState(11);
   // 건물명 사회과학관 | 혜화관 | 팔정도 | 원흥관 | 만해광장 | 학생회관 | 학림관
   const [markerStates, setMarkerStates] = useState("");
-  // 전체 | 주간 | 야간 => 디폴트는 전체
-  const [dayOrNight, setDayOrNight] = useState("전체부스");
+  // 전체 | 주간 | 야간 | 기타 (추가) => 디폴트는 전체
+  const [dayOrNight, setDayOrNight] = useState("");
   // 데이터
   const [data, setData] = useState([]);
 
@@ -46,28 +47,41 @@ function Booth() {
         id: 1,
         name: "string, (FE 글자수 정해주면 좋을듯)",
         description: "string,자를게요)자를게요)자를게요)자를게요)",
-        type: "부스",
+        type: "야간부스",
         location: "string",
         is_liked: true, //쿠키 사용!
-        like_cnt: 987123
+        like_cnt: 987123,
+        thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
       },
       {
         id: 2,
         name: "FE글자수정해주면 좋을듯)",
         description: "FE글자다주면알아서면알아서면알아서면알아서자를게요)",
-        type: "부스부스",
+        type: "주간부스",
         location: "string",
         is_liked: true, //쿠키 사용!
-        like_cnt: 987
+        like_cnt: 987,
+        thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
       },
       {
         id: 3,
         name: "string, (FE 글자수 정해주면 좋을듯)",
         description: "string, (FE 글자 다 주면 알아서 자를게요)",
-        type: "부스부스부스",
+        type: "기타부스",
         location: "string",
         is_liked: true, //쿠키 사용!
-        like_cnt: 987
+        like_cnt: 987,
+        thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
+      },
+      {
+        id: 4,
+        name: "string, (FE 글자수 정해주면 좋을듯)",
+        description: "string, (FE 글자 다 주면 알아서 자를게요)",
+        type: "기타부스",
+        location: "string",
+        is_liked: true, //쿠키 사용!
+        like_cnt: 987,
+        thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
       }
     ];
     setData(contentData);
@@ -76,9 +90,10 @@ function Booth() {
   // API 연결
   const fetchData = async () => {
     try {
-      const response = await API.get(
-        `/booths?date=${date}&location=${markerStates}&type=${dayOrNight}`
-      );
+      const response = await API
+        .get
+        //`api/v1/booths?date=${date}&location=${markerStates}&type=${dayOrNight}`
+        ();
       setData(response.data);
     } catch (error) {
       console.error("Error: ", error);
@@ -186,9 +201,9 @@ function Booth() {
       <S.BoothCategryWrap>
         <S.BoothCategry
           dayornight={dayOrNight}
-          onClick={() => setDayOrNight("전체부스")}
-          color={dayOrNight === "전체부스" ? "#FFF" : "#ffb2b2"}
-          borderbottom={dayOrNight === "전체부스" ? "#FFF" : "none"}
+          onClick={() => setDayOrNight("")}
+          color={dayOrNight === "" ? "#FFF" : "#ffb2b2"}
+          borderbottom={dayOrNight === "" ? "#FFF" : "none"}
         >
           전체부스
         </S.BoothCategry>
