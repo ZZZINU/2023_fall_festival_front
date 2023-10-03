@@ -12,7 +12,6 @@ const CardWhole = styled.div`
 
 const CardWrapper1 = styled.div`
   display: flex;
-  /* flex-wrap: wrap; 추가: 요소들이 여러 행으로 나뉘도록 함 */
   position: relative;
   justify-content: center;
   justify-content: center;
@@ -20,7 +19,6 @@ const CardWrapper1 = styled.div`
 `;
 const CardWrapper2 = styled.div`
   display: flex;
-  /* flex-wrap: wrap; 추가: 요소들이 여러 행으로 나뉘도록 함 */
   position: relative;
   justify-content: center;
 `;
@@ -29,7 +27,7 @@ const CardContainer = styled.div`
   width: 43%;
   height: 100px;
   background-color: #fffaea;
-  position: relative; /* 변경: absolute를 relative로 변경 */
+  position: relative;
   margin: 5px;
   opacity: 100%;
   border-radius: 10.57px;
@@ -68,7 +66,7 @@ const CardButton = styled.div`
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1); /* 위아래 양옆에 똑같은 그림자 추가 */
 `;
 
-const GuestbookCard = ({ message }) => {
+const GuestbookCard = () => {
   return (
     <CardWhole>
       <CardWrapper1>

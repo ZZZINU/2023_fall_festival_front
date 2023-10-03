@@ -2,9 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./style";
 
-import { Pagination } from "swiper/modules";
-import DGULikeLion from "../../assets/images/DGU_LikeLion.png";
-
 //component import
 import PageTitle from "../../components/common/pageTitle/PageTitle";
 import MainBanner from "../../components/Main/MainBanner";
