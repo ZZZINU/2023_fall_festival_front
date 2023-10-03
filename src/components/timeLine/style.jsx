@@ -223,11 +223,13 @@ export const LineUpContainer = styled.div`
 
   z-index: 1;
 `;
+export const LineUpContainer1 = styled(LineUpContainer)`
+  margin-top: 90px;
+`
 export const MarginLabel = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 480px;
 `;
 export const LineUpImg = styled.img`
   width: 190px;

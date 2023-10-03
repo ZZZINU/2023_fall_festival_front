@@ -8,65 +8,12 @@ function Promotion() {
   // 전체 | 동아리 | 학과 => 디폴트는 전체
   const [category, setCategory] = useState("전체");
   const [data, setData] = useState([]);
+  let requestURL;
   
-/*
-  useEffect(() => {
-    const contentData = [
-      {
-        id: 1,
-        title: "첫번째 공지 12자인가 18자인가 보자보자",
-        type: "축제",
-        content:
-          "1번이다 1번1번이다 1번1번이다 1번1번이다 1번1번이다 1번1번이다 1번1번이다 1번1번이다 1번이다아아아d아ㅏ앙",
-        created_at: "2023-09-29T12:38:12Z",
-        images: ["/notice/text1.png"],
-        thumbnail: "img.jpg"
-      },
-      {
-        id: 2,
-        title: "2번입니다람쥐쥐ㅜ쥐쥐",
-        type: "기타",
-        content:
-          "두번째 게시물두번째 게시물두번째 게시물두번째 게시물두번째 게시물두번째 게시물두번째 게시물두번째 게시물두번째 게시물두번째 게시물",
-        created_at: "2023-09-29T12:38:36Z",
-        images: ["/notice/text2.png"],
-        thumbnail: "img.jpg"
-      },
-      {
-        id: 3,
-        title: "세번째라니",
-        type: "기타",
-        content: "세번째 공지 게시물",
-        created_at: "2023-09-29T12:38:57Z",
-        images: ["/notice/text3.png"],
-        thumbnail: null
-      },
-      {
-        id: 4,
-        title: "네번째라니",
-        type: "기타",
-        content: "네번째 공지 게시물",
-        created_at: "2023-09-29T12:38:57Z",
-        images: [],
-        thumbnail: null
-      },
-      {
-        id: 5,
-        title: "오번째라니",
-        type: "기타",
-        content: "오번째 공지 게시물",
-        created_at: "2023-09-29T12:38:57Z",
-        images: [],
-        thumbnail: null
-      }
-    ];
-    setData(contentData);
-  }, []);
-*/
   // API 연결
   const fetchData = async () => {
     try {
-      const response = await API.get("api/v1/promotion");
+      const response = await API.get(requestURL);
       setData(response.data.results);
     } catch (error) {
       console.error("Error: ", error);
@@ -75,6 +22,12 @@ function Promotion() {
 
   // 초기
   useEffect(() => {
+    if (category === "동아리") {
+      requestURL = "api/v1/promotion?type=동아리";
+    } else if (category === "학과") {
+      requestURL = "api/v1/promotion?type=학과";
+    } else requestURL = "api/v1/promotion";
+
     fetchData();
   }, [category]);
 
@@ -111,7 +64,7 @@ function Promotion() {
           </S.CategoryWarp_>
           <S.Line_ />
           {data.map(promotion => (
-            <NoticeCard key={data.id} data={promotion} />
+            <NoticeCard key={promotion.id} data={promotion} />
           ))}
         </S.PromotionBox>
       </S.PromotionWrappper>
