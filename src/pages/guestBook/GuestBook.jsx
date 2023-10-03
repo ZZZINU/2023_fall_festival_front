@@ -2,8 +2,23 @@ import React, { useEffect, useRef, useState } from "react";
 import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
 import { API } from "../../api/axios";
+import Modal from "../../components/common/modal/Modal";
+import ModalImg from "./Warning.png";
+import Loading from "../../components/common/loading/Loading";
 
 function GuestBook() {
+  const [showAbusedModal, setShowAbusedModal] = useState(false);
+  const [showTimeModal, setShowTimeModal] = useState(false);
+  // 모달 닫기 함수
+  const handleCloseAbusedModal = () => {
+    setShowAbusedModal(false);
+    location.reload();
+  };
+
+  const handleCloseTimeModal = () => {
+    setShowTimeModal(false);
+  };
+
   const [isFetchData, setIsFetchData] = useState(false);
   const [isLoadData, setIsLoadData] = useState(true);
 
@@ -15,18 +30,19 @@ function GuestBook() {
   const fetchData = async () => {
     try {
       const dataLeft_api_respone = await API.get(
-        `api/v1/chat?page=${currentPage}`
+        `api/v1/chat/dataleft?page=${currentPage}`
       );
       const dataRight_api_respone = await API.get(
-        `api/v1/chat?page=${currentPage}`
+        `api/v1/chat/dataright?page=${currentPage}`
       );
 
-      console.log(
-        "데이터 패치중...",
-        dataLeft_api_respone,
-        dataRight_api_respone,
-        dataLeft_api_respone.data.count + dataRight_api_respone.data.count
-      );
+      // console.log(
+      //   "데이터 패치중...",
+      //   dataLeft_api_respone,
+      //   dataRight_api_respone,
+      //   dataLeft_api_respone.data.count + dataRight_api_respone.data.count
+      // );
+
       setCount(
         dataLeft_api_respone.data.count + dataRight_api_respone.data.count
       );
@@ -41,21 +57,23 @@ function GuestBook() {
     } catch (error) {
       console.log("처음 데이터를 로딩하는 중 오류 발생", error);
     }
+    setContentListLeft_Height(contentListLeft_Ref.current?.offsetHeight);
+    setContentListRight_Height(contentListRight_Ref.current?.offsetHeight);
+    window.scrollTo(0, 0);
   };
   //처음 로딩될때 초기값넣기
   useEffect(() => {
     fetchData();
   }, []);
 
-  useEffect(() => {}, [isLoadData]);
   const loadData = async () => {
     try {
       setIsLoadData(false);
       const dataLeft_api_respone = await API.get(
-        `api/v1/chat?page=${currentPage}`
+        `api/v1/chat/dataleft?page=${currentPage}`
       );
       const dataRight_api_respone = await API.get(
-        `api/v1/chat?page=${currentPage}`
+        `api/v1/chat/dataright?page=${currentPage}`
       );
 
       const newDataLeft = dataLeft.concat(dataLeft_api_respone.data.results);
@@ -81,13 +99,8 @@ function GuestBook() {
   }
 
   useEffect(() => {
-    setContentListLeft_Height(contentListLeft_Ref.current?.offsetHeight);
-    setContentListRight_Height(contentListRight_Ref.current?.offsetHeight);
-  }, [isFetchData, isLoadData]);
-
-  useEffect(() => {
-    console.log("Position", position, position + window.innerHeight);
-    console.log("height", contentListLeft_Height, contentListRight_Height);
+    // console.log("Position", position, position + window.innerHeight);
+    // console.log("height", contentListLeft_Height, contentListRight_Height);
     if (isLoadData && position != 0 && count / 20 > currentPage) {
       if (
         position + window.innerHeight > contentListLeft_Height ||
@@ -99,8 +112,9 @@ function GuestBook() {
   }, [position]);
 
   useEffect(() => {
-    console.log(">>>>>>>>>>>>>>>페이지 로딩중...", currentPage);
-    loadData();
+    if (currentPage >= 2) {
+      loadData();
+    }
   }, [currentPage]);
 
   useEffect(() => {
@@ -111,10 +125,10 @@ function GuestBook() {
   }, []);
 
   //현재 선택된 아이콘
-  const [currentIcon, setCurrentIcon] = useState("cry");
+  const [currentIcon, setCurrentIcon] = useState("festival");
 
   //아이콘 종류
-  const iconList = ["cry", "hip", "fire", "festival", "heart"];
+  const iconList = ["festival", "cry", "hip", "fire", "heart"];
   const iconData = {
     cry: "🥹",
     hip: "😎",
@@ -159,13 +173,37 @@ function GuestBook() {
         icon: currentIcon
       });
       console.log(response);
+      //욕설을 사용했을경우
+      if (response.data.is_abused) {
+        setShowAbusedModal(true);
+      } else {
+        location.reload();
+      }
     } catch (error) {
-      console.log("제출에 실패함");
+      console.log("제출에 실패함", error.response.status);
+      if (error.response.status == 400) {
+        setShowTimeModal(true);
+      }
     }
   };
 
   return (
     <S.GuestBookWrapper>
+      {showAbusedModal && (
+        <Modal
+          img={ModalImg}
+          content="욕설이나 비방은 삼가주세요."
+          onClose={handleCloseAbusedModal}
+        />
+      )}
+      {showTimeModal && (
+        <Modal
+          img={ModalImg}
+          content="도배 방지를 위해 60초 이후 작성 가능합니다."
+          onClose={handleCloseTimeModal}
+        />
+      )}
+
       <PageTitle mainTitle={"방명록"} subTitle={"축제의 기록을 남겨주세요"} />
 
       <S.GuestBookContent>
@@ -183,7 +221,32 @@ function GuestBook() {
               );
             })
           ) : (
-            <div>로딩중</div>
+            <>
+              <S.GuestBookBox>
+                <S.GeustBookIcon>🌞</S.GeustBookIcon>
+                <S.GeustBookText>
+                  2023 동국대학교 가을 축제 파이팅!
+                </S.GeustBookText>
+              </S.GuestBookBox>
+              <S.GuestBookBox>
+                <S.GeustBookIcon>🏃</S.GeustBookIcon>
+                <S.GeustBookText>
+                  축제의 기록을 불러오는 중입니다! 잠시만 기다려주세요!
+                </S.GeustBookText>
+              </S.GuestBookBox>
+              <S.GuestBookBox>
+                <S.GeustBookIcon>🌞</S.GeustBookIcon>
+                <S.GeustBookText>
+                  2023 동국대학교 가을 축제 파이팅!
+                </S.GeustBookText>
+              </S.GuestBookBox>
+              <S.GuestBookBox>
+                <S.GeustBookIcon>🏃</S.GeustBookIcon>
+                <S.GeustBookText>
+                  축제의 기록을 불러오는 중입니다! 잠시만 기다려주세요!
+                </S.GeustBookText>
+              </S.GuestBookBox>
+            </>
           )}
         </S.GuestBookContentBox>
 
@@ -201,11 +264,36 @@ function GuestBook() {
               );
             })
           ) : (
-            <div>로딩중</div>
+            <>
+              <S.GuestBookBox>
+                <S.GeustBookIcon>🏃</S.GeustBookIcon>
+                <S.GeustBookText>
+                  축제의 기록을 불러오는 중입니다! 잠시만 기다려주세요!
+                </S.GeustBookText>
+              </S.GuestBookBox>
+              <S.GuestBookBox>
+                <S.GeustBookIcon>🌞</S.GeustBookIcon>
+                <S.GeustBookText>
+                  2023 동국대학교 가을 축제 파이팅!
+                </S.GeustBookText>
+              </S.GuestBookBox>
+              <S.GuestBookBox>
+                <S.GeustBookIcon>🏃</S.GeustBookIcon>
+                <S.GeustBookText>
+                  축제의 기록을 불러오는 중입니다! 잠시만 기다려주세요!
+                </S.GeustBookText>
+              </S.GuestBookBox>
+              <S.GuestBookBox>
+                <S.GeustBookIcon>🌞</S.GeustBookIcon>
+                <S.GeustBookText>
+                  2023 동국대학교 가을 축제 파이팅!
+                </S.GeustBookText>
+              </S.GuestBookBox>
+            </>
           )}
         </S.GuestBookContentBox>
       </S.GuestBookContent>
-      {isLoadData ? <></> : <div>로딩중</div>}
+      {isLoadData ? <></> : <Loading />}
 
       <S.GuestBookInputWrapper>
         <S.GuestBookInputIconWrapper>
@@ -241,7 +329,8 @@ function GuestBook() {
         <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
           <S.GuestBookInput
             ref={inputRef}
-            placeholder="방명록을 입력해주세요!(50자 이내)"
+            maxlength="50"
+            placeholder="방명록을 작성해주세요! (50자 이내)"
             onFocus={focusHandler}
             onBlur={blurHandler}
           />
