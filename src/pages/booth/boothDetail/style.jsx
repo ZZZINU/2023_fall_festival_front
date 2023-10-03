@@ -191,7 +191,8 @@ export const MySwiper = styled(Swiper)`
 
   .swiper-slide img {
     width: 330px;
-    height: 100%;
+    height: 330px;
+    /* height: 100%; */
     border-radius: 20px;
   }
 

@@ -20,20 +20,22 @@ import ModalImg from "../../../../public/booth/modalShare.png";
 // 컴포넌트
 import Modal from "../../../components/common/modal/Modal";
 
+// API
+import { API } from "../../../api/axios";
+
 function BoothDetail() {
   const { id } = useParams();
 
   // 데이터
-
   const [data, setData] = useState({
-    name: "",
-    images: [],
-    type: "",
-    is_liked: false,
-    like_cnt: 0,
-    during: "",
-    location: "",
-    description: ""
+    // name: "",
+    // images: [],
+    // type: "",
+    // is_liked: false,
+    // like_cnt: 0,
+    // during: "",
+    // location: "",
+    // description: ""
   });
 
   // 모달 ON/OFF
@@ -62,46 +64,60 @@ function BoothDetail() {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const contentData = {
-          name: "산공산공공산공",
-          thumbnail: "/booth/temp.png",
-          images: ["/booth/booth.png", "/booth/booth.png", "/booth/booth.png"],
-          type: "주간부스",
-          is_liked: false,
-          like_cnt: 123,
-          during: "2023.09.30 06:00~18:00",
-          location: "사회과학관",
-          description: "하이 산시",
-          insta_url: "https://www.instagram.com/donggukstuco/"
-        };
-        setData(contentData);
-      } catch (error) {
-        console.error("Error: ", error);
-      }
-    };
+    // const fetchData = async () => {
+    //   try {
+    //     const contentData = {
+    //       name: "산공산공공산공",
+    //       thumbnail: "/booth/temp.png",
+    //       images: ["/booth/booth.png", "/booth/booth.png", "/booth/booth.png"],
+    //       type: "주간부스",
+    //       is_liked: false,
+    //       like_cnt: 123,
+    //       during: "2023.09.30 06:00~18:00",
+    //       location: "사회과학관",
+    //       description: "하이 산시",
+    //       insta_url: "https://www.instagram.com/donggukstuco/"
+    //     };
+    //     setData(contentData);
+    //   } catch (error) {
+    //     console.error("Error: ", error);
+    //   }
+    // };
     fetchData();
   }, []);
 
-  /** 
+  // API 연결
+  const fetchData = async () => {
+    try {
+      const response = await API.get(`api/v1/booths/${id}`);
+      setData(response.data);
+      setIsLikeClick(data.is_liked);
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+  };
+
   const handleHeartClick = async () => {
-    const id = router.query.id;
     if (data.is_liked) {
       try {
         // axios요청 보내기
-        const response = await API.delete(`/booths/${id}/likes`);
+        const response = await API.delete(`api/v1/booths/${id}/likes`);
         if (response.status === 200) {
           setIsLikeClick(i => !i);
         }
-      } catch (error) {}
+      } catch (error) {
+        console.error("Error: ", error);
+      }
     } else {
       try {
-        const response = await API.post(`/booths/${id}/likes`);
+        const response = await API.post(`/api/v1/booths/${id}/likes`);
+
         if (response.status === 200) {
           setIsLikeClick(i => !i);
         }
-      } catch (error) {}
+      } catch (error) {
+        console.error("Error: ", error);
+      }
     }
   };
 
@@ -109,7 +125,7 @@ function BoothDetail() {
   useEffect(() => {
     fetchData();
   }, [isLikeClick]);
-*/
+
   return (
     <>
       <S.BoothDetailWrap>
@@ -133,11 +149,17 @@ function BoothDetail() {
             <SwiperSlide>
               <img src={data.thumbnail} alt="Thumbnail" />
             </SwiperSlide>
-            {data.images.map((image, index) => (
-              <SwiperSlide key={index}>
-                <S.SwiperSlideImg src={image} alt={`Slide ${index + 1}`} />
-              </SwiperSlide>
-            ))}
+            {data.images ? (
+              <>
+                {data.images.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <S.SwiperSlideImg src={image} alt={`Slide ${index + 1}`} />
+                  </SwiperSlide>
+                ))}
+              </>
+            ) : (
+              <></>
+            )}
           </S.MySwiper>
 
           <S.BoothDetailRibbon>{data.type}</S.BoothDetailRibbon>
@@ -145,7 +167,7 @@ function BoothDetail() {
         <S.BoothDetailFunctionWrap>
           {/* 하트 */}
           <S.BoothDetailHeartWrap
-            onClick={handleLikeClick}
+            onClick={handleHeartClick}
             background={data.is_liked ? "#E0747B;" : "#fff"}
           >
             <S.BoothDetailHeart

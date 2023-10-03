@@ -3,10 +3,13 @@ import React, { useEffect, useRef } from "react";
 const Snow = () => {
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
+  const starImageRef = useRef(null); // 별 이미지를 로드하기 위한 참조
 
-  const getRandomRadius = () => Math.random() * 2 + 1;
+  const getRandomX = () => Math.random() * canvasWidth.current;
+  const getRandomY = () => Math.random() * canvasHeight.current;
   const getRandomSpeed = () => Math.random() * 0.2 + 0.05;
-  const getRandomDir = () => [-1, 1][Math.floor(Math.random() * 2)];
+  const getRandomScale = () => Math.random() * 0.4 + 0.1; // 이미지 크기를 조절하기 위한 랜덤 스케일
+  const getRandomDirection = () => (Math.random() < 0.5 ? -1 : 1); // 랜덤 방향 설정
 
   const data = useRef([]);
   const canvasWidth = useRef(0);
@@ -27,15 +30,15 @@ const Snow = () => {
   const make = () => {
     const newData = [];
 
-    for (let i = 0; i < 100; i++) {
-      const x = Math.random() * canvasWidth.current;
-      const y = Math.random() * canvasHeight.current;
+    for (let i = 0; i < 50; i++) {
+      const x = getRandomX();
+      const y = getRandomY();
 
-      const size = getRandomRadius();
       const speed = getRandomSpeed();
-      const dir = getRandomDir();
+      const scale = getRandomScale();
+      const direction = getRandomDirection(); // 랜덤 방향
 
-      newData.push({ x, y, size, speed, dir });
+      newData.push({ x, y, speed, scale, direction });
     }
 
     data.current = newData;
@@ -43,18 +46,25 @@ const Snow = () => {
 
   const move = () => {
     data.current = data.current.map(item => {
-      item.x += item.dir * item.speed;
       item.y += item.speed;
 
-      const isMinOverPositionX = -item.size > item.x;
-      const isMaxOverPositionX = item.x > canvasWidth.current;
-      const isOverPositionY = item.y > canvasHeight.current;
+      // 옆으로 이동
+      item.x += item.speed * item.direction;
 
-      if (isMinOverPositionX || isMaxOverPositionX) {
-        item.dir *= -1;
+      // 화면 아래로 벗어나면 다시 위로 올리기
+      if (item.y > canvasHeight.current) {
+        item.y = -starImageRef.current.height * item.scale;
+        item.x = getRandomX();
+        item.speed = getRandomSpeed();
+        item.scale = getRandomScale();
+        item.direction = getRandomDirection(); // 랜덤 방향 설정
       }
-      if (isOverPositionY) {
-        item.y = -item.size;
+
+      // 화면 옆으로 벗어나면 반대쪽으로 이동
+      if (item.x > canvasWidth.current) {
+        item.x = -starImageRef.current.width * item.scale;
+      } else if (item.x < -starImageRef.current.width * item.scale) {
+        item.x = canvasWidth.current;
       }
 
       return item;
@@ -66,15 +76,16 @@ const Snow = () => {
 
     ctx.clearRect(0, 0, canvasWidth.current, canvasHeight.current);
 
-    ctx.fillStyle = "rgba(0, 0, 0, 0)";
-    ctx.fillRect(0, 0, canvasWidth.current, canvasHeight.current);
-
     data.current.forEach(item => {
-      ctx.beginPath();
-      ctx.fillStyle = "rgba(255, 255, 255, .6)";
-      ctx.arc(item.x, item.y, item.size, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.closePath();
+      const scaledWidth = starImageRef.current.width * item.scale;
+      const scaledHeight = starImageRef.current.height * item.scale;
+      ctx.drawImage(
+        starImageRef.current,
+        item.x,
+        item.y,
+        scaledWidth,
+        scaledHeight
+      );
     });
   };
 
@@ -90,7 +101,14 @@ const Snow = () => {
     canvas.height = canvasHeight.current;
 
     ctxRef.current = ctx;
-    init();
+
+    // 별 이미지 로드
+    const starImage = new Image();
+    starImage.src = "/Main/main_star.png"; // 별 이미지 파일 경로 설정
+    starImage.onload = () => {
+      starImageRef.current = starImage;
+      init();
+    };
 
     const handleResize = () => {
       canvasWidth.current = window.innerWidth;
