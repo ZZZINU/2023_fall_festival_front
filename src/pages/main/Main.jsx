@@ -10,11 +10,13 @@ import PageTitle from "../../components/common/pageTitle/PageTitle";
 import MainBanner from "../../components/Main/MainBanner";
 import TopBooth from "../../components/Main/TopBooth";
 import GuestbookCard from "../../components/Main/MainGuestBookCard";
+import Snow from "../about/Snow";
 
 function Main() {
   return (
     <>
       <S.MainContainer>
+        <Snow style={{ position: "fixed", top: 0, left: 0, zIndex: 100 }} />
         <S.FloatingImagesContainer>
           <S.FloatingImage
             src="/Main/main_ya.png"
