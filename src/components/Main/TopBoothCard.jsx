@@ -29,11 +29,19 @@ function TopBoothCard({
 
   const boothGradeImg = boothGradeImgurl || defaultGradeImg;
 
-  // 부스 이름을 8글자로 제한하고 넘어가면 "..."을 붙입니다.
+  // 부스 이름을 5글자로 제한하고 넘어가면 "..."을 붙입니다.
+  const maxBoothTitleLength = 5; // 최대 길이 설정
   const processedBoothTitle =
-    boothTitle && boothTitle.length > 7
-      ? `${boothTitle.slice(0, 7)}...`
+    boothTitle && boothTitle.length > maxBoothTitleLength
+      ? `${boothTitle.slice(0, maxBoothTitleLength)}...`
       : boothTitle;
+
+  // 부스 소개글을 14글자로 제한하고 넘어가면 "..."을 붙입니다.
+  const maxBoothDescriptLength = 13; // 최대 길이 설정
+  const processedBoothDescript =
+    boothDescript && boothDescript.length > maxBoothDescriptLength
+      ? `${boothDescript.slice(0, maxBoothDescriptLength)}...`
+      : boothDescript;
 
   return (
     <>
@@ -47,7 +55,9 @@ function TopBoothCard({
               <S.BoothTitle fontSize={titleFont}>
                 {processedBoothTitle || "부스명"}
               </S.BoothTitle>
-              <S.BoothDescript>{boothDescript || "부스 소개"}</S.BoothDescript>
+              <S.BoothDescript>
+                {processedBoothDescript || "부스 소개"}
+              </S.BoothDescript>
 
               <S.BoothEtcWrapper marginTop={marginTop}>
                 <S.BoothLocationWrapper>
