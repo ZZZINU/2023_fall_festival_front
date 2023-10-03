@@ -56,14 +56,14 @@ export const LineUp = ({ festivalDate }) => {
           </S.LineUpList>
         </S.LineUpContainer>
         {festivalDate == 11 && (
-          <S.LineUpContainer>
+          <S.LineUpContainer1>
             <S.LineUpList>
               <S.EngName>{firstDay[1].engname}</S.EngName>
               <div>{firstDay[1].name}</div>
               <S.ShowTime>{firstDay[1].time}</S.ShowTime>
             </S.LineUpList>
             <S.LineUpImg src={firstDay[1].img} alt="img" />
-          </S.LineUpContainer>
+          </S.LineUpContainer1>
         )}
       </S.MarginLabel>
     </S.LineUpWrapper>
