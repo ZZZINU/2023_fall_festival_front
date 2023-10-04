@@ -7,7 +7,7 @@ import PageTitle from "../../components/common/pageTitle/PageTitle";
 import MainBanner from "../../components/Main/MainBanner";
 import TopBooth from "../../components/Main/TopBooth";
 import GuestbookCard from "../../components/Main/MainGuestBookCard";
-import Snow from "../about/Snow";
+import Snow from "../about/snow";
 
 function Main() {
   return (
