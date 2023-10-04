@@ -20,16 +20,7 @@ function BoothCard({ data }) {
         {data.map((booth, index) => (
           <Link to={`/booths/${booth.id}`} key={booth.id}>
             <S.BoothCardWrapper key={index}>
-              {booth.type === "기타부스" ? (
-                <>
-                  <S.BoothCardImage src={BoothDefaultImg} alt="부스 이미지" />
-                </>
-              ) : (
-                <>
-                  <S.BoothCardImage src={booth.thumbnail} alt="부스 이미지" />
-                </>
-              )}
-
+              <S.BoothCardImage src={BoothDefaultImg} alt="부스 이미지" />
               <S.BoothCardRibbon>{booth.type}</S.BoothCardRibbon>
               <S.BoothCardDetailWrapper>
                 <S.BoothCardDetailTitle>
