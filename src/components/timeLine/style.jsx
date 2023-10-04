@@ -110,11 +110,11 @@ export const BoothDetailSection = styled.div`
 `;
 export const BoothLeft = styled.div`
   width: 50%;
-  padding-right: 20px;
+  padding-right: 14px;
 `;
 export const BoothRight = styled.div`
   width: 50%;
-  padding-left: 20px;
+  padding-left: 14px;
 `;
 export const TimeStroke = styled.div`
   position: absolute;

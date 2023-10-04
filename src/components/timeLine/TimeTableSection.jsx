@@ -4,6 +4,8 @@ import MiniLogo from "../../assets/images/timetable_logo.png";
 import MiniLocation from "../../assets/images/timetable_location.png";
 import { BoothCard } from "./boothCard/BoothCard";
 import { PerfomanceCard } from "./boothCard/PerfomanceCard";
+import BoothTime from "./timeSection/BoothTime";
+import PerfomanceTime from "./timeSection/PerfomanceTime";
 
 export const TimeTableSection = ({
   boothData,
@@ -52,17 +54,17 @@ export const TimeTableSection = ({
   }, []);
 
   // 시간 바에서 현재 위치 계산 -----------------------------
-  const startTime = new Date(`2023-10-${festivalDate} 12:00`); // TimeStroke 시작 시간
+  const startTime = new Date(`2023-10-${festivalDate} 11:00`); // TimeStroke 시작 시간
   const timeDifference = currentTime - startTime;
 
   const timePercent = timeDifference / (1000 * 60); // 분 단위
 
   let imagePosition = 0;
-  if (timePercent >= 0 && timePercent < 600) {
-    // 12:00 이후부터 22:00 이전까지
+  if (timePercent >= 0 && timePercent < 660) {
+    // 11:00 이후부터 22:00 이전까지
     imagePosition = `${(timePercent / (10 * 60)) * 100 - 3}%`;
   } else if (timePercent < 0) {
-    // 12:00 이전
+    // 11:00 이전
     imagePosition = 0;
   } else {
     // 22:00 이후
@@ -105,6 +107,39 @@ export const TimeTableSection = ({
       {/* 부스 및 공연 목록 */}
       <S.BoothDetailSection>
         <S.BoothLeft>
+          <BoothTime
+            realtimeList={realtimeList}
+            isFestivalDay={isFestivalDay}
+            boothData={boothData}
+            startTime="11:00"
+            endTime="17:00"
+            timePercent={timePercent}
+          />
+          <BoothTime
+            realtimeList={realtimeList}
+            isFestivalDay={isFestivalDay}
+            boothData={boothData}
+            startTime="11:00"
+            endTime="19:00"
+            timePercent={timePercent}
+          />
+          <BoothTime
+            realtimeList={realtimeList}
+            isFestivalDay={isFestivalDay}
+            boothData={boothData}
+            startTime="11:00"
+            endTime="23:00"
+            timePercent={timePercent}
+          />
+          <BoothTime
+            realtimeList={realtimeList}
+            isFestivalDay={isFestivalDay}
+            boothData={boothData}
+            startTime="18:00"
+            endTime="22:00"
+            timePercent={timePercent}
+          />
+          {/*           
           <S.BoothTimeSection
             isnow={
               isFestivalDay() &&
@@ -112,15 +147,19 @@ export const TimeTableSection = ({
                 (timePercent >= 240 && timePercent < 360))
             }
           >
-            12:00 ~ 18:00
+            11:00 ~ 17:00
           </S.BoothTimeSection>
-          {booth12List.map(booth => (
-            <BoothCard
-              key={booth.id}
-              booth={booth}
-              realtimeList={realtimeList}
-            />
-          ))}
+          {boothData
+            .filter(
+              booth => booth.starttime === "11:00" && booth.endtime === "17:00"
+            )
+            .map(booth => (
+              <BoothCard
+                key={booth.id}
+                booth={booth}
+                realtimeList={realtimeList}
+              />
+            ))}
           <S.BoothTimeSection
             isnow={isFestivalDay() && timePercent >= 540 && timePercent <= 600}
             style={{ marginTop: "45%" }}
@@ -133,10 +172,44 @@ export const TimeTableSection = ({
               booth={booth}
               realtimeList={realtimeList}
             />
-          ))}
+          ))} */}
         </S.BoothLeft>
 
         <S.BoothRight>
+          <PerfomanceTime
+            realtimeList={realtimeList}
+            isFestivalDay={isFestivalDay}
+            PerfomanceData={PerfomanceData}
+            startTime="11:00"
+            endTime="17:00"
+            timePercent={timePercent}
+          />
+          <PerfomanceTime
+            realtimeList={realtimeList}
+            isFestivalDay={isFestivalDay}
+            PerfomanceData={PerfomanceData}
+            startTime="13:30"
+            endTime="17:00"
+            timePercent={timePercent}
+          />
+          <PerfomanceTime
+            realtimeList={realtimeList}
+            isFestivalDay={isFestivalDay}
+            PerfomanceData={PerfomanceData}
+            startTime={festivalDate===11?"15:00":"14:30"}
+            endTime="20:00"
+            timePercent={timePercent}
+          />
+          <PerfomanceTime
+            realtimeList={realtimeList}
+            isFestivalDay={isFestivalDay}
+            PerfomanceData={PerfomanceData}
+            startTime="20:00"
+            endTime="22:00"
+            timePercent={timePercent}
+          />
+
+          {/* 
           <S.PerformTimeSection
             isnow={isFestivalDay() && timePercent >= 120 && timePercent < 240}
             style={{ marginTop: "30%" }}
@@ -162,7 +235,7 @@ export const TimeTableSection = ({
               booth={booth}
               realtimeList={realtimeList}
             />
-          ))}
+          ))} */}
         </S.BoothRight>
 
         {/* 타임테이블 시간 바 */}

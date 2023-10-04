@@ -26,7 +26,7 @@ export const BoothImg = styled.div`
   justify-content: center;
   align-items: center;
   width: 45%;
-  height: 56px;
+  height: 50px;
 
   border-radius: 10px;
   background: ${props => (props.isnow == "true" ? "#FFDFDB" : "#fff6db")};
@@ -35,15 +35,12 @@ export const BoothImg = styled.div`
 `;
 export const BoothTxt = styled.div`
   width: 100%;
+  padding: 0 4px;
 `;
 export const BoothTitle = styled.div`
-  display: flex;
-  justify-content: center;
   color: #282828;
 `;
 export const BoothPlace = styled.div`
-  display: flex;
-  justify-content: center;
   color: #8c847f;
   font-size: 0.8rem;
   font-weight: 200;
