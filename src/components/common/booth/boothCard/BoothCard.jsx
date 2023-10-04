@@ -21,7 +21,24 @@ function BoothCard({ data }) {
           <Link to={`/booths/${booth.id}`} key={booth.id}>
             <S.BoothCardWrapper key={index}>
               <S.BoothCardImage src={BoothDefaultImg} alt="부스 이미지" />
-              <S.BoothCardRibbon>{booth.type}</S.BoothCardRibbon>
+              <S.BoothCardRibbon
+                color={
+                  booth.type === "주간부스"
+                    ? "#E39554"
+                    : booth.type === "야간부스"
+                    ? "#EA6F60"
+                    : "#FFFFFF"
+                }
+                fontcolor={
+                  booth.type === "주간부스"
+                    ? "#FFFFFF"
+                    : booth.type === "야간부스"
+                    ? "#FFFFFF"
+                    : "#DD7481"
+                }
+              >
+                {booth.type}
+              </S.BoothCardRibbon>
               <S.BoothCardDetailWrapper>
                 <S.BoothCardDetailTitle>
                   {String(booth.name).length < 8

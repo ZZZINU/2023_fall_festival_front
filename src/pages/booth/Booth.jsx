@@ -67,7 +67,7 @@ function Booth() {
         id: 3,
         name: "string, (FE 글자수 정해주면 좋을듯)",
         description: "string, (FE 글자 다 주면 알아서 자를게요)",
-        type: "기타부스",
+        type: "플리마켓",
         location: "string",
         is_liked: true, //쿠키 사용!
         like_cnt: 987,
@@ -77,7 +77,7 @@ function Booth() {
         id: 4,
         name: "string, (FE 글자수 정해주면 좋을듯)",
         description: "string, (FE 글자 다 주면 알아서 자를게요)",
-        type: "기타부스",
+        type: "푸드트럭",
         location: "string",
         is_liked: true, //쿠키 사용!
         like_cnt: 987,
