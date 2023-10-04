@@ -55,7 +55,7 @@ export const BoothBtn = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 32px;
+  height: 30px;
   border-radius: 5px;
   background: ${props => (props.isnow == "true" ? "#EA6F60" : "#faa73f")};
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);

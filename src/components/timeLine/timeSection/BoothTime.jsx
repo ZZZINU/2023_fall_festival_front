@@ -20,12 +20,15 @@ export default function BoothTime({
   const startGap = Math.floor((start - currentTime) / (1000 * 60));
   const endGap = Math.floor((end - currentTime) / (1000 * 60));
 
+  const top = (startGap / 660*100);
+
   return (
     <>
       <S.BoothTimeSection
         isnow={
           isFestivalDay() && timePercent >= startGap && timePercent < endGap
         }
+        style={{ marginTop: `${top}%` }}
       >
         {startTime} ~ {endTime}
       </S.BoothTimeSection>

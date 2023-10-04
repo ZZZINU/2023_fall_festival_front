@@ -118,12 +118,13 @@ export const BoothRight = styled.div`
 `;
 export const TimeStroke = styled.div`
   position: absolute;
-  top: 60px;
+  top: 56px;
   left: 50%;
   transform: translateX(-50%);
 
   width: 1px;
-  height: 86%;
+  /* height: 100%; */
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
