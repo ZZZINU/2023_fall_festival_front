@@ -102,6 +102,7 @@ export const GuestBookInputIconList = styled.div`
   border-left: 1px solid;
   border-color: ${props => props.theme.colors.primary1};
   display: none;
+  overflow: scroll;
 `;
 export const GuestBookInputCurrentIconBox = styled.div`
   width: 30px;
