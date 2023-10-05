@@ -146,7 +146,7 @@ export const TimeStroke = styled.div`
 export const Stroke1 = styled.div`
   transform: translateX(-50%);
   width: 1px;
-  height: 23%;
+  height: 22.7%;
   /* height: 160px; */
   border: 1px solid #fffaea;
   margin-bottom: 28px;
@@ -158,7 +158,7 @@ export const Stroke2 = styled(Stroke1)`
 `;
 export const Stroke3 = styled(Stroke1)`
   border: 1px solid #fffaea;
-  height: 23.7%;
+  height: 23.5%;
   /* height: 160px; */
 `;
 export const Stroke4 = styled(Stroke1)`
