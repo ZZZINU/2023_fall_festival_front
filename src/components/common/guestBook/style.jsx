@@ -7,7 +7,7 @@ export const GuestBookBox = styled.div`
   border-radius: 10px;
   background-color: #fffaea;
   color: ${props => props.theme.colors.fontBrown};
-  margin-bottom: 20px;
+  margin-bottom: ${props => props.marginBottom};
   display: flex;
   flex-direction: column;
   justify-content: center;

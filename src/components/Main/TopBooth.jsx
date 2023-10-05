@@ -6,7 +6,7 @@ import { API } from "../../api/axios";
 const TopBoothWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  overflow: scroll;
+  overflow-x: scroll;
 `;
 const CardWrapper = styled.div`
   margin: 7px;

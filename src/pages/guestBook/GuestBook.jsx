@@ -221,6 +221,7 @@ function GuestBook() {
                   key={index}
                   icon={iconData[item.icon]}
                   content={item.content}
+                  marginBottom="20px"
                 />
               );
             })
@@ -265,6 +266,7 @@ function GuestBook() {
                   key={index}
                   icon={iconData[item.icon]}
                   content={item.content}
+                  marginBottom="20px"
                 />
               );
             })
