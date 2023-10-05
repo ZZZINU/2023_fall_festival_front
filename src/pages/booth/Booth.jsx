@@ -42,59 +42,72 @@ function Booth() {
   };
 
   useEffect(() => {
-    const contentData = [
-      {
-        id: 1,
-        name: "string, (FE 글자수 정해주면 좋을듯)",
-        description: "string,자를게요)자를게요)자를게요)자를게요)",
-        type: "야간부스",
-        location: "string",
-        is_liked: true, //쿠키 사용!
-        like_cnt: 987123,
-        thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
-      },
-      {
-        id: 2,
-        name: "FE글자수정해주면 좋을듯)",
-        description: "FE글자다주면알아서면알아서면알아서면알아서자를게요)",
-        type: "주간부스",
-        location: "string",
-        is_liked: true, //쿠키 사용!
-        like_cnt: 987,
-        thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
-      },
-      {
-        id: 3,
-        name: "string, (FE 글자수 정해주면 좋을듯)",
-        description: "string, (FE 글자 다 주면 알아서 자를게요)",
-        type: "플리마켓",
-        location: "string",
-        is_liked: true, //쿠키 사용!
-        like_cnt: 987,
-        thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
-      },
-      {
-        id: 4,
-        name: "string, (FE 글자수 정해주면 좋을듯)",
-        description: "string, (FE 글자 다 주면 알아서 자를게요)",
-        type: "푸드트럭",
-        location: "string",
-        is_liked: true, //쿠키 사용!
-        like_cnt: 987,
-        thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
-      }
-    ];
-    setData(contentData);
+    // const contentData = [
+    //   {
+    //     id: 1,
+    //     name: "string, (FE 글자수 정해주면 좋을듯)",
+    //     description: "string,자를게요)자를게요)자를게요)자를게요)",
+    //     type: "야간부스",
+    //     location: "string",
+    //     is_liked: true, //쿠키 사용!
+    //     like_cnt: 987123,
+    //     thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "FE글자수정해주면 좋을듯)",
+    //     description: "FE글자다주면알아서면알아서면알아서면알아서자를게요)",
+    //     type: "주간부스",
+    //     location: "string",
+    //     is_liked: true, //쿠키 사용!
+    //     like_cnt: 987,
+    //     thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
+    //   },
+    //   {
+    //     id: 3,
+    //     name: "string, (FE 글자수 정해주면 좋을듯)",
+    //     description: "string, (FE 글자 다 주면 알아서 자를게요)",
+    //     type: "플리마켓",
+    //     location: "string",
+    //     is_liked: true, //쿠키 사용!
+    //     like_cnt: 987,
+    //     thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
+    //   },
+    //   {
+    //     id: 4,
+    //     name: "string, (FE 글자수 정해주면 좋을듯)",
+    //     description: "string, (FE 글자 다 주면 알아서 자를게요)",
+    //     type: "푸드트럭",
+    //     location: "string",
+    //     is_liked: true, //쿠키 사용!
+    //     like_cnt: 987,
+    //     thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
+    //   }
+    // ];
+    // setData(contentData);
   }, []);
 
   // API 연결
   const fetchData = async () => {
     try {
-      const response = await API
-        .get
-        //`api/v1/booths?date=${date}&location=${markerStates}&type=${dayOrNight}`
-        ();
-      setData(response.data);
+      let typeParam = dayOrNight;
+
+      if (dayOrNight === "기타부스") {
+        typeParam = "푸드트럭&type=플리마켓";
+      }
+
+      let apiURL = `api/v1/booths?date=${date}`;
+
+      if (markerStates) {
+        apiURL += `&location=${markerStates}`;
+      }
+
+      if (typeParam) {
+        apiURL += `&type=${typeParam}`;
+      }
+
+      const response = await API.get(apiURL);
+      setData(response.data.results);
     } catch (error) {
       console.error("Error: ", error);
     }
