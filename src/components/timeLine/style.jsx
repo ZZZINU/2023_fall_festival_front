@@ -44,6 +44,7 @@ export const TimeTableWrapper = styled.div`
   align-items: center;
   padding: 30px 20px;
   width: 90%;
+  /* height: 950px; */
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
 `;
@@ -106,25 +107,29 @@ export const BoothDetailSection = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  height: 800px;
   padding-top: 30px;
 `;
 export const BoothLeft = styled.div`
   width: 50%;
+  height: 100%;
   padding-right: 14px;
 `;
 export const BoothRight = styled.div`
   width: 50%;
+  height: 100%;
   padding-left: 14px;
 `;
 export const TimeStroke = styled.div`
   position: absolute;
   top: 56px;
+  top: 65px;
   left: 50%;
   transform: translateX(-50%);
 
   width: 1px;
-  /* height: 100%; */
   height: 90%;
+  /* height: 95%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;

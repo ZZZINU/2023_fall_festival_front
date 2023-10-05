@@ -8,7 +8,8 @@ export default function PerfomanceTime({
   realtimeList,
   startTime,
   endTime,
-  timePercent
+  timePercent,
+  top
 }) {
   const currentTime = new Date("2023-10-11T11:00:00");
   const startParts = startTime.split(":");
@@ -20,7 +21,7 @@ export default function PerfomanceTime({
   const startGap = Math.floor((start - currentTime) / (1000 * 60));
   const endGap = Math.floor((end - currentTime) / (1000 * 60));
 
-  const top = (startGap / 660) * 100;
+  // const top = (startGap / 660) * 100;
 
   return (
     <>
@@ -28,7 +29,7 @@ export default function PerfomanceTime({
         isnow={
           isFestivalDay() && timePercent >= startGap && timePercent < endGap
         }
-        style={{ marginTop: `${top}%` }}
+        style={{ marginTop: `${top}` }}
       >
         {startTime} ~ {endTime}
       </S.PerformTimeSection>

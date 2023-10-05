@@ -10,8 +10,8 @@ export const BoothTimeSection = styled.div`
   font-size: 0.8rem;
   width: 75%;
   height: 32px;
-  margin: 0 0 5px auto;
+  margin: 10px 0 5px auto;
 `;
 export const PerformTimeSection = styled(BoothTimeSection)`
-  margin: 0 0 5px 0;
+  margin: 10px 0 5px 0;
 `;

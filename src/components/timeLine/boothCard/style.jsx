@@ -10,8 +10,8 @@ export const BoothWhiteBox = styled.div`
   border-radius: 10px;
   background: #fff;
   border: 1px solid ${props => (props.isnow == "true" ? "#EA6F60" : "#FFFAEA")};
-  margin-bottom: 5px;
-  padding: 14px 5px;
+  margin-bottom:12px;
+  padding: 12px 8px;
 `;
 export const PerformanceWhiteBox = styled(BoothWhiteBox)`
   margin-left: auto;
