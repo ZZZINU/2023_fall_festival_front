@@ -109,8 +109,8 @@ export const BoothCardRibbon = styled.div`
   align-items: center;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #e0747b;
-  color: #fff;
+  background: ${props => props.color};
+  color: ${props => props.fontcolor};
   text-align: right;
   font-family: NotoSansRegular;
   font-size: 10px;

@@ -110,7 +110,7 @@ export const MainGuestWrapper = styled.div`
 export const MainGusetBookBg = styled.img`
   margin-top: 35px;
   width: 85%;
-  height: 300px;
+  height: 350px;
   border-radius: 20px;
   margin: 20px;
 `;

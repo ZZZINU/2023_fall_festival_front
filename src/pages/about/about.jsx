@@ -3,7 +3,7 @@
 import React from "react";
 import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
-import Snow from "./Snow";
+import Snow from "./snow";
 
 const About = () => {
   return (

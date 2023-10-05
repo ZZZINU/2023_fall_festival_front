@@ -5,6 +5,7 @@ import { API } from "../../api/axios";
 import Modal from "../../components/common/modal/Modal";
 import ModalImg from "./Warning.png";
 import Loading from "../../components/common/loading/Loading";
+import GuestBookCard from "../../components/common/guestBook/GuestBookCard";
 
 function GuestBook() {
   const [showAbusedModal, setShowAbusedModal] = useState(false);
@@ -128,13 +129,15 @@ function GuestBook() {
   const [currentIcon, setCurrentIcon] = useState("festival");
 
   //아이콘 종류
-  const iconList = ["festival", "cry", "hip", "fire", "heart"];
+  const iconList = ["festival", "cry", "happy", "hip", "heart", "fire", "best"];
   const iconData = {
     cry: "🥹",
     hip: "😎",
+    happy: "😆",
     fire: "🔥",
-    festival: "🎉",
-    heart: "❤️"
+    festival: "🥳",
+    heart: "💖",
+    best: "👍"
   };
 
   //아이콘 선택창 ref
@@ -214,10 +217,12 @@ function GuestBook() {
           {isFetchData ? (
             dataLeft.map((item, index) => {
               return (
-                <S.GuestBookBox key={index}>
-                  <S.GeustBookIcon>{iconData[item.icon]}</S.GeustBookIcon>
-                  <S.GeustBookText>{item.content}</S.GeustBookText>
-                </S.GuestBookBox>
+                <GuestBookCard
+                  key={index}
+                  icon={iconData[item.icon]}
+                  content={item.content}
+                  marginBottom="20px"
+                />
               );
             })
           ) : (
@@ -257,10 +262,12 @@ function GuestBook() {
           {isFetchData ? (
             dataRight.map((item, index) => {
               return (
-                <S.GuestBookBox key={index}>
-                  <S.GeustBookIcon>{iconData[item.icon]}</S.GeustBookIcon>
-                  <S.GeustBookText>{item.content}</S.GeustBookText>
-                </S.GuestBookBox>
+                <GuestBookCard
+                  key={index}
+                  icon={iconData[item.icon]}
+                  content={item.content}
+                  marginBottom="20px"
+                />
               );
             })
           ) : (

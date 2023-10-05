@@ -45,22 +45,22 @@ function Header() {
         <img src="./navBar/line.png" />
         <S.SideBarContent>
           <Link to="/" onClick={closeSideBar}>
-            메인
+            메인 페이지
           </Link>
           <Link to="/notification" onClick={closeSideBar}>
-            공지
+            공지 및 홍보
           </Link>
           <Link to="/timeLine" onClick={closeSideBar}>
-            타임라인
+            타임 테이블
           </Link>
           <Link to="/booths" onClick={closeSideBar}>
-            부스
+            부스 정보
           </Link>
           <Link to="/guestBook" onClick={closeSideBar}>
             방명록
           </Link>
           <Link to="/about" onClick={closeSideBar}>
-            어바웃
+            함께한 사람들
           </Link>
         </S.SideBarContent>
       </S.SideBarWrapper>

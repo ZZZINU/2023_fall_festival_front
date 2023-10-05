@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import React from "react";
 import App from "./App";
 import Main from "./pages/main/Main";
-import About from "./pages/about/About";
+import About from "./pages/about/about";
 import Notice from "./pages/notice/Notice";
 import TimeLine from "./pages/timeLine/TimeLine";
 import Booth from "./pages/booth/Booth";

@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+export const BoothWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const NotBoothCard = styled.div`
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+`;
+
 export const MapWrap = styled.div`
   margin-top: 20px;
 `;
@@ -39,7 +51,7 @@ export const BoothCategryWrap = styled.div`
   display: flex;
   color: #ffb2b2;
   font-family: dongguk;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   line-height: normal;
   margin-top: 38px;
@@ -52,4 +64,10 @@ export const BoothCategry = styled.div`
   border-bottom: 2px solid ${props => props.borderbottom};
   padding-bottom: 3px;
   cursor: pointer;
+`;
+
+export const BoothCardWrap = styled.div`
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
 `;
