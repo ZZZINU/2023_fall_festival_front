@@ -49,8 +49,9 @@ export const TimeTableWrapper = styled.div`
   background: rgba(255, 255, 255, 0.5);
 `;
 export const TimeTableNav = styled.div`
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0 20px;
   width: 100%;
@@ -68,13 +69,20 @@ export const TimeTableMainTxt = styled.div`
   font-size: 1rem;
 `;
 export const TimeTableSubTxt = styled.div`
+  position: absolute;
+  left: 10px;
   color: #ffced1;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-export const TimeTableSubTxt2 = styled(TimeTableSubTxt)`
+export const TimeTableSubTxt2 = styled.div`
+  position: absolute;
+  right: 20px;
   color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export const LocationIMG = styled.img`
   margin-right: 5px;
@@ -138,15 +146,32 @@ export const TimeStroke = styled.div`
 export const Stroke1 = styled.div`
   transform: translateX(-50%);
   width: 1px;
-  height: 59%;
-  border: 1px solid #fff;
-  margin-bottom: 26px;
+  height: 23%;
+  /* height: 160px; */
+  border: 1px solid #fffaea;
+  margin-bottom: 28px;
 `;
-  export const Stroke2 = styled(Stroke1)`
-    border: 1px solid #fff;
-    height: 41%;
-    margin-bottom: 0;
-  `;
+export const Stroke2 = styled(Stroke1)`
+  border: 1px solid #fffaea;
+  height: 16%;
+  /* height: 120px; */
+`;
+export const Stroke3 = styled(Stroke1)`
+  border: 1px solid #fffaea;
+  height: 23.7%;
+  /* height: 160px; */
+`;
+export const Stroke4 = styled(Stroke1)`
+  border: 1px solid #fffaea;
+  height: 17%;
+  /* height: 120px; */
+`;
+export const Stroke5 = styled(Stroke1)`
+  border: 1px solid #fffaea;
+  height: 20%;
+  /* height: 120px; */
+  margin: 0;
+`;
 export const TimeStart = styled.div`
   position: absolute;
   top: -16px;
@@ -155,10 +180,20 @@ export const TimeStart = styled.div`
   width: 16px;
   height: 16px;
   border: 2px solid #fffaea;
+  background-color: rgba(255, 250, 234, 0.3);
   border-radius: 40px;
 `;
-export const TimeMid = styled(TimeStart)`
-  top: 57%;
+export const Time13Mid = styled(TimeStart)`
+  top: 20.5%;
+`;
+export const Time15Mid = styled(TimeStart)`
+  top: 37.8%;
+`;
+export const Time18Mid = styled(TimeStart)`
+  top: 61.3%;
+`;
+export const Time20Mid = styled(TimeStart)`
+  top: 79.5%;
 `;
 export const TimeEnd = styled(TimeStart)`
   top: 100%;
@@ -231,7 +266,7 @@ export const LineUpContainer = styled.div`
 `;
 export const LineUpContainer1 = styled(LineUpContainer)`
   margin-top: 90px;
-`
+`;
 export const MarginLabel = styled.div`
   display: flex;
   flex-direction: column;

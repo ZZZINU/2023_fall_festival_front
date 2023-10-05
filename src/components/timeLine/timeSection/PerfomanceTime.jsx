@@ -9,26 +9,31 @@ export default function PerfomanceTime({
   startTime,
   endTime,
   timePercent,
-  top
+  top,
+  currentTime
 }) {
-  const currentTime = new Date("2023-10-11T11:00:00");
-  const startParts = startTime.split(":");
-  const endParts = endTime.split(":");
+  console.log();
   const start = new Date(
-    "2023-10-11T" + startParts[0] + ":" + startParts[1] + ":00"
+    `${currentTime.getFullYear()}-${
+      currentTime.getMonth() + 1
+    }-${currentTime.getDate()}T${startTime}`
   );
-  const end = new Date("2023-10-11T" + endParts[0] + ":" + endParts[1] + ":00");
-  const startGap = Math.floor((start - currentTime) / (1000 * 60));
-  const endGap = Math.floor((end - currentTime) / (1000 * 60));
+  const end = new Date(
+    `${currentTime.getFullYear()}-${
+      currentTime.getMonth() + 1
+    }-${currentTime.getDate()}T${endTime}`
+  );
+
+  const startGap = Math.floor((currentTime - start) / (1000 * 60));
+  const endGap = Math.floor((currentTime - end) / (1000 * 60));
 
   // const top = (startGap / 660) * 100;
+  // console.log(endTime, startGap, endGap, timePercent);
 
   return (
     <>
       <S.PerformTimeSection
-        isnow={
-          isFestivalDay() && timePercent >= startGap && timePercent < endGap
-        }
+        isnow={isFestivalDay() && startGap >= 0 && endGap < 0}
         style={{ marginTop: `${top}` }}
       >
         {startTime} ~ {endTime}

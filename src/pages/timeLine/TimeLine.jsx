@@ -187,14 +187,18 @@ function TimeLine() {
   ];
 
   // 시간 감지 State --------------------------------------------
-  const [currentTime, setCurrentTime] = useState(new Date("2023-10-11 20:00"));
-  let defaultDate = parseInt(currentTime.getDate());
-  const [festivalDate, setFestivalDate] = useState(defaultDate);
+  const [currentTime, setCurrentTime] = useState(new Date("2023-10-11 22:00"));
+  let defaultDate = () => {
+    if (currentTime.getDate() === 11 || currentTime.getDate() === 12) {
+      return parseInt(currentTime.getDate());
+    } else return 11;
+  };
+  const [festivalDate, setFestivalDate] = useState(defaultDate());
 
   const updateTime = () => {
     setCurrentTime(new Date());
   };
-  /*
+  
   useEffect(() => {
     const intervalId = setInterval(updateTime, 1000);
 
@@ -202,36 +206,37 @@ function TimeLine() {
       clearInterval(intervalId);
     };
   }, []);
-*/
 
   // 실시간 부스, 공연 정보 --------------------------------------------
   const getRealtimeInfo = () => {
     const currentDate = currentTime.getDate();
-
     let currentData;
 
     if (currentDate === 11) {
-      currentData = booth11Data.concat(Perfomance11Data);
+      currentData = Perfomance11Data;
     } else if (currentDate === 12) {
-      currentData = booth12Data.concat(Perfomance12Data);
+      currentData = Perfomance12Data;
     }
+    if (currentData) {
+      const realtimeList = currentData.filter(item => {
+        const startTime = new Date(
+          `${currentTime.getFullYear()}-${
+            currentTime.getMonth() + 1
+          }-${currentDate} ${item.starttime}`
+        );
+        const endTime = new Date(
+          `${currentTime.getFullYear()}-${
+            currentTime.getMonth() + 1
+          }-${currentDate} ${item.endtime}`
+        );
 
-    const realtimeList = currentData.filter(item => {
-      const startTime = new Date(
-        `${currentTime.getFullYear()}-${
-          currentTime.getMonth() + 1
-        }-${currentDate} ${item.starttime}`
-      );
-      const endTime = new Date(
-        `${currentTime.getFullYear()}-${
-          currentTime.getMonth() + 1
-        }-${currentDate} ${item.endtime}`
-      );
+        return startTime <= currentTime && currentTime < endTime;
+      });
 
-      return startTime <= currentTime && currentTime <= endTime;
-    });
-
-    return realtimeList;
+      return realtimeList;
+    } else {
+      return [];
+    }
   };
 
   const realtimeList = getRealtimeInfo();

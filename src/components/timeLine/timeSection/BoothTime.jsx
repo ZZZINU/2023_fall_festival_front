@@ -25,9 +25,6 @@ export default function BoothTime({
   return (
     <>
       <S.BoothTimeSection
-        isnow={
-          isFestivalDay() && timePercent >= startGap && timePercent < endGap
-        }
         style={{ marginTop: `${top}` }}
       >
         {startTime} ~ {endTime}
