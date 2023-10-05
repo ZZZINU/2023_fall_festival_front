@@ -120,8 +120,7 @@ export const BoothCardRibbon = styled.div`
 
 export const BoothCardContainer = styled.div`
   display: flex;
-  justify-content: left;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
-  margin-left: 25px;
 `;

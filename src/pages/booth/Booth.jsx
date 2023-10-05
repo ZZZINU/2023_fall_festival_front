@@ -120,139 +120,144 @@ function Booth() {
 
   return (
     <>
-      <S.BoothWrap>
-        <S.NotBoothCard>
-          <PageTitle mainTitle={"부스 정보"} />
-          <DateSelector
-            selectedDate11={selectedDate11}
-            handleDateClick={handleDateClick}
-          />
-          <S.MapWrap>
-            <S.MapBox>
-              <S.MapImg src={MapImg} alt="맵 이미지" />
-              <S.MapBoxContent onClick={handleRefreshClick}>
-                {markerStates ? "새로고침 ↺" : "핀을 눌러 정보를 확인하세요!"}
-              </S.MapBoxContent>
+      <S.Content>
+        <S.BoothWrap>
+          <S.NotBoothCard>
+            <PageTitle mainTitle={"부스 정보"} />
+            <DateSelector
+              selectedDate11={selectedDate11}
+              handleDateClick={handleDateClick}
+            />
+            <S.MapWrap>
+              <S.MapBox>
+                <S.MapImg src={MapImg} alt="맵 이미지" />
+                <S.MapBoxContent onClick={handleRefreshClick}>
+                  {markerStates ? "새로고침 ↺" : "핀을 눌러 정보를 확인하세요!"}
+                </S.MapBoxContent>
 
-              {/* 사회과학관 */}
-              <Marker
-                markerName={"사회과학관"}
-                markerStates={markerStates}
-                handleMarkerClick={handleMarkerClick}
-                clickaftertop={"140px"}
-                clickbeforetop={"150px"}
-                clickafterleft={"37px"}
-                clickbeforeleft={"47px"}
-              />
+                {/* 사회과학관 */}
+                <Marker
+                  markerName={"사회과학관"}
+                  markerStates={markerStates}
+                  handleMarkerClick={handleMarkerClick}
+                  clickaftertop={"140px"}
+                  clickbeforetop={"150px"}
+                  clickafterleft={"37px"}
+                  clickbeforeleft={"47px"}
+                />
 
-              {/* 혜화관 */}
-              <Marker
-                markerName={"혜화관"}
-                markerStates={markerStates}
-                handleMarkerClick={handleMarkerClick}
-                clickaftertop={"103px"}
-                clickbeforetop={"113px"}
-                clickafterleft={"47px"}
-                clickbeforeleft={"55px"}
-              />
+                {/* 혜화관 */}
+                <Marker
+                  markerName={"혜화관"}
+                  markerStates={markerStates}
+                  handleMarkerClick={handleMarkerClick}
+                  clickaftertop={"103px"}
+                  clickbeforetop={"113px"}
+                  clickafterleft={"47px"}
+                  clickbeforeleft={"55px"}
+                />
 
-              {/* 팔정도 */}
-              <Marker
-                markerName={"팔정도"}
-                markerStates={markerStates}
-                handleMarkerClick={handleMarkerClick}
-                clickaftertop={"60px"}
-                clickbeforetop={"70px"}
-                clickafterleft={"140px"}
-                clickbeforeleft={"147px"}
-              />
+                {/* 팔정도 */}
+                <Marker
+                  markerName={"팔정도"}
+                  markerStates={markerStates}
+                  handleMarkerClick={handleMarkerClick}
+                  clickaftertop={"60px"}
+                  clickbeforetop={"70px"}
+                  clickafterleft={"140px"}
+                  clickbeforeleft={"147px"}
+                />
 
-              {/* 원흥관 */}
-              <Marker
-                markerName={"원흥관"}
-                markerStates={markerStates}
-                handleMarkerClick={handleMarkerClick}
-                clickaftertop={"30px"}
-                clickbeforetop={"40px"}
-                clickafterleft={"185px"}
-                clickbeforeleft={"193px"}
-              />
+                {/* 원흥관 */}
+                <Marker
+                  markerName={"원흥관"}
+                  markerStates={markerStates}
+                  handleMarkerClick={handleMarkerClick}
+                  clickaftertop={"30px"}
+                  clickbeforetop={"40px"}
+                  clickafterleft={"185px"}
+                  clickbeforeleft={"193px"}
+                />
 
-              {/* 학생회관 */}
-              <Marker
-                markerName={"학생회관"}
-                markerStates={markerStates}
-                handleMarkerClick={handleMarkerClick}
-                clickaftertop={"35px"}
-                clickbeforetop={"45px"}
-                clickafterleft={"250px"}
-                clickbeforeleft={"260px"}
-              />
+                {/* 학생회관 */}
+                <Marker
+                  markerName={"학생회관"}
+                  markerStates={markerStates}
+                  handleMarkerClick={handleMarkerClick}
+                  clickaftertop={"35px"}
+                  clickbeforetop={"45px"}
+                  clickafterleft={"250px"}
+                  clickbeforeleft={"260px"}
+                />
 
-              {/* 만해광장 */}
-              <Marker
-                markerName={"만해광장"}
-                markerStates={markerStates}
-                handleMarkerClick={handleMarkerClick}
-                clickaftertop={"70px"}
-                clickbeforetop={"80px"}
-                clickafterleft={"215px"}
-                clickbeforeleft={"225px"}
-              />
+                {/* 만해광장 */}
+                <Marker
+                  markerName={"만해광장"}
+                  markerStates={markerStates}
+                  handleMarkerClick={handleMarkerClick}
+                  clickaftertop={"70px"}
+                  clickbeforetop={"80px"}
+                  clickafterleft={"215px"}
+                  clickbeforeleft={"225px"}
+                />
 
-              {/* 학림관 */}
-              <Marker
-                markerName={"학림관"}
-                markerStates={markerStates}
-                handleMarkerClick={handleMarkerClick}
-                clickaftertop={"100px"}
-                clickbeforetop={"110px"}
-                clickafterleft={"243px"}
-                clickbeforeleft={"250px"}
-              />
-            </S.MapBox>
-          </S.MapWrap>
+                {/* 학림관 */}
+                <Marker
+                  markerName={"학림관"}
+                  markerStates={markerStates}
+                  handleMarkerClick={handleMarkerClick}
+                  clickaftertop={"100px"}
+                  clickbeforetop={"110px"}
+                  clickafterleft={"243px"}
+                  clickbeforeleft={"250px"}
+                />
+              </S.MapBox>
+            </S.MapWrap>
 
-          <S.BoothCategryWrap>
-            <S.BoothCategry
-              dayornight={dayOrNight}
-              onClick={() => setDayOrNight("")}
-              color={dayOrNight === "" ? "#FFF" : "#ffb2b2"}
-              borderbottom={dayOrNight === "" ? "#FFF" : "none"}
-            >
-              전체부스
-            </S.BoothCategry>
-            <S.BoothCategry
-              dayornight={dayOrNight}
-              onClick={() => setDayOrNight("주간부스")}
-              color={dayOrNight === "주간부스" ? "#FFF" : "#ffb2b2"}
-              borderbottom={dayOrNight === "주간부스" ? "#FFF" : "none"}
-            >
-              주간부스
-            </S.BoothCategry>
-            <S.BoothCategry
-              dayornight={dayOrNight}
-              onClick={() => setDayOrNight("야간부스")}
-              color={dayOrNight === "야간부스" ? "#FFF" : "#ffb2b2"}
-              borderbottom={dayOrNight === "야간부스" ? "#FFF" : "none"}
-            >
-              야간부스
-            </S.BoothCategry>
+            <S.BoothCategryWrap>
+              <S.BoothCategry
+                dayornight={dayOrNight}
+                onClick={() => setDayOrNight("")}
+                color={dayOrNight === "" ? "#FFF" : "#ffb2b2"}
+                borderbottom={dayOrNight === "" ? "#FFF" : "none"}
+              >
+                전체부스
+              </S.BoothCategry>
+              <S.BoothCategry
+                dayornight={dayOrNight}
+                onClick={() => setDayOrNight("주간부스")}
+                color={dayOrNight === "주간부스" ? "#FFF" : "#ffb2b2"}
+                borderbottom={dayOrNight === "주간부스" ? "#FFF" : "none"}
+              >
+                주간부스
+              </S.BoothCategry>
+              <S.BoothCategry
+                dayornight={dayOrNight}
+                onClick={() => setDayOrNight("야간부스")}
+                color={dayOrNight === "야간부스" ? "#FFF" : "#ffb2b2"}
+                borderbottom={dayOrNight === "야간부스" ? "#FFF" : "none"}
+              >
+                야간부스
+              </S.BoothCategry>
 
-            <S.BoothCategry
-              dayornight={dayOrNight}
-              onClick={() => setDayOrNight("기타부스")}
-              color={dayOrNight === "기타부스" ? "#FFF" : "#ffb2b2"}
-              borderbottom={dayOrNight === "기타부스" ? "#FFF" : "none"}
-            >
-              기타부스
-            </S.BoothCategry>
-          </S.BoothCategryWrap>
-        </S.NotBoothCard>
-        <S.BoothCardWrap>
-          <BoothCard data={data} />
-        </S.BoothCardWrap>
-      </S.BoothWrap>
+              <S.BoothCategry
+                dayornight={dayOrNight}
+                onClick={() => setDayOrNight("기타부스")}
+                color={dayOrNight === "기타부스" ? "#FFF" : "#ffb2b2"}
+                borderbottom={dayOrNight === "기타부스" ? "#FFF" : "none"}
+              >
+                기타부스
+              </S.BoothCategry>
+            </S.BoothCategryWrap>
+          </S.NotBoothCard>
+
+          <S.BoothCardWrap2>
+            <S.BoothCardWrap>
+              <BoothCard data={data} />
+            </S.BoothCardWrap>
+          </S.BoothCardWrap2>
+        </S.BoothWrap>
+      </S.Content>
     </>
   );
 }
