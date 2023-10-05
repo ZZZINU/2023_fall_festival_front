@@ -31,8 +31,8 @@ export const HeaderContent = styled.div`
 `;
 
 export const SideBarWrapper = styled.div`
-  width: 314px;
-  height: 570px;
+  width: 250px;
+
   top: 60px;
   right: 0px;
   position: absolute;
@@ -42,20 +42,23 @@ export const SideBarWrapper = styled.div`
   flex-direction: column;
   border-radius: 20px;
   background: linear-gradient(14deg, #ffb4d8 1.4%, #ffce9c 100%);
-  z-index: 999;
+  z-index: 99999;
 
   img {
-    position: absolute;
+    width: 250px;
   }
 `;
 
 export const SideBarContent = styled.div`
   display: flex;
+  position: absolute;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 340px;
-  font-size: 24px;
+
+  height: 220px;
+
+  font-size: 18px;
   color: ${props => props.theme.colors.fontBrown};
   z-index: 9999;
 `;
