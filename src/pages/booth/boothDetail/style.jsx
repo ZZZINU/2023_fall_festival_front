@@ -61,7 +61,7 @@ export const BoothDetailRibbon = styled.div`
   font-size: 14px;
   font-weight: 500;
   line-height: normal;
-  z-index: 10;
+  z-index: 1;
 `;
 
 export const BoothDetailFunctionWrap = styled.div`

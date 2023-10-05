@@ -6,8 +6,13 @@ import { Link } from "react-router-dom";
 import BoothImg from "../../../../assets/images/booth.png";
 import PinImg from "../../../../../public/booth/pin.png";
 import HeartImg from "../../../../../public/booth/heart.png";
+import BoothDefaultImg from "../../../../../public/booth/boothDefault.png";
 
 function BoothCard({ data }) {
+  if (!Array.isArray(data)) {
+    return null;
+  }
+
   return (
     <>
       {/* 부스 카드 컨테이너 */}
@@ -15,8 +20,25 @@ function BoothCard({ data }) {
         {data.map((booth, index) => (
           <Link to={`/booths/${booth.id}`} key={booth.id}>
             <S.BoothCardWrapper key={index}>
-              <S.BoothCardImage src={BoothImg} alt="부스 이미지" />
-              <S.BoothCardRibbon>{booth.type}</S.BoothCardRibbon>
+              <S.BoothCardImage src={BoothDefaultImg} alt="부스 이미지" />
+              <S.BoothCardRibbon
+                color={
+                  booth.type === "주간부스"
+                    ? "#E39554"
+                    : booth.type === "야간부스"
+                    ? "#EA6F60"
+                    : "#FFFFFF"
+                }
+                fontcolor={
+                  booth.type === "주간부스"
+                    ? "#FFFFFF"
+                    : booth.type === "야간부스"
+                    ? "#FFFFFF"
+                    : "#DD7481"
+                }
+              >
+                {booth.type}
+              </S.BoothCardRibbon>
               <S.BoothCardDetailWrapper>
                 <S.BoothCardDetailTitle>
                   {String(booth.name).length < 8
