@@ -33,7 +33,7 @@ function Header() {
   return (
     <S.HeaderWrapper>
       <S.HeaderContent>
-        <Link to="">야단법석</Link>
+        <Link to="">야단법석 : 2023 가을축제</Link>
         {isSideBarOpen ? (
           <img onClick={openSideBar} src="./navBar/icon_close.png"></img>
         ) : (

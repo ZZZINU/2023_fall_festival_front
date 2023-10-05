@@ -10,8 +10,8 @@ export const BoothWhiteBox = styled.div`
   border-radius: 10px;
   background: #fff;
   border: 1px solid ${props => (props.isnow == "true" ? "#EA6F60" : "#FFFAEA")};
-  margin-bottom: 5px;
-  padding: 14px 5px;
+  margin-bottom:12px;
+  padding: 12px 8px;
 `;
 export const PerformanceWhiteBox = styled(BoothWhiteBox)`
   margin-left: auto;
@@ -26,7 +26,7 @@ export const BoothImg = styled.div`
   justify-content: center;
   align-items: center;
   width: 45%;
-  height: 56px;
+  height: 50px;
 
   border-radius: 10px;
   background: ${props => (props.isnow == "true" ? "#FFDFDB" : "#fff6db")};
@@ -35,15 +35,12 @@ export const BoothImg = styled.div`
 `;
 export const BoothTxt = styled.div`
   width: 100%;
+  padding: 0 4px;
 `;
 export const BoothTitle = styled.div`
-  display: flex;
-  justify-content: center;
   color: #282828;
 `;
 export const BoothPlace = styled.div`
-  display: flex;
-  justify-content: center;
   color: #8c847f;
   font-size: 0.8rem;
   font-weight: 200;
@@ -58,7 +55,7 @@ export const BoothBtn = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 32px;
+  height: 30px;
   border-radius: 5px;
   background: ${props => (props.isnow == "true" ? "#EA6F60" : "#faa73f")};
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);

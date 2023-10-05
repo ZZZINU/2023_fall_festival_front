@@ -15,6 +15,7 @@ export const PerfomanceCard = ({ booth, realtimeList }) => {
             {booth.place}
           </S.BoothPlace>
         </S.BoothTxt>
+        {booth.devide &&
         <S.BoothImg isnow={isCurrent ? "true" : "false"}>
           {booth.devide == "가왕제" && (
             <span className="material-symbols-outlined">theater_comedy</span>
@@ -22,7 +23,7 @@ export const PerfomanceCard = ({ booth, realtimeList }) => {
           {booth.devide == "페스티벌" && (
             <span className="material-symbols-outlined">celebration</span>
           )}
-        </S.BoothImg>
+        </S.BoothImg>}
       </S.BoothCardWrapper>
     </S.PerformanceWhiteBox>
   );
