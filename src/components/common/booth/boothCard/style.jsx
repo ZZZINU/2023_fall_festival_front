@@ -43,7 +43,7 @@ export const BoothCardDetailDes = styled.div`
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
-  align-self: center;
+
   align-items: self-start;
   flex-grow: 1;
 `;
