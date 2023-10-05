@@ -46,9 +46,9 @@ function BoothCard({ data }) {
                     : `${String(booth.name).slice(0, 7)}...`}
                 </S.BoothCardDetailTitle>
                 <S.BoothCardDetailDes>
-                  {String(booth.description).length < 23
+                  {String(booth.description).length < 20
                     ? booth.description
-                    : `${String(booth.description).slice(0, 22)}...`}
+                    : `${String(booth.description).slice(0, 19)}...`}
                 </S.BoothCardDetailDes>
                 <S.BoothCardDetailAddWrapper>
                   <S.BoothDetailLocationWrap>

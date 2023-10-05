@@ -24,6 +24,7 @@ export const BoothCardDetailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 12px;
+  padding-top: 7px;
 `;
 
 export const BoothCardDetailTitle = styled.div`
@@ -43,9 +44,9 @@ export const BoothCardDetailDes = styled.div`
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
-
   align-items: self-start;
   flex-grow: 1;
+  min-height: 30px;
 `;
 
 export const BoothCardDetailAddWrapper = styled.div`
@@ -72,7 +73,6 @@ export const BoothDetailLocationContent = styled.div`
   font-size: 10px;
   font-weight: 400;
   line-height: normal;
-  margin-left: 3px;
 `;
 
 export const BoothDetailHeartWrap = styled.div`
