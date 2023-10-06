@@ -42,6 +42,11 @@ function TopBoothCard({
       ? `${boothDescript.slice(0, maxBoothDescriptLength)}...`
       : boothDescript;
 
+  //하트수
+  let formattedHeartNum = heartNum;
+  if (heartNum > 99) {
+    formattedHeartNum = "99+";
+  }
   return (
     <>
       <Link to={`/booths/${boothId}`}>
@@ -73,7 +78,7 @@ function TopBoothCard({
                     width={heartImg}
                   />
                   <S.BoothDetailHeartNum>
-                    {heartNum || "99+"}
+                    {formattedHeartNum}
                   </S.BoothDetailHeartNum>
                 </S.BoothHeartWrap>
               </S.BoothEtcWrapper>

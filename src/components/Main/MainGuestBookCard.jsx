@@ -15,7 +15,6 @@ const CardWrapper1 = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
-  justify-content: center;
   margin-top: 20px;
   transform: scale(0.7, 0.7);
 `;
@@ -30,7 +29,8 @@ const CardWrapper2 = styled.div`
 const CardContent = styled.div`
   /* color: #8c847f;
   font-size: 8px; */
-  padding-right: 5px;
+  /* padding-right: 5px; */
+  /* margin: 9px; */
 `;
 
 const CardBtnContainer = styled.div`
@@ -59,75 +59,39 @@ const GuestbookCard = () => {
   return (
     <CardWhole>
       <CardWrapper1>
-        <CardContent>
+        <div style={{ marginRight: "15px" }}>
           <GuestBookCard
             icon="🍁"
             content="2023 동국대학교 가을 축제 파이팅!"
             marginBottom="10px"
           />
-        </CardContent>
-        <CardContent>
+        </div>
+
+        <div>
           <GuestBookCard
-            icon="😆"
-            content="2023 동국대학교 가을 축제 파이팅!"
+            icon="🍁"
+            content="멋사와 함께 즐기는 동국대 가을 축제"
             marginBottom="10px"
           />
-        </CardContent>
+        </div>
       </CardWrapper1>
       <CardWrapper2>
-        <CardContent>
+        <div style={{ marginRight: "15px" }}>
           <GuestBookCard
-            icon="😊"
-            content="2023 동국대학교 가을 축제 파이팅!"
+            icon="🍁"
+            content="축제의 감정, 이곳에 기록해보는건 어떤가요?"
             marginBottom="10px"
           />
-        </CardContent>
-        <CardContent>
+        </div>
+        <div>
           <GuestBookCard
-            icon="🦁"
-            content="2023 동국대학교 가을 축제 파이팅!"
+            icon="🍁"
+            content="축제 사이트에 여러분의 기억을 남겨주세요!!!"
             marginBottom="10px"
           />
-        </CardContent>
+        </div>
       </CardWrapper2>
-      {/* <CardWrapper1>
-        <CardContainer>
-          <CardContent>
-            🥺 이번 축제도 역시 너무 재밌네요!! 멋사도 열심히 노력해서 이렇게
-            좋은 축제 사이트 만들어주신 거 정말 감사드려요!! 다들 멋사 축제
-            사이트와 함께 재미난 축제 즐기시면 좋겠네요 :)
-          </CardContent>
-        </CardContainer>
-        <CardContainer>
-          <CardContent>
-            {" "}
-            이번 축제도 역시 너무 재밌네요!! 멋사도 열심히 노력해서 이렇게 좋은
-            축제 사이트 만들어주신 거 정말 감사드려요!! 이번 축제도 역시 너무
-            재밌네요!! 멋사도 열심히 노력해서 이렇게 좋은 축제 사이트 만들어줘서
-            짱!
-          </CardContent>
-        </CardContainer>
-      </CardWrapper1>
-      <CardWrapper2>
-        <CardContainer>
-          <CardContent>
-            {" "}
-            이번 축제도 역시 너무 재밌네요!! 멋사도 열심히 노력해서 이렇게 좋은
-            축제 사이트 만들어주신 거 정말 감사드려요!! 이번 축제도 역시 너무
-            재밌네요!! 멋사도 열심히 노력해서 이렇게 좋은 축제 사이트 만들어줘서
-            짱!
-          </CardContent>
-        </CardContainer>
-        <CardContainer>
-          <CardContent>
-            {" "}
-            이번 축제도 역시 너무 재밌네요!! 멋사도 열심히 노력해서 이렇게 좋은
-            축제 사이트 만들어주신 거 정말 감사드려요!! 이번 축제도 역시 너무
-            재밌네요!! 멋사도 열심히 노력해서 이렇게 좋은 축제 사이트 만들어줘서
-            짱!
-          </CardContent>
-        </CardContainer>
-      </CardWrapper2> */}
+
       <CardBtnContainer>
         <CardButton>작성하기</CardButton>
       </CardBtnContainer>
