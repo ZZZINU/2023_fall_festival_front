@@ -26,18 +26,11 @@ const CardWrapper2 = styled.div`
   top: -50px;
 `;
 
-const CardContent = styled.div`
-  /* color: #8c847f;
-  font-size: 8px; */
-  /* padding-right: 5px; */
-  /* margin: 9px; */
-`;
-
 const CardBtnContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: -70px;
+  margin-top: -75px;
 `;
 
 const CardButton = styled.div`
@@ -59,35 +52,39 @@ const GuestbookCard = () => {
   return (
     <CardWhole>
       <CardWrapper1>
-        <div style={{ marginRight: "15px" }}>
+        <div style={{ marginRight: "18px" }}>
           <GuestBookCard
             icon="🍁"
             content="2023 동국대학교 가을 축제 파이팅!"
             marginBottom="10px"
+            Height="180px"
           />
         </div>
 
         <div>
           <GuestBookCard
-            icon="🍁"
+            icon="🦁"
             content="멋사와 함께 즐기는 동국대 가을 축제"
             marginBottom="10px"
+            Height="180px"
           />
         </div>
       </CardWrapper1>
       <CardWrapper2>
-        <div style={{ marginRight: "15px" }}>
+        <div style={{ marginRight: "18px" }}>
           <GuestBookCard
-            icon="🍁"
+            icon="💡"
             content="축제의 감정, 이곳에 기록해보는건 어떤가요?"
             marginBottom="10px"
+            Height="180px"
           />
         </div>
         <div>
           <GuestBookCard
-            icon="🍁"
+            icon="😆"
             content="축제 사이트에 여러분의 기억을 남겨주세요!!!"
             marginBottom="10px"
+            Height="180px"
           />
         </div>
       </CardWrapper2>
