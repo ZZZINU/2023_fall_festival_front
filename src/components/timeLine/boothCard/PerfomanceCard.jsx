@@ -1,6 +1,5 @@
 import React from "react";
 import * as S from "./style";
-import LocationImg from "../../../assets/images/booth_location.png";
 
 export const PerfomanceCard = ({ booth, realtimeList }) => {
   const isCurrent = realtimeList.includes(booth);

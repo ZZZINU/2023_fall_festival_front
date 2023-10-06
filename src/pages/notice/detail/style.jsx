@@ -32,15 +32,20 @@ export const DetailContent = styled.div`
   padding-bottom: 30px;
 `;
 export const ImgWrap = styled.div`
-display: flex;
-flex-wrap: nowrap;
-width: 100%;
-height: 120px;
-overflow-x: scroll;
-img{
-  margin-right: 10px;
-}
-`
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 120px;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  img {
+    margin-right: 10px;
+  }
+`;
 export const DeatilDate = styled.div`
   color: #8c847f;
   font-family: Noto Sans KR;
