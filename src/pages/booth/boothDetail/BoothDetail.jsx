@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as S from "./style";
 
@@ -24,6 +24,7 @@ import Modal from "../../../components/common/modal/Modal";
 import { API } from "../../../api/axios";
 
 function BoothDetail() {
+  const LinkRef = useRef();
   const { id } = useParams();
 
   // 데이터
@@ -54,7 +55,15 @@ function BoothDetail() {
 
   // 링크복사
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href);
+    // navigator.clipboard.writeText(window.location.href);
+
+    var textarea = document.createElement("textarea");
+    document.body.appendChild(textarea);
+    textarea.value = window.location.href;
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+
     setShowModal(true); // 모달 ON
   };
 

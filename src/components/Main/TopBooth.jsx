@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from "react";
 import TopBoothCard from "./TopBoothCard";
-import { styled } from "styled-components";
+import { styled, css } from "styled-components";
 import { API } from "../../api/axios";
 
 const TopBoothWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  overflow-x: scroll;
+
+  @media (max-width: 375px) {
+    transform: scale(0.8, 0.8);
+    width: 100%;
+    justify-content: center;
+  }
 `;
 const CardWrapper = styled.div`
   margin: 7px;
+  @media (max-width: 375px) {
+    margin: 5px;
+  }
 `;
 
 function TopBooth() {
@@ -49,6 +57,7 @@ function TopBooth() {
           locationContent={secondBooth.location}
           heartNum={secondBooth.like_cnt}
           logoWidth="110px"
+          logoHeight="110px"
           bgHeight="180px"
           boothGradeImgurl="/Main/silver.png"
           wholeMargin="30px"
@@ -64,12 +73,12 @@ function TopBooth() {
           boothDescript={firstBooth.description}
           locationContent={firstBooth.location}
           heartNum={firstBooth.like_cnt}
-          titleFont="15px"
+          titleFont="16px"
           pinImg="14px"
           locationFont="10px"
           heartImg="14px"
           wholeMargin="none"
-          marginTop="14px"
+          marginTop="10px"
         />
       </CardWrapper>
 
@@ -83,6 +92,7 @@ function TopBooth() {
           locationContent={thirdBooth.location}
           heartNum={thirdBooth.like_cnt}
           logoWidth="110px"
+          logoHeight="110px"
           bgHeight="180px"
           boothGradeImgurl="/Main/bronze.png"
           wholeMargin="30px"
