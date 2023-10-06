@@ -21,7 +21,7 @@ export const NoticeTopWrappper = styled.div`
 export const MainCategry = styled.div`
   color: ${props => props.color};
   padding-bottom: 3px;
-  font-family: DONGGUK UNIVERSITY;
+  font-family: Dongguk;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;

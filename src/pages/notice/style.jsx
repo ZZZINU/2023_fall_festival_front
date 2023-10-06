@@ -39,6 +39,7 @@ export const NoticeCategory = styled.div`
   border-bottom: 2px solid ${props => props.borderbottom};
   padding-bottom: 3px;
   cursor: pointer;
+  font-family: Dongguk;
 `;
 
 export const Line = styled.div`
