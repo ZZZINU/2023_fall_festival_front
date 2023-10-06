@@ -75,6 +75,9 @@ export const TimeTableSubTxt = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  img{
+    height: 30px;
+  }
 `;
 export const TimeTableSubTxt2 = styled.div`
   position: absolute;
@@ -86,6 +89,7 @@ export const TimeTableSubTxt2 = styled.div`
 `;
 export const LocationIMG = styled.img`
   margin-right: 5px;
+  height: 14px;
 `;
 
 export const SubNav = styled.div`

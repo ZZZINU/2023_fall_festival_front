@@ -8,7 +8,6 @@ export default function PerfomanceTime({
   realtimeList,
   startTime,
   endTime,
-  timePercent,
   top,
   currentTime
 }) {
@@ -26,9 +25,6 @@ export default function PerfomanceTime({
 
   const startGap = Math.floor((currentTime - start) / (1000 * 60));
   const endGap = Math.floor((currentTime - end) / (1000 * 60));
-
-  // const top = (startGap / 660) * 100;
-  // console.log(endTime, startGap, endGap, timePercent);
 
   return (
     <>

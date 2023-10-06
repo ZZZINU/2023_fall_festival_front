@@ -9,21 +9,30 @@ export const PerfomanceCard = ({ booth, realtimeList }) => {
     <S.PerformanceWhiteBox isnow={isCurrent ? "true" : "false"}>
       <S.BoothCardWrapper>
         <S.BoothTxt>
-          <S.BoothTitle>{booth.title}</S.BoothTitle>
+          <S.PerfomanceTitle
+            islong={
+              booth.title == "동아리 공연" || booth.title == "연예인 공연"
+                ? "0px"
+                : "6px"
+            }
+          >
+            {booth.title}
+          </S.PerfomanceTitle>
           <S.BoothPlace>
-            <img src={LocationImg} alt="location" />
+            <img src="/timetable/booth_location.png" alt="location" />
             {booth.place}
           </S.BoothPlace>
         </S.BoothTxt>
-        {booth.devide &&
-        <S.BoothImg isnow={isCurrent ? "true" : "false"}>
-          {booth.devide == "가왕제" && (
-            <span className="material-symbols-outlined">theater_comedy</span>
-          )}
-          {booth.devide == "페스티벌" && (
-            <span className="material-symbols-outlined">celebration</span>
-          )}
-        </S.BoothImg>}
+        {booth.devide && (
+          <S.BoothImg isnow={isCurrent ? "true" : "false"}>
+            {booth.devide == "가왕제" && (
+              <span className="material-symbols-outlined">theater_comedy</span>
+            )}
+            {booth.devide == "페스티벌" && (
+              <span className="material-symbols-outlined">celebration</span>
+            )}
+          </S.BoothImg>
+        )}
       </S.BoothCardWrapper>
     </S.PerformanceWhiteBox>
   );
