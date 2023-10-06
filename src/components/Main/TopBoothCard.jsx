@@ -18,7 +18,8 @@ function TopBoothCard({
   locationFont,
   heartImg,
   boothId,
-  marginTop
+  marginTop,
+  logoHeight
 }) {
   const defaultBoothImgUrl = "/booth/booth.png";
 
@@ -52,7 +53,11 @@ function TopBoothCard({
       <Link to={`/booths/${boothId}`}>
         <S.TopContainer marginTop={wholeMargin}>
           <S.BoothBg width={logoWidth} height={bgHeight}>
-            <S.BoothLogo src={imageUrlToUse} width={logoWidth} />
+            <S.BoothLogo
+              src={imageUrlToUse}
+              width={logoWidth}
+              height={logoHeight}
+            />
             <S.BoothGrade src={boothGradeImg} />
             <S.BoothType>{boothType || "부스 종류"}</S.BoothType>
             <S.BoothInfo>

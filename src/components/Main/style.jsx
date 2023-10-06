@@ -3,13 +3,14 @@ import { styled } from "styled-components";
 //TopBoothCard.jsx
 
 export const TopContainer = styled.div`
-  width: 80%;
+  width: 100%;
   margin-top: ${props => props.marginTop || "20px"};
   cursor: pointer;
 `;
 
 export const BoothLogo = styled.img`
   width: ${props => props.width || "120px"};
+  height: ${props => props.height || "120px"};
   border-radius: 20px;
 `;
 
@@ -36,8 +37,6 @@ export const BoothGrade = styled.img`
 export const BoothType = styled.div`
   display: flex;
   position: absolute;
-  /* top: 130px;
-  right: 150px; */
   top: 7px;
   right: 7px;
   height: 20px;
@@ -64,14 +63,14 @@ export const BoothInfo = styled.div`
 export const BoothTitle = styled.div`
   margin-left: 10px;
   margin-top: 3px;
-  font-size: ${props => props.fontSize || "12px"};
+  font-size: ${props => props.fontSize || "0.8rem"};
 `;
 
 export const BoothDescript = styled.div`
   display: flex;
   color: #8c847f;
   font-family: NotoSansMedium;
-  font-size: 10px;
+  font-size: 0.1rem;
   font-weight: lighter;
   line-height: 16px;
   margin-left: 10px;

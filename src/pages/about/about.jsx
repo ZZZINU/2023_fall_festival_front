@@ -30,7 +30,6 @@ const About = () => {
         <S.IntroFE src="/About/about_fe.png" alt="우리프엔들" />
         <S.IntroBE src="/About/about_be.png" alt="우리백엔들" />
         <S.IntroEC src="/About/about_ec.png" alt="우리대협들" />
-        <S.line src="/About/about_line.png" alt="line" />
       </S.Container>
     </>
   );
