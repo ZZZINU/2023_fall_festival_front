@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled, css } from "styled-components";
 
 export const MainContainer = styled.div`
   background-image: url("/Main/main_bgimg.png");
@@ -17,6 +17,12 @@ export const FloatingImagesContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
+
+  @media (max-width: 375px) {
+    gap: 0px;
+    position: absolute;
+    right: 10px;
+  }
 `;
 
 export const FloatingImage = styled.img`

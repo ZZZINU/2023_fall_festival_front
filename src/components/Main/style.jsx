@@ -29,7 +29,7 @@ export const BoothBg = styled.div`
 export const BoothGrade = styled.img`
   position: absolute;
   display: flex;
-  width: 10%;
+  width: 15%;
   top: 7px;
   left: 10px;
 `;
@@ -70,7 +70,7 @@ export const BoothDescript = styled.div`
   display: flex;
   color: #8c847f;
   font-family: NotoSansMedium;
-  font-size: 0.1rem;
+  font-size: 11px;
   font-weight: lighter;
   line-height: 16px;
   margin-left: 10px;
