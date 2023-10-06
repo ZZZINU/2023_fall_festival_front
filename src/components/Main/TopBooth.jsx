@@ -73,12 +73,12 @@ function TopBooth() {
           boothDescript={firstBooth.description}
           locationContent={firstBooth.location}
           heartNum={firstBooth.like_cnt}
-          titleFont="1rem"
+          titleFont="16px"
           pinImg="14px"
           locationFont="10px"
           heartImg="14px"
           wholeMargin="none"
-          marginTop="14px"
+          marginTop="10px"
         />
       </CardWrapper>
 
