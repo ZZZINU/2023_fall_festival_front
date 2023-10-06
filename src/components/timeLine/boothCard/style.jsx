@@ -10,7 +10,7 @@ export const BoothWhiteBox = styled.div`
   border-radius: 10px;
   background: #fff;
   border: 1px solid ${props => (props.isnow == "true" ? "#EA6F60" : "#FFFAEA")};
-  margin-bottom:12px;
+  margin-bottom: 12px;
   padding: 12px 8px;
 `;
 export const PerformanceWhiteBox = styled(BoothWhiteBox)`
@@ -31,16 +31,26 @@ export const BoothImg = styled.div`
   border-radius: 10px;
   background: ${props => (props.isnow == "true" ? "#FFDFDB" : "#fff6db")};
   color: ${props => (props.isnow == "true" ? "#EA6F60" : "#FAA73F")};
-  span{font-size: 1.8rem};
+  span {
+    font-size: 1.8rem;
+  }
 `;
 export const BoothTxt = styled.div`
   width: 100%;
-  padding: 0 4px;
 `;
 export const BoothTitle = styled.div`
+  padding: 0 6px;
   color: #282828;
 `;
+export const PerfomanceTitle = styled(BoothTitle)`
+  /* padding: 0 4px; */
+  padding-left: ${props => props.islong};
+  padding-right: ${props => props.islong};
+`;
 export const BoothPlace = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
   color: #8c847f;
   font-size: 0.8rem;
   font-weight: 200;
@@ -48,6 +58,7 @@ export const BoothPlace = styled.div`
   img {
     margin-right: 5px;
     object-fit: contain;
+    height: 14px;
   }
 `;
 export const BoothBtn = styled.div`

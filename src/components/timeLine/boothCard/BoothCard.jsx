@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
-import LocationImg from "../../../assets/images/booth_location.png";
 import { useNavigate } from "react-router-dom";
 
 export const BoothCard = ({ booth, realtimeList }) => {
@@ -21,7 +20,7 @@ export const BoothCard = ({ booth, realtimeList }) => {
         <S.BoothTxt>
           <S.BoothTitle>{booth.title}</S.BoothTitle>
           <S.BoothPlace>
-            <img src={LocationImg} alt="location" />
+            <img src="/timetable/booth_location.png" alt="location" />
             {booth.place}
           </S.BoothPlace>
         </S.BoothTxt>

@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {  useLocation } from "react-router-dom";
 import * as S from "./style";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
 import { API } from "../../../api/axios";
 
 export default function NoticeDetail() {
@@ -37,16 +33,12 @@ export default function NoticeDetail() {
           {data.title}
         </S.DetailTitle>
         <S.DetailContent>{data.content}</S.DetailContent>
-        <S.ImgWrapper>
-          <Swiper slidesPerView={2}>
-            {data.images &&
-              data.images.map((img, idx) => (
-                <SwiperSlide key={idx}>
-                  <img src={img} alt="img" />
-                </SwiperSlide>
-              ))}
-          </Swiper>
-        </S.ImgWrapper>
+        <S.ImgWrap>
+          {data.images &&
+            data.images.map((img, idx) => (
+                <img key={idx} src={img} alt="img" />
+            ))}
+        </S.ImgWrap>
         <S.DeatilDate>{data.date}</S.DeatilDate>
       </S.DetailWhiteBox>
     </S.NoticeDetailWrap>

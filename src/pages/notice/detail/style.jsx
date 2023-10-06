@@ -31,11 +31,18 @@ export const DetailContent = styled.div`
   font-size: 12px;
   padding-bottom: 30px;
 `;
-export const ImgWrapper = styled.div`
+export const ImgWrap = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
   height: 120px;
-  margin-bottom: 40px;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+  ::-webkit-scrollbar {
+    display: none;
+  }
   img {
-    height: 120px;
     margin-right: 10px;
   }
 `;
@@ -43,5 +50,5 @@ export const DeatilDate = styled.div`
   color: #8c847f;
   font-family: Noto Sans KR;
   font-size: 10px;
-  margin-bottom: 60px;
+  margin: 30px 0 60px 0;
 `;
