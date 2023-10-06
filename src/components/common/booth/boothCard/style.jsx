@@ -119,7 +119,9 @@ export const BoothCardRibbon = styled.div`
 `;
 
 export const BoothCardContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-rows: 2fr;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
