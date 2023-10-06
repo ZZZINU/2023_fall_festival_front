@@ -175,7 +175,7 @@ function BoothDetail() {
               alt="하트 이미지"
             />
             <S.BoothDetailHeartNum color={data.is_liked ? "#fff" : "#E0747B"}>
-              {data.like_cnt}
+              {data.like_cnt > 999 ? "999+" : data.like_cnt}
             </S.BoothDetailHeartNum>
           </S.BoothDetailHeartWrap>
 

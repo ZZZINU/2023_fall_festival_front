@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const Content = styled.div`
+  flex-grow: 1;
+  min-height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const BoothWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -7,7 +15,6 @@ export const BoothWrap = styled.div`
 
 export const NotBoothCard = styled.div`
   display: flex;
-
   align-items: center;
   flex-direction: column;
 `;
@@ -66,8 +73,17 @@ export const BoothCategry = styled.div`
   cursor: pointer;
 `;
 
+// 부스 카드
 export const BoothCardWrap = styled.div`
   display: flex;
   justify-content: left;
   align-items: flex-end;
+  min-width: 340px;
+`;
+
+export const BoothCardWrap2 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-width: 340px;
 `;
