@@ -13,7 +13,7 @@ function Main() {
   return (
     <>
       <S.MainContainer>
-        <Snow style={{ position: "fixed", top: 0, left: 0, zIndex: 100 }} />
+        <Snow style={{ position: "fixed", top: 0, left: 0 }} />
         <S.FloatingImagesContainer>
           <S.FloatingImage
             src="/Main/main_ya.png"

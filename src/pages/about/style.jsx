@@ -14,7 +14,9 @@ export const Container = styled.div`
 `;
 
 export const WithWho = styled.img`
-  width: 60%;
+  width: 70%;
+  position: relative;
+  z-index: 99;
 `;
 
 export const IntroduceText = styled.div`
@@ -24,6 +26,8 @@ export const IntroduceText = styled.div`
   color: unset;
   margin-top: 45px;
   line-height: 14px;
+  position: relative;
+  z-index: 1;
 `;
 
 export const line = styled.img`
@@ -33,20 +37,28 @@ export const line = styled.img`
 
 export const IntroPd = styled.img`
   margin-top: 50px;
-  width: 70%;
+  width: 85%;
+  position: relative;
+  z-index: 99;
 `;
 
 export const IntroFE = styled.img`
   margin-top: 50px;
-  width: 70%;
+  width: 85%;
+  position: relative;
+  z-index: 99;
 `;
 
 export const IntroBE = styled.img`
   margin-top: 50px;
-  width: 70%;
+  width: 85%;
+  position: relative;
+  z-index: 99;
 `;
 
 export const IntroEC = styled.img`
   margin-top: 50px;
-  width: 70%;
+  width: 85%;
+  position: relative;
+  z-index: 99;
 `;

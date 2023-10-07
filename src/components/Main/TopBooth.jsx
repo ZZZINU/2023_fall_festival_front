@@ -61,6 +61,9 @@ function TopBooth() {
           bgHeight="180px"
           boothGradeImgurl="/Main/silver.png"
           wholeMargin="30px"
+          descriptSize="9px"
+          marginTop="3px"
+          lineHeight="13px"
         />
       </CardWrapper>
 
@@ -96,6 +99,9 @@ function TopBooth() {
           bgHeight="180px"
           boothGradeImgurl="/Main/bronze.png"
           wholeMargin="30px"
+          descriptSize="9px"
+          marginTop="3px"
+          lineHeight="13px"
         />
       </CardWrapper>
     </TopBoothWrapper>

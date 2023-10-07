@@ -49,7 +49,7 @@ export const BoothType = styled.div`
   color: #fff;
   text-align: right;
   font-family: NotoSansRegular;
-  font-size: 5px;
+  font-size: 9px;
   font-weight: 500;
   line-height: normal;
 `;
@@ -70,9 +70,9 @@ export const BoothDescript = styled.div`
   display: flex;
   color: #8c847f;
   font-family: NotoSansMedium;
-  font-size: 11px;
+  font-size: ${props => props.fontSize || "10px"};
   font-weight: lighter;
-  line-height: 16px;
+  line-height: ${props => props.lineHeight || "16px"};
   margin-left: 10px;
   margin-right: 10px;
 `;
