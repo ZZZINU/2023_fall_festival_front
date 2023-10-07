@@ -1,8 +1,8 @@
 import { styled, css } from "styled-components";
 
 export const MainContainer = styled.div`
-  background-image: url("/Main/main_bgimg.png");
-  background-size: 100%;
+  background-image: url("/Main/main_bgimg2.png");
+  background-size: cover;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
