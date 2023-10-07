@@ -9,8 +9,6 @@ export const Container = styled.div`
   text-align: center;
   justify-content: center;
   overflow-y: scroll;
-  /* background-image: url("/About/about_bgimg.png");
-  background-size: 100%; */
 `;
 
 export const WithWho = styled.img`
