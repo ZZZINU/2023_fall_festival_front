@@ -1,8 +1,8 @@
 import { styled, css } from "styled-components";
 
 export const MainContainer = styled.div`
-  background-image: url("/Main/main_bgimg2.png");
-  background-size: cover;
+  background-image: url(/Main/main_bgimg3.jpg);
+  background-size: 100%;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
@@ -11,7 +11,7 @@ export const MainContainer = styled.div`
 
 export const FloatingImagesContainer = styled.div`
   position: absolute;
-  top: 20px;
+  top: 35px;
   right: 40px;
   display: flex;
   flex-direction: column;
@@ -45,6 +45,10 @@ export const FloatingImage = styled.img`
     75% {
       transform: translateY(-10px) translateX(10px);
     }
+  }
+
+  @media (max-width: 320px) {
+    width: 100px;
   }
 `;
 
