@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import { styled, css } from "styled-components";
 
 export const GuestBookBox = styled.div`
-  width: 100%;
+  width: ${props => props.width || "100%"};
   padding: 15px 15px 30px 15px;
   height: ${props => props.Height};
   border-radius: 10px;
@@ -12,11 +12,27 @@ export const GuestBookBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  white-space: pre-wrap;
+
+  ${props =>
+    props.isMobile &&
+    css`
+      @media (max-width: 320px) {
+        width: 150px;
+      }
+    `}
 `;
+
 export const GeustBookText = styled.div`
   text-align: center;
-
-  font-size: 16px;
+  font-size: 1rem;
+  ${props =>
+    props.isMobile &&
+    css`
+      @media (max-width: 320px) {
+        font-size: 12px;
+      }
+    `}
 `;
 
 export const GeustBookIcon = styled.div`

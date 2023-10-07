@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import GuestBookCard from "../common/guestBook/GuestBookCard";
 
 const CardWhole = styled.div`
@@ -8,7 +8,6 @@ const CardWhole = styled.div`
   justify-content: center;
   width: 100%;
   flex-direction: column;
-  /* margin-top: 20px; */
 `;
 
 const CardWrapper1 = styled.div`
@@ -18,6 +17,7 @@ const CardWrapper1 = styled.div`
   margin-top: 20px;
   transform: scale(0.7, 0.7);
 `;
+
 const CardWrapper2 = styled.div`
   display: flex;
   position: relative;
@@ -45,7 +45,11 @@ const CardButton = styled.div`
   font-size: 12px;
   height: 30px;
   width: 70px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1); /* 위아래 양옆에 똑같은 그림자 추가 */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1);
+`;
+
+const ContentWithLineBreaks = styled.div`
+  white-space: pre-line;
 `;
 
 const GuestbookCard = () => {
@@ -55,18 +59,22 @@ const GuestbookCard = () => {
         <div style={{ marginRight: "18px" }}>
           <GuestBookCard
             icon="🍁"
-            content="2023 동국대학교 가을 축제 파이팅!"
+            content={"2023 동국대학교 \n 가을 축제 파이팅!!!"}
             marginBottom="10px"
             Height="180px"
+            width="200px"
+            isMobile={true}
           />
         </div>
 
         <div>
           <GuestBookCard
             icon="🦁"
-            content="멋사와 함께 즐기는 동국대 가을 축제"
+            content={"멋사와 함께 즐기는 \n동국대 가을 축제"}
             marginBottom="10px"
             Height="180px"
+            width="200px"
+            isMobile={true}
           />
         </div>
       </CardWrapper1>
@@ -74,17 +82,21 @@ const GuestbookCard = () => {
         <div style={{ marginRight: "18px" }}>
           <GuestBookCard
             icon="💡"
-            content="축제의 감정, 이곳에 기록해보는건 어떤가요?"
+            content={"축제의 감정,이곳에 \n기록해보는건 어떤가요?"}
             marginBottom="10px"
             Height="180px"
+            width="200px"
+            isMobile={true}
           />
         </div>
         <div>
           <GuestBookCard
             icon="😆"
-            content="축제 사이트에 여러분의 기억을 남겨주세요!!!"
+            content={"축제 사이트에 여러분의 \n기억을 남겨주세요!!!"}
             marginBottom="10px"
             Height="180px"
+            width="200px"
+            isMobile={true}
           />
         </div>
       </CardWrapper2>
@@ -95,5 +107,14 @@ const GuestbookCard = () => {
     </CardWhole>
   );
 };
+
+// 화면 너비가 360px 이하일 때 GuestBookCard의 width를 150px로 변경
+const mobileWidthStyle = css`
+  @media (max-width: 320px) {
+    ${GuestBookCard} {
+      width: 150px;
+    }
+  }
+`;
 
 export default GuestbookCard;
