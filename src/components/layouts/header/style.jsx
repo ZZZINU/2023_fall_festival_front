@@ -56,7 +56,7 @@ export const SideBarContent = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  height: 220px;
+  height: 250px;
 
   font-size: 18px;
   color: ${props => props.theme.colors.fontBrown};
