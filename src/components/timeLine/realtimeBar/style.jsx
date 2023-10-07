@@ -1,7 +1,7 @@
 import { styled, keyframes } from "styled-components";
 
 const slideUpAnimation = keyframes`
-    /* 0% {
+    0% {
     opacity: 0;
     transform: translateY(20px);
   }
@@ -16,15 +16,15 @@ const slideUpAnimation = keyframes`
   100% {
     opacity: 0;
     transform: translateY(-20px);
-  } */
-  0%, 100% {
+  }
+  /* 0%, 100% {
     opacity: 0;
     transform: translateY(20px);
   }
   10%, 90% {
     opacity: 1;
     transform: translateY(0);
-  }
+  } */
 `;
 
 export const TimeTableNav = styled.div`
@@ -49,7 +49,7 @@ export const TimeTableNav = styled.div`
 `;
 export const TimeTableMainTxt = styled.div`
   font-family: "Dongguk";
-  font-size: 1rem;
+  font-size: 0.9rem;
   animation: ${slideUpAnimation} 3s ease-in-out infinite;
 
   @media (max-width: 375px) {
