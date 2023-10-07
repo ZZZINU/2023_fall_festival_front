@@ -14,7 +14,7 @@ export const DetailWhiteBox = styled.div`
 `;
 export const DetailTxt = styled.div`
   color: #dd7481;
-  font-family: DONGGUK UNIVERSITY;
+  font-family: "Dongguk";
   font-size: 14px;
   text-align: center;
 `;

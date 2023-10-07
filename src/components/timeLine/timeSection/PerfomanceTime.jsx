@@ -11,7 +11,7 @@ export default function PerfomanceTime({
   top,
   currentTime
 }) {
-  console.log();
+  
   const start = new Date(
     `${currentTime.getFullYear()}-${
       currentTime.getMonth() + 1

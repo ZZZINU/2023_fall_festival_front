@@ -18,20 +18,17 @@ export const NoticeBox = styled.div`
 
   border-radius: 35px;
   background: rgba(255, 255, 255, 0.97);
-
-  /* height: 700px;
-  overflow-y: scroll; */
 `;
 
 export const CategoryWarp = styled.div`
   display: flex;
   flex-direction: row;
-  font-family: DONGGUK UNIVERSITY;
-  font-size: 12px;
+  font-family: DONGGUK;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  gap: 13px;
+  gap: 18px;
 `;
 
 export const NoticeCategory = styled.div`
