@@ -51,6 +51,7 @@ export const FloatingImage = styled.img`
 export const MainBanner = styled.div`
   position: relative;
   margin-top: 200%;
+  z-index: 99;
 `;
 
 export const MainBoothGrade = styled.div`
@@ -87,12 +88,12 @@ export const Boothceleb = styled.div`
 `;
 
 export const CelebEleven = styled.img`
-  width: 70%;
+  width: 75%;
   margin-top: 10px;
 `;
 
 export const CelecbTwelve = styled.img`
-  width: 35%;
+  width: 40%;
   margin-top: 10px;
 `;
 
