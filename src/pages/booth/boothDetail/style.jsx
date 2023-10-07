@@ -13,6 +13,11 @@ export const BoothDetailWrap = styled.div`
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.7);
   padding-bottom: 25px;
+
+  @media (max-width: 370px) {
+    transform: scale(85%);
+    margin-top: -20px;
+  }
 `;
 
 export const BoothDetailTitle = styled.div`
