@@ -10,7 +10,7 @@ export const PerfomanceCard = ({ booth, realtimeList }) => {
         <S.BoothTxt>
           <S.PerfomanceTitle
             islong={
-              booth.title == "동아리 공연" || booth.title == "연예인 공연"
+              booth.title == "동아리 공연" || booth.title == "연예인 공연"|| booth.title == "백상 응원단"
                 ? "0px"
                 : "6px"
             }

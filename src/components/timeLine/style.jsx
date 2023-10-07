@@ -38,6 +38,7 @@ export const TimeDateBoxText = styled.div`
 `;
 
 // TimeTableSection.jsx
+
 export const TimeTableWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -46,6 +47,9 @@ export const TimeTableWrapper = styled.div`
   width: 90%;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
+  @media (max-width: 375px) {
+    padding: 30px 10px;
+  }
 `;
 
 export const SubNav = styled.div`
@@ -109,7 +113,6 @@ export const LineUpWrapper = styled.div`
   position: relative;
   width: 90%;
   height: ${props => props.isheight};
-  /* min-height: 640px; */
   padding: 30px 10px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
@@ -148,6 +151,10 @@ export const LineUpContainer = styled.div`
 `;
 export const LineUpContainer1 = styled(LineUpContainer)`
   margin-top: 90px;
+
+  @media (max-width: 375px) {
+  margin-top: 140px;
+  }
 `;
 export const MarginLabel = styled.div`
   display: flex;
@@ -161,6 +168,11 @@ export const LineUpImg = styled.img`
   background: lightgray 50%;
   object-fit: cover;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 375px) {
+  width:  155px;
+  height: 155px;
+  }
 `;
 export const LineUpList = styled.div`
   display: flex;
@@ -178,10 +190,18 @@ export const LineUpList = styled.div`
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 375px) {
+  font-size: 1rem;
+  }
 `;
 export const EngName = styled.div`
   font-size: 0.7rem;
   margin-bottom: 3px;
+
+  @media (max-width: 375px) {
+  font-size: 0.6rem;
+  }
 `;
 export const ShowTime = styled.div`
   font-family: "GmarketSansLight";

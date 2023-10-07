@@ -1,4 +1,4 @@
-import {styled,keyframes}  from "styled-components";
+import { styled, keyframes } from "styled-components";
 
 const slideUpAnimation = keyframes`
     /* 0% {
@@ -42,11 +42,19 @@ export const TimeTableNav = styled.div`
   color: #fff;
   font-size: 0.8rem;
   font-weight: 400;
+
+  @media (max-width: 375px) {
+    font-size: 0.7rem;
+  }
 `;
 export const TimeTableMainTxt = styled.div`
   font-family: "Dongguk";
   font-size: 1rem;
   animation: ${slideUpAnimation} 3s ease-in-out infinite;
+
+  @media (max-width: 375px) {
+    font-size: 0.8rem;
+  }
 `;
 export const TimeTableSubTxt = styled.div`
   position: absolute;
@@ -58,6 +66,10 @@ export const TimeTableSubTxt = styled.div`
   animation: ${slideUpAnimation} 3s ease-in-out infinite;
   img {
     height: 30px;
+
+    @media (max-width: 375px) {
+      height: 25px;
+    }
   }
 `;
 export const TimeTableSubTxt2 = styled.div`

@@ -11,6 +11,9 @@ export const BoothTimeSection = styled.div`
   width: 75%;
   height: 32px;
   margin: 10px 0 5px auto;
+  @media (max-width: 375px) {
+    font-size: 0.7rem;
+  }
 `;
 export const PerformTimeSection = styled(BoothTimeSection)`
   margin: 10px 0 5px 0;

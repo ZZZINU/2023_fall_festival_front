@@ -1,39 +1,61 @@
-import React from 'react'
-import * as S from "./style"
+import React from "react";
+import * as S from "./style";
 
-export default function RealtimeStroke({ isFestivalDay, timePercent }) {
-  // 시간 바에서 현재 위치 계산 -----------------------------
-  let imagePosition = 0;
-  if (timePercent >= 0 && timePercent < 660) {
-    // 11:00 이후부터 22:00 이전까지
-    imagePosition = `${(timePercent / 660) * 100 - 2.3}%`;
-  } else if (timePercent < 0) {
-    // 11:00 이전
-    imagePosition = 0;
-  } else {
-    // 22:00 이후
-    imagePosition = "98%";//오차 수정
-  }
-console.log(imagePosition);
+export default function RealtimeStroke({ isFestivalDay, currentTime }) {
+  const isCurrentTime = () => {
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+
+    if (
+      isFestivalDay() &&
+      hours >= 11 &&
+      (hours < 13 || (hours === 13 && minutes < 30))
+    ) {
+      return 11;
+    } else if (isFestivalDay() && hours >= 13 && hours < 15) {
+      return 13;
+    } else if (isFestivalDay() && hours >= 15 && hours < 20) {
+      return 15;
+    } else if (isFestivalDay() && hours >= 20 && hours < 22) {
+      return 20;
+    }
+
+    return null;
+  };
+
   return (
     <S.TimeStroke>
       <S.Stroke1 />
       <S.Stroke2 />
       <S.Stroke3 />
-      <S.Stroke4 />
-      <S.Stroke5 />
-      {isFestivalDay() && (
-        <S.TimeNow
-          src="/timetable/realtime.png"
-          style={{ top: imagePosition }}
-        />
-      )}
-      <S.TimeStart />
-      <S.Time13Mid />
-      <S.Time15Mid />
-      <S.Time18Mid />
-      <S.Time20Mid />
-      <S.TimeEnd />
+      <S.TimeStart
+        src={
+          isCurrentTime() === 11
+            ? "/timetable/realtime.png"
+            : "/timetable/timetable_mark.png"
+        }
+      />
+      <S.Time13Mid
+        src={
+          isCurrentTime() === 13
+            ? "/timetable/realtime.png"
+            : "/timetable/timetable_mark.png"
+        }
+      />
+      <S.Time15Mid
+        src={
+          isCurrentTime() === 15
+            ? "/timetable/realtime.png"
+            : "/timetable/timetable_mark.png"
+        }
+      />
+      <S.Time20Mid
+        src={
+          isCurrentTime() === 20
+            ? "/timetable/realtime.png"
+            : "/timetable/timetable_mark.png"
+        }
+      />
     </S.TimeStroke>
   );
 }

@@ -12,9 +12,13 @@ export const BoothWhiteBox = styled.div`
   border: 1px solid ${props => (props.isnow == "true" ? "#EA6F60" : "#FFFAEA")};
   margin-bottom: 12px;
   padding: 12px 8px;
+  @media (max-width: 375px) {
+    font-size: 0.9rem;
+  }
 `;
 export const PerformanceWhiteBox = styled(BoothWhiteBox)`
   margin-left: auto;
+  height: 73px;
 `;
 export const BoothCardWrapper = styled.div`
   display: flex;
@@ -43,7 +47,6 @@ export const BoothTitle = styled.div`
   color: #282828;
 `;
 export const PerfomanceTitle = styled(BoothTitle)`
-  /* padding: 0 4px; */
   padding-left: ${props => props.islong};
   padding-right: ${props => props.islong};
 `;
@@ -59,6 +62,9 @@ export const BoothPlace = styled.div`
     margin-right: 5px;
     object-fit: contain;
     height: 14px;
+  }
+  @media (max-width: 375px) {
+    font-size: 0.7rem;
   }
 `;
 export const BoothBtn = styled.div`

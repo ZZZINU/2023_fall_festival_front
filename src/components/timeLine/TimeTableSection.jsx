@@ -12,15 +12,58 @@ export const TimeTableSection = ({
   currentTime,
   festivalDate
 }) => {
-
-  // 축제 시작 시간과 현재 시간의 차이 -----------------------------
-  const startTime = new Date(`2023-10-${festivalDate} 11:00`);
-  const timeDifference = currentTime - startTime;
-
-  const timePercent = timeDifference / (1000 * 60); // 분 단위
-
-  // 접속일자와 축제 일정 일치 확인 --------------------------------------
   const isFestivalDay = () => currentTime.getDate() === festivalDate;
+  const boothTime = [
+    {
+      id: 1,
+      startTime: "11:00",
+      endTime: "17:00",
+      top: ""
+    },
+    {
+      id: 2,
+      startTime: "11:00",
+      endTime: "19:00",
+      top: ""
+    },
+    {
+      id: 3,
+      startTime: "11:00",
+      endTime: "23:00",
+      top: ""
+    },
+    {
+      id: 4,
+      startTime: "18:00",
+      endTime: "22:00",
+      top: "173px"
+    }
+  ];
+  const performanceTime = [
+    {
+      id: 1,
+      startTime: "11:00",
+      endTime: "17:00",
+      top: ""
+    },
+    {
+      id: 2,
+      startTime: "13:30",
+      endTime: "17:00",
+      top: "70px"
+    },
+    {
+      id: 3,
+      startTime: festivalDate === 11 ? "15:00" : "14:30",
+      endTime: "20:00",
+      top: "72px"
+    },
+    {
+      id: 4,
+      startTime: "20:00",
+      endTime: "22:00",
+    }
+  ];
 
   return (
     <S.TimeTableWrapper>
@@ -40,76 +83,34 @@ export const TimeTableSection = ({
       <S.BoothDetailSection>
         <RealtimeStroke
           isFestivalDay={isFestivalDay}
-          timePercent={timePercent}
+          currentTime={currentTime}
         />
         <S.BoothLeft>
-          <BoothTime
-            realtimeList={realtimeList}
-            boothData={boothData}
-            startTime="11:00"
-            endTime="17:00"
-          />
-          <BoothTime
-            realtimeList={realtimeList}
-            boothData={boothData}
-            startTime="11:00"
-            endTime="19:00"
-          />
-          <BoothTime
-            realtimeList={realtimeList}
-            boothData={boothData}
-            startTime="11:00"
-            endTime="23:00"
-          />
-          <BoothTime
-            realtimeList={realtimeList}
-            boothData={boothData}
-            startTime="18:00"
-            endTime="22:00"
-            top="56px"
-          />
+          {boothTime.map(booth => (
+            <BoothTime
+              key={booth.id}
+              realtimeList={realtimeList}
+              boothData={boothData}
+              startTime={booth.startTime}
+              endTime={booth.endTime}
+              top={booth.top}
+            />
+          ))}
         </S.BoothLeft>
 
         <S.BoothRight>
-          <PerfomanceTime
-            realtimeList={realtimeList}
-            currentTime={currentTime}
-            isFestivalDay={isFestivalDay}
-            PerfomanceData={PerfomanceData}
-            startTime="11:00"
-            endTime="17:00"
-            timePercent={timePercent}
-          />
-          <PerfomanceTime
-            realtimeList={realtimeList}
-            currentTime={currentTime}
-            isFestivalDay={isFestivalDay}
-            PerfomanceData={PerfomanceData}
-            startTime="13:30"
-            endTime="17:00"
-            timePercent={timePercent}
-            top="54px"
-          />
-          <PerfomanceTime
-            realtimeList={realtimeList}
-            currentTime={currentTime}
-            isFestivalDay={isFestivalDay}
-            PerfomanceData={PerfomanceData}
-            startTime={festivalDate === 11 ? "15:00" : "14:30"}
-            endTime="20:00"
-            timePercent={timePercent}
-            top={festivalDate === 11 ? "" : ""}
-          />
-          <PerfomanceTime
-            realtimeList={realtimeList}
-            currentTime={currentTime}
-            isFestivalDay={isFestivalDay}
-            PerfomanceData={PerfomanceData}
-            startTime="20:00"
-            endTime="22:00"
-            timePercent={timePercent}
-            top="100px"
-          />
+          {performanceTime.map(performance => (
+            <PerfomanceTime
+              key={performance.id}
+              realtimeList={realtimeList}
+              currentTime={currentTime}
+              isFestivalDay={isFestivalDay}
+              PerfomanceData={PerfomanceData}
+              startTime={performance.startTime}
+              endTime={performance.endTime}
+              top={performance.top}
+            />
+          ))}
         </S.BoothRight>
       </S.BoothDetailSection>
     </S.TimeTableWrapper>
