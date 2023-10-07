@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const BoothTimeSection = styled.div`
   display: flex;
@@ -11,9 +22,12 @@ export const BoothTimeSection = styled.div`
   width: 75%;
   height: 32px;
   margin: 10px 0 5px auto;
+
   @media (max-width: 375px) {
     font-size: 0.7rem;
   }
+
+  /* animation: ${fadeIn} 0.3s ease-in-out; */
 `;
 export const PerformTimeSection = styled(BoothTimeSection)`
   margin: 10px 0 5px 0;

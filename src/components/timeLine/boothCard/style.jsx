@@ -1,4 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const BoothWhiteBox = styled.div`
   display: flex;
@@ -12,9 +23,12 @@ export const BoothWhiteBox = styled.div`
   border: 1px solid ${props => (props.isnow == "true" ? "#EA6F60" : "#FFFAEA")};
   margin-bottom: 12px;
   padding: 12px 8px;
+
   @media (max-width: 375px) {
     font-size: 0.9rem;
   }
+
+  /* animation: ${fadeIn} 0.3s ease-in-out 0.2s; */
 `;
 export const PerformanceWhiteBox = styled(BoothWhiteBox)`
   margin-left: auto;
