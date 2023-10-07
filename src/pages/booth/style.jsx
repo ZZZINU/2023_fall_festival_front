@@ -5,7 +5,13 @@ export const Content = styled.div`
   min-height: 100%;
   width: 100%;
   flex-direction: column;
+
   align-items: center;
+
+  @media (max-width: 370px) {
+    transform: scale(85%);
+    margin-top: -50px;
+  }
 `;
 
 export const BoothWrap = styled.div`

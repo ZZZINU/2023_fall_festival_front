@@ -125,4 +125,12 @@ export const BoothCardContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+
+  @media (max-width: 340px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 330px) {
+    gap: 15px;
+  }
 `;
