@@ -20,7 +20,7 @@ export const NoticeTopWrappper = styled.div`
 
 export const MainCategry = styled.div`
   color: ${props => props.color};
-  padding-bottom: 3px;
+  padding-bottom: 8px;
   font-family: Dongguk;
   font-size: 20px;
   font-style: normal;
