@@ -21,7 +21,7 @@ function TopBoothCard({
   marginTop,
   logoHeight
 }) {
-  const defaultBoothImgUrl = "/booth/booth.png";
+  const defaultBoothImgUrl = "/booth/boothDefault.png";
 
   const defaultGradeImg = "/Main/gold.png";
 
