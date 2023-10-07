@@ -167,6 +167,7 @@ export const BoothDetailContentLocation = styled.div`
 export const BoothDetailContent = styled.div`
   display: flex;
   margin-top: 25px;
+  white-space: pre-line;
 `;
 
 export const BoothDetailContentImage = styled.img`
