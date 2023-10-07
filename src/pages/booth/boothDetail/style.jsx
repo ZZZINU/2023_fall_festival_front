@@ -13,6 +13,11 @@ export const BoothDetailWrap = styled.div`
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.7);
   padding-bottom: 25px;
+
+  @media (max-width: 370px) {
+    transform: scale(85%);
+    margin-top: -20px;
+  }
 `;
 
 export const BoothDetailTitle = styled.div`
@@ -86,6 +91,7 @@ export const BoothDetailHeart = styled.img`
   display: flex;
   width: 20px;
   height: 20px;
+  margin-right: 5px;
 `;
 export const BoothDetailHeartNum = styled.div`
   display: flex;
@@ -166,6 +172,7 @@ export const BoothDetailContentLocation = styled.div`
 export const BoothDetailContent = styled.div`
   display: flex;
   margin-top: 25px;
+  white-space: pre-line;
 `;
 
 export const BoothDetailContentImage = styled.img`

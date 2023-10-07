@@ -189,9 +189,16 @@ function BoothDetail() {
           </S.BoothDetailHeartWrap>
 
           <S.BoothDetailSNSWrap>
-            <S.BoothDetailSNSLink to={data.insta_url} target="_blank">
-              <S.BoothDetailImg src={InstaImg} alt="인스타 이미지" />
-            </S.BoothDetailSNSLink>
+            {data.insta_url ? (
+              <>
+                <S.BoothDetailSNSLink to={data.insta_url} target="_blank">
+                  <S.BoothDetailImg src={InstaImg} alt="인스타 이미지" />
+                </S.BoothDetailSNSLink>
+              </>
+            ) : (
+              <></>
+            )}
+
             <S.BoothDetailSNS onClick={handleCopyLink}>
               <S.BoothDetailImg src={ShareImg} alt="공유 이미지" />
             </S.BoothDetailSNS>

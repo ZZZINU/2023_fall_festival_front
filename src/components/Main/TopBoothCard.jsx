@@ -19,7 +19,9 @@ function TopBoothCard({
   heartImg,
   boothId,
   marginTop,
-  logoHeight
+  logoHeight,
+  descriptSize,
+  lineHeight
 }) {
   const defaultBoothImgUrl = "/booth/boothDefault.png";
 
@@ -64,7 +66,7 @@ function TopBoothCard({
               <S.BoothTitle fontSize={titleFont}>
                 {processedBoothTitle || "부스명"}
               </S.BoothTitle>
-              <S.BoothDescript>
+              <S.BoothDescript fontSize={descriptSize} lineHeight={lineHeight}>
                 {processedBoothDescript || "부스 소개"}
               </S.BoothDescript>
 

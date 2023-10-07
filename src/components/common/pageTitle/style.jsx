@@ -8,6 +8,8 @@ export const PageTitleWrapper = styled.div`
 
   font-family: Dongguk;
   margin: 20px;
+  position: relative;
+  z-index: 2;
 `;
 
 export const PageTitle_Main = styled.div`

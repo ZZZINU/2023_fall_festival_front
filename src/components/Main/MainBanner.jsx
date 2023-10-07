@@ -11,7 +11,7 @@ import "./swiper.css";
 
 const imageSize = {
   width: "90%",
-  height: "170px",
+  height: "90%",
   borderRadius: "10px"
 };
 

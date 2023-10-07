@@ -9,7 +9,7 @@ const About = () => {
   return (
     <>
       <S.Container>
-        <Snow style={{ position: "fixed", top: 0, left: 0, zIndex: 100 }} />
+        <Snow style={{ position: "fixed", top: 0, left: 0 }} />
         <PageTitle mainTitle={"함께한 사람들"} />
         <S.WithWho src="/About/about_with.png" alt="멋사랑 축기단" />
         <S.IntroduceText>
