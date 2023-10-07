@@ -86,6 +86,7 @@ export const BoothDetailHeart = styled.img`
   display: flex;
   width: 20px;
   height: 20px;
+  margin-right: 5px;
 `;
 export const BoothDetailHeartNum = styled.div`
   display: flex;
