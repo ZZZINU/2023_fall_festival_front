@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 // TimeLineTop.jsx
 export const TimeLineTopLabel = styled.div`
@@ -117,19 +117,107 @@ export const LineUpWrapper = styled.div`
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.5);
 `;
+
+const fadeInFromTop = keyframes`
+  0% {
+    transform: translateY(-20px) translateX(0);
+  }
+  20% {
+    transform: translateY(-15px) translateX(-5px);
+  }
+  40% {
+    transform: translateY(-10px) translateX(0);
+  }
+  60% {
+    transform: translateY(-5px) translateX(-5px);
+  }
+  80% {
+    transform: translateY(0) translateX(5px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+`;
+const fadeInFromTop1 = keyframes`
+  0% {
+    transform: translateY(-20px) translateX(-5px);
+  }
+  20% {
+    transform: translateY(-15px) translateX(0);
+  }
+  40% {
+    transform: translateY(-10px) translateX(-5px);
+  }
+  60% {
+    transform: translateY(-5px) translateX(0);
+  }
+  80% {
+    transform: translateY(0) translateX(-5px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+`;
+
+const spakle = keyframes`
+  0% {
+    transform: scaleX(0) scaleY(0);
+    transform-origin: center;
+    opacity: 0;
+  }
+  50% {
+    transform: scaleX(1) scaleY(1);
+    transform-origin: center;
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  68% {
+    transform: scaleX(1.1) scaleY(1.1);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`
 export const BgImg1 = styled.img`
   position: absolute;
   max-width: 90%;
   object-fit: contain;
+  /* border: 1px solid red; */
+  
+  /* animation: ${fadeInFromTop} 1.5s ease-in-out infinite; */
 `;
-export const BgImg2 = styled(BgImg1)`
+export const BgImg2 = styled.img`
+  position: absolute;
+  max-width: 90%;
+  object-fit: contain;
   top: 280px;
+  /* border: 1px solid blue; */
+  
+  animation: ${spakle} 3s ease-in-out infinite;
 `;
-export const BgImg3 = styled(BgImg1)`
+export const BgImg3 = styled.img`
+  position: absolute;
+  max-width: 90%;
+  object-fit: contain;
   top: 340px;
   right: 5%;
+  /* border: 1px solid yellow; */
+
+  animation: ${spakle} 3s ease-in-out infinite;
+  animation-delay: 1s;
 `;
-export const BgImg4 = styled(BgImg1)`
+export const BgImg4 = styled.img`
+  position: absolute;
+  max-width: 90%;
+  object-fit: contain;
   top: 260px;
   left: 40%;
 `;
