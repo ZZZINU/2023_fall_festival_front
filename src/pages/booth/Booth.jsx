@@ -144,7 +144,6 @@ function Booth() {
   // 초기
   useEffect(() => {
     setCurrentPage(1);
-    console.log("초기");
     fetchData();
   }, [selectedDate11, markerStates, dayOrNight]);
 
