@@ -49,6 +49,13 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: light;
     } 
 
+    @font-face {
+    font-family: 'OKGUNG';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/OKGUNG.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
     margin: 0;
     border: 0;
     padding: 0;
