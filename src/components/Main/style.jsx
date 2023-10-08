@@ -11,7 +11,7 @@ export const TopContainer = styled.div`
 export const BoothLogo = styled.img`
   width: ${props => props.width || "120px"};
   height: ${props => props.height || "120px"};
-  border-radius: 20px;
+  border-radius: 10px;
 `;
 
 export const BoothBg = styled.div`
@@ -99,7 +99,7 @@ export const BoothLocationContent = styled.div`
   display: flex;
   color: #8c847f;
   font-family: NotoSansRegular;
-  font-size: ${props => props.fontSize || "7px"};
+  font-size: ${props => props.fontSize || "9px"};
   font-weight: 400;
   line-height: normal;
   margin-left: 3px;
