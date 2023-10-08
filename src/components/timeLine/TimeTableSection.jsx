@@ -36,7 +36,7 @@ export const TimeTableSection = ({
       id: 4,
       startTime: "18:00",
       endTime: "22:00",
-      top: "173px"
+      top: "168px"
     }
   ];
   const performanceTime = [
