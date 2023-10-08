@@ -156,7 +156,7 @@ function BoothDetail() {
             modules={[Pagination]}
           >
             <SwiperSlide>
-              <Link to={data.thumbnail} target="_blank">
+              <Link to={data.thumbnail}>
                 <img src={data.thumbnail} alt="Thumbnail" />
               </Link>
             </SwiperSlide>
@@ -164,7 +164,7 @@ function BoothDetail() {
               <>
                 {data.images.map((image, index) => (
                   <SwiperSlide key={index}>
-                    <Link to={image} target="_blank">
+                    <Link to={image}>
                       <S.SwiperSlideImg
                         src={image}
                         alt={`Slide ${index + 1}`}
