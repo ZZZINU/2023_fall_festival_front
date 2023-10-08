@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 
-export const BoothCard = ({ booth, realtimeList }) => {
+export const BoothCard = ({ booth, realtimeList, isVisible, index }) => {
   const isCurrent = realtimeList.includes(booth);
   const navigate = useNavigate();
 
   return (
-    <S.BoothWhiteBox isnow={isCurrent ? "true" : "false"}>
+    <S.BoothWhiteBox
+      isnow={isCurrent ? "true" : "false"}
+      className={`booth-time ${isVisible ? "visible" : ""}`}
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
       <S.BoothCardWrapper>
         <S.BoothImg isnow={isCurrent ? "true" : "false"}>
           {booth.devide == "부스" && (

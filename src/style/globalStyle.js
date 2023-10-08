@@ -67,7 +67,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     touch-action: manipulation;
-    
+    background-image: url("/background.svg");
+    background-size: 100%;
+    background-repeat: repeat;
   }
   menu, ol, ul {
     list-style: none;

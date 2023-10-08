@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import BoothTime from "./timeSection/BoothTime";
 import PerfomanceTime from "./timeSection/PerfomanceTime";
@@ -12,31 +12,49 @@ export const TimeTableSection = ({
   currentTime,
   festivalDate
 }) => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const isFestivalDay = () => currentTime.getDate() === festivalDate;
+
   const boothTime = [
     {
       id: 1,
       startTime: "11:00",
       endTime: "17:00",
-      top: ""
+      top: "",
+      scroll: ""
     },
     {
       id: 2,
       startTime: "11:00",
       endTime: "19:00",
-      top: ""
+      top: "",
+      scroll: ""
     },
     {
       id: 3,
       startTime: "11:00",
       endTime: "23:00",
-      top: ""
+      top: "",
+      scroll: "1"
     },
     {
       id: 4,
       startTime: "18:00",
       endTime: "22:00",
-      top: "168px"
+      top: "168px",
+      scroll: "100"
     }
   ];
   const performanceTime = [
@@ -44,24 +62,28 @@ export const TimeTableSection = ({
       id: 1,
       startTime: "11:00",
       endTime: "17:00",
-      top: ""
+      top: "",
+      scroll: ""
     },
     {
       id: 2,
       startTime: "13:30",
       endTime: "17:00",
-      top: "70px"
+      top: "70px",
+      scroll: ""
     },
     {
       id: 3,
       startTime: festivalDate === 11 ? "15:00" : "14:30",
       endTime: "20:00",
-      top: "72px"
+      top: "72px",
+      scroll: "70"
     },
     {
       id: 4,
       startTime: "20:00",
       endTime: "22:00",
+      scroll: "100"
     }
   ];
 
@@ -85,7 +107,7 @@ export const TimeTableSection = ({
           isFestivalDay={isFestivalDay}
           currentTime={currentTime}
         />
-        <S.BoothLeft>
+        {/* <S.BoothLeft>
           {boothTime.map(booth => (
             <BoothTime
               key={booth.id}
@@ -96,21 +118,48 @@ export const TimeTableSection = ({
               top={booth.top}
             />
           ))}
+        </S.BoothLeft> */}
+        <S.BoothLeft>
+          {boothTime.map((booth, index) => {
+            const boothscroll = booth.scroll ? parseInt(booth.scroll) : 0;
+            const isVisible = scrollY >= boothscroll;
+
+            return (
+              <BoothTime
+                realtimeList={realtimeList}
+                boothData={boothData}
+                startTime={booth.startTime}
+                endTime={booth.endTime}
+                top={booth.top}
+                isVisible={isVisible}
+                index={index}
+              />
+            );
+          })}
         </S.BoothLeft>
 
         <S.BoothRight>
-          {performanceTime.map(performance => (
-            <PerfomanceTime
-              key={performance.id}
-              realtimeList={realtimeList}
-              currentTime={currentTime}
-              isFestivalDay={isFestivalDay}
-              PerfomanceData={PerfomanceData}
-              startTime={performance.startTime}
-              endTime={performance.endTime}
-              top={performance.top}
-            />
-          ))}
+          {performanceTime.map((performance, index) => {
+            const performancescroll = performance.scroll
+              ? parseInt(performance.scroll)
+              : 0;
+            const isVisible = scrollY >= performancescroll;
+
+            return (
+              <PerfomanceTime
+                key={performance.id}
+                realtimeList={realtimeList}
+                currentTime={currentTime}
+                isFestivalDay={isFestivalDay}
+                PerfomanceData={PerfomanceData}
+                startTime={performance.startTime}
+                endTime={performance.endTime}
+                top={performance.top}
+                isVisible={isVisible}
+                index={index}
+              />
+            );
+          })}
         </S.BoothRight>
       </S.BoothDetailSection>
     </S.TimeTableWrapper>

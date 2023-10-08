@@ -7,13 +7,14 @@ export default function BoothTime({
   realtimeList,
   startTime,
   endTime,
-  top
+  top,
+  isVisible,
+  index
 }) {
-
   return (
     <>
       <S.BoothTimeSection
-        style={{ marginTop: `${top}` }}
+        style={{ marginTop: `${top}`, animationDelay: `${index * 0.1}s`}}
       >
         {startTime} ~ {endTime}
       </S.BoothTimeSection>
@@ -22,7 +23,13 @@ export default function BoothTime({
           booth => booth.starttime === startTime && booth.endtime === endTime
         )
         .map(booth => (
-          <BoothCard key={booth.id} booth={booth} realtimeList={realtimeList} />
+          <BoothCard
+            key={booth.id}
+            booth={booth}
+            realtimeList={realtimeList}
+            isVisible={isVisible}
+            index={index}
+          />
         ))}
     </>
   );

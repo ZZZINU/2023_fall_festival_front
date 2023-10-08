@@ -1,15 +1,15 @@
 import { styled, keyframes } from "styled-components";
 
 const slideUpAnimation = keyframes`
-    0% {
+  0%{
     opacity: 0;
     transform: translateY(20px);
   }
-  33.33% {
+  10% {
     opacity: 1;
     transform: translateY(0);
   }
-  66.67% {
+  90% {
     opacity: 1;
     transform: translateY(0);
   }
@@ -17,14 +17,6 @@ const slideUpAnimation = keyframes`
     opacity: 0;
     transform: translateY(-20px);
   }
-  /* 0%, 100% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  10%, 90% {
-    opacity: 1;
-    transform: translateY(0);
-  } */
 `;
 
 export const TimeTableNav = styled.div`
