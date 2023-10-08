@@ -41,21 +41,21 @@ function Header() {
           <S.imgBtnWrapper>
             <S.imgBtn
               onClick={openSideBar}
-              src="./navBar/icon_close.png"
+              src="./navBar/icon-close.svg"
             ></S.imgBtn>
           </S.imgBtnWrapper>
         ) : (
           <S.imgBtnWrapper>
             <S.imgBtn
               onClick={openSideBar}
-              src="./navBar/icon_open.png"
+              src="./navBar/icon-open.svg"
             ></S.imgBtn>
           </S.imgBtnWrapper>
         )}
       </S.HeaderContent>
 
       <S.SideBarWrapper ref={sideBarRef}>
-        <img src="./navBar/line.png" />
+        <img src="./navBar/line.svg" />
         <S.SideBarContent>
           <Link to="/" onClick={closeSideBar}>
             메인 페이지
