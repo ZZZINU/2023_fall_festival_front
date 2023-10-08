@@ -1,14 +1,13 @@
 import React from "react";
 import * as S from "./style";
 
-export const PerfomanceCard = ({ booth, realtimeList, isVisible, index }) => {
+export const PerfomanceCard = ({ booth, realtimeList, index }) => {
   const isCurrent = realtimeList.includes(booth);
 
   return (
     <S.PerformanceWhiteBox
       isnow={isCurrent ? "true" : "false"}
-      className={`booth-time ${isVisible ? "visible" : ""}`}
-      style={{ animationDelay: `${index * 0.1}s` }}
+      style={{ animationDelay: `${index * 0.2}s` }}
     >
       <S.BoothCardWrapper>
         <S.BoothTxt>

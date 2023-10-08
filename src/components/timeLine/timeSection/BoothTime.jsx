@@ -8,13 +8,12 @@ export default function BoothTime({
   startTime,
   endTime,
   top,
-  isVisible,
   index
 }) {
   return (
     <>
       <S.BoothTimeSection
-        style={{ marginTop: `${top}`, animationDelay: `${index * 0.1}s`}}
+        style={{ marginTop: `${top}`, animationDelay: `${index * 0.2}s` }}
       >
         {startTime} ~ {endTime}
       </S.BoothTimeSection>
@@ -27,7 +26,6 @@ export default function BoothTime({
             key={booth.id}
             booth={booth}
             realtimeList={realtimeList}
-            isVisible={isVisible}
             index={index}
           />
         ))}
