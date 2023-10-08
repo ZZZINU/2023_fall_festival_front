@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import * as S from "./style";
 
 import { SwiperSlide } from "swiper/react";
@@ -156,13 +156,20 @@ function BoothDetail() {
             modules={[Pagination]}
           >
             <SwiperSlide>
-              <img src={data.thumbnail} alt="Thumbnail" />
+              <Link to={data.thumbnail} target="_blank">
+                <img src={data.thumbnail} alt="Thumbnail" />
+              </Link>
             </SwiperSlide>
             {data.images ? (
               <>
                 {data.images.map((image, index) => (
                   <SwiperSlide key={index}>
-                    <S.SwiperSlideImg src={image} alt={`Slide ${index + 1}`} />
+                    <Link to={image} target="_blank">
+                      <S.SwiperSlideImg
+                        src={image}
+                        alt={`Slide ${index + 1}`}
+                      />
+                    </Link>
                   </SwiperSlide>
                 ))}
               </>
