@@ -118,6 +118,17 @@ export const LineUpWrapper = styled.div`
   background: rgba(255, 255, 255, 0.5);
 `;
 
+const fadeInInfinite = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`;
 const fadeInFromTop = keyframes`
   0% {
     transform: translateY(-20px) translateX(0);
@@ -221,6 +232,71 @@ export const BgImg4 = styled.img`
   top: 260px;
   left: 40%;
 `;
+export const Fire1 = styled.img`
+  position: absolute;
+  max-width: 12px;
+  object-fit: contain;
+  left: 25%;
+  top: 70px;
+
+  animation: ${fadeInInfinite} 1s ease-in-out infinite;
+`;
+export const Fire2 = styled.img`
+  position: absolute;
+  max-width: 10px;
+  object-fit: contain;
+  left: 35%;
+
+  animation: ${fadeInInfinite} 0.8s ease-in-out infinite;
+  animation-delay: 1s;
+`;
+export const Fire3 = styled.img`
+  position: absolute;
+  max-width: 10px;
+  object-fit: contain;
+  right: 20%;
+  top: 60px;
+
+  animation: ${fadeInInfinite} 0.7s ease-in-out infinite;
+  animation-delay: 1.2s;
+`;
+export const FirePart1 = styled.img`
+  position: absolute;
+  max-width: 6px;
+  object-fit: contain;
+  left: 12%;
+  top: 65px;
+
+  animation: ${fadeInFromTop} 1.8s ease-in-out infinite;
+`;
+export const FirePart2 = styled.img`
+  position: absolute;
+  max-width: 6px;
+  object-fit: contain;
+  right: 7%;
+  top: 90px;
+
+  animation: ${fadeInFromTop} 2s ease-in-out infinite;
+`;
+export const Fire2Part1 = styled.img`
+  position: absolute;
+  max-width: 4px;
+  object-fit: contain;
+  left: 3%;
+  top: 120px;
+
+  animation: ${fadeInFromTop1} 1.8s ease-in-out infinite;
+`;
+export const Fire2Part2 = styled.img`
+  position: absolute;
+  max-width: 6px;
+  object-fit: contain;
+  left: 40%;
+  top: 95px;
+
+  animation: ${fadeInFromTop1} 1.6s ease-in-out infinite;
+`;
+
 export const LineUpdate = styled.div`
   text-align: center;
   margin: 15px 0 50px 0;

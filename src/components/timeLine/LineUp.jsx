@@ -26,8 +26,17 @@ export const LineUp = ({ festivalDate }) => {
   ];
 
   return (
-    <S.LineUpWrapper isheight={festivalDate == 11 ? "640px":"400px" }>
-      <S.BgImg1 src="/timetable/bgImg1.png" alt="img" />
+    <S.LineUpWrapper isheight={festivalDate == 11 ? "640px" : "400px"}>
+      <S.Fire1 src="/timetable/fire1.png" />
+      <S.Fire2 src="/timetable/fire1.png" />
+      <S.Fire3 src="/timetable/fire1.png" />
+
+      <S.FirePart1 src="/timetable/fire2.png" />
+      <S.FirePart2 src="/timetable/fire2.png" />
+
+      <S.Fire2Part1 src="/timetable/fire3.png" />
+      <S.Fire2Part2 src="/timetable/fire3.png" />
+
       <S.BgImg2 src="/timetable/bgImg2.png" alt="img" />
       {festivalDate == 11 && (
         <>
