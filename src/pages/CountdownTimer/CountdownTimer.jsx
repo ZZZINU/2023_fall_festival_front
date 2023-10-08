@@ -15,7 +15,7 @@ const CountdownTimer = () => {
 
   useEffect(() => {
     // 특정 디데이 날짜와 현재 시간을 비교하여 디데이가 되면 자동으로 timeup
-    const targetDate = new Date("2023-10-10 00:00:00").getTime();
+    const targetDate = new Date("2023-10-10 18:00:00").getTime();
     const currentDate = new Date().getTime();
 
     if (currentDate >= targetDate) {
@@ -39,7 +39,7 @@ const CountdownTimer = () => {
             hideDay
             size="medium"
             theme="light"
-            endAt={"2023-10-10 00:00:00"} // Date/Time
+            endAt={"2023-10-10 18:00:00"} // Date/Time
             onTimeUp={handleTimeUp}
           />
         </S.Container>
