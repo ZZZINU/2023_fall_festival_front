@@ -8,6 +8,7 @@ function Header() {
     window.scrollTo(0, 0);
   }, [location]);
   const sideBarRef = useRef();
+  const sideBarBackgroundRef = useRef();
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 
   function openSideBar() {
@@ -26,8 +27,10 @@ function Header() {
   useEffect(() => {
     if (isSideBarOpen) {
       sideBarRef.current.style.display = "flex";
+      sideBarBackgroundRef.current.style.display = "flex";
     } else {
       sideBarRef.current.style.display = "none";
+      sideBarBackgroundRef.current.style.display = "none";
     }
   }, [isSideBarOpen]);
   return (
@@ -35,9 +38,19 @@ function Header() {
       <S.HeaderContent>
         <Link to="">야단법석 : 2023 가을축제</Link>
         {isSideBarOpen ? (
-          <img onClick={openSideBar} src="./navBar/icon_close.png"></img>
+          <S.imgBtnWrapper>
+            <S.imgBtn
+              onClick={openSideBar}
+              src="./navBar/icon_close.png"
+            ></S.imgBtn>
+          </S.imgBtnWrapper>
         ) : (
-          <img onClick={openSideBar} src="./navBar/icon_open.png"></img>
+          <S.imgBtnWrapper>
+            <S.imgBtn
+              onClick={openSideBar}
+              src="./navBar/icon_open.png"
+            ></S.imgBtn>
+          </S.imgBtnWrapper>
         )}
       </S.HeaderContent>
 
@@ -64,6 +77,7 @@ function Header() {
           </Link>
         </S.SideBarContent>
       </S.SideBarWrapper>
+      <S.SideBarBackground ref={sideBarBackgroundRef} onClick={closeSideBar} />
     </S.HeaderWrapper>
   );
 }

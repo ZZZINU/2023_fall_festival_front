@@ -28,6 +28,7 @@ export const HeaderContent = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const SideBarWrapper = styled.div`
@@ -49,6 +50,17 @@ export const SideBarWrapper = styled.div`
   }
 `;
 
+export const imgBtnWrapper = styled.div`
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const imgBtn = styled.img`
+  width: 24px;
+  cursor: pointer;
+`;
+
 export const SideBarContent = styled.div`
   display: flex;
   position: absolute;
@@ -61,4 +73,13 @@ export const SideBarContent = styled.div`
   font-size: 18px;
   color: ${props => props.theme.colors.fontBrown};
   z-index: 9999;
+`;
+
+export const SideBarBackground = styled.div`
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  z-index: 99;
 `;
