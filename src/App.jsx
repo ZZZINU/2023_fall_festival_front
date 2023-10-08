@@ -17,7 +17,11 @@ const BackGroundColor = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: black; */
+
+  
+  background-image: url("/background.svg");
+  background-size: 100%;
+  background-repeat: repeat;
 `;
 
 const Wrapper = styled.div`
