@@ -50,7 +50,9 @@ export const TimeTableNav = styled.div`
 export const TimeTableMainTxt = styled.div`
   font-family: "Dongguk";
   font-size: 0.9rem;
-  animation: ${slideUpAnimation} 3s ease-in-out infinite;
+
+  animation: ${props => props.isseveral > 0 && slideUpAnimation} 3s ease-in-out
+    infinite;
 
   @media (max-width: 375px) {
     font-size: 0.8rem;
@@ -63,7 +65,10 @@ export const TimeTableSubTxt = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: ${slideUpAnimation} 3s ease-in-out infinite;
+
+  animation: ${props => props.isseveral > 0 && slideUpAnimation} 3s ease-in-out
+    infinite;
+
   img {
     height: 30px;
 
@@ -79,7 +84,9 @@ export const TimeTableSubTxt2 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: ${slideUpAnimation} 3s ease-in-out infinite;
+
+  animation: ${props => props.isseveral > 0 && slideUpAnimation} 3s ease-in-out
+    infinite;
 `;
 export const LocationIMG = styled.img`
   margin-right: 5px;
