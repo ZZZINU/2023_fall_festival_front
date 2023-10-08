@@ -187,7 +187,7 @@ function TimeLine() {
   ];
 
   // 시간 감지 State --------------------------------------------
-  const [currentTime, setCurrentTime] = useState(new Date("2023-10-11 16:00"));
+  const [currentTime, setCurrentTime] = useState(new Date("2023-10-11T11:00"));
   let defaultDate = () => {
     if (currentTime.getDate() === 11 || currentTime.getDate() === 12) {
       return parseInt(currentTime.getDate());
@@ -199,13 +199,13 @@ function TimeLine() {
     setCurrentTime(new Date());
   };
   
-  // useEffect(() => {
-  //   const intervalId = setInterval(updateTime, 1000);
+  useEffect(() => {
+    const intervalId = setInterval(updateTime, 1000);
 
-  //   return () => {
-  //     clearInterval(intervalId);
-  //   };
-  // }, []);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   // 실시간 부스, 공연 정보 --------------------------------------------
   const getRealtimeInfo = () => {

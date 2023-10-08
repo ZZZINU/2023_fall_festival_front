@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as S from "./style";
 import BoothTime from "./timeSection/BoothTime";
 import PerfomanceTime from "./timeSection/PerfomanceTime";
@@ -83,8 +83,8 @@ export const TimeTableSection = ({
       {/* 부스 및 공연 목록 */}
       <S.BoothDetailSection>
         <RealtimeStroke
-          isFestivalDay={isFestivalDay}
           currentTime={currentTime}
+          festivalDate={festivalDate}
         />
         <S.BoothLeft>
           {boothTime.map((booth, index) => (
