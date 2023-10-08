@@ -103,7 +103,7 @@ export const BoothTimeSection = styled.div`
   width: 75%;
   height: 32px;
   margin: 0 0 5px auto;
-`;
+`
 export const PerformTimeSection = styled(BoothTimeSection)`
   margin: 0 0 5px 0;
 `;

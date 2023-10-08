@@ -1,13 +1,23 @@
 import styled, { keyframes } from "styled-components";
 
-const fadeIn = keyframes`
+const LeftIn = keyframes`
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
+  }
+`;
+const RightIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 `;
 
@@ -28,11 +38,13 @@ export const BoothWhiteBox = styled.div`
     font-size: 0.9rem;
   }
 
-  /* animation: ${fadeIn} 0.3s ease-in-out 0.2s; */
+  animation: ${LeftIn} 0.5s ease-in-out;
 `;
 export const PerformanceWhiteBox = styled(BoothWhiteBox)`
   margin-left: auto;
   height: 73px;
+
+  animation: ${RightIn} 0.5s ease-in-out;
 `;
 export const BoothCardWrapper = styled.div`
   display: flex;

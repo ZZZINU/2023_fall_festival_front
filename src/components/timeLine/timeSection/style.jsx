@@ -1,13 +1,23 @@
 import styled, { keyframes } from "styled-components";
 
-const fadeIn = keyframes`
+const LeftIn = keyframes`
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
+  }
+`;
+const RightIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 `;
 
@@ -27,8 +37,10 @@ export const BoothTimeSection = styled.div`
     font-size: 0.7rem;
   }
 
-  /* animation: ${fadeIn} 0.3s ease-in-out; */
+  animation: ${LeftIn} 0.5s ease-in-out;
 `;
 export const PerformTimeSection = styled(BoothTimeSection)`
   margin: 10px 0 5px 0;
+
+  animation: ${RightIn} 0.5s ease-in-out;
 `;

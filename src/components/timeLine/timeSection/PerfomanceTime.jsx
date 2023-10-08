@@ -9,9 +9,10 @@ export default function PerfomanceTime({
   startTime,
   endTime,
   top,
-  currentTime
+  currentTime,
+  isVisible,
+  index
 }) {
-  
   const start = new Date(
     `${currentTime.getFullYear()}-${
       currentTime.getMonth() + 1
@@ -30,7 +31,7 @@ export default function PerfomanceTime({
     <>
       <S.PerformTimeSection
         isnow={isFestivalDay() && startGap >= 0 && endGap < 0}
-        style={{ marginTop: `${top}` }}
+        style={{ marginTop: `${top}`, animationDelay: `${index * 0.1}s` }}
       >
         {startTime} ~ {endTime}
       </S.PerformTimeSection>
@@ -41,6 +42,8 @@ export default function PerfomanceTime({
           key={booth.id}
           booth={booth}
           realtimeList={realtimeList}
+          isVisible={isVisible}
+          index={index}
         />
       ))}
     </>
