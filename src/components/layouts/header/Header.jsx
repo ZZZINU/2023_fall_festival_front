@@ -7,6 +7,13 @@ function Header() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
+  // // CountdownTimer 페이지일 때는 헤더를 숨김
+  // if (location.pathname === "/countdown") {
+  //   return null;
+  // }
+
+  // 컴포넌트의 최상위 레벨에서 useRef와 useState를 사용
   const sideBarRef = useRef();
   const sideBarBackgroundRef = useRef();
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
@@ -19,7 +26,6 @@ function Header() {
     }
   }
 
-  // Link 클릭 시 사이드바를 닫음
   function closeSideBar() {
     setIsSideBarOpen(false);
   }
@@ -33,10 +39,11 @@ function Header() {
       sideBarBackgroundRef.current.style.display = "none";
     }
   }, [isSideBarOpen]);
+
   return (
     <S.HeaderWrapper>
       <S.HeaderContent>
-        <Link to="">야단법석 : 2023 가을축제</Link>
+        <Link to="/">야단법석 : 2023 가을축제</Link>
         {isSideBarOpen ? (
           <S.imgBtnWrapper>
             <S.imgBtn
