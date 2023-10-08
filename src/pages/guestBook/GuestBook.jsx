@@ -8,27 +8,34 @@ import Loading from "../../components/common/loading/Loading";
 import GuestBookCard from "../../components/common/guestBook/GuestBookCard";
 
 function GuestBook() {
+  // const responseData = [
+  //   { icon: "festival", content: "1" },
+  //   { icon: "cry", content: "2" },
+  //   { icon: "cry", content: "3" },
+  //   { icon: "cry", content: "4" },
+  //   { icon: "cry", content: "5" },
+  //   { icon: "cry", content: "6" },
+  //   { icon: "cry", content: "7" },
+  //   { icon: "cry", content: "8" },
+  //   { icon: "cry", content: "9" },
+  //   { icon: "cry", content: "10" }
+  // ];
+
+  //페이지네이션 한계주기
   const [finLoad, setFinLoad] = useState(false);
-  const [showAbusedModal, setShowAbusedModal] = useState(false);
-  const [showTimeModal, setShowTimeModal] = useState(false);
-  // 모달 닫기 함수
-  const handleCloseAbusedModal = () => {
-    setShowAbusedModal(false);
-    location.reload();
-  };
-
-  const handleCloseTimeModal = () => {
-    setShowTimeModal(false);
-  };
-
+  //데이터 패치중일때 -> 초기화면 띄울거임
   const [isFetchData, setIsFetchData] = useState(false);
+  //데이터 로딩중일때 -> 로딩화면 띄울거임
   const [isLoadData, setIsLoadData] = useState(true);
 
+  //총 글 갯수 /20하면 총 페이지 수 보기
   const [count, setCount] = useState(0);
+  //현재 페이지
   const [currentPage, setCurrentPage] = useState(1);
 
   const [dataLeft, setDataLeft] = useState([]);
   const [dataRight, setDataRight] = useState([]);
+
   const fetchData = async () => {
     try {
       const dataLeft_api_respone = await API.get(
@@ -38,39 +45,26 @@ function GuestBook() {
         `api/v1/chat/dataright?page=${currentPage}`
       );
 
-      // console.log(
-      //   "데이터 패치중...",
-      //   dataLeft_api_respone,
-      //   dataRight_api_respone,
-      //   dataLeft_api_respone.data.count + dataRight_api_respone.data.count
-      // );
-
       setCount(
         dataLeft_api_respone.data.count + dataRight_api_respone.data.count
       );
 
       setDataLeft(dataLeft_api_respone.data.results);
       setDataRight(dataRight_api_respone.data.results);
-      // setDataLeft(dataLeft_response);
-      // setDataRight(dataRight_response);
-      // setCount(200);
 
+      // //테스트 용
+      // setDataLeft(responseData);
+      // setDataRight(responseData);
+      // setCount(300);
       setIsFetchData(true);
     } catch (error) {
       console.log("처음 데이터를 로딩하는 중 오류 발생", error);
     }
-    setContentListLeft_Height(contentListLeft_Ref.current?.offsetHeight);
-    setContentListRight_Height(contentListRight_Ref.current?.offsetHeight);
     window.scrollTo(0, 0);
   };
-  //처음 로딩될때 초기값넣기
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const loadData = async () => {
     try {
-      setIsLoadData(false);
       const dataLeft_api_respone = await API.get(
         `api/v1/chat/dataleft?page=${currentPage}`
       );
@@ -83,11 +77,26 @@ function GuestBook() {
       setDataLeft(newDataLeft);
       setDataRight(newDataRight);
 
+      // //테스트용
+      // const newResponseData = dataLeft.concat(responseData);
+      // setDataLeft(newResponseData);
+      // setDataRight(newResponseData);
+
       setIsLoadData(true);
     } catch (error) {
       console.log("추가 데이터를 로딩하는 중 오류 발생", error);
     }
   };
+
+  //처음 로딩될때 초기값넣기
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    setContentListLeft_Height(contentListLeft_Ref.current?.offsetHeight);
+    setContentListRight_Height(contentListRight_Ref.current?.offsetHeight);
+  }, [isFetchData, isLoadData]);
 
   const [position, setPosition] = useState(0);
   const contentListLeft_Ref = useRef();
@@ -96,36 +105,18 @@ function GuestBook() {
   const [contentListLeft_Height, setContentListLeft_Height] = useState(0);
   const [contentListRight_Height, setContentListRight_Height] = useState(0);
 
+  const [throttle, setThrottle] = useState(false);
+
   function onScroll() {
-    setPosition(window.scrollY);
+    if (throttle) return;
+    if (!throttle) {
+      setThrottle(true);
+      setTimeout(async () => {
+        setPosition(window.scrollY);
+        setThrottle(false);
+      }, 300);
+    }
   }
-
-  useEffect(() => {
-    // console.log("Position", position, position + window.innerHeight);
-    // console.log("height", contentListLeft_Height, contentListRight_Height);
-    if (!finLoad && isLoadData && position != 0 && count / 20 > currentPage) {
-      if (
-        position + window.innerHeight > contentListLeft_Height ||
-        position + window.innerHeight > contentListRight_Height
-      ) {
-        if (currentPage > 3) {
-          setFinLoad(ture);
-        } else {
-          setCurrentPage(currentPage + 1);
-        }
-      }
-    }
-  }, [position]);
-
-  useEffect(() => {
-    console.log(currentPage, "입니다.");
-    if (!finLoad) {
-      if (currentPage >= 2) {
-        loadData();
-      }
-    }
-  }, [currentPage]);
-
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
     return () => {
@@ -133,6 +124,47 @@ function GuestBook() {
     };
   }, []);
 
+  useEffect(() => {
+    // console.log(contentListRight_Height, "/", position + window.innerHeight);
+    if (isFetchData) {
+      if (currentPage > 9 || count / 20 < currentPage) {
+        setFinLoad(true);
+        return;
+      }
+    }
+
+    if (isLoadData && position != 0 && count / 20 > currentPage) {
+      if (
+        position + window.innerHeight > contentListLeft_Height ||
+        position + window.innerHeight > contentListRight_Height
+      ) {
+        setIsLoadData(false);
+        setCurrentPage(currentPage + 1);
+      }
+    }
+  }, [position]);
+
+  useEffect(() => {
+    if (currentPage >= 2) {
+      loadData();
+    }
+  }, [currentPage]);
+
+  //-------- 모달창
+
+  const [showAbusedModal, setShowAbusedModal] = useState(false);
+  const [showTimeModal, setShowTimeModal] = useState(false);
+  // 모달 닫기 함수
+  const handleCloseAbusedModal = () => {
+    setShowAbusedModal(false);
+    location.reload();
+  };
+
+  const handleCloseTimeModal = () => {
+    setShowTimeModal(false);
+  };
+
+  //-------- 입력 관련
   //현재 선택된 아이콘
   const [currentIcon, setCurrentIcon] = useState("festival");
 
@@ -309,6 +341,11 @@ function GuestBook() {
         </S.GuestBookContentBox>
       </S.GuestBookContent>
       {isLoadData ? <></> : <Loading />}
+      {finLoad ? (
+        <S.FinLoad>한번에 볼 수 있는 데이터를 전부 로드했어요!</S.FinLoad>
+      ) : (
+        ""
+      )}
 
       <S.GuestBookInputWrapper>
         <S.GuestBookInputIconWrapper>
@@ -339,7 +376,6 @@ function GuestBook() {
               );
             })}
           </S.GuestBookInputIconList>
-          {finLoad ? <div>로딩끝</div> : ""}
         </S.GuestBookInputIconWrapper>
 
         <div style={{ display: "flex", alignItems: "center", width: "100%" }}>

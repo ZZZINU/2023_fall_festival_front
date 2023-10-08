@@ -139,3 +139,11 @@ export const GuestBookImg = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const FinLoad = styled.div`
+  justify-content: center;
+  align-items: center;
+  font-family: dongguk;
+  color: white;
+  padding: 40px;
+`;
