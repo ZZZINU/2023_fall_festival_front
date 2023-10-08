@@ -12,7 +12,7 @@ if (process.env.REACT_APP_GOOGLE_ANALYTICS) {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
-    <RouteChangeTracker />
+    {/* <RouteChangeTracker /> */}
     <React.StrictMode>
       <RouterProvider router={router} />
     </React.StrictMode>
