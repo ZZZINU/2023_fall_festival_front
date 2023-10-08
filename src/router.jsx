@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import React from "react";
 import App from "./App";
-import Main from "./pages/main/Main";
+// import Main from "./pages/main/Main";
 import About from "./pages/about/about";
 import Notice from "./pages/notice/Notice";
 import TimeLine from "./pages/timeLine/TimeLine";
@@ -10,6 +10,7 @@ import GuestBook from "./pages/guestBook/GuestBook";
 import BoothDetail from "./pages/booth/boothDetail/BoothDetail";
 import Promotion from "./pages/promotion/Promotion";
 import NoticeDetail from "./pages/notice/detail/NoticeDetail";
+import CountdownTimer from "./pages/CountdownTimer/CountdownTimer";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Main />
+        element: <CountdownTimer />
       },
       {
         path: "notification",
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
         path: "about",
         element: <About />
       }
+      // {
+      //   path: "countdown",
+      //   element: <CountdownTimer />
+      // }
     ]
   }
 ]);

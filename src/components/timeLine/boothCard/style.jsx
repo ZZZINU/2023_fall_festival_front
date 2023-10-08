@@ -27,6 +27,7 @@ export const BoothWhiteBox = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: ${props =>(props.isbooth)};
 
   border-radius: 10px;
   background: #fff;

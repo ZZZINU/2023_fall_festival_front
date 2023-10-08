@@ -1,26 +1,39 @@
 import React from "react";
 import * as S from "./style";
 
-export default function RealtimeStroke({ isFestivalDay, currentTime }) {
-  const isCurrentTime = () => {
-    const hours = currentTime.getHours();
-    const minutes = currentTime.getMinutes();
-
-    if (
-      isFestivalDay() &&
-      hours >= 11 &&
-      (hours < 13 || (hours === 13 && minutes < 30))
-    ) {
-      return 11;
-    } else if (isFestivalDay() && hours >= 13 && hours < 15) {
-      return 13;
-    } else if (isFestivalDay() && hours >= 15 && hours < 20) {
-      return 15;
-    } else if (isFestivalDay() && hours >= 20 && hours < 22) {
-      return 20;
-    }
-
-    return null;
+export default function RealtimeStroke({
+  currentTime,
+  festivalDate
+}) {
+  const isFirstTime = () => {
+    const start = new Date(`2023-10-${festivalDate}T11:00`);
+    const end = new Date(`2023-10-${festivalDate}T17:00`);
+    if (currentTime >= start && currentTime < end) {
+      return true;
+    } else false;
+  };
+  const isSecTime = () => {
+    const start = new Date(`2023-10-${festivalDate}T13:30`);
+    const end = new Date(`2023-10-${festivalDate}T17:00`);
+    if (currentTime >= start && currentTime < end) {
+      return true;
+    } else false;
+  };
+  const isThirdTime = () => {
+    const start = new Date(
+      `2023-10-${festivalDate}T${festivalDate == 11 ? "15:00" : "14:30"}`
+    );
+    const end = new Date(`2023-10-${festivalDate}T20:00`);
+    if (currentTime >= start && currentTime < end) {
+      return true;
+    } else false;
+  };
+  const isLastTime = () => {
+    const start = new Date(`2023-10-${festivalDate}T20:00`);
+    const end = new Date(`2023-10-${festivalDate}T22:00`);
+    if (currentTime >= start && currentTime < end) {
+      return true;
+    } else false;
   };
 
   return (
@@ -30,28 +43,28 @@ export default function RealtimeStroke({ isFestivalDay, currentTime }) {
       <S.Stroke3 />
       <S.TimeStart
         src={
-          isCurrentTime() === 11
+          isFirstTime()
             ? "/timetable/realtime.png"
             : "/timetable/timetable_mark.png"
         }
       />
       <S.Time13Mid
         src={
-          isCurrentTime() === 13
+          isSecTime()
             ? "/timetable/realtime.png"
             : "/timetable/timetable_mark.png"
         }
       />
       <S.Time15Mid
         src={
-          isCurrentTime() === 15
+          isThirdTime()
             ? "/timetable/realtime.png"
             : "/timetable/timetable_mark.png"
         }
       />
       <S.Time20Mid
         src={
-          isCurrentTime() === 20
+          isLastTime()
             ? "/timetable/realtime.png"
             : "/timetable/timetable_mark.png"
         }
