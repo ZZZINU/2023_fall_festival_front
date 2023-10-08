@@ -30,6 +30,7 @@ export const DetailContent = styled.div`
   font-family: Noto Sans KR;
   font-size: 12px;
   padding-bottom: 30px;
+  white-space: pre-wrap;
 `;
 export const ImgWrap = styled.div`
   display: flex;
