@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import React from "react";
 import App from "./App";
-// import Main from "./pages/main/Main";
+import Main from "./pages/main/Main";
 import About from "./pages/about/about";
 import Notice from "./pages/notice/Notice";
 import TimeLine from "./pages/timeLine/TimeLine";
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <CountdownTimer />
+      },
+      {
+        path: "main",
+        element: <Main />
       },
       {
         path: "notification",
