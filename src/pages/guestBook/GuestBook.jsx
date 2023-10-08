@@ -8,6 +8,7 @@ import Loading from "../../components/common/loading/Loading";
 import GuestBookCard from "../../components/common/guestBook/GuestBookCard";
 
 function GuestBook() {
+  const [finLoad, setFinLoad] = useState(false);
   const [showAbusedModal, setShowAbusedModal] = useState(false);
   const [showTimeModal, setShowTimeModal] = useState(false);
   // 모달 닫기 함수
@@ -102,19 +103,26 @@ function GuestBook() {
   useEffect(() => {
     // console.log("Position", position, position + window.innerHeight);
     // console.log("height", contentListLeft_Height, contentListRight_Height);
-    if (isLoadData && position != 0 && count / 20 > currentPage) {
+    if (!finLoad && isLoadData && position != 0 && count / 20 > currentPage) {
       if (
         position + window.innerHeight > contentListLeft_Height ||
         position + window.innerHeight > contentListRight_Height
       ) {
-        setCurrentPage(currentPage + 1);
+        if (currentPage > 3) {
+          setFinLoad(ture);
+        } else {
+          setCurrentPage(currentPage + 1);
+        }
       }
     }
   }, [position]);
 
   useEffect(() => {
-    if (currentPage >= 2) {
-      loadData();
+    console.log(currentPage, "입니다.");
+    if (!finLoad) {
+      if (currentPage >= 2) {
+        loadData();
+      }
     }
   }, [currentPage]);
 
@@ -202,7 +210,7 @@ function GuestBook() {
       {showTimeModal && (
         <Modal
           img={ModalImg}
-          content="도배 방지를 위해 60초 이후 작성 가능합니다."
+          content="도배 방지를 위해 30초 이후 작성 가능합니다."
           onClose={handleCloseTimeModal}
         />
       )}
@@ -331,6 +339,7 @@ function GuestBook() {
               );
             })}
           </S.GuestBookInputIconList>
+          {finLoad ? <div>로딩끝</div> : ""}
         </S.GuestBookInputIconWrapper>
 
         <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
