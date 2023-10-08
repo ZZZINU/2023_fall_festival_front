@@ -187,7 +187,7 @@ function TimeLine() {
   ];
 
   // 시간 감지 State --------------------------------------------
-  const [currentTime, setCurrentTime] = useState(new Date("2023-10-11T11:00"));
+  const [currentTime, setCurrentTime] = useState(new Date("2023-10-10T11:00"));
   let defaultDate = () => {
     if (currentTime.getDate() === 11 || currentTime.getDate() === 12) {
       return parseInt(currentTime.getDate());
