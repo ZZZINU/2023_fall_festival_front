@@ -82,14 +82,12 @@ export const TimeTableSection = ({
 
       {/* 부스 및 공연 목록 */}
       <S.BoothDetailSection>
-        <RealtimeStroke
-          currentTime={currentTime}
-          festivalDate={festivalDate}
-        />
+        <RealtimeStroke currentTime={currentTime} festivalDate={festivalDate} />
         <S.BoothLeft>
           {boothTime.map((booth, index) => (
             <BoothTime
               key={booth.id}
+              festivalDate={festivalDate}
               realtimeList={realtimeList}
               boothData={boothData}
               startTime={booth.startTime}

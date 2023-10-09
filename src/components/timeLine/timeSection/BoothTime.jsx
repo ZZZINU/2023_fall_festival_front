@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 import { BoothCard } from "../boothCard/BoothCard";
 
-export default function BoothTime({
+export default function BoothTime({festivalDate,
   boothData,
   realtimeList,
   startTime,
@@ -24,6 +24,7 @@ export default function BoothTime({
         .map(booth => (
           <BoothCard
             key={booth.id}
+            festivalDate={festivalDate}
             booth={booth}
             realtimeList={realtimeList}
             index={index}
