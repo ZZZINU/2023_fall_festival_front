@@ -6,13 +6,13 @@ export const LineUp = ({ festivalDate }) => {
     {
       engname: "KwonEunBi",
       name: "권은비",
-      time: "18:00 ~ 20:00",
+      time: "20:00 ~ 22:00",
       img: "/timetable/권은비.PNG"
     },
     {
       engname: "Day Break",
       name: "데이브레이크",
-      time: "18:00 ~ 20:00",
+      time: "20:00 ~ 22:00",
       img: "/timetable/데이브레이크.PNG"
     }
   ];
@@ -20,7 +20,7 @@ export const LineUp = ({ festivalDate }) => {
     {
       engname: "Park Myung Soo",
       name: "박명수",
-      time: "18:00 ~ 20:00",
+      time: "20:00 ~ 22:00",
       img: "/timetable/박명수.jpg"
     }
   ];
