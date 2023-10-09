@@ -25,10 +25,7 @@ function MainBanner() {
         const response = await API.get("/api/v1/promotion");
         const results = response.data.results;
 
-        const shuffledImages = results.sort(() => 0.5 - Math.random());
-        const selectedImages = shuffledImages.slice(0, 5);
-
-        const slides = selectedImages.map((item, index) => (
+        const slides = results.map((item, index) => (
           <SwiperSlide
             key={item.id}
             className={index === centerSlideIndex ? "swiper-slide-active" : ""}
@@ -56,7 +53,6 @@ function MainBanner() {
 
   const handleSlideChange = swiper => {
     const centerIndex = swiper.realIndex;
-    // console.log("가운데 이미지 인덱스:", centerIndex);
     setCenterSlideIndex(centerIndex);
   };
 
