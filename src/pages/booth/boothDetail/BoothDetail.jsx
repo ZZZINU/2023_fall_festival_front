@@ -16,6 +16,7 @@ import InstaImg from "../../../../public/booth/instagram.png";
 import CheckMarkImg from "../../../../public/booth/checkmark.png";
 import PinImg from "../../../../public/booth/boothDetailPin.png";
 import ModalImg from "../../../../public/booth/modalShare.png";
+import BoothDefaultImg from "../../../../public/booth/boothDefault.png";
 
 // 컴포넌트
 import Modal from "../../../components/common/modal/Modal";
@@ -156,8 +157,12 @@ function BoothDetail() {
             modules={[Pagination]}
           >
             <SwiperSlide>
-              <img src={data.thumbnail} alt="Thumbnail" />
+              <S.SwiperSlideImg
+                src={data.thumbnail ? data.thumbnail : BoothDefaultImg}
+                alt="Thumbnail"
+              />
             </SwiperSlide>
+
             {data.images ? (
               <>
                 {data.images.map((image, index) => (
