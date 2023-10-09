@@ -1,5 +1,7 @@
 import React from "react";
 import * as S from "./style";
+import insta from "../../../assets/images/footer_insta.png";
+import github from "../../../assets/images/footer_github.png";
 
 function Footer() {
   return (
@@ -15,14 +17,14 @@ function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <S.FooterInsta src="/Footer/footer_insta.png" alt="Instagram" />
+          <S.FooterInsta src={insta} alt="Instagram" />
         </a>
         <a
           href="https://github.com/LikeLion-at-DGU"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <S.FooterGithub src="Footer/footer_github.png" alt="GitHub" />
+          <S.FooterGithub src={github} alt="GitHub" />
         </a>
       </S.FooterLogo>
     </S.FooterWrapper>

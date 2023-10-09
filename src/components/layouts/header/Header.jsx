@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as S from "./style";
 import { Link, useLocation } from "react-router-dom";
+import line from "../../../assets/images/line.svg";
+import icon_close from "../../../assets/images/icon-close.svg";
+import icon_open from "../../../assets/images/icon-open.svg";
 
 function Header() {
   const location = useLocation();
@@ -46,23 +49,17 @@ function Header() {
         <Link to="/">야단법석 : 2023 가을축제</Link>
         {isSideBarOpen ? (
           <S.imgBtnWrapper>
-            <S.imgBtn
-              onClick={openSideBar}
-              src="./navBar/icon-close.svg"
-            ></S.imgBtn>
+            <S.imgBtn onClick={openSideBar} src={icon_close}></S.imgBtn>
           </S.imgBtnWrapper>
         ) : (
           <S.imgBtnWrapper>
-            <S.imgBtn
-              onClick={openSideBar}
-              src="./navBar/icon-open.svg"
-            ></S.imgBtn>
+            <S.imgBtn onClick={openSideBar} src={icon_open}></S.imgBtn>
           </S.imgBtnWrapper>
         )}
       </S.HeaderContent>
 
       <S.SideBarWrapper ref={sideBarRef}>
-        <img src="./navBar/line.svg" />
+        <img src={line} />
         <S.SideBarContent>
           <Link to="/" onClick={closeSideBar}>
             메인 페이지
