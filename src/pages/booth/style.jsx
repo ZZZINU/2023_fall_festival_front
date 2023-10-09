@@ -52,11 +52,12 @@ export const MapBoxContent = styled.div`
   color: #553c2e;
   text-align: center;
   font-family: Dongguk;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 400;
   line-height: normal;
   margin-top: 15px;
   cursor: pointer;
+  /* border: 3px solid red; */
 `;
 
 // 부스 카테고리

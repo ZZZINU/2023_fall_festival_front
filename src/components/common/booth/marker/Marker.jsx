@@ -21,7 +21,7 @@ function Marker(props) {
           backgroundcolor={
             props.markerStates === props.markerName ? "#DD7480" : "#ffffff"
           }
-          fontSize={props.markerStates === props.markerName ? "15px" : "8px"}
+          fontSize={props.markerStates === props.markerName ? "17px" : "11px"}
           height={props.markerStates === props.markerName ? "30px" : "15px"}
           color={props.markerStates === props.markerName ? "#fff" : "#553c2e"}
         >
