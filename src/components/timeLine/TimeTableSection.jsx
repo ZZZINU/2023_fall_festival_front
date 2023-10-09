@@ -70,14 +70,14 @@ export const TimeTableSection = ({
     <S.TimeTableWrapper>
       <RealtimeBar realtimeList={realtimeList} isFestivalDay={isFestivalDay} />
       <S.SubNav>
-        <div>
+        <S.BoothText>
           <S.TimeTableBigTxt>부스</S.TimeTableBigTxt>
           <S.TimeTableSmalltxt>Booth</S.TimeTableSmalltxt>
-        </div>
-        <div>
+        </S.BoothText>
+        <S.PerformanceText>
           <S.TimeTableBigTxt>공연·이벤트</S.TimeTableBigTxt>
           <S.TimeTableSmalltxt>Performance</S.TimeTableSmalltxt>
-        </div>
+        </S.PerformanceText>
       </S.SubNav>
 
       {/* 부스 및 공연 목록 */}

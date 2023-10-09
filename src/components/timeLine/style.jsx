@@ -1,4 +1,4 @@
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 // TimeLineTop.jsx
 export const TimeLineTopLabel = styled.div`
@@ -56,11 +56,23 @@ export const SubNav = styled.div`
   width: 100%;
   height: 100px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 30px 37px 30px 30px;
   border-bottom: 1px solid #fff;
 `;
+
+export const BoothText = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 107.54px;
+`;
+
+export const PerformanceText = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const TimeTableBigTxt = styled.div`
   color: #553c2e;
   font-family: "Dongguk";
@@ -103,7 +115,7 @@ export const BoothTimeSection = styled.div`
   width: 75%;
   height: 32px;
   margin: 0 0 5px auto;
-`
+`;
 export const PerformTimeSection = styled(BoothTimeSection)`
   margin: 0 0 5px 0;
 `;
@@ -196,13 +208,13 @@ const spakle = keyframes`
   100% {
     opacity: 0;
   }
-`
+`;
 export const BgImg1 = styled.img`
   position: absolute;
   max-width: 90%;
   object-fit: contain;
   /* border: 1px solid red; */
-  
+
   /* animation: ${fadeInFromTop} 1.5s ease-in-out infinite; */
 `;
 export const BgImg2 = styled.img`
@@ -211,7 +223,7 @@ export const BgImg2 = styled.img`
   object-fit: contain;
   top: 280px;
   /* border: 1px solid blue; */
-  
+
   animation: ${spakle} 3s ease-in-out infinite;
 `;
 export const BgImg3 = styled.img`
@@ -317,7 +329,7 @@ export const LineUpContainer1 = styled(LineUpContainer)`
   margin-top: 90px;
 
   @media (max-width: 375px) {
-  margin-top: 140px;
+    margin-top: 140px;
   }
 `;
 export const MarginLabel = styled.div`
@@ -332,10 +344,10 @@ export const LineUpImg = styled.img`
   background: lightgray 50%;
   object-fit: cover;
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
-  
+
   @media (max-width: 375px) {
-  width:  155px;
-  height: 155px;
+    width: 155px;
+    height: 155px;
   }
 `;
 export const LineUpList = styled.div`
@@ -356,7 +368,7 @@ export const LineUpList = styled.div`
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 375px) {
-  font-size: 1rem;
+    font-size: 1rem;
   }
 `;
 export const EngName = styled.div`
@@ -364,7 +376,7 @@ export const EngName = styled.div`
   margin-bottom: 3px;
 
   @media (max-width: 375px) {
-  font-size: 0.6rem;
+    font-size: 0.6rem;
   }
 `;
 export const ShowTime = styled.div`
