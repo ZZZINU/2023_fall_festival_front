@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export const BoothCard = ({ booth, realtimeList, index }) => {
+export const BoothCard = ({ booth, realtimeList, index, festivalDate }) => {
   const isCurrent = realtimeList.includes(booth);
-  const navigate = useNavigate();
+  const boothShare = festivalDate === 11 ? true : false;
 
   return (
     <S.BoothWhiteBox
       isnow={isCurrent ? "true" : "false"}
-      isbooth={booth.isBooth? "120px" : "73px"}
+      isbooth={booth.isBooth ? "120px" : "73px"}
       style={{ animationDelay: `${index * 0.2}s` }}
     >
       <S.BoothCardWrapper>
@@ -31,7 +31,8 @@ export const BoothCard = ({ booth, realtimeList, index }) => {
       </S.BoothCardWrapper>
       {booth.isBooth && (
         <S.BoothBtn
-          onClick={() => navigate("/booths")}
+          to="/booths"
+          state={festivalDate}
           isnow={isCurrent ? "true" : "false"}
         >
           부스 찾기

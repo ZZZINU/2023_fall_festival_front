@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 const LeftIn = keyframes`
@@ -94,7 +95,7 @@ export const BoothPlace = styled.div`
     font-size: 0.7rem;
   }
 `;
-export const BoothBtn = styled.div`
+export const BoothBtn = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;

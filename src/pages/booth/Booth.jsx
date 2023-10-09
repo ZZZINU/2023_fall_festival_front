@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
 import DateSelector from "../../components/common/dateSelector/DateSelector";
@@ -10,7 +11,11 @@ import { API } from "../../api/axios";
 import MapImg from "../../assets/images/map.png";
 
 function Booth() {
-  const [selectedDate11, setSelectedDate11] = useState(true);
+  const location = useLocation();
+  const festivalDate = location.state; // 타임테이블 전달 데이터
+  const defaultDate = festivalDate === 12 ? false : true;
+
+  const [selectedDate11, setSelectedDate11] = useState(defaultDate);
 
   // 날짜 11 | 12
   const [date, setDate] = useState(11);
