@@ -36,7 +36,7 @@ export const ImgWrap = styled.div`
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  height: 120px;
+  height: 200px;
   overflow-x: scroll;
   -ms-overflow-style: none; /* 인터넷 익스플로러 */
   scrollbar-width: none; /* 파이어폭스 */
