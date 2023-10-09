@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import * as S from "./style";
 import PageTitle from "../../components/common/pageTitle/PageTitle";
@@ -16,7 +16,7 @@ function Booth() {
   const defaultDate = festivalDate === 12 ? false : true;
 
   const [selectedDate11, setSelectedDate11] = useState(defaultDate);
-  
+
   // 날짜 11 | 12
   const [date, setDate] = useState(11);
   // 건물명 사회과학관 | 혜화관 | 팔정도 | 원흥관 | 만해광장 | 학생회관 | 학림관
@@ -25,6 +25,13 @@ function Booth() {
   const [dayOrNight, setDayOrNight] = useState("");
   // 데이터
   const [data, setData] = useState([]);
+
+  // 총 부스 개수
+  const [count, setCount] = useState(0);
+  //현재 페이지
+  const [currentPage, setCurrentPage] = useState(1);
+  //데이터 로딩중
+  const [isLoadData, setIsLoadData] = useState(true);
 
   // 날짜 클릭
   const handleDateClick = bool => {
@@ -46,54 +53,9 @@ function Booth() {
     setMarkerStates("");
   };
 
-  useEffect(() => {
-    // const contentData = [
-    //   {
-    //     id: 1,
-    //     name: "string, (FE 글자수 정해주면 좋을듯)",
-    //     description: "string,자를게요)자를게요)자를게요)자를게요)",
-    //     type: "야간부스",
-    //     location: "string",
-    //     is_liked: true, //쿠키 사용!
-    //     like_cnt: 987123,
-    //     thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
-    //   },
-    //   {
-    //     id: 2,
-    //     name: "FE글자수정해주면 좋을듯)",
-    //     description: "FE글자다주면알아서면알아서면알아서면알아서자를게요)",
-    //     type: "주간부스",
-    //     location: "string",
-    //     is_liked: true, //쿠키 사용!
-    //     like_cnt: 987,
-    //     thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
-    //   },
-    //   {
-    //     id: 3,
-    //     name: "string, (FE 글자수 정해주면 좋을듯)",
-    //     description: "string, (FE 글자 다 주면 알아서 자를게요)",
-    //     type: "플리마켓",
-    //     location: "string",
-    //     is_liked: true, //쿠키 사용!
-    //     like_cnt: 987,
-    //     thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
-    //   },
-    //   {
-    //     id: 4,
-    //     name: "string, (FE 글자수 정해주면 좋을듯)",
-    //     description: "string, (FE 글자 다 주면 알아서 자를게요)",
-    //     type: "푸드트럭",
-    //     location: "string",
-    //     is_liked: true, //쿠키 사용!
-    //     like_cnt: 987,
-    //     thumbnail: "http://127.0.0.1:8000/media/booth/1/people_all.JPG"
-    //   }
-    // ];
-    // setData(contentData);
-  }, []);
-
   // API 연결
   const fetchData = async () => {
+    setCurrentPage(1);
     try {
       let typeParam = dayOrNight;
 
@@ -101,7 +63,7 @@ function Booth() {
         typeParam = "푸드트럭&type=플리마켓";
       }
 
-      let apiURL = `api/v1/booths?date=${date}`;
+      let apiURL = `api/v1/booths?page=${1}&date=${date}`;
 
       if (markerStates) {
         apiURL += `&location=${markerStates}`;
@@ -113,13 +75,80 @@ function Booth() {
 
       const response = await API.get(apiURL);
       setData(response.data.results);
+      setCount(response.data.count);
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+    window.scrollTo(0, 0);
+  };
+
+  const loadData = async () => {
+    try {
+      let typeParam = dayOrNight;
+
+      if (dayOrNight === "기타부스") {
+        typeParam = "푸드트럭&type=플리마켓";
+      }
+
+      let apiURL = `api/v1/booths?page=${currentPage}&date=${date}`;
+
+      if (markerStates) {
+        apiURL += `&location=${markerStates}`;
+      }
+
+      if (typeParam) {
+        apiURL += `&type=${typeParam}`;
+      }
+
+      const response = await API.get(apiURL);
+
+      const newData = data.concat(response.data.results);
+      setData(newData);
+      setIsLoadData(true);
     } catch (error) {
       console.error("Error: ", error);
     }
   };
 
+  const [position, setPosition] = useState(0);
+  const [throttle, setThrottle] = useState(false);
+
+  function onScroll() {
+    if (throttle) return;
+    if (!throttle) {
+      setThrottle(true);
+      setTimeout(async () => {
+        setPosition(window.scrollY);
+        setThrottle(false);
+      }, 500);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isLoadData && position != 0 && count / 10 > currentPage) {
+      if (position + window.innerHeight + 10 > document.body.scrollHeight) {
+        setIsLoadData(false);
+        setCurrentPage(currentPage + 1);
+      }
+    }
+  }, [position]);
+
+  useEffect(() => {
+    if (currentPage >= 2) {
+      loadData();
+    }
+  }, [currentPage]);
+
   // 초기
   useEffect(() => {
+    setCurrentPage(1);
     fetchData();
   }, [selectedDate11, markerStates, dayOrNight]);
 
