@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {  useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import * as S from "./style";
 import { API } from "../../../api/axios";
 
@@ -22,6 +22,37 @@ export default function NoticeDetail() {
     fetchData();
   }, []);
 
+  const TextWithLinks = ({ text }) => {
+    const regex = /(https?:\/\/[^\s]+)/gi;
+      // /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#%?=~_|!:,.;]*[-A-Z0-9+&@#%?/=~_|])/gi;
+
+    if (!text) {
+      return null;
+    }
+
+    const textWithLinks = text.split(regex).map((part, index) => {
+      if (regex.test(part)) {
+        // URL인 경우
+        return (
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#001194" }}
+          >
+          📎 {part} &nbsp;
+          </a>
+        );
+      } else {
+        // 일반 텍스트인 경우
+        return <span key={index}>{part}</span>;
+      }
+    });
+
+    return <S.DetailContent>{textWithLinks}</S.DetailContent>;
+  };
+
   return (
     <S.NoticeDetailWrap>
       <S.DetailWhiteBox>
@@ -32,11 +63,12 @@ export default function NoticeDetail() {
           {pathname.includes("notification") && "[공지] "}
           {data.title}
         </S.DetailTitle>
-        <S.DetailContent>{data.content}</S.DetailContent>
+
+        <TextWithLinks text={data.content} />
         <S.ImgWrap>
           {data.images &&
             data.images.map((img, idx) => (
-                <img key={idx} src={img} alt="img" />
+              <img key={idx} src={img} alt="img" />
             ))}
         </S.ImgWrap>
         <S.DeatilDate>{data.date}</S.DeatilDate>
