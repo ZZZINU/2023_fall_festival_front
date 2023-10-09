@@ -36,7 +36,7 @@ export const FooterDguEng = styled.div`
   font-size: 12px;
   margin-top: 20px;
   position: relative;
-  margin-left: 50px;
+  margin-left: 20px;
 `;
 
 export const FooterDguKor = styled.div`
@@ -46,11 +46,11 @@ export const FooterDguKor = styled.div`
   font-size: 12px;
   margin-top: 15px;
   position: relative;
-  margin-left: 50px;
+  margin-left: 20px;
 `;
 
 export const FooterLogo = styled.div`
-  margin-left: 50px;
+  margin-left: 20px;
   margin-top: 15px;
   align-items: center;
   display: flex;
@@ -63,7 +63,7 @@ export const FooterInsta = styled.img`
 export const FooterGithub = styled.img`
   width: 30%;
   position: relative;
-  right: 30%;
+  right: 30px;
 `;
 
 //fonts
