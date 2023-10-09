@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=shark&desc=2023%20동국대학교%20가을%20축제%20사이트%20FrontEnd&descAlign=70&descSize=20&color=auto&height=270&section=header&text=🍁%20FE%20Fall%20Festival%20🍂&fontAlignY=40&animation=fadeIn&fontSize=60)
+![header](https://capsule-render.vercel.app/api?type=shark&desc=2023%20동국대학교%20가을%20축제%20사이트%20FrontEnd&descSize=20&color=auto&height=270&section=header&text=🍁%20FE%20Fall%20Festival%20🍂&fontAlignY=40&animation=fadeIn&fontSize=60)
 
 
 <br>
