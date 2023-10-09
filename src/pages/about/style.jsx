@@ -8,7 +8,6 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
   justify-content: center;
-  overflow-y: scroll;
 `;
 
 export const WithWho = styled.img`
@@ -19,9 +18,9 @@ export const WithWho = styled.img`
 
 export const IntroduceText = styled.div`
   font-size: 10px;
-  font-family: NotoSans;
-  /* color: #282828; */
-  color: unset;
+  font-family: Noto Sans KR;
+  color: #282828;
+  /* color: unset; */
   margin-top: 45px;
   line-height: 14px;
   position: relative;

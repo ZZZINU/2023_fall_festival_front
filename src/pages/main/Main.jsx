@@ -59,7 +59,7 @@ function Main() {
               mainTitle={"방명록"}
               subTitle={"이번 축제의 기록을 남겨주세요."}
             />
-            <Link to="/guestbook">
+            <Link to="/guestBook">
               <S.MainGuestWrapper>
                 <S.MainGusetBookBg src="/Main/mainGbBg.png" />
                 <GuestbookCard />
