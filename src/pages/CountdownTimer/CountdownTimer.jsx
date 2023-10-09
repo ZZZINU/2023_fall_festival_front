@@ -9,7 +9,7 @@ const CountdownTimer = () => {
 
   // 시간이 종료될 때 호출되는 콜백 함수
   const handleTimeUp = () => {
-    console.log("Time's up ⏳");
+    // console.log("Time's up ⏳");
     setIsTimeUp(true); // timeup 상태를 true로 업데이트
   };
 
@@ -32,16 +32,17 @@ const CountdownTimer = () => {
             축제 사이트 <br />
             OPEN
           </S.SegmentTitle>
-
-          <FlipCountdown
-            hideYear
-            hideMonth
-            hideDay
-            size="medium"
-            theme="light"
-            endAt={"2023-10-10 18:00:00"} // Date/Time
-            onTimeUp={handleTimeUp}
-          />
+          <S.CountWrapper>
+            <FlipCountdown
+              hideYear
+              hideMonth
+              // hideDay
+              size="medium"
+              theme="light"
+              endAt={"2023-10-10 18:00:00"} // Date/Time
+              onTimeUp={handleTimeUp}
+            />
+          </S.CountWrapper>
         </S.Container>
       </S.Wrapper>
     );

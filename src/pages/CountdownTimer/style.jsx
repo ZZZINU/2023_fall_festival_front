@@ -27,3 +27,9 @@ export const SegmentTitle = styled.div`
   text-align: center;
   top: -55px;
 `;
+
+export const CountWrapper = styled.div`
+  display: flex;
+  /* border: 3px solid red; */
+  padding: 0% 10% 10% 10%;
+`;
