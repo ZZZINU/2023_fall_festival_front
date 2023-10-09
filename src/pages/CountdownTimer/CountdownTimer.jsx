@@ -32,17 +32,16 @@ const CountdownTimer = () => {
             축제 사이트 <br />
             OPEN
           </S.SegmentTitle>
-          <S.CountWrapper>
-            <FlipCountdown
-              hideYear
-              hideMonth
-              // hideDay
-              size="medium"
-              theme="light"
-              endAt={"2023-10-10 18:00:00"} // Date/Time
-              onTimeUp={handleTimeUp}
-            />
-          </S.CountWrapper>
+
+          <FlipCountdown
+            hideYear
+            hideMonth
+            hideDay
+            size="medium"
+            theme="light"
+            endAt={"2023-10-10 18:00:00"} // Date/Time
+            onTimeUp={handleTimeUp}
+          />
         </S.Container>
       </S.Wrapper>
     );
