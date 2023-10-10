@@ -9,7 +9,7 @@ function Footer() {
       <S.FooterLine>
         <S.Line />
       </S.FooterLine>
-      <S.FooterDguEng>@DGU LikeLion. All rights Reserved.</S.FooterDguEng>
+      <S.FooterDguEng>@DGU Likelion. All rights Reserved.</S.FooterDguEng>
       <S.FooterDguKor>동국대학교 멋쟁이사자처럼</S.FooterDguKor>
       <S.FooterLogo>
         <a
