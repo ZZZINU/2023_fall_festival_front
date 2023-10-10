@@ -156,6 +156,7 @@ export const BoothDetailContentDate = styled.div`
   font-size: 16px;
   font-weight: 400;
   line-height: normal;
+  word-spacing: 3px;
 `;
 export const BoothDetailContentLocationWrap = styled.div`
   display: flex;
