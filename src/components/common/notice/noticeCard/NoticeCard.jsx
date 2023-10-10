@@ -10,6 +10,8 @@ function NoticeCard({ data }) {
     let newtitle = title;
     if (pathname == "/notification" && title.length > 10) {
       newtitle = "[공지] " + newtitle.slice(0, 10) + " ...";
+    } else if (pathname == "/notification" && title.length <= 10) {
+      newtitle = "[공지] " + newtitle;
     } else if (pathname == "/promotion" && title.length > 14) {
       newtitle = newtitle.slice(0, 14) + " ...";
     }
@@ -23,9 +25,7 @@ function NoticeCard({ data }) {
           <S.CardImg img={data.thumbnail} />
           <S.TextWrapper>
             {/* 18자 제한 넘어가면 자르기 or 12자 이후 3dots + 공지 뒤는 데이터 */}
-            <S.Title>
-              {fixedtitle(data.title)}
-            </S.Title>
+            <S.Title>{fixedtitle(data.title)}</S.Title>
             <S.Body>
               {/* 공백 포함 58자 */}
               {data.content.length > 35
