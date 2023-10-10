@@ -63,7 +63,15 @@ function Booth() {
         typeParam = "푸드트럭&type=플리마켓";
       }
 
-      let apiURL = `api/v1/booths?page=${1}&date=${date}`;
+      // let apiURL = `api/v1/booths?page=${1}&date=${date}`;
+
+      let apiURL = "";
+
+      if (date === 11) {
+        apiURL = `api/v1/booths?page=${1}&start_date=${date}`;
+      } else if (date === 12) {
+        apiURL = `api/v1/booths?page=${1}&end_date=${date}`;
+      }
 
       if (markerStates) {
         apiURL += `&location=${markerStates}`;
@@ -90,7 +98,13 @@ function Booth() {
         typeParam = "푸드트럭&type=플리마켓";
       }
 
-      let apiURL = `api/v1/booths?page=${currentPage}&date=${date}`;
+      let apiURL = "";
+
+      if (date === 11) {
+        apiURL = `api/v1/booths?page=${currentPage}&start_date=${date}`;
+      } else if (date === 12) {
+        apiURL = `api/v1/booths?page=${currentPage}&end_date=${date}`;
+      }
 
       if (markerStates) {
         apiURL += `&location=${markerStates}`;
