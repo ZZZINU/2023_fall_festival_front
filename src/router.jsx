@@ -61,14 +61,14 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />
-      },
+      }
       // {
       //   path: "countdown",
       //   element: <CountdownTimer />
       // }
     ],
     errorElement: <NotFound />
-  },
+  }
 ]);
 
 export default router;
