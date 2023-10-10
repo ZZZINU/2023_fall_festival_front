@@ -11,6 +11,7 @@ import BoothDetail from "./pages/booth/boothDetail/BoothDetail";
 import Promotion from "./pages/promotion/Promotion";
 import NoticeDetail from "./pages/notice/detail/NoticeDetail";
 import CountdownTimer from "./pages/CountdownTimer/CountdownTimer";
+import NotFound from "./NotFound";
 
 const router = createBrowserRouter([
   {
@@ -60,13 +61,14 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />
-      }
+      },
       // {
       //   path: "countdown",
       //   element: <CountdownTimer />
       // }
-    ]
-  }
+    ],
+    errorElement: <NotFound />
+  },
 ]);
 
 export default router;
