@@ -46,6 +46,9 @@ function BoothDetail() {
   // 좋아요
   const [isLikeClick, setIsLikeClick] = useState(false);
 
+  // 좋아요 테러 방지
+  const [isLikeButtonDisabled, setIsLikeButtonDisabled] = useState(false);
+
   // 좋아요 상태를 나타내는 상태 (임시)
   const [isLiked, setIsLiked] = useState(false);
 
@@ -108,26 +111,35 @@ function BoothDetail() {
   };
 
   const handleHeartClick = async () => {
-    if (data.is_liked) {
-      try {
-        // axios요청 보내기
-        const response = await API.delete(`api/v1/booths/${id}/likes`);
-        if (response.status === 200) {
-          setIsLikeClick(i => !i);
-        }
-      } catch (error) {
-        console.error("Error: ", error);
-      }
-    } else {
-      try {
-        const response = await API.post(`/api/v1/booths/${id}/likes`);
+    if (!isLikeButtonDisabled) {
+      setIsLikeButtonDisabled(true);
 
-        if (response.status === 200) {
-          setIsLikeClick(i => !i);
+      if (data.is_liked) {
+        try {
+          // axios요청 보내기
+          const response = await API.delete(`api/v1/booths/${id}/likes`);
+          if (response.status === 200) {
+            setIsLikeClick(i => !i);
+          }
+        } catch (error) {
+          console.error("Error: ", error);
         }
-      } catch (error) {
-        console.error("Error: ", error);
+      } else {
+        try {
+          const response = await API.post(`/api/v1/booths/${id}/likes`);
+
+          if (response.status === 200) {
+            setIsLikeClick(i => !i);
+          }
+        } catch (error) {
+          console.error("Error: ", error);
+        }
       }
+
+      // 일정 시간 후에 버튼 활성화
+      setTimeout(() => {
+        setIsLikeButtonDisabled(false);
+      }, 1000); // 1초
     }
   };
 
