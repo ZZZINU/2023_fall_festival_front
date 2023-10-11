@@ -21,7 +21,7 @@ export const LineUp = ({ festivalDate }) => {
       engname: "Park Myung Soo",
       name: "박명수",
       time: "20:00 ~ 22:00",
-      img: "/timetable/박명수.jpg"
+      img: "/timetable/박명수.png"
     }
   ];
 
