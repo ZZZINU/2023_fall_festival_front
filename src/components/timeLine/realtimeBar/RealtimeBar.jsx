@@ -39,19 +39,24 @@ import React, { useEffect, useState } from "react";
 import * as S from "./style";
 
 export default function RealtimeBar({ realtimeList }) {
-
+  const hasRealtimeList = realtimeList && realtimeList.length > 0;
   const [currentIndex, setCurrentIndex] = useState(0);
-  // console.log(realtimeList);
+  // console.log(currentIndex);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex(prevIndex => (prevIndex + 1) % realtimeList.length);
-    }, 3000);
+   if (hasRealtimeList) {
+      const intervalId = setInterval(() => {
+        setCurrentIndex(prevIndex => (prevIndex + 1) % realtimeList.length);
+      }, 3000);
+    // const intervalId = setInterval(() => {
+    //   setCurrentIndex(prevIndex => (prevIndex + 1) % realtimeList.length);
+    // }, 3000);
 
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
+  }
+  }, [hasRealtimeList]);
 
   return (
     <S.TimeTableNav>
