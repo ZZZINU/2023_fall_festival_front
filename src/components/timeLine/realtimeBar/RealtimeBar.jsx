@@ -39,7 +39,9 @@ import React, { useEffect, useState } from "react";
 import * as S from "./style";
 
 export default function RealtimeBar({ realtimeList }) {
+
   const [currentIndex, setCurrentIndex] = useState(0);
+  // console.log(realtimeList);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -49,7 +51,7 @@ export default function RealtimeBar({ realtimeList }) {
     return () => {
       clearInterval(intervalId);
     };
-  }, [realtimeList]);
+  }, []);
 
   return (
     <S.TimeTableNav>
