@@ -6,7 +6,6 @@ import Modal from "../../components/common/modal/Modal";
 import ModalImg from "./Warning.png";
 import Loading from "../../components/common/loading/Loading";
 import GuestBookCard from "../../components/common/guestBook/GuestBookCard";
-import sanitizeHtml from "sanitize-html";
 
 function GuestBook() {
   // const responseData = [
