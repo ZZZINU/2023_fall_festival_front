@@ -6,6 +6,7 @@ import Modal from "../../components/common/modal/Modal";
 import ModalImg from "./Warning.png";
 import Loading from "../../components/common/loading/Loading";
 import GuestBookCard from "../../components/common/guestBook/GuestBookCard";
+import sanitizeHtml from "sanitize-html";
 
 function GuestBook() {
   // const responseData = [
@@ -208,15 +209,41 @@ function GuestBook() {
     setCurrentIcon(e.target.title);
   };
 
+  // const handleSubmit = async () => {
+  //   console.log("제출버튼 클릭됨");
+  //   try {
+  //     const response = await API.post(`api/v1/chat`, {
+  //       content: inputRef.current?.value,
+  //       icon: currentIcon
+  //     });
+  //     console.log(response);
+  //     //욕설을 사용했을경우
+  //     if (response.data.is_abused) {
+  //       setShowAbusedModal(true);
+  //     } else {
+  //       location.reload();
+  //     }
+  //   } catch (error) {
+  //     console.log("제출에 실패함", error.response.status);
+  //     if (error.response.status == 400) {
+  //       setShowTimeModal(true);
+  //     }
+  //   }
+  // };
+
   const handleSubmit = async () => {
-    console.log("제출버튼 클릭됨");
     try {
+      // 사용자 입력을 안전하게 처리
+      const cleanedContent = sanitizeHtml(inputRef.current?.value, {
+        allowedTags: [], // 허용하는 태그 (빈 배열은 모든 태그를 거부)
+        allowedAttributes: {} // 허용하는 속성 (빈 객체는 모든 속성을 거부)
+      });
+
       const response = await API.post(`api/v1/chat`, {
-        content: inputRef.current?.value,
+        content: cleanedContent, // 클린업된 입력 사용
         icon: currentIcon
       });
-      console.log(response);
-      //욕설을 사용했을경우
+
       if (response.data.is_abused) {
         setShowAbusedModal(true);
       } else {
@@ -224,7 +251,7 @@ function GuestBook() {
       }
     } catch (error) {
       console.log("제출에 실패함", error.response.status);
-      if (error.response.status == 400) {
+      if (error.response.status === 400) {
         setShowTimeModal(true);
       }
     }
